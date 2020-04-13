@@ -17,6 +17,10 @@ class GameSessionInterface extends React.Component {
         this.setState({solution: this.state.solution + letter}, this.updateBoxes)
     }
 
+    handleCorrection = () => {
+        this.setState({ solution: this.state.solution.slice(0,-1)}, this.updateBoxes)
+    }
+
     updateBoxes = () => {
         const solutionBoxes = document.getElementsByClassName("letter")
         for (let i = 0; i < this.state.title.replace(/\s+/g, '').length; i++) {
@@ -47,6 +51,7 @@ class GameSessionInterface extends React.Component {
                         )
                     }
                     </div>
+                    <input type="button" className="correctionButton" value="<" onClick={this.handleCorrection} />
                 </div>
             </div>
         )
