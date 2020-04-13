@@ -15,5 +15,17 @@
     width: 16px;
     height:16px;
     padding: 4px;
+    margin: 1px;
     border-radius: 4px;
+}
+
+.letterSelection {
+    margin : 10px;
+}
+
+.buttonLetter, .correctionButton {
+    border-radius: 4px;
+    margin: 1px;
+    width: 26px;
+    height: 26px
 }
