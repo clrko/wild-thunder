@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from './components/shared/Navbar';
+import NavbarHeader from './components/shared/NavbarHeader';
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 
 import ThemePage from './components/pages/ThemePage';
@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <BrowserRouter>
       <div className="App">
-        <Navbar/>
+        <NavbarHeader/>
         <Switch>
           <Route exact path="/" component={ThemePage}/>
           {/* see how to make a link to the modal page */}
