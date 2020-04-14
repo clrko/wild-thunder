@@ -1,6 +1,18 @@
 .scroll-to-top {
     position: fixed;
     bottom: 0;
-    z-index:1;
+    right: 2rem; /*to be adapted based on the footer*/
+    animation: fadeIn 700ms ease-in-out 1s both;
+    /* animation name | duration | timing-function : faster than linear |  delay 1s | fill mode both direciton forward and backward*/
     cursor: pointer;
+    font-size: 2rem; /* to be adapted based on the graphic chart*/
 }
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
