@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons'
 
+import "./ScrollToTop.css"
+
 class ScrollToTop extends Component {
     state = {
       is_visible: false /* set the visibility of the button */
@@ -13,7 +15,7 @@ class ScrollToTop extends Component {
     document.addEventListener("scroll", event =>  this.toggleVisibility())
     }
 
-    /* check if the scroll position and if the page is scrolled to 300px then the state is changed to true */
+    /* check the scroll position and if the page is scrolled to 300px then the state is changed to true */
     toggleVisibility() {
       (window.pageYOffset > 300) ?  this.setState({ is_visible: true}) : this.setState({ is_visible: false});
     }
@@ -30,9 +32,9 @@ class ScrollToTop extends Component {
     render() {
       return (
         <div className="scroll-to-top">
-          
-              <FontAwesomeIcon icon={faArrowAltCircleUp} onClick={() => this.scrollToTop()} />
-              {/* {this.state.is_visible && ()} */}
+              {this.state.is_visible && (
+                <FontAwesomeIcon icon={faArrowAltCircleUp} onClick={() => this.scrollToTop()} />
+              )}
         </div>
       );
     };
