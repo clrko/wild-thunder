@@ -1,0 +1,10 @@
+
+.App {
+    font-family: sans-serif;
+    padding: 1rem 5rem;
+  }
+  
+  p {
+    border: 1px solid #ddd;
+    padding: 2rem;
+  }
