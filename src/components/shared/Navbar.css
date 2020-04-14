@@ -26,7 +26,7 @@
 }
 
 
-.nav-container {
+.nav-container ul {
     display: none;
 }
 
@@ -34,6 +34,7 @@
     .nav-bottom-container {
         display: none;
     }
+
     .nav-container {
         display: flex;
         justify-content: space-around;
@@ -44,6 +45,10 @@
     
     .nav-links-wrapper {
         width: 50%;
+    }
+
+    .nav-container ul {
+        display: flex;
     }
 
 }
