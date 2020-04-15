@@ -18,6 +18,7 @@ const renderTime = value => {
   );
 };
 
+
 function TimerCounter() {
   return (
     <div className="TimeCounter">
@@ -27,7 +28,7 @@ function TimerCounter() {
         durationSeconds={30}
         colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
         renderTime={renderTime}
-        onComplete={() => [true, 1000]}
+        onComplete={() => [false, 1000]}
       />
       
     </div>
