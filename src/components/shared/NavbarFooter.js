@@ -14,8 +14,8 @@ class NavbarFooter extends Component {
         return(
             <nav className="nav-bottom-container">
                 <ul className="nav-links-wrapper">
-                    <li><NavLink to="/"><FontAwesomeIcon icon={faHome} /></NavLink></li> {/* must lead to the homepage*/}
-                    <li><NavLink to="/sign_in"><FontAwesomeIcon icon={faUser} /></NavLink></li>
+                    <li><NavLink to="/pseudo"><FontAwesomeIcon icon={faHome} /></NavLink></li> {/* must lead to the homepage*/}
+                    <li><NavLink to="/sign_in/pseudo"><FontAwesomeIcon icon={faUser} /></NavLink></li>
                     {/* <li><NavLink to="/sign_in"><FontAwesomeIcon icon={faArrowUp} /></NavLink></li> */}
                 </ul>
             </nav>
