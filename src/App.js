@@ -5,6 +5,7 @@ import Home from './components/pages/Home';
 import ThemePage from './components/pages/ThemePage';
 import SignIn from './components/pages/SignIn';
 import Contact from './components/pages/Contact';
+import GameSession from './components/pages/GameSession';
 
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path="/contact/:pseudo" component={Contact}/>
           <Route path="/home/:pseudo" component={Home}/>
         </Switch>
+        <GameSession />
       </BrowserRouter>
     );
   }
