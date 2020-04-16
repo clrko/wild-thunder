@@ -5,7 +5,7 @@ import Home from './components/pages/Home';
 import ThemePage from './components/pages/ThemePage';
 import SignIn from './components/pages/SignIn';
 import Contact from './components/pages/Contact';
-import TimerCounter from './TimerCounter'
+import TimerCounter from './component/TimerCounter'
 
 class App extends Component {
   render() {
