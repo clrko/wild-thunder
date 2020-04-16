@@ -16,6 +16,10 @@
     color:lightblue;
 }
 
+.nav-icon {
+    font-size: 2rem;
+}
+
 .nav-bottom-container {
     display: flex;
     align-items: center;
