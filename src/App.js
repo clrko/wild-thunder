@@ -8,6 +8,8 @@ import Contact from './components/pages/Contact';
 
 import './App.css';
 import GameSessionInterface from './components/GameSessionInterface';
+import TimerCounter from './component/TimerCounter'
+
 
 
 class App extends Component {
@@ -24,6 +26,7 @@ class App extends Component {
         <div className="App">
           <GameSessionInterface />
         </div>
+        <TimerCounter />
       </BrowserRouter>
     );
   }
