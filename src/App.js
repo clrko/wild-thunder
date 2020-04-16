@@ -6,7 +6,6 @@ import ThemePage from './components/pages/ThemePage';
 import SignIn from './components/pages/SignIn';
 import Contact from './components/pages/Contact';
 
-
 class App extends Component {
   render() {
     return (
