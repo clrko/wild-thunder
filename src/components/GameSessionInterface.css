@@ -12,9 +12,11 @@
 
 .letter {
     border: 1px solid black;
-    width: 16px;
-    height:16px;
-    padding: 4px;
+    background-color: antiquewhite;
+    color: black;
+    width: 26px;
+    height:26px;
+    padding: 2px;
     margin: 1px;
     border-radius: 4px;
 }
