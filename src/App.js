@@ -1,11 +1,11 @@
 import React from 'react';
-import ContactList from './components/ContactList';
+import LoginPage from './components/login/LoginPage';
 
 
 function App() {
   return (
     <div>
-      <ContactList />
+      <LoginPage />
     </div>
   );
 }
