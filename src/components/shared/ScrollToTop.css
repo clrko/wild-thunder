@@ -1,7 +1,8 @@
 .scroll-to-top {
     position: fixed;
-    bottom: 10vh;
-    right: 2rem; /*to be adapted based on the footer*/
+    bottom: 11vh;
+    right: 50%; /*to be adapted based on the footer and the pages layout*/
+    left: 50%; /*to be adapted based on the footer and the pages layout*/
     animation: fadeIn 700ms ease-in-out 1s both;
     /* animation name | duration | timing-function : faster than linear |  delay 1s | fill mode both direciton forward and backward*/
     cursor: pointer;
