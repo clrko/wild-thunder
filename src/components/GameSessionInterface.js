@@ -8,7 +8,7 @@ const singleLetter = s => s.toUpperCase().replace(/\s+/g, '').split("").sort().r
 class GameSessionInterface extends React.Component {
 
     state = {
-        title: "Let it be",
+        title: "Bruno Mars",
         solution: ""
     }
 
