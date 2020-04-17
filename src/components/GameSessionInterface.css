@@ -1,0 +1,33 @@
+.solutionDisplayBoxes {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.word {
+    display:flex;
+    margin: 10px;
+}
+
+.letter {
+    border: 1px solid black;
+    background-color: antiquewhite;
+    color: black;
+    width: 26px;
+    height:26px;
+    padding: 2px;
+    margin: 1px;
+    border-radius: 4px;
+}
+
+.letterSelection {
+    margin : 10px;
+}
+
+.buttonLetter, .correctionButton {
+    border-radius: 4px;
+    margin: 1px;
+    width: 26px;
+    height: 26px
+}
