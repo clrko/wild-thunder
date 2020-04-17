@@ -28,6 +28,9 @@ const divStyle = [{
     },
     {
     background: '#B8E067',
+    },
+    {
+    background: '#ffcc96',
     }
 ];
 
@@ -38,15 +41,18 @@ class ThemePage extends Component{
             <div>
                 <NavbarHeader/>
                 <NavbarFooter/>
-            <div className="cards-list">
-                <Cards divStyle={divStyle[0]} title="Rock"></Cards>
-                <Cards divStyle={divStyle[1]} title="Pop"></Cards>
-                <Cards divStyle={divStyle[2]} title="Electro"></Cards>
-                <Cards divStyle={divStyle[3]} title="Latino"></Cards>
-                <Cards divStyle={divStyle[4]} title="Country"></Cards>
-                <Cards divStyle={divStyle[5]} title="Jazz"></Cards>
-                <Cards divStyle={divStyle[6]} title="Variété Française"></Cards>
-                <Cards divStyle={divStyle[7]} title="Classique"></Cards>
+            <div className="container-card">
+                <div className="cards-list">
+                    <Cards divStyle={divStyle[0]} title="Rock"></Cards>
+                    <Cards divStyle={divStyle[1]} title="Pop"></Cards>
+                    <Cards divStyle={divStyle[2]} title="Electro"></Cards>
+                    <Cards divStyle={divStyle[3]} title="Latino"></Cards>
+                    <Cards divStyle={divStyle[4]} title="Rap"></Cards>
+                    <Cards divStyle={divStyle[5]} title="Jazz"></Cards>
+                    <Cards divStyle={divStyle[6]} title="Country"></Cards>
+                    <Cards divStyle={divStyle[7]} title="Classique"></Cards>
+                    <Cards divStyle={divStyle[8]} title="Décennies"></Cards>
+                </div>
             </div>
             </div>
         );
