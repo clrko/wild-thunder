@@ -63,6 +63,7 @@ class GameSession extends React.Component {
                         </div>
                         <button onClick={this.nextSong}>Next song!!!</button>
                     </div>}
+                    
             </div>
         )
     }

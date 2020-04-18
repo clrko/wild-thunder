@@ -4,7 +4,7 @@ import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter';
 import GameSession from './GameSession'
 import TimerCounter from '../../component/TimerCounter'
-
+import GameSessionInterface from '../GameSessionInterface'
 
 class SignIn extends Component{
     render(){
@@ -15,6 +15,7 @@ class SignIn extends Component{
                 <h1>Hello SignIn Page</h1>
                 <TimerCounter/>
                 <GameSession />
+                <GameSessionInterface/>
             </div>
         );
     }
