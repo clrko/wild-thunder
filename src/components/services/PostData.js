@@ -1,9 +1,9 @@
 export function PostData(type,userData){
    
-    let BaseUrl = 'https://api.thewallscript.com/resful/';
+    let BaseURL = 'http://localhost/PHP-Slim-Restful/api/';
     return new Promise ((resolve,reject) =>{
 
-        fetch(BaseUrl+type,{
+        fetch(BaseURL+type,{
             method:'POST',
             body:JSON.stringify(userData)
         })
