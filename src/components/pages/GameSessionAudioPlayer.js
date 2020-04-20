@@ -3,8 +3,7 @@ import axios from "axios"
 
 import "./GameSessionAudioPlayer.css"
 
-const API_KEY = "ZTk2YjY4MjMtMDAzYy00MTg4LWE2MjYtZDIzNjJmMmM0YTdm"
-// YTkxZTRhNzAtODdlNy00ZjMzLTg0MWItOTc0NmZmNjU4Yzk4
+const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
 
 const genresCode = "g.115" // Pop
 
