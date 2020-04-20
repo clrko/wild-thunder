@@ -16,6 +16,10 @@
     color:lightblue;
 }
 
+.nav-icon {
+    font-size: 2rem;
+}
+
 .nav-bottom-container {
     display: flex;
     align-items: center;
@@ -26,7 +30,7 @@
     z-index: 1;
     border-top: black solid 1px;
     background-color:#202225;
-    min-height: 8vh;
+    min-height: 10vh;
 }
 
 .nav-links-wrapper {
