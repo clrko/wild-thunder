@@ -13,25 +13,27 @@ const genresCode = "g.115" // Pop
 class GameSession extends React.Component {
     state = {
         artistsList: [],
-        artistTracks: [],
+        artistTrack: {},
         isLoaded: false,
-        numArtist: 0
+        numArtist: 0,
+        solution:"",
     }
 
     getArtistsList = (genresCode) => {
         axios.get(`http://api.napster.com/v2.2/genres/${genresCode}/artists/top?apikey=${API_KEY}&limit=10`)
             .then(res => {
                 console.log("Artists List: ", res.data) ||
-                    this.setState({ artistList: res.data },
-                        () => this.getArtistTracksList(this.state.artistList.artists[this.state.numArtist].id))
+                    this.setState({ artistList: res.data.artists }, /* Changes Claire : saved directly the arti meta, note the whole table */
+                        () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
             })
     }
 
+    /* Changes Claire : get only the first track */
     getArtistTracksList = (artistID) => {
         axios.get(`https://api.napster.com/v2.2/artists/${artistID}/tracks/top?apikey=${API_KEY}`)
             .then(res => {
-                console.log("Artist Tracks: ", res.data.tracks) ||
-                    this.setState({ artistTracks: res.data.tracks, isLoaded: true },
+                console.log("Artist Tracks: ", res.data.tracks[0]) ||
+                    this.setState({ artistTrack: res.data.tracks[0], isLoaded: true },
                         () => {
                             document.getElementById("audioPlayer").play()
                         })
@@ -39,7 +41,7 @@ class GameSession extends React.Component {
     }
 
     nextSong = () => {
-        this.setState({ numArtist: this.state.numArtist + 1 }, this.getArtistTracksList(this.state.artistList.artists[this.state.numArtist].id))
+        this.setState({ numArtist: this.state.numArtist + 1 }, this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
     }
 
 
@@ -47,12 +49,36 @@ class GameSession extends React.Component {
         this.getArtistsList(genresCode)
     }
 
+
+    handleClick = event => {
+        const letter = event.target.value
+        if (this.state.solution.length < this.state.artistTracks[0].name.replace(/\s+/g, '').length) {
+            this.setState({ solution: this.state.solution + letter }, this.updateBoxes)
+        }
+    }
+
+    handleChange = event => {
+        const input = event.target.value.replace(/\s+/g, '').toUpperCase()
+        this.setState({ solution: input }, this.updateBoxes)
+    }
+
+    handleCorrection = () => {
+        this.setState({ solution: this.state.solution.slice(0, -1) }, this.updateBoxes)
+    }
+
+    updateBoxes = () => {
+        const solutionBoxes = document.getElementsByClassName("letter")
+        for (let i = 0; i < this.state.title.replace(/\s+/g, '').length; i++) {
+            solutionBoxes[i].textContent = this.state.solution[i]
+        }
+    }
+
     render(){
         return(
             <div>
-                <GameSessionInterface />
-                <GameSessionAudioPlayer isLoaded={this.state.isLoaded} nextSong={this.nextSong} artistTracks={this.state.artistTracks}/>
                 <GameSessionTimeCounter />
+                <GameSessionAudioPlayer isLoaded={this.state.isLoaded} nextSong={this.nextSong} artistTrack={this.state.artistTrack}/>
+                <GameSessionInterface isLoaded={this.state.isLoaded} artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
             </div>
         );
     }

@@ -9,10 +9,10 @@ const GameSessionAudioPlayer = (props) => {
             {!props.isLoaded ?
                 <div>Loading...</div> :
                 <div id="tracks-container">
-                    <h1>{props.artistTracks[0].artistName}</h1>
-                    <h2>{props.artistTracks[0].name}</h2>
+                    <h1>{props.artistTrack.artistName}</h1>
+                    <h2>{props.artistTrack.name}</h2>
                     <div>
-                        <audio id="audioPlayer" src={props.artistTracks[0].previewURL} controls>
+                        <audio id="audioPlayer" src={props.artistTrack.previewURL} controls>
                             <source type="audio/mpeg" />
                         </audio>
                     </div>
