@@ -2,7 +2,7 @@ import React from "react";
 
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-import "./Counter.css";
+import "./GameSessionTimeCounter.css";
 
 const renderTime = value => {
   if (value === 0) {
@@ -19,7 +19,7 @@ const renderTime = value => {
 };
 
 
-function TimerCounter() {
+function GameSessionTimeCounter() {
   return (
     <div className="TimeCounter">
      
@@ -35,4 +35,4 @@ function TimerCounter() {
   );
 }
 
-export default TimerCounter
+export default GameSessionTimeCounter

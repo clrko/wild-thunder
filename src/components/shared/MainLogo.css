@@ -8,8 +8,10 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    margin: 20px 0;
 }
 
 .mainLogo img {
-    padding: 2vh 0;
+    height: 100px;
+    width: 100px;
 }
