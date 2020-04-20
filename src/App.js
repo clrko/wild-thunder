@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Home from './components/pages/Home';
+import HomePage from './components/pages/HomePage';
 import ThemePage from './components/pages/ThemePage';
 import SignIn from './components/pages/SignIn';
 import Contact from './components/pages/Contact';
@@ -11,19 +11,20 @@ import './App.css';
 
 
 
+
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <Router>
         <Switch>
-          <Route exact path="/" component={ThemePage} />
+          <Route path="/gamesession/:pseudo/:genre" component={GameSession} />
+          <Route path="/theme-page/:pseudo" component={ThemePage} />
           {/* see how to make a link to the modal page */}
           <Route path="/sign_in/:pseudo" component={SignIn} />
           <Route path="/contact/:pseudo" component={Contact} />
-          <Route path="/home/:pseudo" component={Home} />
+          <Route exact path="/" component={HomePage} />
         </Switch>
-        <GameSession /> {/* To be taken out. It is just to see the components */}
-      </BrowserRouter>
+      </Router>
     );
   }
 }
