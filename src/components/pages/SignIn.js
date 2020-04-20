@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
+import ButtonEndSession from '../ButtonEndSession/ButtonEndSession'
 import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter';
-import GameSession from './GameSession'
-import TimerCounter from '../../component/TimerCounter'
+import GameSession from './GameSession';
+import TimerCounter from '../counter/TimerCounter';
 import GameSessionInterface from '../GameSessionInterface'
 
 class SignIn extends Component{
@@ -16,6 +17,7 @@ class SignIn extends Component{
                 <TimerCounter/>
                 <GameSession />
                 <GameSessionInterface/>
+                <ButtonEndSession/>
             </div>
         );
     }
