@@ -31,3 +31,9 @@
     width: 26px;
     height: 26px
 }
+.interface-container{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}

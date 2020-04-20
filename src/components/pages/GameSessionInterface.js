@@ -37,7 +37,7 @@ class GameSessionInterface extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="interface-container" >
                 <div className="solutionDisplayBoxes">
                     {
                         this.state.title.split(" ").map((word) => (
@@ -48,7 +48,7 @@ class GameSessionInterface extends React.Component {
                             </div>
                         ))
                     }
-                </div>
+                </div >
                 {/* comment value to avoid auto filling the input  */}
                 <input type="text" name="solution" /*value={this.state.solution}*/ className="userInput" onChange={this.handleChange} spellCheck="false" />
                 <div>
