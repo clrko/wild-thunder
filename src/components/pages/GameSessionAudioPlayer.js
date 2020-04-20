@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 
-import "./GameSession.css"
+import "./GameSessionAudioPlayer.css"
 
 const API_KEY = "ZTk2YjY4MjMtMDAzYy00MTg4LWE2MjYtZDIzNjJmMmM0YTdm"
 // YTkxZTRhNzAtODdlNy00ZjMzLTg0MWItOTc0NmZmNjU4Yzk4

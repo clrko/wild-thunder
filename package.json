@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "react": "^16.13.1",
+    "react-countdown-circle-timer": "^1.2.1",
     "react-dom": "^16.13.1",
     "react-r": "^2.0.0-rc02",
     "react-router-dom": "^5.1.2",
