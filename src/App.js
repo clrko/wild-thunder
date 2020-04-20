@@ -19,7 +19,6 @@ class App extends Component {
         <Switch>
           <Route path="/gamesession/:pseudo/:genre" component={GameSession} />
           <Route path="/theme-page/:pseudo" component={ThemePage} />
-          {/* see how to make a link to the modal page */}
           <Route path="/sign_in/:pseudo" component={SignIn} />
           <Route path="/contact/:pseudo" component={Contact} />
           <Route exact path="/" component={HomePage} />
