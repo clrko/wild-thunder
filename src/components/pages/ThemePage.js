@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Cards from '../Cards';
 import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter';
+import ScrollToTop from '../shared/ScrollToTop';
 
 
 const divStyle = [{
@@ -39,8 +40,10 @@ class ThemePage extends Component{
     render(){
         return(
             <div>
+                <h1>Hello Theme display Page</h1>
                 <NavbarHeader/>
                 <NavbarFooter/>
+
             <div className="container-card">
                 <div className="cards-list">
                     <Cards divStyle={divStyle[0]} title="Rock"></Cards>
@@ -53,7 +56,8 @@ class ThemePage extends Component{
                     <Cards divStyle={divStyle[7]} title="Classique"></Cards>
                     <Cards divStyle={divStyle[8]} title="Décennies"></Cards>
                 </div>
-            </div>
+            </div>                
+            <ScrollToTop />;
             </div>
         );
     }
