@@ -14,8 +14,6 @@ const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
 const genresCode = "g.115" // Pop
 
 
-
-
 class GameSession extends React.Component {
     state = {
         artistsList: [],
@@ -29,7 +27,7 @@ class GameSession extends React.Component {
         axios.get(`http://api.napster.com/v2.2/genres/${genresCode}/artists/top?apikey=${API_KEY}&limit=10`)
             .then(res => {
                 console.log("Artists List: ", res.data) ||
-                    this.setState({ artistList: res.data.artists }, /* Changes Claire : saved directly the arti meta, note the whole table */
+                    this.setState({ artistList: this.getListShuffled(res.data.artists) }, /* Changes Claire : saved directly the arti meta, note the whole table */
                         () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
             })
     }
@@ -46,6 +44,16 @@ class GameSession extends React.Component {
             })
     }
 
+    getListShuffled = (list) => {
+        let newIndex, temp;
+        for (let i = list.length - 1; i > 0; i--) {
+            newIndex = Math.floor(Math.random() * (i+1));
+            temp = list[i];
+            list[i] = list[newIndex];
+            list[newIndex] = temp;
+        } return list
+    }
+
     nextSong = () => {
         this.setState({ numArtist: this.state.numArtist + 1 }, this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
     }
@@ -58,7 +66,7 @@ class GameSession extends React.Component {
 
     handleClick = event => {
         const letter = event.target.value
-        if (this.state.solution.length < this.state.artistTracks[0].name.replace(/\s+/g, '').length) {
+        if (this.state.solution.length < this.state.artistTrack.artistName.replace(/\s+/g, '').length) {
             this.setState({ solution: this.state.solution + letter }, this.updateBoxes)
         }
     }
@@ -74,7 +82,7 @@ class GameSession extends React.Component {
 
     updateBoxes = () => {
         const solutionBoxes = document.getElementsByClassName("letter")
-        for (let i = 0; i < this.state.title.replace(/\s+/g, '').length; i++) {
+        for (let i = 0; i < this.state.artistTrack.artistName.replace(/\s+/g, '').length; i++) {
             solutionBoxes[i].textContent = this.state.solution[i]
         }
     }
@@ -87,8 +95,8 @@ class GameSession extends React.Component {
                 :
                 <div>
                     <GameSessionTimeCounter />
-                    <GameSessionAudioPlayer isLoaded={this.state.isLoaded} nextSong={this.nextSong} artistTrack={this.state.artistTrack}/>
-                    <GameSessionInterface isLoaded={this.state.isLoaded} artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
+                    <GameSessionAudioPlayer nextSong={this.nextSong} artistTrack={this.state.artistTrack}/>
+                    <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
                     <GameSessionButtonEndSession/>
                     <GameSessionValidateButton />
                     <GameSessionNextButton />
