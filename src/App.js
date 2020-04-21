@@ -9,6 +9,7 @@ import GameSession from './components/pages/GameSession';
 
 
 import './App.css';
+import EndSession from './components/pages/EndSession';
 
 
 
@@ -22,6 +23,7 @@ class App extends Component {
           <Route path="/sign_in/:pseudo" component={SignIn} />
           <Route path="/contact/:pseudo" component={Contact} />
           <Route path="/home/:pseudo" component={Home} />
+          <Route path="/endsession" component={EndSession} />
         </Switch>
         <GameSession /> {/* To be taken out. It is just to see the components */}
       </BrowserRouter>
