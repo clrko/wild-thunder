@@ -1,13 +1,14 @@
 import React from 'react';
 
-import Routes from "./components/Routes";
-import LoginPage from './components/login/LoginPage';
+
+import Login from './components/Login';
 
 function App() {
   return (
     <div>
-      <LoginPage/>
-      <Routes/>
+      <Login/>
+      
+      
     </div>
   );
 }
