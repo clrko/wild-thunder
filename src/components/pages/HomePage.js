@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 import NavbarHeader from '../shared/NavbarHeader';
-import SwitchPageButton from '../shared/SwitchPageButton';
+import HomeStartButton from '../shared/HomeStartButton';
+
+const playerName = {pseudo: "bob"}
 
 class HomePage extends Component{
     render(){
@@ -9,7 +11,7 @@ class HomePage extends Component{
             <div>
                 <NavbarHeader/>
                 <h1>Hello Home Page</h1>
-                <SwitchPageButton pageName="theme-page" pseudo="pseudo" />
+                <HomeStartButton pageName="theme-page" playerData={playerName} />
             </div>
         );
     }
