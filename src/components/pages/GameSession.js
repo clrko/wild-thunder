@@ -82,13 +82,19 @@ class GameSession extends React.Component {
     render(){
         return(
             <div>
-                <GameSessionTimeCounter />
-                <GameSessionAudioPlayer isLoaded={this.state.isLoaded} nextSong={this.nextSong} artistTrack={this.state.artistTrack}/>
-                <GameSessionInterface isLoaded={this.state.isLoaded} artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
-                <GameSessionButtonEndSession/>
-                <GameSessionValidateButton />
-                <GameSessionNextButton />
-            </div>
+                {!this.state.isLoaded ? 
+                <div>Loading...</div>
+                :
+                <div>
+                    <GameSessionTimeCounter />
+                    <GameSessionAudioPlayer isLoaded={this.state.isLoaded} nextSong={this.nextSong} artistTrack={this.state.artistTrack}/>
+                    <GameSessionInterface isLoaded={this.state.isLoaded} artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
+                    <GameSessionButtonEndSession/>
+                    <GameSessionValidateButton />
+                    <GameSessionNextButton />
+                </div>
+            };
+            </div> 
         );
     }
     
