@@ -5,7 +5,6 @@ import Home from './components/pages/Home';
 import ThemePage from './components/pages/ThemePage';
 import SignIn from './components/pages/SignIn';
 import Contact from './components/pages/Contact';
-import GameSession from './components/pages/GameSession';
 
 
 import './App.css';
@@ -25,7 +24,6 @@ class App extends Component {
           <Route path="/home/:pseudo" component={Home} />
           <Route path="/endsession" component={EndSession} />
         </Switch>
-        <GameSession /> {/* To be taken out. It is just to see the components */}
       </BrowserRouter>
     );
   }
