@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Cards from '../Cards';
+import Cards from '../shared/Cards';
 import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter';
 import ScrollToTop from '../shared/ScrollToTop';

@@ -1,7 +1,10 @@
 import React from "react"
-import GameSessionInterface from "./GameSessionInterface"
+
 import GameSessionAudioPlayer from "./GameSessionAudioPlayer"
+import GameSessionInterface from "./GameSessionInterface"
+import GameSessionNextButton from "./GameSessionNextButton"
 import GameSessionTimeCounter from "./GameSessionTimeCounter"
+import GameSessionValidateButton from "./GameSessionValidateButton"
 
 
 class GameSession extends React.Component {
@@ -11,6 +14,8 @@ class GameSession extends React.Component {
                 <GameSessionInterface />
                 <GameSessionAudioPlayer />
                 <GameSessionTimeCounter />
+                <GameSessionValidateButton />
+                <GameSessionNextButton />
             </div>
         );
     }

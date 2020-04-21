@@ -1,0 +1,10 @@
+.next_button {
+    background-color: transparent;
+    border: none;
+}
+
+.next_icon {
+    font-size: 3rem;
+    color: #845EC2;
+    cursor: pointer;
+}
