@@ -1,12 +1,12 @@
 import React from "react"
-
 import axios from "axios"
-
 
 import GameSessionAudioPlayer from "./GameSessionAudioPlayer"
 import GameSessionButtonEndSession from "./GameSessionButtonEndSession"
 import GameSessionInterface from "./GameSessionInterface"
+import GameSessionNextButton from "./GameSessionNextButton"
 import GameSessionTimeCounter from "./GameSessionTimeCounter"
+import GameSessionValidateButton from "./GameSessionValidateButton"
 
 
 const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
@@ -86,7 +86,8 @@ class GameSession extends React.Component {
                 <GameSessionAudioPlayer isLoaded={this.state.isLoaded} nextSong={this.nextSong} artistTrack={this.state.artistTrack}/>
                 <GameSessionInterface isLoaded={this.state.isLoaded} artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
                 <GameSessionButtonEndSession/>
-
+                <GameSessionValidateButton />
+                <GameSessionNextButton />
             </div>
         );
     }
