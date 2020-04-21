@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Cards from '../shared/Cards';
 import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter';
-import ScrollToTop from '../shared/ScrollToTop';
 import axios from 'axios';
 
 
@@ -43,7 +42,6 @@ class ThemePage extends Component {
                         )}
                     </div>
                 </div>
-                <ScrollToTop />
             </div>
         );
     }
