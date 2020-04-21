@@ -119,7 +119,7 @@ class GameSession extends React.Component {
                 :
                 <div>
                     <GameSessionTimeCounter />
-                    <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack}/>
+                    <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                     <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
                     <GameSessionButtonEndSession/>
                     <GameSessionValidateButton />
