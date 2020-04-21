@@ -6,9 +6,11 @@ import ThemePage from './components/pages/ThemePage';
 import SignIn from './components/pages/SignIn';
 import Contact from './components/pages/Contact';
 import GameSession from './components/pages/GameSession';
+import Page404 from './components/pages/Page404';
 
 
 import './App.css';
+
 
 
 
@@ -22,8 +24,8 @@ class App extends Component {
           <Route path="/sign_in/:pseudo" component={SignIn} />
           <Route path="/contact/:pseudo" component={Contact} />
           <Route path="/home/:pseudo" component={Home} />
+          <Route component={Page404} />
         </Switch>
-        <GameSession /> {/* To be taken out. It is just to see the components */}
       </BrowserRouter>
     );
   }
