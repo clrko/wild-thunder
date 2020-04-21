@@ -16,28 +16,32 @@ const genresCode = "g.115" // Pop
 
 class GameSession extends React.Component {
     state = {
-        artistsList: [],
-        artistTrack: {},
+        artistsList: [], /*donne une liste définie d'artise au hasard*/
+        artistTrack: {}, /* contient un son choisi au hasard */
         isLoaded: false,
         numArtist: 0,
         solution:"",
     }
 
+
     getArtistsList = (genresCode) => {
-        axios.get(`http://api.napster.com/v2.2/genres/${genresCode}/artists/top?apikey=${API_KEY}&limit=10`)
+        axios.get(`http://api.napster.com/v2.2/genres/${genresCode}/artists/top`, 
+                {params: {
+                    apikey: API_KEY, 
+                    limit: 50}})
             .then(res => {
                 console.log("Artists List: ", res.data) ||
-                    this.setState({ artistList: this.getListShuffled(res.data.artists) }, /* Changes Claire : saved directly the arti meta, note the whole table */
+                    this.setState({ artistList: this.getListShuffled(res.data.artists) },
                         () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
             })
     }
 
-    /* Changes Claire : get only the first track */
+    /* Changes Claire : get only one random track */
     getArtistTracksList = (artistID) => {
-        axios.get(`https://api.napster.com/v2.2/artists/${artistID}/tracks/top?apikey=${API_KEY}`)
+        axios.get(`https://api.napster.com/v2.2/artists/${artistID}/tracks/top`, {params: {apikey: API_KEY}})
             .then(res => {
                 console.log("Artist Tracks: ", res.data.tracks[0]) ||
-                    this.setState({ artistTrack: res.data.tracks[0], isLoaded: true },
+                    this.setState({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true },
                         () => {
                             document.getElementById("audioPlayer").play()
                         })
