@@ -16,11 +16,13 @@ const genresCode = "g.115" // Pop
 
 class GameSession extends React.Component {
     state = {
+        round: 5,
         artistsList: [], /*donne une liste définie d'artise au hasard*/
         artistTrack: {}, /* contient un son choisi au hasard */
         isLoaded: false,
         numArtist: 0,
         solution:"",
+        sessionHistory:[],
     }
 
 
@@ -62,6 +64,18 @@ class GameSession extends React.Component {
         this.setState({ numArtist: this.state.numArtist + 1 }, this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
     }
 
+    addToHistory = () => {
+        this.setState({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] })
+    }
+
+    saveRoundAndLoadNextSong = () => {
+        this.addToHistory()
+        if (this.state.numArtist < this.state.round) {
+            this.nextSong()
+            console.log(this.state.sessionHistory)
+        }
+    }
+
 
     componentDidMount() {
         this.getArtistsList(genresCode)
@@ -99,15 +113,15 @@ class GameSession extends React.Component {
                 :
                 <div>
                     <GameSessionTimeCounter />
-                    <GameSessionAudioPlayer nextSong={this.nextSong} artistTrack={this.state.artistTrack}/>
+                    <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack}/>
                     <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
                     <GameSessionButtonEndSession/>
                     <GameSessionValidateButton />
                     <GameSessionNextButton />
                 </div>
-            };
+            }
             </div> 
-        );
+        )
     }
     
 }
