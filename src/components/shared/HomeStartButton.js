@@ -1,11 +1,12 @@
 import React from "react"
 import { NavLink } from 'react-router-dom';
 
-const HomeStartButton = (props) => {
-    console.log(props)
+const HomeStartButton = ({pageName, playerData}) => {
+    console.log(playerData)
     return (
-        <button><NavLink to={`/${this.props.pageName}/${this.props.pseudo}`}>Hello</NavLink></button>
+        <button><NavLink to={{pathname:`/${pageName}`, state:{playerData}}}>START</NavLink></button>
     )
 }
 
 export default HomeStartButton
+// `/${this.props.pageName}/${this.props.playerName}`
