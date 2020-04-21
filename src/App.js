@@ -18,8 +18,8 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/gamesession/:pseudo/:genre" component={GameSession} />
-          <Route path="/theme-page/" component={ThemePage} />
+          <Route path="/gamesession" component={GameSession} />
+          <Route path="/theme-page" component={ThemePage} />
           <Route path="/sign_in/:pseudo" component={SignIn} />
           <Route path="/contact/:pseudo" component={Contact} />
           <Route exact path="/" component={HomePage} />

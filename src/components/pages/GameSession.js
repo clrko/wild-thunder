@@ -11,13 +11,9 @@ import GameSessionValidateButton from "./GameSessionValidateButton"
 
 const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
 
-const genresCode = "g.115" // Pop
-
-
-
-
 class GameSession extends React.Component {
     state = {
+        genresCode: this.props.location.state,
         artistsList: [],
         artistTrack: {},
         isLoaded: false,
@@ -52,7 +48,7 @@ class GameSession extends React.Component {
 
 
     componentDidMount() {
-        this.getArtistsList(genresCode)
+        this.getArtistsList(this.state.genresCode)
     }
 
 

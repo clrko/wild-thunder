@@ -14,7 +14,7 @@ class HomePage extends Component{
             <div>
                 <NavbarHeader/>
                 <h1>Hello Home Page</h1>
-                <HomeStartButton pageName="theme-page" playerData={this.state} />
+                <HomeStartButton playerData={this.state} />
             </div>
         );
     }

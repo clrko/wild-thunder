@@ -7,83 +7,30 @@ import ScrollToTop from '../shared/ScrollToTop';
 import axios from 'axios';
 
 
-const themeList = [{
-    id: 1,
-    title: "Rock",
-    background: '#0089BA',
-},
-{
-    id: 2,
-    title: "Pop",
-    background: '#008E9B',
-},
-{
-    id: 3,
-    title: "Electro",
-    background: '#845EC2',
-},
-{
-    id: 4,
-    title: "Latino",
-    background: '#D65DB1',
-},
-{
-    id: 5,
-    title: "Rap",
-    background: '#FF6F91',
-},
-{
-    id: 6,
-    title: "Jazz",
-    background: '#FF9671',
-},
-{
-    id: 7,
-    title: "Country",
-    background: '#FFC75F',
-},
-{
-    id: 8,
-    title: "Classical",
-    background: '#B8E067',
-},
-{
-    id: 9,
-    title: "Decades",
-    background: '#ffcc96',
-}
+const themeBackgroundColor = ['#0089BA', '#008E9B', '#845EC2', '#D65DB1', '#FF6F91', '#FF9671', '#FFC75F', '#B8E067', '#ffcc96', '#0089BA', '#008E9B', '#845EC2', '#D65DB1', '#FF6F91', '#FF9671', '#FFC75F', '#B8E067', '#ffcc96', '#0089BA', '#008E9B', '#845EC2', '#D65DB1', '#FF6F91', '#FF9671', '#FFC75F', '#B8E067', '#ffcc96'
 ];
-const API_KEY = "YTkxZTRhNzAtODdlNy00ZjMzLTg0MWItOTc0NmZmNjU4Yzk4"
 
-// YTkxZTRhNzAtODdlNy00ZjMzLTg0MWItOTc0NmZmNjU4Yzk4
-
-//A nous
-//    MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi
+const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
 
 class ThemePage extends Component {
 
     state = {
-        ...this.props.location.state.playerData, // only pseudo attribut for the moment
-        genresList: []
+        ...this.props.location.state, // only pseudo attribut for the moment
+        genresList: [],
+        isLoading: false
     }
 
-    getGenresList = () => {
-        const request = axios.get(`http://api.napster.com/v2.2/genres/g.115/artists/top`,
-        {params : {apikey : API_KEY, lang:"es-ES", limit:5, range: "year"}})
-        .then(res => console.log(res.data) || this.setState({genresList: res.data}))
-        console.log("request:", request)
-        // day, week, month, year and life
+    getGenresList = async () => {
+        await axios.get(`http://api.napster.com/v2.2/genres`,
+            { params: { apikey: API_KEY, lang: "en-US" } }        )
+            .then(res => this.setState({ genresList: res.data.genres, isLoading: true }))
     }
-    // 
-    
+
     componentDidMount() {
         this.getGenresList()
     }
 
     render() {
-
-        console.log("genresList:",this.state.genresList)
-        console.log(themeList.map(theme => theme.title))
         return (
             <div>
                 <NavbarHeader />
@@ -91,8 +38,8 @@ class ThemePage extends Component {
                 <h1>{`Hi ${this.state.pseudo}, choose a theme and take on the challenge`}</h1>
                 <div className="container-card">
                     <div className="cards-list">
-                        {themeList.map(theme =>
-                            <Cards key={theme.id} divStyle={theme.background} title={theme.title}></Cards>
+                        {this.state.genresList.map((genre, i) =>
+                            <Cards key={genre.id} genreId={genre.id} divStyle={themeBackgroundColor[i]} genreTitle={genre.name.replace(/\//g, " / ")}></Cards>
                         )}
                     </div>
                 </div>
