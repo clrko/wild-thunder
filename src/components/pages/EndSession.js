@@ -5,7 +5,10 @@ import EndSessionTrackList from  "./EndSessionTrackList"
 class EndSession extends Component {
     render() {
         return (
-            <EndSessionTrackList />
+            <div>
+                Hello
+                <EndSessionTrackList />
+            </div>
         )
     }
 }

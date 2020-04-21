@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 
 import "./GameSessionAudioPlayer.css"
 
@@ -14,7 +15,7 @@ const GameSessionAudioPlayer = (props) => {
                             <source type="audio/mpeg" />
                         </audio>
                     </div>
-                    <button onClick={props.nextSong}>Next song!!!</button>
+                    <Link to="/endsession" onClick={props.saveRoundAndLoadNextSong} ><button>Next song!!!</button></Link>
                 </div>
         </div>
     )

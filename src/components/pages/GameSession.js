@@ -13,10 +13,10 @@ const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
 
 const genresCode = "g.115" // Pop
 
+const rounds = 5
 
 class GameSession extends React.Component {
     state = {
-        round: 5,
         artistsList: [], /*donne une liste définie d'artise au hasard*/
         artistTrack: {}, /* contient un son choisi au hasard */
         isLoaded: false,
@@ -30,7 +30,7 @@ class GameSession extends React.Component {
         axios.get(`http://api.napster.com/v2.2/genres/${genresCode}/artists/top`, 
                 {params: {
                     apikey: API_KEY, 
-                    limit: 50}})
+                    limit: rounds}})
             .then(res => {
                 console.log("Artists List: ", res.data) ||
                     this.setState({ artistList: this.getListShuffled(res.data.artists) },
@@ -68,16 +68,22 @@ class GameSession extends React.Component {
         this.setState({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] })
     }
 
-    saveRoundAndLoadNextSong = () => {
+
+    saveRoundAndLoadNextSong = event => {
         this.addToHistory()
-        if (this.state.numArtist < this.state.round) {
+        if (this.state.numArtist < rounds) {
             this.nextSong()
             console.log(this.state.sessionHistory)
+            event.preventDefault() 
         }
     }
 
 
     componentDidMount() {
+        this.getArtistsList(genresCode)
+    }
+
+    componentWillUnmount() {
         this.getArtistsList(genresCode)
     }
 
