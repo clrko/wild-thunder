@@ -1,0 +1,11 @@
+.validate_button {
+    background: transparent;
+    border: none;
+}
+
+.validate_icon {
+    font-size: 3rem;
+    color: #2CE461;
+    cursor: pointer;
+}
+
