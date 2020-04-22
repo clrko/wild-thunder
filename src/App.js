@@ -9,7 +9,7 @@ import GameSession from './components/pages/GameSession';
 import Page404 from './components/pages/Page404';
 
 
-import './App.css';
+
 
 
 
@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={ThemePage} />
+          <Route exact path="/" component={Home} />
           {/* see how to make a link to the modal page */}
           <Route path="/sign_in/:pseudo" component={SignIn} />
           <Route path="/contact/:pseudo" component={Contact} />

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import NavbarHeader from '../shared/NavbarHeader';
+import LoginWelcomeModal from './LoginWelcomeModal'
 
 class Home extends Component{
     render(){
@@ -8,6 +9,7 @@ class Home extends Component{
             <div>
                 <NavbarHeader/>
                 <h1>Hello Home Page</h1>
+                <LoginWelcomeModal/>
             </div>
         );
     }
