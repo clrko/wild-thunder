@@ -1,13 +1,10 @@
-body {
-    background-image: linear-gradient(to right bottom, #47458c, #403f7d, #39396f, #323360, #2c2d52, #252948, #1f243e, #1a2034, #151c2b, #111821, #0e1318, #0b0c0d);
-}
-
 .page404_container {
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-image: linear-gradient(to right bottom, #47458c, #403f7d, #39396f, #323360, #2c2d52, #252948, #1f243e, #1a2034, #151c2b, #111821, #0e1318, #0b0c0d);
 }
 
 .page404_container h1 {
