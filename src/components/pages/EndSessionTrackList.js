@@ -6,9 +6,10 @@ const EndSessionTrackList = props => {
         <div>
             <p>{props.sessionHistory.name}</p>
             <p>{props.sessionHistory.artistName}</p>
-            <p>{props.sessionHistory.previewURL}</p>
+            <audio id="audioPlayer" src={props.sessionHistory.previewURL} controls>
+                <source type="audio/mpeg" />
+            </audio>
         </div>
-        
     )
 }
 

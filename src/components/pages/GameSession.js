@@ -25,7 +25,7 @@ class GameSession extends React.Component {
         sessionHistory:[],
     }
 
-    /* First call to the api to get a random list of artist. The number of artists selected will be defined by the rounds value */
+    /* First call to the api to get a random list of artists. The number of artists selected will be defined by the rounds value */
     getArtistsList = (genresCode) => {
         axios.get(`http://api.napster.com/v2.2/genres/${genresCode}/artists/top`, 
                 {params: {
@@ -38,7 +38,7 @@ class GameSession extends React.Component {
             })
     }
 
-    /* Return on random song from the current artist*/
+    /* Return a random song of the current artist*/
     getArtistTracksList = (artistID) => {
         axios.get(`https://api.napster.com/v2.2/artists/${artistID}/tracks/top`, {params: {apikey: API_KEY}})
             .then(res => {
@@ -91,7 +91,7 @@ class GameSession extends React.Component {
     }
 
 
-    /*  Functions used in the userinterfaced in order to input a letter, erease and update the number of boxes based on the artist being played */
+    /*  Functions used in the userinterface that aims at inputing a letter, erease and update the number of boxes based on the artist being played */
     handleClick = event => {
         const letter = event.target.value
         if (this.state.solution.length < this.state.artistTrack.artistName.replace(/\s+/g, '').length) {
