@@ -5,10 +5,12 @@ import Home from './components/pages/Home';
 import ThemePage from './components/pages/ThemePage';
 import SignIn from './components/pages/SignIn';
 import Contact from './components/pages/Contact';
+import Page404 from './components/pages/Page404';
 
 
 import './App.css';
 import EndSession from './components/pages/EndSession';
+
 
 
 
@@ -23,6 +25,7 @@ class App extends Component {
           <Route path="/contact/:pseudo" component={Contact} />
           <Route path="/home/:pseudo" component={Home} />
           <Route path="/endsession" component={EndSession} />
+          <Route component={Page404} />
         </Switch>
       </BrowserRouter>
     );
