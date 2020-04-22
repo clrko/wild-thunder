@@ -15,7 +15,7 @@ function LoginModal() {
                 onRequestClose={()=> setModalIsOpen(false)}
                 style ={{
                     
-                    content: {color:'black',backgroundColor:'grey', width: '20%' ,bottom:'60%',left:"35%" } ,
+                    content: {color:'black',backgroundColor:'grey', width: '20%' ,bottom:'50%',left:"35%" } ,
                     
                 }}>
                 <div className="login-modal">
