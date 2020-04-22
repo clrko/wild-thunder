@@ -10,7 +10,7 @@ import GameSessionValidateButton from "./GameSessionValidateButton"
 
 
 const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
-const genresCode = "g.115" // Pop
+// const genresCode = "g.115" // Pop
 
 class GameSession extends React.Component {
     state = {
@@ -104,9 +104,9 @@ class GameSession extends React.Component {
                     <GameSessionValidateButton />
                     <GameSessionNextButton />
                 </div>
-            };
+            }
             </div> 
-        );
+        )
     }
     
 }

@@ -1,7 +1,7 @@
 import React , {useState} from "react"
 
-
 import Modal from 'react-modal'
+
 import "./LoginModal.css"
 
 Modal.setAppElement('#root')

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
+import axios from 'axios';
+
 import Cards from '../shared/Cards';
 import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter';
-import axios from 'axios';
-
 
 const themeBackgroundColor = ['#0089BA', '#008E9B', '#845EC2', '#D65DB1', '#FF6F91', '#FF9671', '#FFC75F', '#B8E067', '#ffcc96', '#0089BA', '#008E9B', '#845EC2', '#D65DB1', '#FF6F91', '#FF9671', '#FFC75F', '#B8E067', '#ffcc96', '#0089BA', '#008E9B', '#845EC2', '#D65DB1', '#FF6F91', '#FF9671', '#FFC75F', '#B8E067', '#ffcc96'
 ];
@@ -14,7 +14,7 @@ const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
 class ThemePage extends Component {
 
     state = {
-        ...this.props.location.state, // only pseudo attribut for the moment
+        username: this.props.location.username,
         genresList: [],
         isLoading: false
     }
@@ -34,7 +34,7 @@ class ThemePage extends Component {
             <div>
                 <NavbarHeader />
                 <NavbarFooter />
-                <h1>{`Hi ${this.state.pseudo}, choose a theme and take on the challenge`}</h1>
+                <h1>{`Hi ${this.state.username}, choose a theme and take on the challenge`}</h1>
                 <div className="container-card">
                     <div className="cards-list">
                         {this.state.genresList.map((genre, i) =>

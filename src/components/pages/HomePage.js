@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
 import NavbarHeader from '../shared/NavbarHeader';
-import HomeStartButton from '../shared/HomeStartButton';
-import LoginWelcomeModal from './LoginWelcomeModal';
-
+import LoginModal from './LoginModal';
+import Welcome from './Welcome';
 
 class HomePage extends Component{
     
@@ -15,9 +14,8 @@ class HomePage extends Component{
         return(
             <div>
                 <NavbarHeader/>
-                <h1>Hello Home Page</h1>
-                <HomeStartButton playerData={this.state} />
-                <LoginWelcomeModal/>
+                <Welcome/>
+                <LoginModal/>
             </div>
         );
     }
