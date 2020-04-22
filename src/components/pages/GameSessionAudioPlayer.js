@@ -6,8 +6,6 @@ import "./GameSessionAudioPlayer.css"
 const GameSessionAudioPlayer = (props) => {
     return (
         <div className="container">
-            {!props.isLoaded ?
-                <div>Loading...</div> :
                 <div id="tracks-container">
                     <h1>{props.artistTrack.artistName}</h1>
                     <h2>{props.artistTrack.name}</h2>
@@ -17,7 +15,7 @@ const GameSessionAudioPlayer = (props) => {
                         </audio>
                     </div>
                     <button onClick={props.nextSong}>Next song!!!</button>
-                </div>}
+                </div>
         </div>
     )
 }
