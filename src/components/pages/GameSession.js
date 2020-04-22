@@ -17,15 +17,15 @@ const rounds = 5
 
 class GameSession extends React.Component {
     state = {
-        artistsList: [], /*donne une liste définie d'artise au hasard*/
-        artistTrack: {}, /* contient un son choisi au hasard */
+        artistsList: [], /*Gives a random list of artists*/
+        artistTrack: {}, /* Contains a random song from a selected artist */
         isLoaded: false,
         numArtist: 0,
         solution:"",
         sessionHistory:[],
     }
 
-
+    /* First call to the api to get a random list of artist. The number of artists selected will be defined by the rounds value */
     getArtistsList = (genresCode) => {
         axios.get(`http://api.napster.com/v2.2/genres/${genresCode}/artists/top`, 
                 {params: {
@@ -38,7 +38,7 @@ class GameSession extends React.Component {
             })
     }
 
-    /* Changes Claire : get only one random track */
+    /* Return on random song from the current artist*/
     getArtistTracksList = (artistID) => {
         axios.get(`https://api.napster.com/v2.2/artists/${artistID}/tracks/top`, {params: {apikey: API_KEY}})
             .then(res => {
@@ -50,6 +50,7 @@ class GameSession extends React.Component {
             })
     }
 
+    /* Randomized an array. this function is called both on the get ArtistsList and get ArtistTracksList */
     getListShuffled = (list) => {
         let newIndex, temp;
         for (let i = list.length - 1; i > 0; i--) {
@@ -60,12 +61,14 @@ class GameSession extends React.Component {
         } return list
     }
 
+    /* These 3 functions are used to save the current track and then load the next song if we have not reach the round limit. In case the round limit is reach, the user will be redirected to the endsession. */
+
     nextSong = () => {
         this.setState({ numArtist: this.state.numArtist + 1 }, this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
     }
 
     addToHistory = () => {
-        this.setState({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] })
+        this.setState({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] }, console.log("1GS state history is:", this.state.sessionHistory))
     }
 
 
@@ -73,7 +76,7 @@ class GameSession extends React.Component {
         this.addToHistory()
         if (this.state.numArtist < rounds) {
             this.nextSong()
-            console.log(this.state.sessionHistory)
+            console.log("2GS-saveandLoad:", this.state.sessionHistory)
             event.preventDefault() 
         }
     }
@@ -88,6 +91,7 @@ class GameSession extends React.Component {
     }
 
 
+    /*  Functions used in the userinterfaced in order to input a letter, erease and update the number of boxes based on the artist being played */
     handleClick = event => {
         const letter = event.target.value
         if (this.state.solution.length < this.state.artistTrack.artistName.replace(/\s+/g, '').length) {
@@ -112,6 +116,7 @@ class GameSession extends React.Component {
     }
 
     render(){
+        console.log("GSrender:", this.state.sessionHistory)
         return(
             <div>
                 {!this.state.isLoaded ? 

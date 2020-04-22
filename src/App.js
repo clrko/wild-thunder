@@ -11,6 +11,7 @@ import ThemePage from './components/pages/ThemePage';
 
 
 import './App.css';
+import GameSession from './components/pages/GameSession';
 
 
 
@@ -26,9 +27,10 @@ class App extends Component {
           <Route path="/sign_in/:pseudo" component={SignIn} />
           <Route path="/contact/:pseudo" component={Contact} />
           <Route path="/home/:pseudo" component={Home} />
-          <Route path="/endsession/:pseudo" component={EndSession} />
+          <Route path="/endsession" component={EndSession} />
           <Route component={Page404} />
         </Switch>
+        <GameSession />
       </BrowserRouter>
     );
   }

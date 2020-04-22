@@ -4,13 +4,10 @@ import EndSessionTrackList from  "./EndSessionTrackList"
 
 class EndSession extends Component {
     render() {
-        console.log(this.props.location)
-        console.log(this.props.location.state)
+        console.log("4propslcoation state:", this.props.location.state)
         return (
             <div>
-                Hello
-                <EndSessionTrackList />
-
+                {this.props.location.state.map(track => <EndSessionTrackList sessionHistory={track} />)}
             </div>
         )
     }
