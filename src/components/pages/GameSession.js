@@ -7,12 +7,12 @@ import GameSessionInterface from "./GameSessionInterface"
 import GameSessionNextButton from "./GameSessionNextButton"
 import GameSessionTimeCounter from "./GameSessionTimeCounter"
 import GameSessionValidateButton from "./GameSessionValidateButton"
+import PointSystem from "./PointSystem"
 
 
 const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
 
 const genresCode = "g.115" // Pop
-
 
 class GameSession extends React.Component {
     state = {
@@ -22,8 +22,9 @@ class GameSession extends React.Component {
         numArtist: 0,
         solution:"",
     }
-
-
+    
+    
+    
     getArtistsList = (genresCode) => {
         axios.get(`http://api.napster.com/v2.2/genres/${genresCode}/artists/top`, 
                 {params: {
@@ -92,7 +93,8 @@ class GameSession extends React.Component {
     }
 
     render(){
-        return(
+      
+    return(
             <div>
                 {!this.state.isLoaded ? 
                 <div>Loading...</div>
@@ -104,6 +106,7 @@ class GameSession extends React.Component {
                     <GameSessionButtonEndSession/>
                     <GameSessionValidateButton />
                     <GameSessionNextButton />
+                    <PointSystem artistTrack={this.state.artistTrack} solution={this.state.solution}  />
                 </div>
             };
             </div> 

@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={GameSession} />
           {/* see how to make a link to the modal page */}
           <Route path="/sign_in/:pseudo" component={SignIn} />
           <Route path="/contact/:pseudo" component={Contact} />
