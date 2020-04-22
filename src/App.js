@@ -26,7 +26,7 @@ class App extends Component {
           <Route path="/sign_in/:pseudo" component={SignIn} />
           <Route path="/contact/:pseudo" component={Contact} />
           <Route path="/home/:pseudo" component={Home} />
-          <Route path="/endsession" component={EndSession} />
+          <Route path="/endsession/:pseudo" component={EndSession} />
           <Route component={Page404} />
         </Switch>
       </BrowserRouter>
