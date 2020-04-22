@@ -85,7 +85,7 @@ class GameSession extends React.Component {
     }
 
     componentWillUnmount() {
-        this.getArtistsList(genresCode)
+        this.getArtistsList(this.state.genresCode)
     }
 
 
