@@ -102,8 +102,8 @@ class GameSession extends React.Component {
                     <GameSessionAudioPlayer nextSong={this.nextSong} artistTrack={this.state.artistTrack}/>
                     <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
                     <GameSessionButtonEndSession/>
-                    <GameSessionValidateButton />
-                    <GameSessionNextButton />
+                    <GameSessionValidateButton nextSong={this.nextSong}/>
+                    <GameSessionNextButton nextSong={this.nextSong}/>
                 </div>
             };
             </div> 

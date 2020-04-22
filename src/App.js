@@ -26,6 +26,7 @@ class App extends Component {
           <Route path="/home/:pseudo" component={Home} />
           <Route component={Page404} />
         </Switch>
+        <GameSession />
       </BrowserRouter>
     );
   }

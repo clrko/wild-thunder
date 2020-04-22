@@ -1,6 +1,7 @@
 .next_button {
     background-color: transparent;
     border: none;
+    outline: 0;
 }
 
 .next_icon {
