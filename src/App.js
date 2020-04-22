@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Home from './components/pages/Home';
-import ThemePage from './components/pages/ThemePage';
-import SignIn from './components/pages/SignIn';
 import Contact from './components/pages/Contact';
+import EndSession from './components/pages/EndSession';
+import Home from './components/pages/Home';
 import Page404 from './components/pages/Page404';
+import SignIn from './components/pages/SignIn';
+import ThemePage from './components/pages/ThemePage';
+
 
 
 import './App.css';
-import EndSession from './components/pages/EndSession';
+
 
 
 
