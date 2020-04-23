@@ -37,14 +37,15 @@ class EndSessionTrackList extends Component {
         return (
             <div >
                 <div className="track-container">
-                    <button onClick={this.handleToggleClick}><FontAwesomeIcon id="play-pause-btn" icon={this.state.isPaused? faPlay : faPause }/></button>
-                    <div>
+                    <img src="https://picsum.photos/id/237/50" alt="placeholder" />
+                    <div className="track-info">
                         <p>{this.props.sessionHistory.name}</p> 
                         <p>{this.props.sessionHistory.artistName}</p>
                     </div>
                     <button onClick={this.handleFavoriteClick}><FontAwesomeIcon className={this.state.isFavorite? "favorite-track" : "not-favorite-track"} icon={faHeart}/></button>
+                    <button onClick={this.handleToggleClick}><FontAwesomeIcon id="play-pause-btn" icon={this.state.isPaused? faPlay : faPause }/></button>
                 </div>
-                <audio id={this.props.sessionHistory.id} src={this.props.sessionHistory.previewURL} controls>
+                <audio id={this.props.sessionHistory.id} src={this.props.sessionHistory.previewURL}>
                     <source type="audio/mpeg" />
                 </audio>
             </div>

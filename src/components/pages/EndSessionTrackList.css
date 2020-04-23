@@ -7,6 +7,35 @@
 .track-container {
     display: flex;
     flex-direction: row;
+    width: 280px;
+    margin: 10px auto;
+    border: 2px solid grey;
+    border-radius: 40px;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    
+}
+
+img {
+    border-radius: 50%;
+}
+
+img, .track-info {
+    padding: 5px;
+}
+
+.track-info {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.track-info p:first-child {
+    font-size: 0.9rem;
+}
+
+.track-info p:last-child {
+    font-size: 0.7rem;
 }
 
 button {
@@ -15,11 +44,8 @@ button {
     width: fit-content;
 }
 
-
-
 button #play-pause-btn {
-    color: red;
-    grid-column: 1;
+    color: DodgerBlue;
 }
 
 .favorite-track {
@@ -28,4 +54,20 @@ button #play-pause-btn {
 
 .not-favorite-track {
     color:grey;
+}
+
+@media screen and (min-width:800px) {
+    .track-container {
+        width: 700px;
+    }
+
+    .track-info {
+        width: 500px;
+    }
+
+    .track-container:hover {
+        transform: scale(1.1, 1);
+        box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+        -5px -5px 30px 15px rgba(0,0,0,0.22);
+    }
 }
