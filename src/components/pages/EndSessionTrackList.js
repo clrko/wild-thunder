@@ -30,12 +30,13 @@ class EndSessionTrackList extends Component {
     render() {
         return (
             <div>
+                <button onClick={this.handleToggleClick}><FontAwesomeIcon icon={this.state.isPaused? faPlay : faPause }/></button>
                 <p>{this.props.sessionHistory.name}</p>
                 <p>{this.props.sessionHistory.artistName}</p>
+                <input id="volume" type="range" min="0" max="10" value="4"></input>
                 <audio id={this.props.sessionHistory.id} src={this.props.sessionHistory.previewURL} controls>
                     <source type="audio/mpeg" />
                 </audio>
-                <button onClick={this.handleToggleClick}><FontAwesomeIcon icon={this.state.isPaused? faPlay : faPause }/></button>
             </div>
         )
     }
