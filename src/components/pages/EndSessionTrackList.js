@@ -37,7 +37,7 @@ class EndSessionTrackList extends Component {
         return (
             <div >
                 <div className="track-container">
-                    <img src="https://picsum.photos/id/237/50" alt="placeholder" />
+                    <img src="https://picsum.photos/id/1042/50" alt="placeholder" />
                     <div className="track-info">
                         <p>{this.props.sessionHistory.name}</p> 
                         <p>{this.props.sessionHistory.artistName}</p>
