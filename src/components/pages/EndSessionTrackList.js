@@ -3,15 +3,21 @@ import React, {Component} from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import { faPause } from '@fortawesome/free-solid-svg-icons'
-/* import { faVolumeUp } from '@fortawesome/free-solid-svg-icons' */
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+
+import "./EndSessionTrackList.css"
 
 
 class EndSessionTrackList extends Component {
 
     state = {
-        isPaused: true
+        isPaused: true,
+        isFavorite:false,
     }
 
+    handleFavoriteClick = () => {
+        this.setState({isFavorite:!this.state.isFavorite})
+    }
     
 
     handleToggleClick = () => {
@@ -29,11 +35,15 @@ class EndSessionTrackList extends Component {
 
     render() {
         return (
-            <div>
-                <button onClick={this.handleToggleClick}><FontAwesomeIcon icon={this.state.isPaused? faPlay : faPause }/></button>
-                <p>{this.props.sessionHistory.name}</p>
-                <p>{this.props.sessionHistory.artistName}</p>
-                <input id="volume" type="range" min="0" max="10" value="4"></input>
+            <div >
+                <div className="track-container">
+                    <button onClick={this.handleToggleClick}><FontAwesomeIcon id="play-pause-btn" icon={this.state.isPaused? faPlay : faPause }/></button>
+                    <div>
+                        <p>{this.props.sessionHistory.name}</p> 
+                        <p>{this.props.sessionHistory.artistName}</p>
+                    </div>
+                    <button onClick={this.handleFavoriteClick}><FontAwesomeIcon className={this.state.isFavorite? "favorite-track" : "not-favorite-track"} icon={faHeart}/></button>
+                </div>
                 <audio id={this.props.sessionHistory.id} src={this.props.sessionHistory.previewURL} controls>
                     <source type="audio/mpeg" />
                 </audio>
