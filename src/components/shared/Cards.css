@@ -2,19 +2,6 @@ body {
     background: #36393F;
 }
 
-.container-card {
-    display: flex;
-    justify-content: center;
-}
-
-.cards-list {
-    z-index: 0;
-    width: 60%;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
 .card {
     margin: 30px 10px;
     width: 200px;
