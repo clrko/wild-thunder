@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container-card {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15vh;
+}
+
+.cards-list {
+    z-index: 0;
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
