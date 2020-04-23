@@ -1,0 +1,11 @@
+
+.endsession-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    margin: 20px auto;
+    width: fit-content;
+}

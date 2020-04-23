@@ -5,6 +5,9 @@ import axios from 'axios';
 import Cards from '../shared/Cards';
 import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter';
+import ScrollToTop from '../shared/ScrollToTop';
+
+import './ThemePage.css';
 
 const themeBackgroundColor = ['#0089BA', '#008E9B', '#845EC2', '#D65DB1', '#FF6F91', '#FF9671', '#FFC75F', '#B8E067', '#ffcc96', '#0089BA', '#008E9B', '#845EC2', '#D65DB1', '#FF6F91', '#FF9671', '#FFC75F', '#B8E067', '#ffcc96', '#0089BA', '#008E9B', '#845EC2', '#D65DB1', '#FF6F91', '#FF9671', '#FFC75F', '#B8E067', '#ffcc96'
 ];
@@ -42,6 +45,7 @@ class ThemePage extends Component {
                         )}
                     </div>
                 </div>
+                <ScrollToTop />
             </div>
         );
     }
