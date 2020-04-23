@@ -8,7 +8,7 @@ import { faStepForward } from '@fortawesome/free-solid-svg-icons'
 class GameSessionNextButton extends React.Component {
     render () {
       return (
-        <button className="next_button"><FontAwesomeIcon icon={faStepForward} className="next_icon" /> 
+        <button onClick={this.props.nextSong} className="next_button"><FontAwesomeIcon icon={faStepForward} className="next_icon" /> 
         </button>
       );
     }
