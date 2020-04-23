@@ -3,3 +3,29 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.track-container {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    background:transparent;
+    border: none;
+    width: fit-content;
+}
+
+
+
+button #play-pause-btn {
+    color: red;
+    grid-column: 1;
+}
+
+.favorite-track {
+    color: yellow;
+}
+
+.not-favorite-track {
+    color:grey;
+}
