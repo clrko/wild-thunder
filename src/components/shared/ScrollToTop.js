@@ -29,7 +29,7 @@ class ScrollToTop extends Component {
 
     }
 
-    componentDidUnmount() {
+    componentWillUnmount() {
       document.addEventListener("scroll", event =>  this.toggleVisibility())
     }
 
