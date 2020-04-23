@@ -29,6 +29,10 @@ class ScrollToTop extends Component {
 
     }
 
+    componentDidUnmount() {
+      document.addEventListener("scroll", event =>  this.toggleVisibility())
+    }
+
     render() {
       return (
         <div className="scroll-to-top">
