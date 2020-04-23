@@ -1,19 +1,23 @@
 import React from 'react';
 import "./Cards.css"
+import { NavLink } from 'react-router-dom';
 
 
 function Cards(props) {
     return (
-        <div className="card" style={props.divStyle}>
+        <NavLink to={
+            {pathname:`/gamesession`, state:props.genreId}
+            }>
+        <div className="card" style={{background: props.divStyle}}>
             <div className="card_image">
                 <div className="card_title title-white">
-                    <div>{props.title}</div>
+                    <div>{props.genreTitle}</div>
                 </div>
             </div>
         </div>
+        </NavLink>
     );
 }
-
 
 export default Cards
 

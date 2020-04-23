@@ -8,15 +8,13 @@ import GameSessionNextButton from "./GameSessionNextButton"
 import GameSessionTimeCounter from "./GameSessionTimeCounter"
 import GameSessionValidateButton from "./GameSessionValidateButton"
 
-
 const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
-
-const genresCode = "g.115" // Pop
 
 const rounds = 5
 
 class GameSession extends React.Component {
     state = {
+        genresCode: this.props.location.state,
         artistsList: [], /*Gives a random list of artists*/
         artistTrack: {}, /* Contains a random song from a selected artist */
         isLoaded: false,
@@ -83,11 +81,11 @@ class GameSession extends React.Component {
 
 
     componentDidMount() {
-        this.getArtistsList(genresCode)
+        this.getArtistsList(this.state.genresCode)
     }
 
     componentWillUnmount() {
-        this.getArtistsList(genresCode)
+        this.getArtistsList(this.state.genresCode)
     }
 
 
