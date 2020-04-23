@@ -23,6 +23,10 @@ class GameSession extends React.Component {
         sessionHistory:[],
     }
 
+    componentDidMount() {
+        this.getArtistsList(this.state.genresCode)
+    }
+
     /* First call to the api to get a random list of artists. The number of artists selected will be defined by the rounds value */
     getArtistsList = (genresCode) => {
         axios.get(`http://api.napster.com/v2.2/genres/${genresCode}/artists/top`, 
@@ -31,7 +35,7 @@ class GameSession extends React.Component {
                     limit: rounds}})
             .then(res => {
                 console.log("Artists List: ", res.data) ||
-                    this.setState({ artistList: this.getListShuffled(res.data.artists) },
+                    this.setState(() => ({ artistList: this.getListShuffled(res.data.artists) }),
                         () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
             })
     }
@@ -41,11 +45,16 @@ class GameSession extends React.Component {
         axios.get(`https://api.napster.com/v2.2/artists/${artistID}/tracks/top`, {params: {apikey: API_KEY}})
             .then(res => {
                 console.log("Artist Tracks: ", res.data.tracks[0]) ||
-                    this.setState({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true },
+                    this.setState(() => ({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true }),
                         () => {
+                            this.addToHistory()
                             document.getElementById("audioPlayer").play()
                         })
             })
+    }
+
+    componentWillUnmount() {
+        this.getArtistsList(this.state.genresCode)
     }
 
     /* Randomized an array. this function is called both on the get ArtistsList and get ArtistTracksList */
@@ -61,33 +70,21 @@ class GameSession extends React.Component {
 
     /* These 3 functions are used to save the current track and then load the next song if we have not reach the round limit. In case the round limit is reach, the user will be redirected to the endsession. */
 
-    nextSong = () => {
-        this.setState({ numArtist: this.state.numArtist + 1 }, this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
-    }
-
-    addToHistory = () => {
-        this.setState({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] }, console.log("1GS state history is:", this.state.sessionHistory))
-    }
-
-
     saveRoundAndLoadNextSong = event => {
-        this.addToHistory()
-        if (this.state.numArtist < rounds) {
+        if (this.state.numArtist < rounds - 1) {
             this.nextSong()
             console.log("2GS-saveandLoad:", this.state.sessionHistory)
             event.preventDefault() 
         }
     }
 
-
-    componentDidMount() {
-        this.getArtistsList(this.state.genresCode)
+    addToHistory = () => {
+        this.setState(() => console.log("1GS state history is:", this.state.sessionHistory) || ({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] }))
     }
 
-    componentWillUnmount() {
-        this.getArtistsList(this.state.genresCode)
+    nextSong = () => {
+        this.setState((prevState) => ({ numArtist: prevState.numArtist + 1 }), () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
     }
-
 
     /*  Functions used in the userinterface that aims at inputing a letter, erease and update the number of boxes based on the artist being played */
     handleClick = event => {
