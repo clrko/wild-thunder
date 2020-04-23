@@ -21,6 +21,7 @@ class GameSession extends React.Component {
         isLoaded: false,
         numArtist: 0,
         solution:"",
+        isPlaying : false ,
     }
     
     
@@ -59,8 +60,10 @@ class GameSession extends React.Component {
         } return list
     }
 
-    nextSong = () => {
+    nextSong = (value) => {
         this.setState({ numArtist: this.state.numArtist + 1 }, this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
+        this.setState({isPlaying : true})
+        if(value === 0){this.setState({isPlaying:false})}
     }
 
 
@@ -93,7 +96,7 @@ class GameSession extends React.Component {
     }
 
     render(){
-     
+       
         
         
         
@@ -106,13 +109,13 @@ class GameSession extends React.Component {
                 <div>Loading...</div>
                 :
                 <div>
-                    <GameSessionTimeCounter />
+                    <GameSessionTimeCounter isPlaying={this.state.isPlaying} />
                     <GameSessionAudioPlayer nextSong={this.nextSong} artistTrack={this.state.artistTrack}/>
                     <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
-                    <GameSessionButtonEndSession/>
                     <GameSessionValidateButton />
                     <GameSessionNextButton />
                     <PointSystem artistTrack={this.state.artistTrack} solution={this.state.solution}  />
+                    <GameSessionButtonEndSession/>
                 </div>
             };
             </div> 
