@@ -19,8 +19,8 @@ class GameSession extends React.Component {
         artistTrack: {}, /* Contains a random song from a selected artist */
         isLoaded: false,
         numArtist: 0,
-        solution:"",
-        sessionHistory:[],
+        solution: "",
+        sessionHistory: [],
     }
 
     componentDidMount() {
@@ -29,27 +29,35 @@ class GameSession extends React.Component {
 
     /* First call to the api to get a random list of artists. The number of artists selected will be defined by the rounds value */
     getArtistsList = (genresCode) => {
-        axios.get(`http://api.napster.com/v2.2/genres/${genresCode}/artists/top`, 
-                {params: {
-                    apikey: API_KEY, 
-                    limit: rounds}})
+        axios.get(`http://api.napster.com/v2.2/genres/${genresCode}/artists/top`,
+            {
+                params: {
+                    apikey: API_KEY,
+                    limit: rounds
+                }
+            })
             .then(res => {
-                console.log("Artists List: ", res.data) ||
-                    this.setState(() => ({ artistList: this.getListShuffled(res.data.artists) }),
-                        () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
+                this.setState(
+                    () => ({ artistList: this.getListShuffled(res.data.artists) }),
+                    () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
             })
     }
 
     /* Return a random song of the current artist*/
     getArtistTracksList = (artistID) => {
-        axios.get(`https://api.napster.com/v2.2/artists/${artistID}/tracks/top`, {params: {apikey: API_KEY}})
+        axios.get(`https://api.napster.com/v2.2/artists/${artistID}/tracks/top`,
+            {
+                params: {
+                    apikey: API_KEY
+                }
+            })
             .then(res => {
-                console.log("Artist Tracks: ", res.data.tracks[0]) ||
-                    this.setState(() => ({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true }),
-                        () => {
-                            this.addToHistory()
-                            document.getElementById("audioPlayer").play()
-                        })
+                this.setState(
+                    () => ({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true }),
+                    () => {
+                        this.addToHistory()
+                        document.getElementById("audioPlayer").play()
+                    })
             })
     }
 
@@ -61,7 +69,7 @@ class GameSession extends React.Component {
     getListShuffled = (list) => {
         let newIndex, temp;
         for (let i = list.length - 1; i > 0; i--) {
-            newIndex = Math.floor(Math.random() * (i+1));
+            newIndex = Math.floor(Math.random() * (i + 1));
             temp = list[i];
             list[i] = list[newIndex];
             list[newIndex] = temp;
@@ -73,17 +81,18 @@ class GameSession extends React.Component {
     saveRoundAndLoadNextSong = event => {
         if (this.state.numArtist < rounds - 1) {
             this.nextSong()
-            console.log("2GS-saveandLoad:", this.state.sessionHistory)
-            event.preventDefault() 
+            event.preventDefault()
         }
     }
 
     addToHistory = () => {
-        this.setState(() => console.log("1GS state history is:", this.state.sessionHistory) || ({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] }))
+        this.setState(() => ({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] }))
     }
 
     nextSong = () => {
-        this.setState((prevState) => ({ numArtist: prevState.numArtist + 1 }), () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
+        this.setState(
+            (prevState) => ({ numArtist: prevState.numArtist + 1 }),
+            () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
     }
 
     /*  Functions used in the userinterface that aims at inputing a letter, erease and update the number of boxes based on the artist being played */
@@ -110,26 +119,25 @@ class GameSession extends React.Component {
         }
     }
 
-    render(){
-        console.log("GSrender:", this.state.sessionHistory)
-        return(
+    render() {
+        return (
             <div>
-                {!this.state.isLoaded ? 
-                <div>Loading...</div>
-                :
-                <div>
-                    <GameSessionTimeCounter />
-                    <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
-                    <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
-                    <GameSessionButtonEndSession/>
-                    <GameSessionValidateButton />
-                    <GameSessionNextButton />
-                </div>
-            }
-            </div> 
+                {!this.state.isLoaded ?
+                    <div>Loading...</div>
+                    :
+                    <div>
+                        <GameSessionTimeCounter />
+                        <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
+                        <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
+                        <GameSessionButtonEndSession />
+                        <GameSessionValidateButton />
+                        <GameSessionNextButton />
+                    </div>
+                }
+            </div>
         )
     }
-    
+
 }
 
 export default GameSession
