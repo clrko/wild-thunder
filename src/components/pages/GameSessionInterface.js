@@ -11,10 +11,10 @@ const GameSessionInterface = props => {
         <div className="interface-container">
             <div className="solutionDisplayBoxes">
             {
-                artistName.split(" ").map((word) => (
-                    <div className="word">
-                        {word.split("").map(() =>
-                            <div className="letter"></div>
+                artistName.split(" ").map((word,i) => (
+                    <div key={i} className="word">
+                        {word.split("").map((_,i) =>
+                            <div key={i} className="letter"></div>
                         )}
                     </div>
                 ))
@@ -25,8 +25,8 @@ const GameSessionInterface = props => {
             <div>
                 <div className="letterSelection">
                     {
-                        singleLetter(artistName).split("").map(letter =>
-                        <input type="button" className="buttonLetter" value={letter} onClick={props.handleClick} />
+                        singleLetter(artistName).split("").map((letter,i) =>
+                        <input type="button" key={i} className="buttonLetter" value={letter} onClick={props.handleClick} />
                         )
                     }
                 </div>

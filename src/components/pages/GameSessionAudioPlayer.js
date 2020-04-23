@@ -5,7 +5,6 @@ import "./GameSessionAudioPlayer.css"
 
 
 const GameSessionAudioPlayer = (props) => {
-    console.log("3audio session:", props.sessionHistory)
     return (
         <div className="container">
                 <div id="tracks-container">
