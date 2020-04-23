@@ -8,7 +8,7 @@ const singleLetter = s => s.toUpperCase().replace(/\s+/g, '').split("").sort().r
 const GameSessionInterface = props => {
     const artistName = props.artistTrack.artistName
     return (
-        <div>
+        <div className="interface-container">
             <div className="solutionDisplayBoxes">
             {
                 artistName.split(" ").map((word) => (

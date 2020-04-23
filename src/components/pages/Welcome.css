@@ -1,26 +1,19 @@
-.button-login{ 
-    display: block;
-    width: 110px;
-    height: 50px;
-    font-size: 24px;
-    text-transform: uppercase;
-    background:black;
-    color: red;
-    border-style: none;
-    border-radius: 6px;
-    box-shadow: 0 6px 0 red;
-    cursor: pointer;
-    margin-left: 36%;
-    margin-top: 30px;
-}
 .login-page {
     display: flex;
     flex-direction: column;
-    padding-left: 15%;
-    padding-top: 10%;
-    padding-right: 0;
-    
+    align-items: center;
+    margin-top: 30px;
 }
+
+.title-login , .label-login {
+    text-align: center;
+}
+
+.label-login{
+    font-size: 20px;
+    margin-top: 30px;
+}
+
 .input-login{
     margin-top: 30px;
     width: 340px;
@@ -31,20 +24,25 @@
     font-style: italic;
     outline: 2px solid rgba(161, 5, 5, 0.61);
     box-shadow: 0 0 5px 1px rgba(161, 5, 5, 0.61);
-    border-style:none ;
-    margin-left: 28%;
-    
+    border-style:none
+}
 
-}
-.title-login , .label-login {
-    text-align: center;
-}
-.label-login{
-    font-size: 20px;
+.button-login{ 
+    display: block;
+    width: 110px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background:black;
+    color: red;
+    border-style: none;
+    border-radius: 6px;
+    box-shadow: 0 6px 0 red;
+    cursor: pointer;
     margin-top: 30px;
-    padding-right: 21%;
 }
+
 .title-login{
     font-size: 30px;
-    padding-right : 20% ;
 }

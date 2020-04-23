@@ -23,7 +23,7 @@ function ButtonEndSession() {
                     <h2>Are you sure you want to leave the session ?</h2>
                     
                     <div>
-                        <Link to='/Home'>
+                        <Link to='/'>
                             <button type='button'>Yes</button>
                         </Link>
                         <button onClick={() => setModalIsOpen(false)}>No</button>

@@ -9,13 +9,10 @@
     cursor: pointer;
     margin-left: 43%;
     margin-top: 30px;
-    
-    
 }
 .homepageModal{
     text-align: center;
     padding-top: 30px;
-    padding-right: 3%;
 }
 .login-modal {
     display: flex;
@@ -44,8 +41,3 @@
 .title-login-modal{
     font-size: 20px;
 }
-
-
-
-    
-    
