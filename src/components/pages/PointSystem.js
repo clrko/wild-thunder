@@ -7,8 +7,7 @@ class PointSystem extends React.Component{
         super(props);
         this.state={
             count : 0 ,
-            artistTrack : {},
-            solution : "",
+           
                     
         }
        
@@ -18,22 +17,20 @@ class PointSystem extends React.Component{
 
     }
 
-    handleChange  (props)  {
-        if(props.solution === props.artistTrack.artistName){
-            this.setState({count : this.state.count + 1});}
-           
-        }
-    componentWillUpdate(props){
-        console.log(props.artistTrack.artistName)
-            console.log(props.solution);
-        
-    }
-    
-
-
+    handleChange  = () =>  {
        
-    render(){
+                let artistName = this.props.artistTrack.artistName;
+                let reponse = artistName.toUpperCase();
+                let soluce = reponse.replace(/\s+/g, '')
+                
+            if(soluce === this.props.solution){
+                this.setState({count : this.state.count + 1});}
+
+            }
+
+     render(){
         let {count} = this.state;
+      
        
         
         return(
