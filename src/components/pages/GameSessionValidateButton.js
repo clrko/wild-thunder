@@ -8,7 +8,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons'
 class GameSessionValidateButton extends React.Component {
     render () {
       return (
-        <button className="validate_button"><FontAwesomeIcon icon={faCheck} className="validate_icon" /> 
+        <button onClick={this.props.nextSong} className="validate_button"><FontAwesomeIcon icon={faCheck} className="validate_icon" /> 
         </button>
       );
     }
