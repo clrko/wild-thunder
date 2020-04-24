@@ -1,5 +1,5 @@
 import React from 'react'
-import './PointSystem.css'
+import './GameSessionPointSystem.css'
 import "./GameSessionNextButton.css"
 import "./GameSessionValidateButton.css"
 
