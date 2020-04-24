@@ -8,19 +8,15 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { faStepForward } from '@fortawesome/free-solid-svg-icons'
 
 class PointSystem extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
+            state={
             count : 0 ,
            
                     
         }
        
         
-        this.handleChange = this.handleChange.bind(this);
-       this.validateAndChange=this.validateAndChange.bind(this)
 
-    } 
+    
     validateAndChange = () => {
          this.setState(this.handleChange )
          this.setState(this.props.nextSong)
