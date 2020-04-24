@@ -4,9 +4,10 @@ import axios from "axios"
 import GameSessionAudioPlayer from "./GameSessionAudioPlayer"
 import GameSessionButtonEndSession from "./GameSessionButtonEndSession"
 import GameSessionInterface from "./GameSessionInterface"
-import GameSessionNextButton from "./GameSessionNextButton"
+
 import GameSessionTimeCounter from "./GameSessionTimeCounter"
-import GameSessionValidateButton from "./GameSessionValidateButton"
+
+import PointSystem from "./GameSessionPointSystem"
 
 const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
 
@@ -19,6 +20,7 @@ class GameSession extends React.Component {
         artistTrack: {}, /* Contains a random song from a selected artist */
         isLoaded: false,
         numArtist: 0,
+        isPlaying : false ,
         solution: "",
         sessionHistory: [],
     }
@@ -26,6 +28,10 @@ class GameSession extends React.Component {
     componentDidMount() {
         this.getArtistsList(this.state.genresCode)
     }
+    
+    
+    
+    
 
     /* First call to the api to get a random list of artists. The number of artists selected will be defined by the rounds value */
     getArtistsList = (genresCode) => {
@@ -75,25 +81,32 @@ class GameSession extends React.Component {
             list[newIndex] = temp;
         } return list
     }
-
-    /* These 3 functions are used to save the current track and then load the next song if we have not reach the round limit. In case the round limit is reach, the user will be redirected to the endsession. */
-
     saveRoundAndLoadNextSong = event => {
-        if (this.state.numArtist < rounds - 1) {
-            this.nextSong()
-            event.preventDefault()
-        }
+            if (this.state.numArtist < rounds - 1) {
+                this.nextSong()
+                event.preventDefault()
+            }
+     }
+    
+    addToHistory = () => {
+        this.setState({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] }, console.log("1GS state history is:", this.state.sessionHistory))
     }
 
+    nextSong = () => {
+            this.setState(
+                (prevState) => ({ numArtist: prevState.numArtist + 1 }),
+                () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id));
+                this.setState({isPlaying : true})
+        }
+    
+
+    
+    
     addToHistory = () => {
         this.setState(() => ({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] }))
     }
 
-    nextSong = () => {
-        this.setState(
-            (prevState) => ({ numArtist: prevState.numArtist + 1 }),
-            () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id))
-    }
+   
 
     /*  Functions used in the userinterface that aims at inputing a letter, erease and update the number of boxes based on the artist being played */
     handleClick = event => {
@@ -126,12 +139,11 @@ class GameSession extends React.Component {
                 <div>Loading...</div>
                 :
                 <div>
-                    <GameSessionTimeCounter />
+                    <GameSessionTimeCounter isPlaying={this.state.isPlaying} />
                     <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                     <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
+                    <PointSystem artistTrack={this.state.artistTrack} solution={this.state.solution} nextSong={this.nextSong} />
                     <GameSessionButtonEndSession/>
-                    <GameSessionValidateButton nextSong={this.nextSong}/>
-                    <GameSessionNextButton nextSong={this.nextSong}/>
                 </div>
             }
             </div> 
