@@ -89,7 +89,7 @@ class GameSession extends React.Component {
      }
     
     addToHistory = () => {
-        this.setState({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] }, console.log("1GS state history is:", this.state.sessionHistory))
+        this.setState({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] })
     }
 
     nextSong = () => {
@@ -98,14 +98,6 @@ class GameSession extends React.Component {
                 () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id));
                 this.setState({isPlaying : true})
         }
-    
-
-    
-    
-    addToHistory = () => {
-        this.setState(() => ({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] }))
-    }
-
    
 
     /*  Functions used in the userinterface that aims at inputing a letter, erease and update the number of boxes based on the artist being played */
