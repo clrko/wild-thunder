@@ -5,6 +5,10 @@
     flex-wrap: wrap;
 }
 
+.userInput {
+    display: none;
+}
+
 .word {
     display:flex;
     margin: 10px;
@@ -44,5 +48,9 @@
     }
     .correctionButton {
         display: none;
+    }
+
+    .userInput {
+        display:block;
     }
 }
