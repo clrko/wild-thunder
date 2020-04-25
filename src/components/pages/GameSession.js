@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import { Redirect } from 'react-router-dom'
 
 import GameSessionAudioPlayer from "./GameSessionAudioPlayer"
 import GameSessionButtonEndSession from "./GameSessionButtonEndSession"
@@ -23,6 +24,7 @@ class GameSession extends React.Component {
         isPlaying: false,
         solution: "",
         sessionHistory: [],
+        redirect: null,
     }
 
     componentDidMount() {
@@ -61,7 +63,7 @@ class GameSession extends React.Component {
                 this.setState(
                     () => ({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true }),
                     () => {
-                        this.addToHistory()
+
                         document.getElementById("audioPlayer").play()
                     })
             })
@@ -81,11 +83,14 @@ class GameSession extends React.Component {
             list[newIndex] = temp;
         } return list
     }
-    saveRoundAndLoadNextSong = event => {
-        if (this.state.numArtist < rounds - 1) {
+    saveRoundAndLoadNextSong = () => {
+        this.addToHistory()
+        if (this.state.numArtist === rounds - 1) {
+            this.setState({ redirect: "/endsession" })
+        } else if (this.state.numArtist < rounds - 1) {
             this.nextSong()
-            event.preventDefault()
-        }
+        } 
+
     }
 
     nextSong = () => {
@@ -124,6 +129,9 @@ class GameSession extends React.Component {
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory }} />
+        }
         return (
             <div>
                 {!this.state.isLoaded ?
