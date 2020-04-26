@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 function Cards(props) {
     return (
         <NavLink to={
-            {pathname:`/gamesession`, state:props.genreId}
+            {pathname: props.pathname, state:props.genreId}
             }>
         <div className="card" style={{background: props.divStyle}}>
             <div className="card_image">
