@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Cards from '../shared/Cards';
+import MainRules from './MainRules';
 import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter';
 import ScrollToTop from '../shared/ScrollToTop';
@@ -41,7 +42,7 @@ class ThemePage extends Component {
                 <div className="container-card">
                     <div className="cards-list">
                         {this.state.genresList.map((genre, i) =>
-                            <Cards key={genre.id} genreId={genre.id} divStyle={themeBackgroundColor[i]} genreTitle={genre.name.replace(/\//g, " / ")}></Cards>
+                            <Cards key={genre.id} genreId={genre.id} divStyle={themeBackgroundColor[i]} genreTitle={genre.name.replace(/\//g, " / ")} pathname="/gamesession"></Cards>
                         )}
                     </div>
                 </div>
