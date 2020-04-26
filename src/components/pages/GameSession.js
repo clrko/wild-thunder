@@ -8,7 +8,7 @@ import GameSessionInterface from "./GameSessionInterface"
 
 import GameSessionTimeCounter from "./GameSessionTimeCounter"
 
-import PointSystem from "./GameSessionPointSystem"
+import GameSessionPointSystem from "./GameSessionPointSystem"
 
 const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
 
@@ -153,7 +153,7 @@ class GameSession extends React.Component {
                         <GameSessionTimeCounter isPlaying={this.state.isPlaying} />
                         <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                         <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
-                        <PointSystem validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} />
+                        <GameSessionPointSystem validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} />
                         <GameSessionButtonEndSession />
                     </div>
                 }
