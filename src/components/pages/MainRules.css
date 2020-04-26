@@ -10,7 +10,6 @@
     "title"
     "rules_thunder"
     "rules_registration"
-    "rules_cards"
     "rules_points";
     margin: 0 auto;
     margin-bottom: 11vh;
@@ -31,7 +30,7 @@
 }
 
 .rules_container #rules_cards {
-    grid-area: "rules_cards";
+    display: none;
 }
 .rules_container #rules_points {
     grid-area: "rules_points";
