@@ -118,19 +118,18 @@ class GameSession extends React.Component {
     handleClick = event => {
         const letter = event.target.value
         if (this.state.solution.length < this.state.artistTrack.artistName.replace(/\s+/g, '').length) {
-            this.setState({ solution: this.state.solution + letter }, this.updateBoxes)
+            this.setState({ solution: this.state.solution + letter })
         }
     }
 
     handleChange = event => {
         const input = event.target.value.replace(/\s+/g, '').toUpperCase()
-        this.setState({ solution: input }, this.updateBoxes)
+        this.setState({ solution: input })
     }
 
     handleCorrection = () => {
-        this.setState({ solution: this.state.solution.slice(0, -1) }, this.updateBoxes)
+        this.setState({ solution: this.state.solution.slice(0, -1) })
     }
-
 
     componentDidUpdate(props,prevState) {
         if (prevState.solution !== this.state.solution) {
@@ -139,10 +138,6 @@ class GameSession extends React.Component {
                 solutionBoxes[i].textContent = this.state.solution[i]
             }
         }
-    }
-
-    updateBoxes = () => {
-
     }
 
     render() {
