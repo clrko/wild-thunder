@@ -22,7 +22,7 @@ class GameSession extends React.Component {
         isLoaded: false,
         numArtist: 0,
         isPlaying: false,
-        solution: "",
+        solution: null,
         score: 0,
         sessionHistory: [],
         redirect: null,
@@ -62,9 +62,9 @@ class GameSession extends React.Component {
             })
             .then(res => {
                 this.setState(
-                    () => ({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true }),
+                    () => ({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true, solution: ""}),
                     () => {
-
+                        document.getElementById("userInput").value = ""
                         document.getElementById("audioPlayer").play()
                     })
             })
@@ -131,11 +131,18 @@ class GameSession extends React.Component {
         this.setState({ solution: this.state.solution.slice(0, -1) }, this.updateBoxes)
     }
 
-    updateBoxes = () => {
-        const solutionBoxes = document.getElementsByClassName("letter")
-        for (let i = 0; i < this.state.artistTrack.artistName.replace(/\s+/g, '').length; i++) {
-            solutionBoxes[i].textContent = this.state.solution[i]
+
+    componentDidUpdate(props,prevState) {
+        if (prevState.solution !== this.state.solution) {
+            const solutionBoxes = document.getElementsByClassName("letter")
+            for (let i = 0; i < this.state.artistTrack.artistName.replace(/\s+/g, '').length; i++) {
+                solutionBoxes[i].textContent = this.state.solution[i]
+            }
         }
+    }
+
+    updateBoxes = () => {
+
     }
 
     render() {

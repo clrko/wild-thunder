@@ -21,7 +21,7 @@ const GameSessionInterface = props => {
             }
             </div>
             {/* comment value to avoid auto filling the input  */}
-            <input type="text" name="solution" className="userInput" onChange={props.handleChange} spellCheck="false" />
+            <input type="text" name="solution" id="userInput" className="userInput" onChange={props.handleChange} spellCheck="false" />
             <div>
                 <div className="letterSelection">
                     {
