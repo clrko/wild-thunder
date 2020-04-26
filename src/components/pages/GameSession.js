@@ -23,6 +23,7 @@ class GameSession extends React.Component {
         numArtist: 0,
         isPlaying: false,
         solution: "",
+        score: 0,
         sessionHistory: [],
         redirect: null,
     }
@@ -83,6 +84,15 @@ class GameSession extends React.Component {
             list[newIndex] = temp;
         } return list
     }
+
+    validateAndChange = () => {
+        const artistToFind = this.state.artistTrack.artistName.toUpperCase().replace(/\s+/g, '')
+        if (artistToFind === this.state.solution) {
+            this.setState({ score: this.state.score + 1 });
+            this.saveRoundAndLoadNextSong()
+        }
+    }
+
     saveRoundAndLoadNextSong = () => {
         this.addToHistory()
         if (this.state.numArtist === rounds - 1) {
@@ -141,7 +151,7 @@ class GameSession extends React.Component {
                         <GameSessionTimeCounter isPlaying={this.state.isPlaying} />
                         <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                         <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
-                        <PointSystem artistTrack={this.state.artistTrack} solution={this.state.solution} nextSong={this.nextSong} />
+                        <PointSystem validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} />
                         <GameSessionButtonEndSession />
                     </div>
                 }
