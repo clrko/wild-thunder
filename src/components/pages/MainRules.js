@@ -37,7 +37,7 @@ class MainRules extends Component {
                     </div>
                     
                     <div id="rules_points">
-                        <h2>Points counting</h2>
+                        <h2>Point counting</h2>
                         <ul>
                             <li>Find the artist : 1 point</li>
                             <li>Find the title: 0.5 points</li>

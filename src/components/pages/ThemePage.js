@@ -36,8 +36,14 @@ class ThemePage extends Component {
     render() {
         return (
             <div>
+                <div className="notshown_desktop">
                 <NavbarHeader />
+                <ScrollToTop  />
+                </div>
                 <NavbarFooter />
+                <div className="main_rules">
+                    <MainRules />
+                </div>
                 <h1>{`Hi ${this.state.username}, choose a theme and take on the challenge`}</h1>
                 <div className="container-card">
                     <div className="cards-list">
@@ -46,7 +52,6 @@ class ThemePage extends Component {
                         )}
                     </div>
                 </div>
-                <ScrollToTop />
             </div>
         );
     }

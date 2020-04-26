@@ -18,3 +18,17 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
+.main_rules {
+    display: none;
+}
+
+@media screen and (min-width:700px) {
+    .main_rules {
+        display: block;
+    }
+
+    .notshown_desktop {
+        display: none;
+    }
+}
