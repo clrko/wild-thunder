@@ -10,7 +10,7 @@ import "./MainRules.css"
 class MainRules extends Component {
     render(){
         return (
-            <div>
+            <div className="rules_wrapper">
                 <NavbarHeader />
                 <NavbarFooter />
                 <div className="rules_container">
