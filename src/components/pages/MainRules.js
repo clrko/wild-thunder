@@ -17,14 +17,19 @@ class MainRules extends Component {
                     <h1>Main Rules</h1>
                     <div id="rules_thunder">
                         <h2>What is Thunder?</h2>
-                        <p>Thunder is a music quiz site simple to use and completely free that help you enrich your musical knowledge.<br/><br/>You don't need to register to start a game. </p>
+                        <p>Thunder is a music quiz website simple to use and completely free that help you enrich your musical knowledge.<br/><br/>You don't need to register to start a game. Just choose a theme, choose a game mode and enjoy! </p>
                     </div>
                     
                     <div id="rules_registration">
                         <h2>Registration</h2>
-                        <p> Registration allows you to fully enjoy a taylored game experience by choosing your profile, accessing personalized recommendations, creating private playlists and appearing in the ranking.
-                        <br/><br/>
-                        </p>
+                        <p> Registration allows you to fully enjoy a taylored game experience:</p>
+                        <br/>
+                        <ul>
+                            <li>choosing your profile</li>
+                            <li>personalized recommendations</li>
+                            <li>creating private playlists</li>
+                            <li>appearing in the ranking</li>
+                        </ul>
                     </div>
 
                     <div id="rules_cards">
