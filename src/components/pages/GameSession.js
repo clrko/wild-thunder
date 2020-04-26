@@ -113,7 +113,7 @@ class GameSession extends React.Component {
     }
 
     addToHistory = () => {
-        this.setState((prevState) => ({ sessionHistory: [...prevState.sessionHistory, prevState.artistTrack] }))
+        this.setState((prevState) => ({ sessionHistory: [...prevState.sessionHistory, {numArtist: prevState.numArtist, artistTrack: prevState.artistTrack, isArtistFound: prevState.isArtistFound} ] }))
     }
 
     /*  Functions used in the userinterface that aims at inputing a letter, erease and update the number of boxes based on the artist being played */

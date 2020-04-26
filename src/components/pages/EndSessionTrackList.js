@@ -22,7 +22,7 @@ class EndSessionTrackList extends Component {
 
     handleToggleClick = () => {
 
-        const myAudio = document.getElementById(this.props.sessionHistory.id)
+        const myAudio = document.getElementById(this.props.sessionHistory.artistTrack.id)
         
         if (myAudio.paused) {
             this.setState({isPaused: !this.state.isPaused}) 
@@ -34,18 +34,19 @@ class EndSessionTrackList extends Component {
     }
 
     render() {
+        console.log(this.props.sessionHistory.isArtistFound)
         return (
             <div >
-                <div className="track-container">
+                <div className="track-container" style={this.props.sessionHistory.isArtistFound ? {border: "2px solid #4dff4d"} : {border: "2px solid #ff4d4d"}} >
                     <img src="https://picsum.photos/id/1042/50" alt="placeholder" />
                     <div className="track-info">
-                        <p>{this.props.sessionHistory.name}</p> 
-                        <p>{this.props.sessionHistory.artistName}</p>
+                        <p>{this.props.sessionHistory.artistTrack.name}</p> 
+                        <p>{this.props.sessionHistory.artistTrack.artistName}</p>
                     </div>
                     <button onClick={this.handleFavoriteClick}><FontAwesomeIcon className={this.state.isFavorite? "favorite-track" : "not-favorite-track"} icon={faHeart}/></button>
                     <button onClick={this.handleToggleClick}><FontAwesomeIcon id="play-pause-btn" icon={this.state.isPaused? faPlay : faPause }/></button>
                 </div>
-                <audio id={this.props.sessionHistory.id} src={this.props.sessionHistory.previewURL}>
+                <audio id={this.props.sessionHistory.artistTrack.id} src={this.props.sessionHistory.artistTrack.previewURL}>
                     <source type="audio/mpeg" />
                 </audio>
             </div>
