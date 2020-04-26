@@ -1,0 +1,44 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.rules_container {
+    display: grid;
+    grid-template-areas:
+    "title"
+    "rules_thunder"
+    "rules_registration"
+    "rules_cards"
+    "rules_points";
+    margin: 0 auto;
+    margin-bottom: 11vh;
+    width: 300px;
+    row-gap: 1em;
+}
+
+.rules_container h1 {
+    grid-area: "title";
+}
+
+.rules_container #rules_thunder {
+    grid-area: "rules_thunder";
+}
+
+.rules_container #rules_registration {
+    grid-area: "rules_registration";
+}
+
+.rules_container #rules_cards {
+    grid-area: "rules_cards";
+}
+.rules_container #rules_points {
+    grid-area: "rules_points";
+}
+
+
+.rules_container div h2 {
+    margin: 0 auto;
+    margin-bottom: 0.5em;
+}
