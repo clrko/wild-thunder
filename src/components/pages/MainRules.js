@@ -1,12 +1,13 @@
 import React, {Component} from "react"
 
+
 import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter';
 import ScrollToTop from '../shared/ScrollToTop';
 
 import "./MainRules.css"
 
-class MainRules extends  Component {
+class MainRules extends Component {
     render(){
         return (
             <div>
@@ -22,12 +23,12 @@ class MainRules extends  Component {
                     <div id="rules_registration">
                         <h2>Registration</h2>
                         <p> Registration allows you to fully enjoy a taylored game experience by choosing your profile, accessing personalized recommendations, creating private playlists and appearing in the ranking.
-                        <br/><br/>Here is an overview of the game mode, profiles and ranking.
+                        <br/><br/>
                         </p>
                     </div>
 
                     <div id="rules_cards">
-
+                        <p>Here is an overview of the mode, the profiles and the ranking.</p>
                     </div>
                     
                     <div id="rules_points">
