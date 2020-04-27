@@ -24,8 +24,10 @@ class GameSession extends React.Component {
         isPlaying: false,
         solution: null,
         score: 0,
+        isArtistFound: null,
         sessionHistory: [],
         redirect: null,
+
     }
 
     componentDidMount() {
@@ -62,7 +64,7 @@ class GameSession extends React.Component {
             })
             .then(res => {
                 this.setState(
-                    () => ({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true, solution: ""}),
+                    () => ({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true, solution: "", isArtistFound: false}),
                     () => {
                         document.getElementById("userInput").value = ""
                         document.getElementById("audioPlayer").play()
@@ -88,7 +90,7 @@ class GameSession extends React.Component {
     validateAndChange = () => {
         const artistToFind = this.state.artistTrack.artistName.toUpperCase().replace(/\s+/g, '')
         if (artistToFind === this.state.solution) {
-            this.setState({ score: this.state.score + 1 });
+            this.setState((prevState) => ({ score: prevState.score + 1, isArtistFound: true }));
             this.saveRoundAndLoadNextSong()
         }
     }
@@ -111,7 +113,7 @@ class GameSession extends React.Component {
     }
 
     addToHistory = () => {
-        this.setState(() => ({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] }))
+        this.setState((prevState) => ({ sessionHistory: [...prevState.sessionHistory, {numArtist: prevState.numArtist, artistTrack: prevState.artistTrack, isArtistFound: prevState.isArtistFound} ] }))
     }
 
     /*  Functions used in the userinterface that aims at inputing a letter, erease and update the number of boxes based on the artist being played */
