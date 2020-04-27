@@ -5,6 +5,10 @@
     flex-wrap: wrap;
 }
 
+.userInput {
+    display: none;
+}
+
 .word {
     display:flex;
     margin: 10px;
@@ -29,11 +33,24 @@
     border-radius: 4px;
     margin: 1px;
     width: 26px;
-    height: 26px
+    height: 26px;
 }
 .interface-container{
     display : flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+@media screen and (min-width: 1200px) {
+    .buttonLetter {
+        pointer-events: none;
+    }
+    .correctionButton {
+        display: none;
+    }
+
+    .userInput {
+        display:block;
+    }
 }
