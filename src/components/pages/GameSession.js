@@ -4,7 +4,7 @@ import axios from "axios"
 import GameSessionAudioPlayer from "./GameSessionAudioPlayer"
 import GameSessionButtonEndSession from "./GameSessionButtonEndSession"
 import GameSessionInterface from "./GameSessionInterface"
-
+import GameSessionHeader from './GameSessionHeader'
 import GameSessionTimeCounter from "./GameSessionTimeCounter"
 
 import PointSystem from "./GameSessionPointSystem"
@@ -23,10 +23,14 @@ class GameSession extends React.Component {
         isPlaying : false ,
         solution: "",
         sessionHistory: [],
+        genresTitle : this.props.location.title,
+        color : this.props.location.background
+        
     }
 
     componentDidMount() {
         this.getArtistsList(this.state.genresCode)
+        
     }
     
     
@@ -125,12 +129,16 @@ class GameSession extends React.Component {
     }
 
     render() {
+        
+        
         return (
+            
             <div>
                 {!this.state.isLoaded ? 
                 <div>Loading...</div>
                 :
                 <div>
+                    <GameSessionHeader genresTitle ={this.props.location.title} color={this.props.location.background} />
                     <GameSessionTimeCounter isPlaying={this.state.isPlaying} />
                     <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                     <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />

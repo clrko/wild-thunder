@@ -1,21 +1,17 @@
 import React from "react"
+import './GameSessionHeader.css'
 
 
 class GameSessionHeader extends React.Component{
-    state={
-        history : this.props
-        
-    }
     
-
-
-     render(){
-        console.log(this.props.history)
+ render(){
+    const genreTitle = this.props.genresTitle
+    const color = this.props.color 
             
     return(
        
-        <div>
-            <p>{this.props.history.history.action}</p>
+        <div className="gameSessionHeader" style={{backgroundColor:color}}>
+            <p className="headerGenre" >{genreTitle}</p>
         </div>
     )
     
