@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import GameSessionAudioPlayer from "./GameSessionAudioPlayer";
 import GameSessionButtonEndSession from "./GameSessionButtonEndSession";
+import GameSessionHeader from "./GameSessionHeader"
 import GameSessionInterface from "./GameSessionInterface";
 import GameSessionTimeCounter from "./GameSessionTimeCounter";
 import GameSessionPointSystem from "./GameSessionPointSystem";
