@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
-import "./Navbar.css"
+import "./Navbar.css";
 
 
 class NavbarFooter extends Component {
@@ -17,7 +17,7 @@ class NavbarFooter extends Component {
                     <li><NavLink className="nav-title" activeClassName ="current" to="/sign_in/pseudo"><FontAwesomeIcon icon={faUser} className="nav-icon" /></NavLink></li>
                 </ul>
             </nav>
-        );
+        )
     }
 }
 export default NavbarFooter;
