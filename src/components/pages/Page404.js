@@ -1,9 +1,9 @@
 import React from "react";
-import {NavLink} from "react-router-dom"
+import {NavLink} from "react-router-dom";
 import vinyl from "../../images/vinyl.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import "./Page404.css"
+import "./Page404.css";
 
 class Page404 extends React.Component {
     render() {
@@ -18,5 +18,5 @@ class Page404 extends React.Component {
     }
 }
 
-export default Page404
+export default Page404;
 

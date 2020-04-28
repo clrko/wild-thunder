@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 
-import "./GameSessionAudioPlayer.css"
+import "./GameSessionAudioPlayer.css";
 
 
 const GameSessionAudioPlayer = (props) => {
@@ -14,10 +14,9 @@ const GameSessionAudioPlayer = (props) => {
                             <source type="audio/mpeg" />
                         </audio>
                     </div>
-                    <button onClick={props.saveRoundAndLoadNextSong}>Next song!!!</button>
                 </div>
         </div>
     )
 }
 
-export default GameSessionAudioPlayer
+export default GameSessionAudioPlayer;
