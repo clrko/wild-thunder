@@ -11,7 +11,7 @@ class ScrollToTop extends Component {
     };
   
     componentDidMount() {
-      /* this referes to the scroll component*/ ;
+      /* this referes to the scroll component*/ 
     document.addEventListener("scroll", event =>  this.toggleVisibility())
     }
 

@@ -1,13 +1,12 @@
-import React from "react"
-import axios from "axios"
+import React from "react";
+import axios from "axios";
+import { Redirect } from 'react-router-dom';
 
-import GameSessionAudioPlayer from "./GameSessionAudioPlayer"
-import GameSessionButtonEndSession from "./GameSessionButtonEndSession"
-import GameSessionInterface from "./GameSessionInterface"
-import GameSessionHeader from './GameSessionHeader'
-import GameSessionTimeCounter from "./GameSessionTimeCounter"
-
-import PointSystem from "./GameSessionPointSystem"
+import GameSessionAudioPlayer from "./GameSessionAudioPlayer";
+import GameSessionButtonEndSession from "./GameSessionButtonEndSession";
+import GameSessionInterface from "./GameSessionInterface";
+import GameSessionTimeCounter from "./GameSessionTimeCounter";
+import GameSessionPointSystem from "./GameSessionPointSystem";
 
 const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
 
@@ -16,26 +15,25 @@ const rounds = 5
 class GameSession extends React.Component {
     state = {
         genresCode: this.props.location.state,
-        artistsList: [], /*Gives a random list of artists*/
+        artistsList: [], /* Gives a random list of artists */
         artistTrack: {}, /* Contains a random song from a selected artist */
         isLoaded: false,
         numArtist: 0,
-        isPlaying : false ,
-        solution: "",
+        isPlaying: false,
+        solution: null,
+        score: 0,
+        isArtistFound: null,
         sessionHistory: [],
         genresTitle : this.props.location.title,
-        color : this.props.location.background
-        
+        color : this.props.location.background,
+        redirect: null,
     }
 
     componentDidMount() {
         this.getArtistsList(this.state.genresCode)
         
     }
-    
-    
-    
-    
+
 
     /* First call to the api to get a random list of artists. The number of artists selected will be defined by the rounds value */
     getArtistsList = (genresCode) => {
@@ -63,9 +61,9 @@ class GameSession extends React.Component {
             })
             .then(res => {
                 this.setState(
-                    () => ({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true }),
+                    () => ({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true, solution: "", isArtistFound: false}),
                     () => {
-                        this.addToHistory()
+                        document.getElementById("userInput").value = ""
                         document.getElementById("audioPlayer").play()
                     })
             })
@@ -85,52 +83,65 @@ class GameSession extends React.Component {
             list[newIndex] = temp;
         } return list
     }
-    saveRoundAndLoadNextSong = event => {
-            if (this.state.numArtist < rounds - 1) {
-                this.nextSong()
-                event.preventDefault()
-            }
-     }
-    
+
+    validateAndChange = () => {
+        const artistToFind = this.state.artistTrack.artistName.toUpperCase().replace(/\s+/g, '')
+        if (artistToFind === this.state.solution) {
+            this.setState((prevState) => ({ score: prevState.score + 1, isArtistFound: true }));
+            this.saveRoundAndLoadNextSong()
+        }
+    }
+
+    saveRoundAndLoadNextSong = () => {
+        this.addToHistory()
+        if (this.state.numArtist === rounds - 1) {
+            this.setState({ redirect: "/endsession" })
+        } else if (this.state.numArtist < rounds - 1) {
+            this.nextSong()
+        } 
+    }
+
     addToHistory = () => {
-        this.setState({ sessionHistory: [...this.state.sessionHistory, this.state.artistTrack] })
+        this.setState((prevState) => ({ sessionHistory: [...prevState.sessionHistory, {numArtist: prevState.numArtist, artistTrack: prevState.artistTrack, isArtistFound: prevState.isArtistFound} ] }))
     }
 
     nextSong = () => {
-            this.setState(
-                (prevState) => ({ numArtist: prevState.numArtist + 1 }),
-                () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id));
-                this.setState({isPlaying : true})
-        }
-   
+        this.setState(
+            (prevState) => ({ numArtist: prevState.numArtist + 1 }),
+            () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id));
+        this.setState({ isPlaying: true })
+    }
 
     /*  Functions used in the userinterface that aims at inputing a letter, erease and update the number of boxes based on the artist being played */
     handleClick = event => {
         const letter = event.target.value
         if (this.state.solution.length < this.state.artistTrack.artistName.replace(/\s+/g, '').length) {
-            this.setState({ solution: this.state.solution + letter }, this.updateBoxes)
+            this.setState({ solution: this.state.solution + letter })
         }
     }
 
     handleChange = event => {
         const input = event.target.value.replace(/\s+/g, '').toUpperCase()
-        this.setState({ solution: input }, this.updateBoxes)
+        this.setState({ solution: input })
     }
 
     handleCorrection = () => {
-        this.setState({ solution: this.state.solution.slice(0, -1) }, this.updateBoxes)
+        this.setState({ solution: this.state.solution.slice(0, -1) })
     }
 
-    updateBoxes = () => {
-        const solutionBoxes = document.getElementsByClassName("letter")
-        for (let i = 0; i < this.state.artistTrack.artistName.replace(/\s+/g, '').length; i++) {
-            solutionBoxes[i].textContent = this.state.solution[i]
+    componentDidUpdate(props,prevState) {
+        if (prevState.solution !== this.state.solution) {
+            const solutionBoxes = document.getElementsByClassName("letter")
+            for (let i = 0; i < this.state.artistTrack.artistName.replace(/\s+/g, '').length; i++) {
+                solutionBoxes[i].textContent = this.state.solution[i]
+            }
         }
     }
 
     render() {
-        
-        
+        if (this.state.redirect) {
+            return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory }} />
+        }
         return (
             
             <div>
@@ -142,14 +153,13 @@ class GameSession extends React.Component {
                     <GameSessionTimeCounter isPlaying={this.state.isPlaying} />
                     <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                     <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
-                    <PointSystem artistTrack={this.state.artistTrack} solution={this.state.solution} nextSong={this.nextSong} />
+                    <GameSessionPointSystem validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} />
                     <GameSessionButtonEndSession/>
                 </div>
             }
             </div> 
         )
     }
-
 }
 
-export default GameSession
+export default GameSession;
