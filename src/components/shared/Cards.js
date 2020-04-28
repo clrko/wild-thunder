@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Cards.css"
+import "./Cards.css";
 import { NavLink } from 'react-router-dom';
 
 
@@ -16,8 +16,8 @@ function Cards(props) {
             </div>
         </div>
         </NavLink>
-    );
+    )
 }
 
-export default Cards
+export default Cards;
 
