@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: column;
     margin:0 auto;
-    margin-bottom: 18vh;
     width: 300px;
     line-height: 1.5rem;
 }
@@ -32,14 +31,33 @@
     margin: 1rem auto;
 }
 
+.return-mode-page-btn {
+    width: fit-content;
+    margin: 1rem auto;
+    color:white;
+    font-family: LeagueMono-Bold;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
 @media screen and (min-width:700px) {
+
+    .rules_wrapper {
+        background-color:#36393F;
+        margin: 15% auto;
+        width: 90%;
+        height: fit-content;
+        border-radius: 40px;
+    }
+
     .rules_container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        column-gap: 3rem;
+        column-gap: 1.5rem;
         justify-items: center;
         align-items: center;
-        width: 90%;
+        width: 100%;
+        height: 500px;
     }
 
     .rules_container h1 {
@@ -53,7 +71,11 @@
     }
 
     .rules_container #rules_thunder, .rules_container #rules_registration, .rules_container #rules_points {
-        width: 350px;
+        width: 315px;
         height: 350px;
+    }
+
+    .return-mode-page-btn {
+        display:none;
     }
 }

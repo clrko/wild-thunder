@@ -16,7 +16,7 @@ class NavbarFooter extends Component {
                 <ul className="nav-links-wrapper">
                     <li><NavLink className="nav-title" activeClassName ="current" to="/"><FontAwesomeIcon icon={faHome} className="nav-icon" /></NavLink></li>
                     <li><NavLink className="nav-title" activeClassName ="current" to="/sign_in/pseudo"><FontAwesomeIcon icon={faUser} className="nav-icon" /></NavLink></li>
-                    <li><NavLink className="nav-title" activeClassName ="current" to="/mainrules"><FontAwesomeIcon icon={faQuestionCircle} className="nav-icon" /></NavLink></li>
+                    <li><NavLink className="nav-title" activeClassName ="current" to="/modepage-mainrules"><FontAwesomeIcon icon={faQuestionCircle} className="nav-icon" /></NavLink></li>
                 </ul>
             </nav>
         )

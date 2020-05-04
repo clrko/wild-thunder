@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Cards from '../shared/Cards';
-import MainRules from './MainRules';
 import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter';
 import ScrollToTop from '../shared/ScrollToTop';
@@ -37,14 +36,7 @@ class ThemePage extends Component {
        
         return (
             <div>
-                <div className="notshown_desktop">
                 <NavbarHeader />
-                <ScrollToTop  />
-                </div>
-                <NavbarFooter />
-                <div className="main_rules">
-                    <MainRules />
-                </div>
                 <h1>{`Hi ${this.state.username}, choose a theme and take on the challenge`}</h1>
                 <div className="container-card">
                     <div className="cards-list">
@@ -53,6 +45,8 @@ class ThemePage extends Component {
                         )}
                     </div>
                 </div>
+                <ScrollToTop  />
+                <NavbarFooter />
             </div>
         );
     }

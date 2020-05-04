@@ -1,8 +1,12 @@
-import React from "react"
+import React from "react";
+import {NavLink} from 'react-router-dom';
 
-import "./MainRules.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const MainRules = () => {
+import "./ModePageMainRules.css"
+
+const ModePageMainRules = () => {
         return (
             <div className="rules_wrapper">
                 <div className="rules_container">
@@ -36,9 +40,10 @@ const MainRules = () => {
                             <li>Speed Bonus: 0.5 points</li>
                         </ul>
                     </div>
+                    <NavLink className="return-mode-page-btn" to="/mode-page"><FontAwesomeIcon icon={faTimes} className="return-icon"/></NavLink>
                 </div>
             </div>
         )
 }
 
-export default MainRules
+export default ModePageMainRules;
