@@ -8,8 +8,7 @@ import GameSessionHeader from "./GameSessionHeader"
 import GameSessionInterface from "./GameSessionInterface";
 import GameSessionPointSystem from "./GameSessionPointSystem";
 import CountDownTimer from './CountDownTimer'
-
-const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
+import API_KEY from '../../secret'
 
 const rounds = 5
 const startTime = 30
@@ -35,7 +34,6 @@ class GameSession extends React.Component {
         this.getArtistsList(this.state.genresCode)
         
     }
-
 
     /* First call to the api to get a random list of artists. The number of artists selected will be defined by the rounds value */
     getArtistsList = (genresCode) => {
@@ -86,7 +84,7 @@ class GameSession extends React.Component {
     validateAndChange = () => {
         const artistToFind = this.state.artistTrack.artistName.toUpperCase().replace(/\s+/g, '')
         if (artistToFind === this.state.solution) {
-            this.setState((prevState) => ({ score: prevState.score + 1, isArtistFound: true }));
+            this.setState((prevState) => ({ score: prevState.score + prevState.counter, isArtistFound: true }));
             this.saveRoundAndLoadNextSong()
         }
     }
