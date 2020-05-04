@@ -2,7 +2,6 @@ import React from "react";
 
 import "./GameSessionAudioPlayer.css";
 
-
 const GameSessionAudioPlayer = (props) => {
     return (
         <div className="container">

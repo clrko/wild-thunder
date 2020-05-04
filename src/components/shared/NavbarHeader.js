@@ -4,7 +4,6 @@ import {NavLink} from 'react-router-dom';
 import MainLogo from "./MainLogo";
 import "./Navbar.css";
 
-
 class NavbarHeader extends Component {
     render(){
         return(

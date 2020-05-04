@@ -26,7 +26,6 @@ class ScrollToTop extends Component {
         top: 0,
         behavior: "smooth"
       });
-
     }
 
     componentWillUnmount() {
