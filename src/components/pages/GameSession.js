@@ -13,6 +13,7 @@ const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
 
 const rounds = 5
 const startTime = 30
+
 class GameSession extends React.Component {
     state = {
         genresCode: this.props.location.state,

@@ -1,53 +1,53 @@
 .countdown-timer {
+    position:relative;
     margin: auto;
     width: 104px; /*Diamètre*/
     height: 104px; /*Diamètre*/
-  }
-  
-  .countdown-timer__circle circle {
+}
+
+.countdown-timer__circle circle {
     stroke-dasharray: 302px; /*Périmètre*/
     stroke-dashoffset: 302px; /*Périmètre*/
     stroke-linecap: butt;
     stroke-width: 8px;
     stroke: #fd4f57;
     fill: none;
-  }
-  
-  .countdown-timer__circle svg {
+}
+
+.countdown-timer__circle svg {
     width: 104px; /*Diamètre*/
     height: 104px; /*Diamètre*/
     transform: rotateX(180deg) rotateZ(90deg);
-  }
-  
-  .countdown-timer__text {
+}
+
+.countdown-timer__text {
     position: absolute;
     top: 36px; /*From the top, font-size + top*2 + (1/2)*(strokewidth)*2 = diamètre*/
     width: 104px; /*Diamètre*/
-  
     font-size: 28px;
     font-weight: 600;
     text-align: center;
-  }
-  
-  @keyframes countdown-animation {
+}
+
+@keyframes countdown-animation {
     from {
-      stroke-dashoffset: 0px;
+        stroke-dashoffset: 0px;
     }
     to {
-      stroke-dashoffset: 302px;
+        stroke-dashoffset: 302px;
     }
-  }
+}
 
-  @keyframes color-animation {
+@keyframes color-animation {
     0% {
-      stroke: green;
+        stroke: green;
     }
 
     60% {
-      stroke: orange;
+        stroke: orange;
     }
 
     100% {
-      stroke: red;
+        stroke: red;
     }
-  }
+}
