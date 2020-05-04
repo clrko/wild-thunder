@@ -1,11 +1,11 @@
-import React, {Component} from "react"
+import React, {Component} from "react";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
-import { faPause } from '@fortawesome/free-solid-svg-icons'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPause } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-import "./EndSessionTrackList.css"
+import "./EndSessionTrackList.css";
 
 
 class EndSessionTrackList extends Component {
@@ -18,7 +18,6 @@ class EndSessionTrackList extends Component {
     handleFavoriteClick = () => {
         this.setState({isFavorite:!this.state.isFavorite})
     }
-    
 
     handleToggleClick = () => {
 
@@ -34,7 +33,6 @@ class EndSessionTrackList extends Component {
     }
 
     render() {
-        console.log(this.props.sessionHistory.isArtistFound)
         return (
             <div >
                 <div className="track-container" style={this.props.sessionHistory.isArtistFound ? {border: "2px solid #4dff4d"} : {border: "2px solid #ff4d4d"}} >
@@ -54,4 +52,4 @@ class EndSessionTrackList extends Component {
     }
 }
 
-export default EndSessionTrackList
+export default EndSessionTrackList;
