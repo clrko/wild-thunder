@@ -1,18 +1,10 @@
-import React, {Component} from "react"
-
-
-import NavbarHeader from '../shared/NavbarHeader';
-import NavbarFooter from '../shared/NavbarFooter';
-import ScrollToTop from '../shared/ScrollToTop';
+import React from "react"
 
 import "./MainRules.css"
 
-class MainRules extends Component {
-    render(){
+const MainRules = () => {
         return (
             <div className="rules_wrapper">
-                <NavbarHeader />
-                <NavbarFooter />
                 <div className="rules_container">
                     <h1>Main Rules</h1>
                     <div id="rules_thunder">
@@ -45,10 +37,8 @@ class MainRules extends Component {
                         </ul>
                     </div>
                 </div>
-                <ScrollToTop />
             </div>
         )
-    }
 }
 
 export default MainRules
