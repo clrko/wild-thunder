@@ -1,0 +1,16 @@
+.endSessionButtonShare {
+    font-size: 15px;
+    background-color: #1877f2 ;
+    color: aliceblue;
+    display: flex;
+    height: 48px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    
+    
+}
+.buttonShare{
+    padding-top: 10px;
+}
+    
