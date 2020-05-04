@@ -150,7 +150,7 @@ class GameSession extends React.Component {
                 <div>Loading...</div>
                 :
                 <div>
-                    <GameSessionHeader genresTitle ={this.props.location.title} color={this.props.location.background} />
+                    <GameSessionHeader genresTitle ={this.state.genresTitle} color={this.state.color} />
                     <GameSessionTimeCounter isPlaying={this.state.isPlaying} />
                     <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                     <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
