@@ -3,6 +3,11 @@
   src: local('LeagueMono-Bold'), url(./fonts/league-mono-master/ttf/LeagueMono-Bold.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'LeagueMono-ExtraBold';
+  src: local('LeagueMono-ExtraBold'), url(./fonts/league-mono-master/ttf/LeagueMono-ExtraBold.ttf) format('truetype');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

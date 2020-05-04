@@ -19,4 +19,5 @@ class NavbarFooter extends Component {
         )
     }
 }
+
 export default NavbarFooter;
