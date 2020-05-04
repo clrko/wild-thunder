@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import GameSessionAudioPlayer from "./GameSessionAudioPlayer";
 import GameSessionButtonEndSession from "./GameSessionButtonEndSession";
+import GameSessionHeader from "./GameSessionHeader"
 import GameSessionInterface from "./GameSessionInterface";
 import GameSessionTimeCounter from "./GameSessionTimeCounter";
 import GameSessionPointSystem from "./GameSessionPointSystem";
@@ -24,11 +25,14 @@ class GameSession extends React.Component {
         score: 0,
         isArtistFound: null,
         sessionHistory: [],
+        genresTitle : this.props.location.title,
+        color : this.props.location.background,
         redirect: null,
     }
 
     componentDidMount() {
         this.getArtistsList(this.state.genresCode)
+        
     }
 
 
@@ -140,19 +144,21 @@ class GameSession extends React.Component {
             return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory }} />
         }
         return (
+            
             <div>
-                {!this.state.isLoaded ?
-                    <div>Loading...</div>
-                    :
-                    <div>
-                        <GameSessionTimeCounter isPlaying={this.state.isPlaying} />
-                        <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
-                        <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
-                        <GameSessionPointSystem validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} />
-                        <GameSessionButtonEndSession />
-                    </div>
-                }
-            </div>
+                {!this.state.isLoaded ? 
+                <div>Loading...</div>
+                :
+                <div>
+                    <GameSessionHeader genresTitle ={this.state.genresTitle} color={this.state.color} />
+                    <GameSessionTimeCounter isPlaying={this.state.isPlaying} />
+                    <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
+                    <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
+                    <GameSessionPointSystem validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} />
+                    <GameSessionButtonEndSession/>
+                </div>
+            }
+            </div> 
         )
     }
 }

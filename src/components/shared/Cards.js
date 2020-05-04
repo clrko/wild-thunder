@@ -4,9 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 
 function Cards(props) {
+    
     return (
         <NavLink to={
-            {pathname:`/gamesession`, state:props.genreId}
+            {pathname:`/gamesession`, state:props.genreId , title:props.genreTitle , background:props.divStyle}
             }>
         <div className="card" style={{background: props.divStyle}}>
             <div className="card_image">
