@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import GameSessionAudioPlayer from "./GameSessionAudioPlayer";
 import GameSessionButtonEndSession from "./GameSessionButtonEndSession";
+import GameSessionHeader from "./GameSessionHeader"
 import GameSessionInterface from "./GameSessionInterface";
 import GameSessionPointSystem from "./GameSessionPointSystem";
 import CountDownTimer from './CountDownTimer'
@@ -23,12 +24,15 @@ class GameSession extends React.Component {
         score: 0,
         isArtistFound: null,
         sessionHistory: [],
+        genresTitle : this.props.location.title,
+        color : this.props.location.background,
         redirect: null,
         counter: 30
     }
 
     componentDidMount() {
         this.getArtistsList(this.state.genresCode)
+        
     }
 
 
@@ -152,11 +156,13 @@ class GameSession extends React.Component {
             return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory }} />
         }
         return (
+            
             <div>
                 {!this.state.isLoaded ?
                     <div>Loading...</div>
                     :
                     <div>
+                        <GameSessionHeader genresTitle ={this.state.genresTitle} color={this.state.color} />
                         <CountDownTimer counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
                         <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                         <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />

@@ -33,6 +33,7 @@ class ThemePage extends Component {
     }
 
     render() {
+       
         return (
             <div>
                 <NavbarHeader />
