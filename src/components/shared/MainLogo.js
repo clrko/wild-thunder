@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 
 import logo from "../../images/thunder_logo_blue.png";
 
-import "./MainLogo.css"
+import "./MainLogo.css";
 
 function MainLogo() {
     return (

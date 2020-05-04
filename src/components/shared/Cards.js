@@ -1,12 +1,13 @@
 import React from 'react';
-import "./Cards.css"
 import { NavLink } from 'react-router-dom';
+import "./Cards.css";
 
 
 function Cards(props) {
+    
     return (
         <NavLink to={
-            {pathname: props.pathname, state:props.genreId}
+            {pathname:`/gamesession`, state:props.genreId , title:props.genreTitle , background:props.divStyle}
             }>
         <div className="card" style={{background: props.divStyle}}>
             <div className="card_image">
@@ -16,8 +17,8 @@ function Cards(props) {
             </div>
         </div>
         </NavLink>
-    );
+    )
 }
 
-export default Cards
+export default Cards;
 

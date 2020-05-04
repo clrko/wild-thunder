@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 
 import MainLogo from "./MainLogo";
-import "./Navbar.css"
+import "./Navbar.css";
 
 
 class NavbarHeader extends Component {

@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 
-import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter';
-import './Contact.css'
+import NavbarHeader from '../shared/NavbarHeader';
 
-class SignIn extends Component{
-    render(){
-        return(
+import './Contact.css';
+
+class SignIn extends Component {
+    render() {
+        return (
             <div>
                 <NavbarHeader/>
                 <NavbarFooter/>
-                <h1>Hello Contactus Page</h1>
+                <h1>Hello Contact us Page</h1>
             </div>
-        );
+        )
     }
 }
 export default SignIn;

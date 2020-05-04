@@ -6,7 +6,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 
-import "./Navbar.css"
+import "./Navbar.css";
 
 
 class NavbarFooter extends Component {
@@ -19,7 +19,8 @@ class NavbarFooter extends Component {
                     <li><NavLink className="nav-title" activeClassName ="current" to="/mainrules"><FontAwesomeIcon icon={faQuestionCircle} className="nav-icon" /></NavLink></li>
                 </ul>
             </nav>
-        );
+        )
     }
 }
+
 export default NavbarFooter;

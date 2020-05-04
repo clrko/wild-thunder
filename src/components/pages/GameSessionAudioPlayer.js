@@ -1,7 +1,6 @@
-import React from "react"
-import {NavLink} from "react-router-dom"
+import React from "react";
 
-import "./GameSessionAudioPlayer.css"
+import "./GameSessionAudioPlayer.css";
 
 
 const GameSessionAudioPlayer = (props) => {
@@ -15,10 +14,9 @@ const GameSessionAudioPlayer = (props) => {
                             <source type="audio/mpeg" />
                         </audio>
                     </div>
-                    <NavLink to={{pathname:"/endsession", state:props.sessionHistory}} onClick={props.saveRoundAndLoadNextSong}><button>Next song!!!</button></ NavLink>
                 </div>
         </div>
     )
 }
 
-export default GameSessionAudioPlayer
+export default GameSessionAudioPlayer;
