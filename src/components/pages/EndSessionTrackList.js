@@ -36,7 +36,7 @@ class EndSessionTrackList extends Component {
         return (
             <div >
                 <div className="track-container" style={this.props.sessionHistory.isArtistFound ? {border: "2px solid #4dff4d"} : {border: "2px solid #ff4d4d"}} >
-                    <img src="https://picsum.photos/id/1042/50" alt="placeholder" />
+                    <img src={`https://api.napster.com/imageserver/v2/albums/${this.props.sessionHistory.artistTrack.albumId}/images/70x70.jpg`} alt="placeholder" />
                     <div className="track-info">
                         <p>{this.props.sessionHistory.artistTrack.name}</p> 
                         <p>{this.props.sessionHistory.artistTrack.artistName}</p>
