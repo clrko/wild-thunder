@@ -1,7 +1,7 @@
 import React from 'react'  ;
-import './EndSessionShare.css' ;
 import logoFacebook from "../../images/facebook.png";
 
+import './EndSessionShare.css' ;
 
 class EndSessionShare extends React.Component {
     render(){
