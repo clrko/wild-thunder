@@ -2,12 +2,14 @@ import React from "react";
 import axios from "axios";
 import { Redirect } from 'react-router-dom';
 
+import CountDownTimer from './CountDownTimer';
 import GameSessionAudioPlayer from "./GameSessionAudioPlayer";
 import GameSessionButtonEndSession from "./GameSessionButtonEndSession";
-import GameSessionHeader from "./GameSessionHeader"
+import GameSessionHeader from "./GameSessionHeader";
 import GameSessionInterface from "./GameSessionInterface";
 import GameSessionPointSystem from "./GameSessionPointSystem";
-import CountDownTimer from './CountDownTimer'
+import Loader from '../Loader/Loader';
+
 import API_KEY from '../../secret'
 
 const rounds = 5
@@ -32,7 +34,7 @@ class GameSession extends React.Component {
 
     componentDidMount() {
         this.getArtistsList(this.state.genresCode)
-        
+
     }
 
     /* First call to the api to get a random list of artists. The number of artists selected will be defined by the rounds value */
@@ -53,6 +55,7 @@ class GameSession extends React.Component {
 
     /* Return a random song of the current artist*/
     getArtistTracksList = (artistID) => {
+        this.setState({isLoaded: false})
         axios.get(`https://api.napster.com/v2.2/artists/${artistID}/tracks/top`,
             {
                 params: {
@@ -155,10 +158,10 @@ class GameSession extends React.Component {
             return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory }} />
         }
         return (
-            
+
             <div>
                 {!this.state.isLoaded ?
-                    <div>Loading...</div>
+                    <div><Loader /></div>
                     :
                     <div>
                         <GameSessionHeader genresTitle ={this.state.genresTitle} color={this.state.color} />
@@ -174,4 +177,4 @@ class GameSession extends React.Component {
     }
 }
 
-export default GameSession;
+export default GameSession; 
