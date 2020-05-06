@@ -7,7 +7,6 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 import "./Navbar.css";
 
-
 class NavbarFooter extends Component {
     render(){
         return(
@@ -20,4 +19,5 @@ class NavbarFooter extends Component {
         )
     }
 }
+
 export default NavbarFooter;
