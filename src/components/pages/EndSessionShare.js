@@ -1,5 +1,5 @@
 import React from 'react'  ;
-import logoFacebook from "../../images/facebook.png";
+import logoFacebook from "../../images/share-facebook.png";
 
 import './EndSessionShare.css' ;
 
@@ -10,7 +10,7 @@ class EndSessionShare extends React.Component {
             <button className="endSessionButtonShare"  
                     data-href="https://developers.facebook.com/docs/plugins/"> <a target="_blank" 
                     href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
-                    <img src={logoFacebook}/></a>
+                    <img className='button-share-facebook' src={logoFacebook}/></a>
             </button>
         </div>
             )
