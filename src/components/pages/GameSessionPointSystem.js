@@ -7,13 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faStepForward } from '@fortawesome/free-solid-svg-icons';
 
-const GameSessionPointSystem = (props) => {
+const GameSessionPointSystem = ({score, validateAndChange, saveRoundAndLoadNextSong, counter}) => {
+    console.log(counter)
     return (
         <div className="scoreSystem">
-            <p>Your score is {props.score} points</p>
-            <button onClick={props.validateAndChange} className="validate_button"><FontAwesomeIcon icon={faCheck} className="validate_icon" />
-            </button>
-            <button onClick={props.saveRoundAndLoadNextSong} className="next_button"><FontAwesomeIcon icon={faStepForward} className="next_icon" />
+            <p>Your score is {score} points</p>
+            {counter !== 0 ? <button onClick={validateAndChange} className="validate_button"><FontAwesomeIcon icon={faCheck} className="validate_icon" />
+            </button>: <div>Too Late!</div>}
+            <button onClick={saveRoundAndLoadNextSong} className="next_button"><FontAwesomeIcon icon={faStepForward} className="next_icon" />
             </button>
         </div>
     )

@@ -7,7 +7,6 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 import "./EndSessionTrackList.css";
 
-
 class EndSessionTrackList extends Component {
 
     state = {
