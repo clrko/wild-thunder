@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
-
 import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter';
-
 
 class SignIn extends Component {
     render() {

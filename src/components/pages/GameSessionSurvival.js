@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
+import API_KEY from '../../secret'
 
 const rounds = 200
 
