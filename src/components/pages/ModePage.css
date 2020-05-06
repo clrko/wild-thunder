@@ -39,12 +39,13 @@
     .modal-content {
         position: relative;
         animation-name: animatetop;
-        animation-duration: 0.4s
+        animation-duration: 0.4s;
+        /* bottom: 15%; */
     }
 
     /* Add Animation */
     @keyframes animatetop {
-        from {top: -300px; opacity: 0}
+        from {top: -200px; opacity: 0}
         to {top: 0; opacity: 1}
     }
 }

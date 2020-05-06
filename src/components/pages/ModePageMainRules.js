@@ -34,11 +34,11 @@ const ModePageMainRules = () => {
                     
                     <div id="rules_points">
                         <h2>Point counting</h2>
-                        <ul>
-                            <li>Find the artist : 1 point</li>
-                            <li>Find the title: 0.5 points</li>
-                            <li>Speed Bonus: 0.5 points</li>
-                        </ul>
+                        <p>
+                            You'll have 30 seconds to answer each question.<br/>
+                            The faster you guess, the higher your score! <br/>
+                            Your score will equal to the remaining seconds in the time counter.
+                        </p>
                     </div>
                     <NavLink className="return-mode-page-btn" to="/mode-page"><FontAwesomeIcon icon={faTimes} className="return-icon"/></NavLink>
                 </div>
