@@ -1,17 +1,17 @@
 .endSessionRank{
     margin-left: 35%;
 }
-table{
+.session-table{
   border-collapse: collapse;
   text-align: center;
   
   
 }
-th,td {
+.session-tr th,td {
     border: 1px solid white;
     padding: 20px;
 }
-th {
+.session-tr th {
     padding-top: 12px;
     padding-bottom: 12px;
     padding-left: 30px;
@@ -21,16 +21,23 @@ th {
     text-align: center;
 
 }
-tr :first-child{
+.session-tr :first-child{
     padding-left: 10px;
     padding-right: 10px;
     
 }
-tr :last-child{
+.session-tr :last-child{
     padding-left: 30px;
     padding-right: 30px;
 }
 .rankName{
     padding-left: 50px;
     padding-right: 50px;
+}
+.link-ranking-standart{
+  color : white
+}
+.link-ranking-standart:hover{
+    color: blue;
+    cursor: pointer;
 }

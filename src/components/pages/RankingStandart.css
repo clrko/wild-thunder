@@ -1,0 +1,41 @@
+.ranking-standart {
+    text-align: center;
+}
+.ranking-standart-table{
+    margin-left: 33%;
+    border-collapse: collapse;
+}
+
+.ranking-standart-tr th,td {
+    border: 1px solid white;
+    padding: 40px;
+   
+}
+.ranking-standart-tr th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: rgb(67, 134, 223);
+    color: white;
+
+}
+.ranking-standart-tr :first-child{
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}
+.ranking-standart-tr :nth-child(2) {
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+.ranking-standart-tr :last-child{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+
+.goHome_icon_standart{
+color: DodgerBlue;
+font-size: 2rem; 
+margin: 50px auto;
+}
