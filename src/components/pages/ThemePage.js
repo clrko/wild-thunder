@@ -42,7 +42,7 @@ class ThemePage extends Component {
                 <div className="container-card">
                     <div className="cards-list">
                         {this.state.genresList.map((genre, i) =>
-                            <Cards key={genre.id} genreId={genre.id} divStyle={themeBackgroundColor[i]} genreTitle={genre.name.replace(/\//g, " / ")}></Cards>
+                            <Cards key={genre.id} genreId={genre.id} divStyle={themeBackgroundColor[i]} genreTitle={genre.name.replace(/\//g, " / ")} username={this.props.location.username}></Cards>
                         )}
                     </div>
                 </div>

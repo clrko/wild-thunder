@@ -103,7 +103,7 @@ class GameSession extends React.Component {
     }
 
     addToHistory = () => {
-        this.setState((prevState) => ({ sessionHistory: [...prevState.sessionHistory, {numArtist: prevState.numArtist, artistTrack: prevState.artistTrack, isArtistFound: prevState.isArtistFound} ] }))
+        this.setState((prevState) => ({ sessionHistory: [...prevState.sessionHistory, {numArtist: prevState.numArtist, artistTrack: prevState.artistTrack, isArtistFound: prevState.isArtistFound  } ] }))
     }
 
     nextSong = () => {
@@ -141,8 +141,9 @@ class GameSession extends React.Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory }} />
+            return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory ,score : this.state.score, username :this.props.location.username }} />
         }
+        console.log(this.props)
         return (
             
             <div>
