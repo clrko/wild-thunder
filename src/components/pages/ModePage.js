@@ -1,23 +1,36 @@
-import React, { Component, Fragment } from 'react';
-import ModePageCards from "./ModePageCards"
-import "./ModePage.css";
+import React , {useState} from "react";
+import Modal from 'react-modal';
 
-const arrayMode = ['Standard', 'Survival']
-const gamePathname = [`/theme-page`, `/game-session-survival`]
-const modeColor = ["#6a6cd9","#ff5500"]
-const description = ['10 songs','No songs limit !']
+import ModePageMainRules from './ModePageMainRules';
+import ModePageChoice from "./ModePageChoice";
+import NavbarHeader from '../shared/NavbarHeader';
+import NavbarFooter from '../shared/NavbarFooter';
 
-class ModePage extends Component {
-    render() {
-        return (
-            <Fragment>
-                <h1 className="modePage-title">Pick up your mode</h1>
-                <div className="modePage-list">
-                    {arrayMode.map((mode, i) => <ModePageCards key={i} title={mode} pathname={gamePathname[i]} modeColor={modeColor[i]} description={description[i]} />)}
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+
+import './ModePage.css'
+
+Modal.setAppElement('#root');
+
+const ModePage = () => {
+    const [modalIsOpen,setModalIsOpen] = useState(false)
+    return (
+        <div className="modepage-wrapper">
+            <NavbarHeader />
+            <ModePageChoice />
+            <Modal isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)} className="main-rule-modal">
+                <div className="modal-content">
+                    <button  onClick={() => setModalIsOpen(false)} className="main-rule-close-btn"><FontAwesomeIcon icon={faTimes} className="modal-icon"/></button>
+                    <ModePageMainRules />
                 </div>
-            </Fragment>
-        )
-    }
+            </Modal>
+            <button onClick={() => setModalIsOpen(true)} className="main-rule-open-btn"><FontAwesomeIcon icon={faQuestionCircle} className="modal-icon"/></button>
+            <NavbarFooter />
+        </div>
+    ) 
 }
+
 
 export default ModePage;

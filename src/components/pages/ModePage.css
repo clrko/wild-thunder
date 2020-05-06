@@ -1,23 +1,51 @@
-.modePage-title {
-  margin: 17% auto;
-  margin-bottom: 0;
-  font-size: 2.5rem;
-  font-family: LeagueMono-ExtraBold;
-  letter-spacing: 0.093em;
-  text-shadow: 2px 3px 0px #898999;
-  text-transform: uppercase;
+.modepage-wrapper {
+    display: flex;
+    flex-direction: column;
 }
 
-.modePage-list {
-    z-index: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.main-rule-modal-btn  {
+    display: none;
 }
-  
-@media screen and (min-width: 300px) and (max-width: 1000px) {
-  .modePage-list {
-    flex-direction: column;
-  }
-} 
+
+@media screen and (min-width: 700px) /* to be precised */{
+    .main-rule-modal {
+        background-color: rgba(0,0,0,0.4) /*#36393F */;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+    }
+   
+    .main-rule-open-btn {
+        margin: 0 auto;
+        display: block;
+    }
+
+    .main-rule-close-btn {
+        display: block;
+        position: absolute;
+        top:3%;
+        right: 6.6%;
+    }
+
+    .modal-icon {
+        color:white;
+        font-family: LeagueMono-Bold;
+        font-size: 2rem;
+    }
+
+    .modal-content {
+        position: relative;
+        animation-name: animatetop;
+        animation-duration: 0.4s;
+        /* bottom: 15%; */
+    }
+
+    /* Add Animation */
+    @keyframes animatetop {
+        from {top: -200px; opacity: 0}
+        to {top: 0; opacity: 1}
+    }
+}
