@@ -1,9 +1,0 @@
-.timer {
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .value {
-    font-size: 40px;
-  }

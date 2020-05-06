@@ -8,7 +8,6 @@ import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 
 import "./Navbar.css";
 
-
 class NavbarFooter extends Component {
     render(){
         return(
