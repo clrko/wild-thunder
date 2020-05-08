@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import LoginModal from './LoginModal';
 
 import "./Welcome.css";
 
@@ -14,7 +15,6 @@ class Welcome extends React.Component {
     }
    handleChange =(e) =>{
         const username = this.state.username
-        const error = this.state.error
         if(username === ''){
             this.setState({error : true})
     }else{
@@ -32,6 +32,7 @@ class Welcome extends React.Component {
                     <label className='label-login' >Choose a pseudo</label>
                     <input className="input-login" type='text' value={this.state.username} name='username' placeholder="Pseudo" onChange={this.onChange} />
                     <p className='error-input'>{this.state.error ? 'Please insert your pseudo' : ""}</p>
+                    <LoginModal/>
                     <button onClick={this.handleChange} className="button-login">Start</button>
                 </div>
             </div>

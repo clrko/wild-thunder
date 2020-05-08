@@ -10,11 +10,11 @@ function LoginModal() {
     const [modalIsOpen,setModalIsOpen] = useState(false)
         return (
             <div className="homepageModal" >
-                <button onClick={() => setModalIsOpen(true)}>Login</button>
-                <Modal isOpen={modalIsOpen}
+                <button className='login-open-modal' onClick={() => setModalIsOpen(true)}>Login</button>
+                <Modal  isOpen={modalIsOpen}
                 onRequestClose={()=> setModalIsOpen(false)}
                 style ={{
-                    content: {color:'black',backgroundColor:'grey', width: '20%' ,bottom:'50%',left:"40%" }
+                    content: {backgroundColor:'#36393F', width: '50%',borderRadius : '5%'  ,marginLeft : '20%' ,height:'75%' }
                 }}>
                     <div className="login-modal">
                         <h2 className="title-login-modal" >Login</h2>
@@ -23,9 +23,9 @@ function LoginModal() {
                         <label className="label-login-modal" >Password</label>
                         <input className="input-login-modal" type="password" name="password" placeholder="Password"  /> 
                         <input className="button-login-modal" type="submit" value="Login"  />
+                        <button className='login-close-modal'  onClick={() => setModalIsOpen(false)}>Close</button>
                     </div>
                     
-                    <button  onClick={() => setModalIsOpen(false)}>Close</button>
                 </Modal>
             </div>
         )
