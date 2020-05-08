@@ -34,6 +34,41 @@ class RankingStandart extends React.Component {
                         <td></td>
                         <td></td>
                     </tr>
+                    <tr className="ranking-standart-tr">
+                        <td>4</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr className="ranking-standart-tr">
+                        <td>5</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr className="ranking-standart-tr">
+                        <td>6</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr className="ranking-standart-tr">
+                        <td>7</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr className="ranking-standart-tr">
+                        <td>8</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr className="ranking-standart-tr">
+                        <td>9</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr className="ranking-standart-tr">
+                        <td>10</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                 </table>
                 <NavLink to="/" className="goHome_button_standart"><button><FontAwesomeIcon icon={faHome} className="goHome_icon_standart" /></button></NavLink>
             </div>
