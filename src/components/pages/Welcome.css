@@ -46,3 +46,10 @@
 .title-login{
     font-size: 30px;
 }
+.error-input{
+    color: red;
+    background-color: white;
+    margin-top: 10px;
+    height: 25px;
+    border-radius: 5px;
+}
