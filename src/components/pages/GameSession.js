@@ -31,7 +31,7 @@ class GameSession extends React.Component {
         redirect: null,
         counter: 30
     }
-
+    
     componentDidMount() {
         this.getArtistsList(this.state.genresCode)
 
@@ -157,6 +157,8 @@ class GameSession extends React.Component {
         if (this.state.redirect) {
             return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory }} />
         }
+        console.log(this.state.genresCode);
+        
         return (
 
             <div>

@@ -1,0 +1,27 @@
+.reco-list-artist  {
+    display: inline-block;
+    padding: 3%  6% 5% 4%; 
+    
+}
+.container-similar {
+   border: solid 2px black;
+   width: 99%;
+   padding-bottom: 5%;
+}
+
+.reco-similar-artist {
+    display: flex;
+    justify-content: space-around;
+    
+}
+.reco-similar-artist img{
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+}
+@media screen and (max-width:800px) {
+    .reco-list-artist{padding: 3px; font-size: 8px;}
+    img{width: 70%;height: 40%;padding : 5%}
+
+}
+.reco-similar-artist p {
+    text-align: center;
+}

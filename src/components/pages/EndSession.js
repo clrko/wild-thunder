@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 import "./EndSession.css";
+import EndSessionReco from "./EndSessionReco";
 
 class EndSession extends Component {
     render() {
@@ -14,8 +15,9 @@ class EndSession extends Component {
             <div className="endsession-container">
                 <h1>The tracklist of your game session :</h1>
                 {this.props.location.state.map((track,i) => <EndSessionTrackList key={i} sessionHistory={track} />)}
-                <NavLink to="/" className="goHome_button"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
                 <EndSessionShare/>
+                <EndSessionReco artistId ={this.props.location.state} />
+                <NavLink to="/" className="goHome_button"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
             </div>
         )
     }
