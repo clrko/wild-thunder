@@ -8,6 +8,7 @@ Modal.setAppElement('#root');
 
 const LoginModal = () => {
     const [modalIsOpen,setModalIsOpen] = useState(false)
+    
     const handleSubmit = (e) => {
         e.preventDefault() 
         axios.post("http:localhost:4242/auth/login", {
