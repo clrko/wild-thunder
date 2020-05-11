@@ -7,7 +7,7 @@ class EndSessionScore extends React.Component {
        const score = this.props.score 
        return(
             <div className='endSessionScore'>
-                <h1>Your score final :</h1>
+                <h1>Your score final</h1>
                     <h1>{score}pts</h1>
             </div>
         )

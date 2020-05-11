@@ -8,8 +8,13 @@
 
 }
 
-.title-login , .label-login {
-    text-align: center;
+.title-login {
+    font-size: 2.5rem;
+    margin-bottom: 7%;
+    letter-spacing: 0.093em;
+    color: white;
+    text-shadow: 2px 3px 0px #898999;
+    text-transform: uppercase;
 }
 
 .label-login{
@@ -35,24 +40,25 @@
 }
 
 .button-login{ 
+    margin-top :0;
     display: block;
     width: 110px;
     height: 50px;
     font-size: 24px;
     font-weight: bold;
     text-transform: uppercase;
-    background:black;
-    color: red;
+    background: #00c9b7;
+    color: white;
     border-style: none;
     border-radius: 6px;
-    box-shadow: 0 6px 0 red;
+    box-shadow: 4px 6px 0 #46d6aa;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 5px;
+    margin-bottom : 50px
 }
 
-.title-login{
-    font-size: 30px;
-}
+
+
 .error-input{
     color: red;
     background-color: white;

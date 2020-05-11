@@ -35,9 +35,12 @@
     padding-right: 50px;
 }
 .link-ranking-standard{
-  color : white
+  color : white ;
+  
+  
 }
 .link-ranking-standard:hover{
     color: blue;
     cursor: pointer;
+    
 }

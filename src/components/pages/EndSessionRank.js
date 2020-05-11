@@ -10,7 +10,7 @@ class EndSessionRank extends React.Component {
        
        return(
             <div className='endSessionRank'>
-                <h1> Your ranking :</h1>
+                <h1> Your ranking</h1>
                 <table className="session-table" >
                     <tr className="session-tr">
                         <th>Rank</th>

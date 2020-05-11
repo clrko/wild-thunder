@@ -1,13 +1,14 @@
 .button-login-modal{ 
-    width: 50px;
-    height: 30px;
-    font-size: 15px;
-    background:white;
-    border-style: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10%;
-    margin-bottom: 15%;
+   display: block;
+   width: 40px;
+   font-size: 14px;
+   border-style: none;
+   margin-top: 15px;
+   background-color: rgba(131, 2, 2, 0.658);
+   border-radius: 3px;
+   color: white;
+   box-shadow: 2px 2px rgba(161, 5, 5, 0.61);
+   cursor: pointer;
 }
 .login-modal {
     display: flex;
@@ -16,27 +17,67 @@
     flex-direction: column;
 }
 .input-login-modal{
-    margin-top: 5%;
-    width: 150px;
-    height: 20px;
     border-radius: 1px;
     font-size: 15px;
     font-style: italic;
     box-shadow: 0 0 5px 1px rgba(161, 5, 5, 0.61);
     border-style:none ;
     border-radius: 5px;
+    width: 60%;
 }
-.label-login-modal{
-    padding-top: 10%;
-}
+
+
 .login-close-modal{
-    background: white;
-    border-radius: 50%;
+    margin-top: 20px;
     cursor: pointer;
+    font-size: 14px;
+    color: white;
 
 }
 .login-open-modal{
-    background: white;
-    border-radius: 10%;
-    cursor: pointer;
+    font-size:14px;
+      color:#fff;
+    text-decoration:none;
+      font-weight:bold;
+      text-transform:uppercase;
+      background: #46d6aa;
+      border-radius: 5px;
+      cursor: pointer;
+    
+}
+.button-signup{
+    font-size:14px;
+      color:#fff;
+    text-decoration:none;
+      font-weight:bold;
+      text-transform:uppercase;
+      background: #46d6aa;
+      border-radius: 5;
+      cursor: pointer;
+}
+.loginModal{
+    margin-top: 20%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    margin-left: 35%;
+    margin-right: 35% ;
+}
+.login-modal h2{
+    font-size: 2rem;
+    margin-bottom: 8%;
+    letter-spacing: 0.100em;
+    color: white;
+    text-shadow: 2px 3px 0px #898999;
+    text-transform: uppercase;
+}
+.login-modal label {
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+@media screen and (min-width: 470px) and (max-width: 700px) {
+.loginModal{ margin-left: 20%; margin-right: 20%; }
+}
+@media screen and (min-width: 300px) and (max-width: 469px) {
+    .loginModal{ margin-left: 15%; margin-right: 15%; }
 }
