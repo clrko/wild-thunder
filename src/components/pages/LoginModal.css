@@ -28,7 +28,7 @@
 
 
 .login-close-modal{
-    margin-top: 20px;
+    margin-top: 16px;
     cursor: pointer;
     font-size: 14px;
     color: white;
@@ -80,4 +80,7 @@
 }
 @media screen and (min-width: 300px) and (max-width: 469px) {
     .loginModal{ margin-left: 15%; margin-right: 15%; }
+}
+@media screen and (max-width: 300px) and (max-width: 469px) {
+    .loginModal{ margin-left: 10%; margin-right: 10%; }
 }
