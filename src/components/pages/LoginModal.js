@@ -11,11 +11,12 @@ const LoginModal = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault() 
-        axios.post("http:localhost:4242/auth/login", {
-            username: e.target.name.username,
-            password: e.target.name.password
+        axios.post("http://localhost:4242/auth/login", {
+            username: e.target.username.value,
+            password: e.target.password.value
         }).then(res => {
             console.log("resultat", res)
+            localStorage.setItem("token", res.headers["x-access-token"])
         })
     }
         return (
