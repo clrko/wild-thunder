@@ -9,7 +9,7 @@ import HomePage from './components/pages/HomePage';
 import ModePageMainRules from './components/pages/ModePageMainRules';
 import ModePage from './components/pages/ModePage';
 import Page404 from './components/pages/Page404';
-import RankingStandart from './components/pages/RankingStandart'
+import RankingStandart from './components/pages/RankingStandard'
 import SignIn from './components/pages/SignIn';
 import ThemePage from './components/pages/ThemePage';
 
@@ -24,7 +24,7 @@ class App extends Component {
           <Route path="/modepage-mainrules" component={ModePageMainRules} />
           <Route path="/gamesession" component={GameSession} />
           <Route path="/endsession" component={EndSession} />
-          <Route path="/ranking-standart" component={RankingStandart}/>
+          <Route path="/ranking-standard" component={RankingStandart}/>
           <Route path="/sign_in/:pseudo" component={SignIn} />
           <Route path="/contact/:pseudo" component={Contact} />
           <Route path="/mode-page" component={ModePage} />

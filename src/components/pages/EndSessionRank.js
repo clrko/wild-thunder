@@ -24,7 +24,7 @@ class EndSessionRank extends React.Component {
                     </tr>
              
                 </table>
-                <Link to={{pathname:'/ranking-standart', score : this.props.score , username  : this.props.username}}><button className='link-ranking-standart'>Full ranking</button></Link>
+                <Link to={{pathname:'/ranking-standard', score : this.props.score , username  : this.props.username}}><button className='link-ranking-standard'>Full ranking</button></Link>
             </div>
         )
     }
