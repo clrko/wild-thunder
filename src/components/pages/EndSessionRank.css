@@ -12,9 +12,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 70%;
     margin: auto;
-    border: 1px solid black;
+    border: 3px solid black;
     border-radius: 5px;
     margin-top: 10px;
     padding: 5px 10px;
@@ -22,10 +22,6 @@
 
 #logo {
     width: 60px;
-}
-
-.username-container{
-
 }
 
 .score-value {
@@ -51,23 +47,27 @@
     border-radius: 5px;
 }
 
-.score-rank{
-    position: relative;
+.trophy-award {
+    width: 50px;
 }
 
-#trophy{
-    color: gold;
+#trophy {
     font-size: 45px;
 }
 
 #award{
-    color: grey;
+    color: rgb(255, 115, 0);
     font-size: 45px;
 }
 
 #rank{
+    width: 40px;
+    height: 40px;
+    background-color: seashell;
+    border: 1px solid black;
+    border-radius: 25px;
     font-size: 28px;
-    color:white;
+    color:black;
 }
 
 .userScore {

@@ -75,7 +75,7 @@ class EndSession extends Component {
         const genresTitle = this.state.genresTitle
         const userScore = this.props.location.score
         const oldScore = scoresDB.filter(user => user.username === username && user.genre === genresTitle)
-        console.log(scoresDB, username, genresTitle, userScore, oldScore)
+        console.log(scoresDB, username, genresTitle, userScore, oldScore, userScore > oldScore[0])
         if (oldScore.length === 0) {
             axios.post("http://localhost:4242/ranking/addScore", {
                 username: username,
@@ -85,7 +85,7 @@ class EndSession extends Component {
                 .then(() => {
                     console.log("Posted")
                 })
-        } else if (userScore > oldScore[0]) {
+        } else if (userScore > oldScore[0].score) {
             const id = oldScore[0].id
             axios.put(`http://localhost:4242/ranking//updateScore/${id}`, {
                 score: userScore,

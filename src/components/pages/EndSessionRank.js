@@ -41,9 +41,12 @@ class EndSessionRank extends React.Component {
                             <p id="score">{score.score}</p>
                             <img src={vynil} alt={"vinyl"} />
                         </div>
-                        <div className="score-rank">                     
+                        <div className="trophy-award">                     
                             {index < 3 ?
-                                <FontAwesomeIcon id="trophy" icon={faTrophy} />
+                                <FontAwesomeIcon 
+                                id="trophy" 
+                                icon={faTrophy}
+                                style={index === 0 ? {color:"#FFD700"} : index === 1 ? {color:"#C4CACE"} : {color:"#BF8970"}} />
                                 :
                                 <FontAwesomeIcon id="award" icon={faAward} />}
                         </div>
