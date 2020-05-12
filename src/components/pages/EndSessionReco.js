@@ -15,6 +15,8 @@ componentDidMount(){
         this.getArtistSimilar()
    
 } 
+
+
 getArtistSimilar = () => {
     const artists = this.props.artistId
     artists.map(artist =>{ 
@@ -25,7 +27,7 @@ getArtistSimilar = () => {
                 apikey: API_KEY,
             }})
             .then(res => { 
-                this.setState( () => ({ artistSimilar: [...this.state.artistSimilar, res.data.artists ]}))
+                this.setState( () => ({ artistSimilar: [...this.state.artistSimilar, (res.data.artists.splice(0,3)) ]}))
              } )
                 
                 
@@ -35,22 +37,25 @@ getArtistSimilar = () => {
     render(){
         const artists = this.props.artistId
         const artistSimilar = this.state.artistSimilar
-       
+       console.log(artists)
         return(
            <div>
-                <div>
-                <h1>Artist similar</h1>
-                {artists.map(artist => {
-                    {artistSimilar.map(similar => console.log(similar))}
-                   return(
-                   <h1>{artist.artistTrack.artistName}</h1>
-                   
-                   )
-                   })}
+               <h1>Artist similar</h1>
+               <h1></h1>
+               {artistSimilar.map(similar => {
+                  return(
+                <div>    
+                    
+                   <h2>{similar[0].name}</h2>
+                    <h2>{similar[1].name}</h2>
+                    <h2>{similar[2].name}</h2>
                 </div>
-                
-            </div>
+                ) })}
+               
+               </div>
+                 
         )
     }
-}
+} 
+
 export default EndSessionReco
