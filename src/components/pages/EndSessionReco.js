@@ -7,11 +7,8 @@ import './EndSessionReco.css';
 
 class EndSessionReco extends React.Component{
     state = {
-        artistSimilar1 : [],
-        artistSimilar2 : [],
-        artistSimilar3 : [],
-        artistSimilar4 : [],
-        artistSimilar5 : [],
+        artistSimilar : [],
+        
        
     }
 componentDidMount(){
@@ -19,7 +16,7 @@ componentDidMount(){
    
 } 
 getArtistSimilar = () => {
-    const artists = this.props.location.artistId
+    const artists = this.props.artistId
     artists.map(artist =>{ 
         return(
         Axios.get(`https://api.napster.com/v2.2/artists/${artist.artistTrack.artistId}/similar`,
@@ -28,29 +25,29 @@ getArtistSimilar = () => {
                 apikey: API_KEY,
             }})
             .then(res => { 
-                this.setState( () => ({ artistSimilar1: [...this.state.artistSimilar1, res.data.artists ]}))
+                this.setState( () => ({ artistSimilar: [...this.state.artistSimilar, res.data.artists ]}))
+             } )
                 
-                /*this.setState( () => ({ artistSimilar2: res.data.artists.splice(0,3)}))
-                this.setState( () => ({ artistSimilar3: res.data.artists.splice(0,3)}))
-                this.setState( () => ({ artistSimilar4: res.data.artists.splice(0,3)}))
-                this.setState( () => ({ artistSimilar5: res.data.artists.splice(0,3)}))*/
-               
-                 } )
+                
     )})
         
 }
     render(){
-        const artists = this.props.location.artistId
-        const artistSimilar1 = this.state.artistSimilar1
-        const artistSimilar2 = this.state.artistSimilar2
-        const artistSimilar3 = this.state.artistSimilar3
-        const artistSimilar4 = this.state.artistSimilar4
-        const artistSimilar5 = this.state.artistSimilar5
-        
-        
-        
+        const artists = this.props.artistId
+        const artistSimilar = this.state.artistSimilar
+       
         return(
-            <div>
+           <div>
+                <div>
+                <h1>Artist similar</h1>
+                {artists.map(artist => {
+                    {artistSimilar.map(similar => console.log(similar))}
+                   return(
+                   <h1>{artist.artistTrack.artistName}</h1>
+                   
+                   )
+                   })}
+                </div>
                 
             </div>
         )
