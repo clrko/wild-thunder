@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Redirect, NavLink } from 'react-router-dom';
 import axios from "axios";
 
-import LoginModal from "./LoginModal"
-
 /* import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter'; */
 
