@@ -1,7 +1,6 @@
 import React from 'react';
 
 import NavbarHeader from '../shared/NavbarHeader';
-import LoginModal from './LoginModal';
 import Welcome from './Welcome';
 
 const HomePage = () => {
@@ -9,7 +8,6 @@ const HomePage = () => {
         <div>
             <NavbarHeader/>
             <Welcome/>
-            <LoginModal/>
         </div>
     )
 }
