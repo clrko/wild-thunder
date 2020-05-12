@@ -15,7 +15,7 @@ class RankingStandart extends React.Component {
                 <h1>Ranking standard :</h1>
                 <table className='ranking-standard-table'>
                     <tr className="ranking-standard-tr" >
-                        <th className='rank-standart' >Rank</th>
+                        <th className='rank-standard' >Rank</th>
                         <th >Name</th>
                         <th>points</th>
                     </tr>
@@ -75,4 +75,4 @@ class RankingStandart extends React.Component {
         )
     }
 }
-export default RankingStandart
+export default RankingStandard
