@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Redirect, NavLink } from 'react-router-dom';
 import axios from "axios";
 
@@ -8,6 +8,7 @@ import LoginModal from "./LoginModal"
 import NavbarFooter from '../shared/NavbarFooter'; */
 
 const Register = () => {
+    const [redirect, setRedirect] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault() 
@@ -15,16 +16,20 @@ const Register = () => {
             username: e.target.username.value,
             password: e.target.password.value
         }).then(res => {
-            console.log("resultat", res)
-            if (res.status === 200) {
-                localStorage.setItem("token", res.headers["x-access-token"])
+            if (res.status === 201) {
                 alert("Registration successful! Please sign in.")
-                return <Redirect to= "/"/>
+                setRedirect(!redirect)
             } else {
-                console.log("not possible, retry")
+                alert("The username already exists.")
             }
         })
+        
     }
+
+    if (redirect) {
+        return <Redirect to= "/"/>
+    }
+    
 
     return (
     <div>
