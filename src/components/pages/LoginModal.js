@@ -1,5 +1,5 @@
 import React , {useState} from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import axios from 'axios'
 import Modal from 'react-modal';
 
@@ -9,21 +9,34 @@ Modal.setAppElement('#root');
 
 const LoginModal = () => {
     const [modalIsOpen,setModalIsOpen] = useState(false)
-    
+    const [redirect, setRedirect] = useState(false)
+    const [username, setUsername] = useState("")
+
     const handleSubmit = (e) => {
-        e.preventDefault() 
+        e.preventDefault()
+        setUsername(e.target.username.value)
         axios.post("http://localhost:4242/auth/login", {
             username: e.target.username.value,
             password: e.target.password.value
         }).then(res => {
-            localStorage.setItem("token", res.headers["x-access-token"])
+            if (res.status === 201) {
+                localStorage.setItem("token", res.headers["x-access-token"])
+                alert("You are connected!")
+                setRedirect(!redirect)
+            } else {
+                alert("The password or username is wrong.")
+            }
         })
-    }
+    }   
+
+        if (redirect) {
+            return <Redirect to={{ pathname: `/mode-page/${username}`, username:username}}/>
+        }
 
         return (
             <div className="homepageModal" >
                 <button className='login-open-modal' onClick={() => setModalIsOpen(true)}>Login</button>
-                <NavLink to="/register/pseudo"><button className='button-signup'>Register</button></NavLink>
+                <NavLink to="/register"><button className='button-signup'>Register</button></NavLink>
                 <Modal className='loginModal'  isOpen={modalIsOpen}
                     onRequestClose={()=> setModalIsOpen(false)}
                     style ={{
