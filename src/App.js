@@ -10,7 +10,7 @@ import ModePageMainRules from './components/pages/ModePageMainRules';
 import ModePage from './components/pages/ModePage';
 import Page404 from './components/pages/Page404';
 import RankingStandard from './components/pages/RankingStandard'
-import SignIn from './components/pages/SignIn';
+import Register from './components/pages/Register';
 import ThemePage from './components/pages/ThemePage';
 
 
@@ -25,9 +25,9 @@ class App extends Component {
           <Route path="/gamesession" component={GameSession} />
           <Route path="/endsession" component={EndSession} />
           <Route path="/ranking-standard" component={RankingStandard}/>
-          <Route path="/sign_in/:pseudo" component={SignIn} />
+          <Route path="/register" component={Register} />
           <Route path="/contact/:pseudo" component={Contact} />
-          <Route path="/mode-page" component={ModePage} />
+          <Route path="/mode-page/:pseudo" component={ModePage} />
           <Route path="/game-session-survival" component={GameSessionSurvival} />
           <Route component={Page404} />
         </Switch>

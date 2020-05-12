@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {NavLink} from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 
 import EndSessionShare from './EndSessionShare'
 import EndSessionTrackList from  "./EndSessionTrackList";
@@ -28,6 +28,21 @@ class EndSession extends Component {
         const index = this.state.artistTrack.findIndex(item => item.id === idtrack)
         isFavoriteTemp[index] = !isFavoriteTemp[index]
         this.setState({isFavorite:isFavoriteTemp})
+
+        if (localStorage.getItem("token")) {
+            axios.post("http://localhost:4242/favorite/tracks", {
+                track_id: this.state.artistTrack[index].id
+            },{
+                headers: {
+                'x-access-token': localStorage.getItem("token"),
+                }
+            }).then(res => {
+                console.log("res est ", res) /* il faudra crér un emsasge pour dire added to afvortie res.data */
+            })
+        } else {
+            console.log("you need to connect")
+        }
+        
     }
 
     handleToggleClick = (idtrack) => {
