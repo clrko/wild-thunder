@@ -25,9 +25,9 @@ class App extends Component {
           <Route path="/gamesession" component={GameSession} />
           <Route path="/endsession" component={EndSession} />
           <Route path="/ranking-standard" component={RankingStandard}/>
-          <Route path="/register/:pseudo" component={Register} />
+          <Route path="/register" component={Register} />
           <Route path="/contact/:pseudo" component={Contact} />
-          <Route path="/mode-page" component={ModePage} />
+          <Route path="/mode-page/:pseudo" component={ModePage} />
           <Route path="/game-session-survival" component={GameSessionSurvival} />
           <Route component={Page404} />
         </Switch>
