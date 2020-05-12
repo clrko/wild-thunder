@@ -158,7 +158,6 @@ class GameSession extends React.Component {
         if (this.state.redirect) {
             return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory ,score : this.state.score, username :this.props.location.username }} />
         }
-        console.log(this.props)
         return (
 
             <div className="gameSession-body">
