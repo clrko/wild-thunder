@@ -1,30 +1,41 @@
 .login-page {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    height: 100vh;
+    background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486);
 }
 
-.title-login , .label-login {
-    text-align: center;
+.title-login {
+    font-size: 2.5rem;
+    margin-bottom: 7%;
+    letter-spacing: 0.093em;
+    color: white;
+    text-shadow: 2px 3px 0px #898999;
+    text-transform: uppercase;
 }
 
 .label-login{
-    font-size: 20px;
+    font-size: 1.8rem;
     margin-top: 30px;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 2px 3px 0px #898999;
 }
 
 .input-login{
     margin-top: 30px;
-    width: 340px;
-    height: 45px;
-    padding-left: 20px;
-    border-radius: 4px; 
-    font-size: 17px;
-    font-style: italic;
-    outline: 2px solid rgba(161, 5, 5, 0.61);
-    box-shadow: 0 0 5px 1px rgba(161, 5, 5, 0.61);
-    border-style:none
+    width: 270px;
+    height: 60px;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 0px;
+    border-radius: 50px; 
+    font-size: 1.5rem;
+    border-style:none;
+    background-color: #845ec2;
+    color: rgb(221, 221, 221);
 }
 
 .button-login{ 
@@ -33,16 +44,41 @@
     height: 50px;
     font-size: 24px;
     font-weight: bold;
-    text-transform: uppercase;
-    background:black;
-    color: red;
+    background: #00c9b7;
     border-style: none;
     border-radius: 6px;
-    box-shadow: 0 6px 0 red;
+    box-shadow: 4px 6px 0 #46d6aa;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 55%;
+    margin-bottom: 150px;
+    color: white;
+    text-transform: uppercase;
 }
 
-.title-login{
-    font-size: 30px;
+@media screen and (min-width: 470px) and (max-width: 700px) {
+    .title-login {
+        font-size: 1.9rem;
+    }
+
+    .label-login{
+        font-size: 1.2rem;
+    }
+
+    .button-login{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 469px) {
+    .title-login {
+        font-size: 1.5rem;
+    }
+
+    .label-login{
+        font-size: 1rem;
+    }
+
+    .button-login{
+        font-size: 0.8rem;
+    }
 }

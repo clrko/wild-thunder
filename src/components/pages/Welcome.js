@@ -17,7 +17,7 @@ class Welcome extends React.Component {
                 <div className="login-page" >
                     <h2 className="title-login" >Welcome to Thunder!</h2>
                     <label className='label-login' >Choose a pseudo</label>
-                    <input className="input-login" type='text' value={this.state.username} name='username' placeholder="Username" onChange={this.onChange} />
+                    <input className="input-login" type='text' value={this.state.username} name='username' placeholder="......" onChange={this.onChange} />
                     <Link to={{pathname:`/mode-page`, username:this.state.username}}><button className="button-login">Start</button></Link>
                 </div>
             </div>

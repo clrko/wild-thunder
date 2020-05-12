@@ -6,7 +6,6 @@
     text-decoration: none;
 }
 
-
 .nav-title {
     color:white;
     font-family: LeagueMono-Bold;
@@ -16,8 +15,14 @@
     color:lightblue;
 }
 
-.nav-icon {
-    font-size: 2rem;
+.nav-links-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.nav-container ul {
+    display: none;
 }
 
 .nav-bottom-container {
@@ -33,15 +38,8 @@
     min-height: 10vh;
 }
 
-.nav-links-wrapper {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-
-
-.nav-container ul {
-    display: none;
+.nav-icon {
+    font-size: 2rem;
 }
 
 @media screen and (min-width: 700px) /* to be precised */{

@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 10vh;
+    margin-top: 2%;
 }
 
 .cards-list {
@@ -16,4 +17,62 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+
+.themepage-h1-first {
+    margin-top: 4%;
+    margin-bottom: 3%;
+    font-size: 3rem;
+    text-align: center;
+    letter-spacing: 0.093em;
+    text-shadow: 2px 3px 0px #898999;
+    text-transform: uppercase;
+}
+
+.themepage-h1-second {
+    margin-bottom: 6%;
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.093em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+
+@media all and (max-width: 700px) {
+    .themepage-h1-first {
+        margin-top: 8%;
+        margin-bottom: 3%;
+        font-size: 2.5rem;
+    }
+    
+    .themepage-h1-second {
+        margin-bottom: 6%;
+        font-size: 1.5rem;
+        margin-bottom: 0;
+        padding: 0 10px;
+    }
+
+    .container-card {
+        margin-top: 6%;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .themepage-h1-first {
+        margin-top: 8%;
+        margin-bottom: 6%;
+        font-size: 2rem;
+    }
+    
+    .themepage-h1-second {
+        margin-bottom: 6%;
+        font-size: 1.4rem;
+        margin-bottom: 0;
+        padding: 0 10px;
+    }
+
+    .container-card {
+        margin-top: 6%;
+    }
 }
