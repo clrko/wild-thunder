@@ -163,7 +163,6 @@ class GameSession extends React.Component {
                 genresTitle: this.state.genresTitle
             }} />
         }
-        console.log(this.props)
         return (
 
             <div>
