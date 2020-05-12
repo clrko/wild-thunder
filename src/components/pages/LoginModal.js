@@ -19,6 +19,16 @@ const LoginModal = () => {
             localStorage.setItem("token", res.headers["x-access-token"])
         })
     }
+
+    const handleTest = (e) => {
+        e.preventDefault() 
+        /* dnas le premier {} il va falloir emttre id de la chansson, favorite et autre truces à mettre dans la base, deuxieme c'ets config où il faut mettre le token  et autres headers*/
+        axios.post("http://localhost:4242/auth/test", {},{
+            headers: {
+                'x-access-token': localStorage.getItem("token"),
+            }
+        })
+    }
         return (
             <div className="homepageModal" >
                 <button onClick={() => setModalIsOpen(true)}>Login</button>
@@ -36,7 +46,7 @@ const LoginModal = () => {
                             <input className="input-login-modal" type="password" name="password" placeholder="Password"  /> 
                             <input className="button-login-modal" type="submit" value="Login"  />
                         </form>
-                        
+                        <button onClick={handleTest}>testatokensend</button>
                     </div>
                     
                     <button  onClick={() => setModalIsOpen(false)}>Close</button>
