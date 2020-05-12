@@ -28,7 +28,8 @@ class GameSessionSurvival extends React.Component {
         genresTitle: "Survival",
         color: this.props.location.background,
         redirect: null,
-        counter: 30
+        counter: 30,
+        numberOfAttempts: 5
     }
 
     componentDidMount() {
@@ -76,7 +77,7 @@ class GameSessionSurvival extends React.Component {
 
     saveRoundAndLoadNextSong = () => {
         this.addToHistory()
-        if (this.state.numArtist === rounds - 1) {
+        if (this.state.numberOfAttempts === 0 || this.state.numArtist === rounds - 1) {
             this.setState({ redirect: "/endsession" })
         } else if (this.state.numArtist < rounds - 1) {
             this.nextSong()
@@ -88,6 +89,9 @@ class GameSessionSurvival extends React.Component {
     }
 
     nextSong = () => {
+        this.setState(prevState => 
+            !prevState.isArtistFound ? {numberOfAttempts: prevState.numberOfAttempts -1} : null 
+        )
         this.setState(
             (prevState) => ({ numArtist: prevState.numArtist + 1 }),
             () => this.setState({ artistTrack: this.state.artistTrackList[this.state.numArtist] },
@@ -153,6 +157,7 @@ class GameSessionSurvival extends React.Component {
                     :
                     <div>
                         <GameSessionHeader genresTitle={this.state.genresTitle} color={this.state.color} />
+                        <h2>Number of attempts left: {this.state.numberOfAttempts}</h2>
                         <CountDownTimer counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
                         <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                         <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
