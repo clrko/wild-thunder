@@ -1,11 +1,12 @@
 .container {
-    width: 80%;
-    background-color: whitesmoke;
-    color:black;
+    width: 30%;
+    /* background-color: whitesmoke; */
+    color: #05f2db;
     text-align: center;
     border-radius: 5px;
-    margin: 10px 0;
-    margin: auto
+    padding: 10px;
+    margin: 3% auto;
+
 }
 
 button {

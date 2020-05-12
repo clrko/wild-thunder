@@ -16,10 +16,12 @@
 
 .letter {
     border: 1px solid black;
-    background-color: antiquewhite;
-    color: black;
-    width: 26px;
-    height:26px;
+    background-color: white;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
     padding: 2px;
     margin: 1px;
     border-radius: 4px;
@@ -32,9 +34,10 @@
 .buttonLetter, .correctionButton {
     border-radius: 4px;
     margin: 1px;
-    width: 26px;
-    height: 26px;
+    width: 50px;
+    height: 50px;
 }
+
 .interface-container{
     display : flex;
     flex-direction: column;
