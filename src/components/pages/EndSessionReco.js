@@ -37,25 +37,25 @@ getArtistSimilar = () => {
     render(){
         const artists = this.props.artistId
         const artistSimilar = this.state.artistSimilar
-       console.log(artists)
+      
         return(
            <div>
                <h1>Artist similar</h1>
-               <h1></h1>
-               {artistSimilar.map(similar => {
-                  return(
-                <div>    
-                    
-                   <h2>{similar[0].name}</h2>
-                    <h2>{similar[1].name}</h2>
-                    <h2>{similar[2].name}</h2>
-                </div>
-                ) })}
-               
-               </div>
-                 
+                {artists.map(artist => artistSimilar.map( simular => {
+                   return(
+                   <div>
+                    <h1>{artist.artistTrack.artistName}</h1>
+                    <h2>{simular[0].name}</h2>
+                    <h2>{simular[1].name}</h2>
+                    <h2>{simular[2].name}</h2>
+                    </div>
+                )})
+                )}
+            </div>   
         )
     }
-} 
+}
+ 
+              
 
 export default EndSessionReco
