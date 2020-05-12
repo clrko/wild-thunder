@@ -7,15 +7,19 @@ import './EndSessionReco.css';
 
 class EndSessionReco extends React.Component{
     state = {
-        artistSimilar : [],
+        artistSimilar1 : [],
+        artistSimilar2 : [],
+        artistSimilar3 : [],
+        artistSimilar4 : [],
+        artistSimilar5 : [],
        
     }
 componentDidMount(){
-        this.setState(this.getArtistSimilar)
+        this.getArtistSimilar()
    
 } 
 getArtistSimilar = () => {
-    const artists = this.props.artistId
+    const artists = this.props.location.artistId
     artists.map(artist =>{ 
         return(
         Axios.get(`https://api.napster.com/v2.2/artists/${artist.artistTrack.artistId}/similar`,
@@ -24,64 +28,30 @@ getArtistSimilar = () => {
                 apikey: API_KEY,
             }})
             .then(res => { 
-                this.setState( () => ({ artistSimilar: [res.data.artists]}))
-             } )
+                this.setState( () => ({ artistSimilar1: [...this.state.artistSimilar1, res.data.artists ]}))
+                
+                /*this.setState( () => ({ artistSimilar2: res.data.artists.splice(0,3)}))
+                this.setState( () => ({ artistSimilar3: res.data.artists.splice(0,3)}))
+                this.setState( () => ({ artistSimilar4: res.data.artists.splice(0,3)}))
+                this.setState( () => ({ artistSimilar5: res.data.artists.splice(0,3)}))*/
+               
+                 } )
     )})
         
 }
     render(){
-        const artists = this.props.artistId
-        const artistSimilar = this.state.artistSimilar
+        const artists = this.props.location.artistId
+        const artistSimilar1 = this.state.artistSimilar1
+        const artistSimilar2 = this.state.artistSimilar2
+        const artistSimilar3 = this.state.artistSimilar3
+        const artistSimilar4 = this.state.artistSimilar4
+        const artistSimilar5 = this.state.artistSimilar5
+        
+        
+        
         return(
-            <div className="container-similar">
-                <h1>Artist similar</h1>
-              {artists.map(artist => {
-                   return(
-                       <div className='reco-list-artist'>
-                           <h2>{artist.artistTrack.artistName}:</h2>
-                       </div>
-                   ) 
-                        })}
-              {artistSimilar.map(similar  => {console.log(similar[6])
-                return(
-                <div className="reco-similar-artist">
-                    <div>
-                        <img src={`https://api.napster.com/imageserver/v2/albums/${similar[0].albumGroups.singlesAndEPs[0]}/images/90x90.jpg`} alt='placeholder' />
-                        <p>{similar[0].name}</p>
-                        <img src={`https://api.napster.com/imageserver/v2/albums/${similar[13].albumGroups.singlesAndEPs[0]}/images/90x90.jpg`} alt='placeholder' />
-                        <p>{similar[13].name}</p>
-                    </div>
-                    <div>
-                        <img src={`https://api.napster.com/imageserver/v2/albums/${similar[2].albumGroups.singlesAndEPs[0]}/images/90x90.jpg`} alt='placeholder'/>
-                        <p>{similar[2].name}</p>
-                        <img src={`https://api.napster.com/imageserver/v2/albums/${similar[3].albumGroups.singlesAndEPs[0]}/images/90x90.jpg`} alt='placeholder'/>
-                        <p>{similar[3].name}</p>
-                        
-                    </div>
-                    <div>
-                        <img src={`https://api.napster.com/imageserver/v2/albums/${similar[4].albumGroups.singlesAndEPs[0]}/images/90x90.jpg`} alt='placeholder'/>
-                        <p>{similar[4].name}</p>
-                        <img src={`https://api.napster.com/imageserver/v2/albums/${similar[5].albumGroups.singlesAndEPs[0]}/images/90x90.jpg`} alt='placeholder'/>
-                        <p>{similar[5].name}</p>
-                    </div>
-                    <div>
-                        <img src={`https://api.napster.com/imageserver/v2/albums/${similar[9].albumGroups.compilations[0]}/images/90x90.jpg`} alt='placeholder'/>
-                        <p>{similar[9].name}</p>
-                        <img src={`https://api.napster.com/imageserver/v2/albums/${similar[14].albumGroups.singlesAndEPs[0]}/images/90x90.jpg`} alt='placeholder'/>
-                        <p>{similar[14].name}</p>
-                       
-                    </div>
-                    <div>
-                        <img src={`https://api.napster.com/imageserver/v2/albums/${similar[11].albumGroups.singlesAndEPs[0]}/images/90x90.jpg`} alt='placeholder'/>
-                        <p>{similar[11].name}</p>
-                        <img src={`https://api.napster.com/imageserver/v2/albums/${similar[16].albumGroups.singlesAndEPs[0]}/images/90x90.jpg`} alt='placeholder'/>
-                        <p>{similar[16].name}</p>
-                       
-                    </div>
-                </div>
-              )})
-              }
-              
+            <div>
+                
             </div>
         )
     }
