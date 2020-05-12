@@ -9,8 +9,9 @@ import HomePage from './components/pages/HomePage';
 import ModePageMainRules from './components/pages/ModePageMainRules';
 import ModePage from './components/pages/ModePage';
 import Page404 from './components/pages/Page404';
-import ThemePage from './components/pages/ThemePage';
+import RankingStandard from './components/pages/RankingStandard'
 import SignIn from './components/pages/SignIn';
+import ThemePage from './components/pages/ThemePage';
 
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
           <Route path="/modepage-mainrules" component={ModePageMainRules} />
           <Route path="/gamesession" component={GameSession} />
           <Route path="/endsession" component={EndSession} />
+          <Route path="/ranking-standard" component={RankingStandard}/>
           <Route path="/sign_in/:pseudo" component={SignIn} />
           <Route path="/contact/:pseudo" component={Contact} />
           <Route path="/mode-page" component={ModePage} />

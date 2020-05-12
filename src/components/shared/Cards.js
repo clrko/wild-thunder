@@ -5,10 +5,9 @@ import "./Cards.css";
 import "./Cards.css";
 
 function Cards(props) {
-    
     return (
         <NavLink to={
-            {pathname:`/gamesession`, state:props.genreId , title:props.genreTitle , background:props.className}
+            {pathname:`/gamesession`, state:props.genreId , title:props.genreTitle , background:props.divStyle , username:props.username}
             }>
         <div className={`card ${props.className}`}>
             <div className="card_image">

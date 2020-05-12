@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import LoginModal from './LoginModal';
 
 import "./Welcome.css";
 
@@ -7,18 +8,32 @@ class Welcome extends React.Component {
     state = {
         username: '',
         password: '',
+        error : false
     }
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
+   handleChange =(e) =>{
+        const username = this.state.username
+        if(username === ''){
+            this.setState({error : true})
+    }else{
+        this.setState({ redirect: "/mode-page" })
+    }
+    }
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={{ pathname: this.state.redirect, username:this.state.username}}/>
+        }
         return (
             <div>
                 <div className="login-page" >
                     <h2 className="title-login" >Welcome to Thunder!</h2>
                     <label className='label-login' >Choose a pseudo</label>
-                    <input className="input-login" type='text' value={this.state.username} name='username' placeholder="......" onChange={this.onChange} />
-                    <Link to={{pathname:`/mode-page`, username:this.state.username}}><button className="button-login">Start</button></Link>
+                    <input className="input-login" type='text' value={this.state.username} name='username' placeholder='.....' onChange={this.onChange} />
+                    <p className='error-input'>{this.state.error ? 'Please insert your pseudo' : ""}</p>
+                    <button onClick={this.handleChange} className="button-login">Start</button>
+                    <LoginModal/>
                 </div>
             </div>
         );

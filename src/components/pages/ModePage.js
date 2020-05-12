@@ -14,12 +14,12 @@ import './ModePage.css'
 
 Modal.setAppElement('#root');
 
-const ModePage = () => {
+const ModePage = (props) => {
     const [modalIsOpen,setModalIsOpen] = useState(false)
     return (
         <div className="modepage-wrapper">
             <NavbarHeader />
-            <ModePageChoice />
+            <ModePageChoice  username={props.location.username} />
             <Modal isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)} className="main-rule-modal">
                 <div className="modal-content">
                     <button  onClick={() => setModalIsOpen(false)} className="main-rule-close-btn"><FontAwesomeIcon icon={faTimes} className="modal-icon"/></button>
