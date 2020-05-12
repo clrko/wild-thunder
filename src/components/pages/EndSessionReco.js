@@ -41,13 +41,13 @@ getArtistSimilar = () => {
         return(
            <div>
                <h1>Artist similar</h1>
-                {artists.map(artist => artistSimilar.map( simular => {
+                {artists.map(artist =>  artistSimilar.map( ()   => {
                    return(
                    <div>
                     <h1>{artist.artistTrack.artistName}</h1>
-                    <h2>{simular[0].name}</h2>
-                    <h2>{simular[1].name}</h2>
-                    <h2>{simular[2].name}</h2>
+                    <h2></h2>
+                    <h2></h2>
+                    <h2></h2>
                     </div>
                 )})
                 )}
