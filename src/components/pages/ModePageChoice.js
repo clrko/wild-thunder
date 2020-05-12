@@ -11,11 +11,12 @@ const description = ['10 songs','No songs limit !']
 
 class ModePageChoice extends Component {
     render() {
+        const username = this.props.username
         return (
             <Fragment>
-                <h1 className="modePage-title">Pick up your mode</h1>
+                <h1 className="modePage-title">Hi {username} ,Pick up your mode</h1>
                 <div className="modePage-list">
-                    {arrayMode.map((mode, i) => <ModePageCards key={i} title={mode} pathname={gamePathname[i]} modeColor={modeColor[i]} description={description[i]} />)}
+                    {arrayMode.map((mode, i) => <ModePageCards key={i} title={mode} pathname={gamePathname[i]} modeColor={modeColor[i]} description={description[i]} username={username}/>)}
                 </div>
             </Fragment>
         )

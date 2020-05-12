@@ -21,25 +21,25 @@ const LoginModal = () => {
     }
         return (
             <div className="homepageModal" >
-                <button onClick={() => setModalIsOpen(true)}>Login</button>
-                <Modal isOpen={modalIsOpen}
-                onRequestClose={()=> setModalIsOpen(false)}
-                style ={{
-                    content: {color:'black',backgroundColor:'grey', width: '20%' ,bottom:'50%',left:"40%" }
-                }}>
-                    <div className="login-modal">
-                        <h2 className="title-login-modal" >Login</h2>
-                        <form onSubmit={handleSubmit}>
-                            <label className="label-login-modal" >Username</label>
+                <button className='login-open-modal' onClick={() => setModalIsOpen(true)}>Login</button>
+                <button className='button-signup'>Sign up</button>
+                <Modal className='loginModal'  isOpen={modalIsOpen}
+                    onRequestClose={()=> setModalIsOpen(false)}
+                    style ={{
+                    content: {backgroundColor:'rgb(88, 71, 71)',borderRadius : '5%'  }
+                        }}>
+                    <div>
+                        <form onSubmit={handleSubmit} className="login-modal" >
+                            <h2>Login</h2>
+                            <label>Username</label>
                             <input className="input-login-modal" type="text" name="username" placeholder="Username" />
-                            <label className="label-login-modal" >Password</label>
+                            <label>Password</label>
                             <input className="input-login-modal" type="password" name="password" placeholder="Password"  /> 
                             <input className="button-login-modal" type="submit" value="Login"  />
+                            <button className='login-close-modal'  onClick={() => setModalIsOpen(false)}>Back</button>
                         </form>
-                        
-                    </div>
+                    </div>            
                     
-                    <button  onClick={() => setModalIsOpen(false)}>Close</button>
                 </Modal>
             </div>
         )

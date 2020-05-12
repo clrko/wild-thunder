@@ -11,7 +11,7 @@ import API_KEY from '../../secret';
 
 import './ThemePage.css';
 
-const themeBackgroundColor = ['Class1', 'Class2', 'Class3', 'Class4', 'Class5', 'Class6', 'Class7', 'Class8', 'Class9', 'Class10', 'Class11', 'Class12', 'Class13', 'Class14', 'Class15', 'Class16', 'Class17', 'Class18', 'Class19', 'Class20', 'Class21', 'Class22', 'Class23', 'Class24', 'Class25', 'Class26', 'Class27'
+const themeBackgroundColor = ['Class1', 'Class2', 'Class3', 'Class4', 'Class5', 'Class6', 'Class7', 'Class8', 'Class9', 'Class10', 'Class11', 'Class12', 'Class13', 'Class14', 'Class15', 'Class16', 'Class17', 'Class18', 'Class19', 'Class20', 'Class21', 'Class22'
 ];
 
 class ThemePage extends Component {
@@ -48,7 +48,7 @@ class ThemePage extends Component {
                         <div className="container-card">
                             <div className="cards-list">
                                 {this.state.genresList.map((genre, i) =>
-                                    <Cards key={genre.id} genreId={genre.id} className={themeBackgroundColor[i]} genreTitle={genre.name.replace(/\//g, " / ")}></Cards>
+                                    <Cards key={genre.id} genreId={genre.id} className={themeBackgroundColor[i]} genreTitle={genre.name.replace(/\//g, " / ")} username={this.state.username}></Cards>
                                 )}
                             </div>
                         </div>
