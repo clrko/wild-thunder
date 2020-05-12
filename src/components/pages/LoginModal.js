@@ -1,4 +1,5 @@
 import React , {useState} from "react";
+import { NavLink } from "react-router-dom";
 import axios from 'axios'
 import Modal from 'react-modal';
 
@@ -32,7 +33,7 @@ const LoginModal = () => {
         return (
             <div className="homepageModal" >
                 <button className='login-open-modal' onClick={() => setModalIsOpen(true)}>Login</button>
-                <button className='button-signup'>Sign up</button>
+                <NavLink to="/register/pseudo"><button className='button-signup'>Register</button></NavLink>
                 <Modal className='loginModal'  isOpen={modalIsOpen}
                     onRequestClose={()=> setModalIsOpen(false)}
                     style ={{
