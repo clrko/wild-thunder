@@ -34,10 +34,15 @@ class EndSession extends Component {
                 'x-access-token': localStorage.getItem("token"),
                 }
             }).then(res => {
-                console.log("res est ", res) /* il faudra crér un emsasge pour dire added to afvortie res.data */
+                console.log("res est ", res)
+                if (this.state.isFavorite[index]) {
+                    alert("Successfully added to your favorites")
+                } else {
+                    alert("Successfully taken out from your favorites")
+                }
             })
         } else {
-            console.log("you need to connect")
+            alert("You need to connect")
         }
         
     }
