@@ -1,0 +1,46 @@
+.endSessionRank{
+    margin-left: 35%;
+}
+.session-table{
+  border-collapse: collapse;
+  text-align: center;
+  
+  
+}
+.session-tr th,td {
+    border: 1px solid white;
+    padding: 20px;
+}
+.session-tr th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 30px;
+    background-color: rgb(67, 134, 223);
+    color: white;
+    width: 20%;
+    text-align: center;
+
+}
+.session-tr :first-child{
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+.session-tr :last-child{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.rankName{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.link-ranking-standard{
+  color : white ;
+  
+  
+}
+.link-ranking-standard:hover{
+    color: blue;
+    cursor: pointer;
+    
+}

@@ -43,11 +43,11 @@ class ThemePage extends Component {
                     :
                     <div>
                         <NavbarHeader />
-                        <h1>{`Hi ${this.state.username}, choose a theme and take on the challenge`}</h1>
+                        <h1>{`${this.state.username}, choose a theme and take on the challenge`}</h1>
                         <div className="container-card">
                             <div className="cards-list">
                                 {this.state.genresList.map((genre, i) =>
-                                    <Cards key={genre.id} genreId={genre.id} divStyle={themeBackgroundColor[i]} genreTitle={genre.name.replace(/\//g, " / ")}></Cards>
+                                    <Cards key={genre.id} genreId={genre.id} divStyle={themeBackgroundColor[i]} genreTitle={genre.name.replace(/\//g, " / ")} username={this.state.username} ></Cards>
                                 )}
                             </div>
                         </div>
