@@ -1,4 +1,8 @@
 import React from "react";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
+
 import "./GameSessionInterface.css";
 
 const singleLetter = s => s.toUpperCase().replace(/\s+/g, '').split("").sort().reduce((a, b) => (a[a.length - 1] !== b) ? (a + b) : a, "")
@@ -6,6 +10,7 @@ const singleLetter = s => s.toUpperCase().replace(/\s+/g, '').split("").sort().r
 const GameSessionInterface = props => {
     const artistName = props.artistTrack.artistName
     return (
+    <div className="interface-container-center">
         <div className="interface-container">
             <div className="solutionDisplayBoxes">
                 {
@@ -19,9 +24,10 @@ const GameSessionInterface = props => {
                 }
             </div>
             {/* comment value to avoid auto filling the input  */}
-            <input type="text" name="solution" id="userInput" className="userInput" onChange={props.handleChange} spellCheck="false" />
+            <input type="text" name="solution" id="userInput" placeholder="....." className="userInput" onChange={props.handleChange} spellCheck="false" />
             <div>
                 <div className="letterSelection">
+                {/* <FontAwesomeIcon icon={faQuestionCircle} className="faQuestionCircle" /> */}
                         {
                             singleLetter(artistName).split("").map((letter,i) =>
                             <input type="button" key={i} className="buttonLetter" value={letter} onClick={props.handleClick} />
@@ -29,8 +35,10 @@ const GameSessionInterface = props => {
                         }
                 </div>
             </div>
+            <FontAwesomeIcon icon={faQuestionCircle} className="faQuestionCircle" />
             <input type="button" className="correctionButton" value="<" onClick={props.handleCorrection} />
         </div>
+    </div>
     )
 }
 

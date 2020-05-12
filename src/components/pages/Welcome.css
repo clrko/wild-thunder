@@ -97,7 +97,7 @@
     margin-top: 10px;
 }
 
-::placeholder {
+.input-login::placeholder {
     color: white;
 }
 

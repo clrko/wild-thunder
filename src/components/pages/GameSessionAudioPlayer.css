@@ -1,12 +1,7 @@
 .container {
-    width: 30%;
-    /* background-color: whitesmoke; */
-    color: #05f2db;
     text-align: center;
-    border-radius: 5px;
-    padding: 10px;
+    color: #2CE461;
     margin: 3% auto;
-
 }
 
 button {
@@ -18,7 +13,7 @@ button {
 
 /* .h1-hidden {
     display: none;
-}
+} 
 
 .h2-hidden {
     display: none;

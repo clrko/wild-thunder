@@ -5,19 +5,19 @@
     flex-wrap: wrap;
 }
 
-.userInput {
-    display: none;
+.solutionDisplayBoxes {
+    margin-bottom: 4%;
 }
 
 .word {
-    display:flex;
+    display: flex;
     margin: 10px;
 }
 
 .letter {
     border: 1px solid black;
-    background-color: white;
-    color: white;
+    background-color: #C0C0C0;
+    color: #845EC2;
     font-weight: bold;
     font-size: 2rem;
     width: 50px;
@@ -31,6 +31,13 @@
     margin : 10px;
 }
 
+.buttonLetter {
+    background: white;
+    color: #845EC2;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
 .buttonLetter, .correctionButton {
     border-radius: 4px;
     margin: 1px;
@@ -38,17 +45,51 @@
     height: 50px;
 }
 
+.interface-container-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .interface-container{
-    display : flex;
+    display : inline-flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    background-color: #202225; 
+    border-radius: 20px;
+    padding: 2%;
+}
+
+.userInput {
+    border: none;
+    border-radius: 10px;
+    width: 300px;
+    height: 50px;
+    font-size: 2rem;
+    padding-left: 10px;
+    margin-bottom: 4%;
+    color: #845EC2;
+    font-weight: bold;
+}
+
+.userInput::placeholder {
+    color: #845EC2;
+    opacity: 1;
+}
+
+.faQuestionCircle {
+    color: yellow;
+    font-size: 2rem;
+    margin-right: 30px;
+    margin: 10px auto;
 }
 
 @media screen and (min-width: 1200px) {
     .buttonLetter {
         pointer-events: none;
     }
+    
     .correctionButton {
         display: none;
     }

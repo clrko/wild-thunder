@@ -1,4 +1,29 @@
-.ButtonEndSession {
+.ButtonEndSession-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4%;
+} 
+
+.buttonEndSession {
+    color: white;
+    font-weight: bold;
     text-align: center;
+    background-color: #EF4C4C;
+    width: 10%;
+    border-radius: 10px;
+    margin-top: 3%;
+    padding: 10px;
 }
+/* 
+.ButtonEndSession button {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: #EF4C4C;
+    width: 10%;
+    margin: 0% auto;
+    border-radius: 10px;
+    margin-top: 2%;
+} */
 
