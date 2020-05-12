@@ -7,7 +7,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 
 
-const FavoriteTracks = ({ albumId, name, artistName, handleFavoriteClick, handleToggleClick, handlePlayEnded, isFavorite, isPaused, id, previewURL}) => {
+const FavoriteTrack = ({ albumId, name, artistName, handleFavoriteClick, handleToggleClick, handlePlayEnded, isFavorite, isPaused, id, previewURL}) => {
     
     return (
         <div >
@@ -17,7 +17,7 @@ const FavoriteTracks = ({ albumId, name, artistName, handleFavoriteClick, handle
                     <p>{name}</p> 
                     <p>{artistName}</p>
                 </div>
-                {/* <button idtrack={id} onClick={() => handleFavoriteClick(id)}><FontAwesomeIcon className={isFavorite? "favorite-track" : "not-favorite-track"} icon={faHeart}/></button> */}
+                <button idtrack={id} onClick={() => handleFavoriteClick(id)}><FontAwesomeIcon className={isFavorite? "favorite-track" : "not-favorite-track"} icon={faHeart}/></button>
                 <button idtrack={id} onClick={() => handleToggleClick(id)}><FontAwesomeIcon className="play-pause-btn" icon={isPaused? faPlay : faPause }/></button>
             </div>
             <audio id={id} src={previewURL} onEnded={handlePlayEnded}>
@@ -27,4 +27,4 @@ const FavoriteTracks = ({ albumId, name, artistName, handleFavoriteClick, handle
     )
 }
 
-export default FavoriteTracks;
+export default FavoriteTrack;

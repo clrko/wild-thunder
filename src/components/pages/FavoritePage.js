@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 
-import FavoriteTracks from "./FavoriteTracks"
+import FavoriteTrack from "./FavoriteTrack"
 
 import API_KEY from '../../secret'
 
@@ -33,7 +33,7 @@ const FavoritePage = () => {
                         console.log("mon res est ",  res.data.tracks)
                         setFavoriteTrackList(res.data.tracks)
                         setIsPaused(Array(res.data.length).fill(true))
-                        setIsFavorite(Array(res.data.length).fill(false))
+                        setIsFavorite(Array(res.data.length).fill(true))
                     })
             });
         } else {
@@ -56,8 +56,8 @@ const FavoritePage = () => {
         } else {
             targetAudio.pause()
             isPausedTemp[currentIndex] = !isPausedTemp[currentIndex]
-        }
         
+        }
     }
 
     const handlePlayEnded = (e) => {
@@ -67,12 +67,29 @@ const FavoritePage = () => {
         setIsPaused(isPausedTemp)
     }
 
+    /* gestion du delete */
+    const handleFavoriteClick = (idtrack) => {
+        const isFavoriteTemp = [...isFavorite]
+        const index = favoriteTrackList.findIndex(item => item.id === idtrack)
+        isFavoriteTemp[index] = !isFavoriteTemp[index]
+        setIsFavorite(isFavoriteTemp)
+
+        axios.put("http://localhost:4242/favorite/tracks", {
+             track_id: idtrack }, {
+            headers: { 'x-access-token': localStorage.getItem("token")}
+            
+        }).then(res => {
+            console.log("res est ", res)
+            alert("Successfully taken out from your favorites")
+        })
+    }
+
     return (
         
         <div>
             {console.log("the favorite track list is ", {favoriteTrackList})}
             {favoriteTrackList.map(favoriteTrack => <p>{favoriteTrack.artistName}</p>)}
-            {favoriteTrackList.map(favoriteTrack => <FavoriteTracks key={favoriteTrack.id} albumId={favoriteTrack.albumId} name={favoriteTrack.name} artistName={favoriteTrack.artistName} /* handleFavoriteClick={handleFavoriteClick} */ handleToggleClick={handleToggleClick} handlePlayEnded={handlePlayEnded} /* isFavorite={isFavorite} */ isPaused={isPaused} id={favoriteTrack.id} previewURL={favoriteTrack.previewURL} />)}
+            {favoriteTrackList.map(favoriteTrack => <FavoriteTrack key={favoriteTrack.id} albumId={favoriteTrack.albumId} name={favoriteTrack.name} artistName={favoriteTrack.artistName} handleFavoriteClick={handleFavoriteClick} handleToggleClick={handleToggleClick} handlePlayEnded={handlePlayEnded} isFavorite={isFavorite} isPaused={isPaused} id={favoriteTrack.id} previewURL={favoriteTrack.previewURL} />)}
         </div>
     )
 }
