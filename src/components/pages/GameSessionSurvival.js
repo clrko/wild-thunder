@@ -12,7 +12,7 @@ import Loader from '../Loader/Loader';
 
 import API_KEY from '../../secret'
 
-const rounds = 10
+const rounds = 19
 const startTime = 30
 
 class GameSessionSurvival extends React.Component {
@@ -21,11 +21,11 @@ class GameSessionSurvival extends React.Component {
         artistTrack: {}, /* Contains the song currently playing */
         isLoaded: false,
         numArtist: 0,
-        solution: null,
+        solution: "",
         score: 0,
-        isArtistFound: null,
+        isArtistFound: false,
         sessionHistory: [],
-        genresTitle : "Survival",
+        genresTitle: "Survival",
         color: this.props.location.background,
         redirect: null,
         counter: 30
@@ -46,26 +46,25 @@ class GameSessionSurvival extends React.Component {
             })
             .then(res => {
                 this.setState({
-                    artistTrackList: res.data.tracks,
+                    artistTrackList: this.getListShuffled(res.data.tracks),
                     artistTrack: res.data.tracks[0],
                     isLoaded: true,
-                    solution: "",
-                    isArtistFound: false
                 },
-                    () => console.log(this.state.artistTrack))
+                    () => 
+                    document.getElementById("audioPlayer").play())
             })
     }
 
     /* Randomized an array. this function is called both on the get ArtistsList and get ArtistTracksList */
-    /*  getListShuffled = (list) => {
-         let newIndex, temp;
-         for (let i = list.length - 1; i > 0; i--) {
-             newIndex = Math.floor(Math.random() * (i + 1));
-             temp = list[i];
-             list[i] = list[newIndex];
-             list[newIndex] = temp;
-         } return list
-     } */
+    getListShuffled = (list) => {
+        let newIndex, temp;
+        for (let i = list.length - 1; i > 0; i--) {
+            newIndex = Math.floor(Math.random() * (i + 1));
+            temp = list[i];
+            list[i] = list[newIndex];
+            list[newIndex] = temp;
+        } return list
+    }
 
     validateAndChange = () => {
         const artistToFind = this.state.artistTrack.artistName.toUpperCase().replace(/\s+/g, '')
@@ -91,10 +90,9 @@ class GameSessionSurvival extends React.Component {
     nextSong = () => {
         this.setState(
             (prevState) => ({ numArtist: prevState.numArtist + 1 }),
-            // () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id));
             () => this.setState({ artistTrack: this.state.artistTrackList[this.state.numArtist] },
                 () => {
-                    this.setState({solution: ""})
+                    this.setState({ solution: "", isArtistFound: false })
                     this.restartCounter()
                     document.getElementById("userInput").value = ""
                     document.getElementById("audioPlayer").play()
@@ -145,7 +143,7 @@ class GameSessionSurvival extends React.Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory }} />
+            return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory, score: this.state.score, username: this.props.location.username }} />
         }
         return (
 

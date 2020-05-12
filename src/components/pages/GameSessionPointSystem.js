@@ -8,7 +8,6 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faStepForward } from '@fortawesome/free-solid-svg-icons';
 
 const GameSessionPointSystem = ({score, validateAndChange, saveRoundAndLoadNextSong, counter}) => {
-    console.log(counter)
     return (
         <div className="scoreSystem">
             <p>Your score is {score} points</p>
