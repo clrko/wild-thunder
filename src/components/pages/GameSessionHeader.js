@@ -10,7 +10,7 @@ class GameSessionHeader extends React.Component{
             
     return(
        
-        <div className="gameSessionHeader" style={{backgroundColor:color}}>
+        <div className={`${color} gameSessionHeader`}>
             <p className="headerGenre" >{genreTitle}</p>
         </div>
     )
