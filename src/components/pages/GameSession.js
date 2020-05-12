@@ -157,9 +157,7 @@ class GameSession extends React.Component {
         if (this.state.redirect) {
             return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory }} />
         }
-        console.log(this.state.genresCode);
-        
-        return (
+        ;return (
 
             <div>
                 {!this.state.isLoaded ?
