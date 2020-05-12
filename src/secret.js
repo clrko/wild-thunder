@@ -1,3 +1,0 @@
-const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
-
-export default API_KEY;
