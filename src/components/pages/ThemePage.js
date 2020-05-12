@@ -41,7 +41,7 @@ class ThemePage extends Component {
                 {!this.state.isLoaded ?
                     <div><Loader /></div>
                     :
-                    <div>
+                    <div className="themepage-body">
                         <NavbarHeader />
                         <h1 className="themepage-h1-first">{`Hi ${this.state.username} !`}</h1>
                         <h1 className="themepage-h1-second">Choose a theme and take on the challenge</h1>

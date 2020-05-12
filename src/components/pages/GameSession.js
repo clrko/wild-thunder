@@ -11,6 +11,7 @@ import GameSessionPointSystem from "./GameSessionPointSystem";
 import Loader from '../Loader/Loader';
 
 import API_KEY from '../../secret'
+import './GameSession.css'
 
 const rounds = 5
 const startTime = 30
@@ -160,17 +161,19 @@ class GameSession extends React.Component {
         console.log(this.props)
         return (
 
-            <div>
+            <div className="gameSession-body">
                 {!this.state.isLoaded ?
                     <div><Loader /></div>
                     :
                     <div>
                         <GameSessionHeader genresTitle ={this.state.genresTitle} color={this.state.color} />
-                        <CountDownTimer counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
-                        <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
-                        <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
-                        <GameSessionPointSystem validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} />
-                        <GameSessionButtonEndSession />
+                        <div className="gameSession-body">
+                            <CountDownTimer counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
+                            <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
+                            <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
+                            <GameSessionPointSystem validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} />
+                            <GameSessionButtonEndSession />
+                        </div>
                     </div>
                 }
             </div>

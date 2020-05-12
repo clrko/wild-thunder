@@ -3,17 +3,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486);
+    /* height: 90vh; */
+    /* background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486); */
 }
 
 .title-login {
     font-size: 2.5rem;
-    margin-bottom: 7%;
+    margin-bottom: 4%;
     letter-spacing: 0.093em;
     color: white;
     text-shadow: 2px 3px 0px #898999;
     text-transform: uppercase;
+    margin-top: 5%;
 }
 
 .label-login{
@@ -52,12 +53,13 @@
     border-radius: 6px;
     box-shadow: 4px 6px 0 #46d6aa;
     cursor: pointer;
-    margin-top: 55%;
-    margin-bottom: 150px;
+    margin-top: 4%;
+    /* margin-top: 55%; */
+    /* margin-bottom: 150px; */
     color: white;
     text-transform: uppercase;
-    margin-top: 5px; /* Stephane */
-    margin-bottom : 50px /* Stephane */
+    /* margin-top: 5px;  */
+    /* margin-bottom : 50px; */
 }
 
 @media screen and (min-width: 470px) and (max-width: 700px) {
@@ -89,11 +91,10 @@
 }
 
 .error-input{
-    color: red;
-    background-color: white;
+    color: #6D44B0;
+    font-weight: bold;
+    text-transform: uppercase;
     margin-top: 10px;
-    height: 25px;
-    border-radius: 5px;
 }
 
 @media screen and (min-width: 470px) and (max-width: 700px) {

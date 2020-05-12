@@ -51,8 +51,8 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        min-height: 8vh;
-        background-color:  #202225;
+        /* min-height: 8vh; */
+        /* background-color:  #202225; */
     }
     
     .nav-links-wrapper {

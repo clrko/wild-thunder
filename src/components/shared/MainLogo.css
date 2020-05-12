@@ -9,9 +9,11 @@
     justify-content: center;
     width: 100%;
     padding: 6px;
+    margin-top: 4%;
+    /* margin-top: 40px; */
 }
 
 .mainLogo img {
-    height: 100px;
-    width: 100px;
+    height: 140px;
+    width: 140px;
 }

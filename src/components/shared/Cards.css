@@ -1,9 +1,5 @@
-body {
-    background: #36393F;
-}
-
 .Class1 {
-    background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486);
+    background-image: linear-gradient(to right top, #ff8efa, #cd70d1, #9e53a9, #723782, #491d5c);
 }
 
 .Class2 {
@@ -11,19 +7,19 @@ body {
 }
 
 .Class3 {
-    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
-}
-
-.Class4 {
-    background-image: linear-gradient(to right top, #2cff00, #00d049, #00a157, #007352, #01463d);
-}
-
-.Class5 {
     background-image: linear-gradient(to right top, #121d62, #0057a6, #0091ca, #00cac7, #00ffa6);
 }
 
+.Class4 {
+    background-image: linear-gradient(to right top, #1798d1, #277ba3, #2c5e78, #2a4350, #24292c);
+}
+
+.Class5 {
+    background-image: linear-gradient(to right top, #91e9e5, #70cfb8, #5fb486, #5a9753, #5a7a1e);
+}
+
 .Class6 {
-    background-image: linear-gradient(to right top, #ff7a00, #ff9c00, #f8be00, #e9df00, #d3ff00);
+    background-image: linear-gradient(to right top, #2cff00, #00d049, #00a157, #007352, #01463d);
 }
 
 .Class7 {
@@ -31,7 +27,7 @@ body {
 }
 
 .Class8 {
-    background-image: linear-gradient(to right top, #1798d1, #277ba3, #2c5e78, #2a4350, #24292c);
+    background-image: linear-gradient(to right top, #ff7a00, #ff9c00, #f8be00, #e9df00, #d3ff00);
 }
 
 .Class9 {
@@ -121,7 +117,7 @@ body {
     border-radius: 0px 0px 40px 40px;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     text-transform: uppercase;
     /* margin-top: -20px; */
     height: 40px;
