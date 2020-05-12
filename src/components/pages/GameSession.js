@@ -155,7 +155,13 @@ class GameSession extends React.Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory ,score : this.state.score, username :this.props.location.username }} />
+            return <Redirect to={{ 
+                pathname: this.state.redirect,
+                state: this.state.sessionHistory,
+                score: this.state.score,
+                username: this.props.location.username,
+                genresTitle: this.state.genresTitle
+            }} />
         }
         console.log(this.props)
         return (

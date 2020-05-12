@@ -27,7 +27,7 @@ class RankingPage extends React.Component {
         })
     }
     render () {
-        console.log("recipe",this.state.scores)
+        // console.log("recipe",this.state.scores)
         if (this.state.scores === null) {
             return <p>Loading...</p>
         }
