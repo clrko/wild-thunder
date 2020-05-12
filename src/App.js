@@ -12,6 +12,7 @@ import Page404 from './components/pages/Page404';
 import RankingStandard from './components/pages/RankingStandard'
 import Register from './components/pages/Register';
 import ThemePage from './components/pages/ThemePage';
+import EndSessionRank from './components/pages/EndSessionRank';
 
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
           <Route path="/contact/:pseudo" component={Contact} />
           <Route path="/mode-page/:pseudo" component={ModePage} />
           <Route path="/game-session-survival" component={GameSessionSurvival} />
+          <Route path="/ranking/:genre/:pseudo" component={EndSessionRank} />
           <Route component={Page404} />
         </Switch>
       </Router>

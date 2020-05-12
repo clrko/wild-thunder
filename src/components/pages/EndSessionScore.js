@@ -1,18 +1,17 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import './EndSessionScore.css'
 
-const EndSessionScore = (props) => {  //{username, userScore, genresTitle, scoresDB}
-    // console.log(score, genresTitle, scoresDB)
-    const username = "john"
-    const userScore = 100
-    const genresTitle = "rock"
-    const scoresDB = [
-        { id: 4, username: "bob", score: 50, genre: "rock" },
-        { id: 8, username: "tom", score: 200, genre: "rock" },
-        { id: 16, username: "jerry", score: 120, genre: "rock" },
-        { id: 24, username: "sonic", score: 175, genre: "rock" }
-    ]
+const EndSessionScore = ({username, userScore, genresTitle, scoresDB}) => {  
+    // const username = "john"
+    // const userScore = 100
+    // const genresTitle = "rock"
+    // const scoresDB = [
+    //     { id: 4, username: "bob", score: 50, genre: "rock" },
+    //     { id: 8, username: "tom", score: 200, genre: "rock" },
+    //     { id: 16, username: "jerry", score: 120, genre: "rock" },
+    //     { id: 24, username: "sonic", score: 175, genre: "rock" }
+    // ]
 
     const scoresTable = scoresDB.sort((a, b) => b.score - a.score)
 
@@ -33,6 +32,7 @@ const EndSessionScore = (props) => {  //{username, userScore, genresTitle, score
                     <h3>{`You didn't beat your old score of: ${oldScore[0].score}pts`}</h3>)
                 :
                 <h3>Congratulation that's a new personal record!!!</h3>}
+                <Link to={{pathname:`/ranking/${genresTitle}/${username}`}}><button>See full ranking</button></Link>
             {/* <>{scoresTable.map((value) => (
                 <p>{`${value.username}, ${value.score}`}</p>
             )
