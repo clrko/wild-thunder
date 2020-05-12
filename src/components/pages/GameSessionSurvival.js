@@ -12,75 +12,60 @@ import Loader from '../Loader/Loader';
 
 import API_KEY from '../../secret'
 
-const rounds = 200
+const rounds = 10
 const startTime = 30
 
 class GameSessionSurvival extends React.Component {
     state = {
-        /* genresCode: this.props.location.state, */
-        /* artistsList: [], */ /* Gives a random list of artists */
         artistTrackList: [],
-        artistTrack: {}, /* Contains a random song from a selected artist */
+        artistTrack: {}, /* Contains the song currently playing */
         isLoaded: false,
         numArtist: 0,
         solution: null,
         score: 0,
         isArtistFound: null,
         sessionHistory: [],
-        /* genresTitle : this.props.location.title, */
-        color : this.props.location.background,
+        genresTitle : "Survival",
+        color: this.props.location.background,
         redirect: null,
         counter: 30
     }
 
     componentDidMount() {
-        this.getArtistsList()
+        this.getArtistTrackList()
     }
 
     /* First call to the api to get a random list of artists. The number of artists selected will be defined by the rounds value */
-    getArtistsList = () => {
-      axios.get(`http://api.napster.com/v2.2/tracks/top`,
-      {
-        params: {
-          apikey: API_KEY,
-          limit: rounds
-        }
-      })
-      .then(res => {
-        this.setState({artistTrackList: res.data.tracks, artistTrack : res.data.tracks[0], isLoaded: true}, () => console.log(this.state.artistTrack))
-      })
+    getArtistTrackList = () => {
+        axios.get(`http://api.napster.com/v2.2/tracks/top`,
+            {
+                params: {
+                    apikey: API_KEY,
+                    limit: rounds
+                }
+            })
+            .then(res => {
+                this.setState({
+                    artistTrackList: res.data.tracks,
+                    artistTrack: res.data.tracks[0],
+                    isLoaded: true,
+                    solution: "",
+                    isArtistFound: false
+                },
+                    () => console.log(this.state.artistTrack))
+            })
     }
-    
-    /* Return a random song of the current artist*/
-    // getArtistTracksList = (artistID) => {
-    //     this.setState({isLoaded: false})
-    //     axios.get(`https://api.napster.com/v2.2/artists/${artistID}/tracks/top`,
-    //         {
-    //             params: {
-    //                 apikey: API_KEY
-    //             }
-    //         })
-    //         .then(res => {
-    //             this.setState(
-    //                 () => ({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true, solution: "", isArtistFound: false }),
-    //                 () => {
-    //                     this.restartCounter()
-    //                     document.getElementById("userInput").value = ""
-    //                     document.getElementById("audioPlayer").play()
-    //                 })
-    //         })
-    // }
 
     /* Randomized an array. this function is called both on the get ArtistsList and get ArtistTracksList */
-   /*  getListShuffled = (list) => {
-        let newIndex, temp;
-        for (let i = list.length - 1; i > 0; i--) {
-            newIndex = Math.floor(Math.random() * (i + 1));
-            temp = list[i];
-            list[i] = list[newIndex];
-            list[newIndex] = temp;
-        } return list
-    } */
+    /*  getListShuffled = (list) => {
+         let newIndex, temp;
+         for (let i = list.length - 1; i > 0; i--) {
+             newIndex = Math.floor(Math.random() * (i + 1));
+             temp = list[i];
+             list[i] = list[newIndex];
+             list[newIndex] = temp;
+         } return list
+     } */
 
     validateAndChange = () => {
         const artistToFind = this.state.artistTrack.artistName.toUpperCase().replace(/\s+/g, '')
@@ -107,12 +92,13 @@ class GameSessionSurvival extends React.Component {
         this.setState(
             (prevState) => ({ numArtist: prevState.numArtist + 1 }),
             // () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id));
-            () => this.setState({artistTrack: this.state.artistTrackList[this.state.numArtist]},
-            () => {
-                this.restartCounter()
-                document.getElementById("userInput").value = ""
-                document.getElementById("audioPlayer").play()
-            }));
+            () => this.setState({ artistTrack: this.state.artistTrackList[this.state.numArtist] },
+                () => {
+                    this.setState({solution: ""})
+                    this.restartCounter()
+                    document.getElementById("userInput").value = ""
+                    document.getElementById("audioPlayer").play()
+                }));
     }
 
     /*CountDownTimer methods*/
@@ -168,7 +154,7 @@ class GameSessionSurvival extends React.Component {
                     <div><Loader /></div>
                     :
                     <div>
-                        <GameSessionHeader genresTitle ="Survival"/* {this.state.genresTitle} */ color={this.state.color} />
+                        <GameSessionHeader genresTitle={this.state.genresTitle} color={this.state.color} />
                         <CountDownTimer counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
                         <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                         <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
