@@ -5,7 +5,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 import './RankingStandard.css'
 
-class RankingStandart extends React.Component {
+class RankingStandard extends React.Component {
     render(){
        const username = this.props.location.username
        const score = this.props.location.score
