@@ -69,11 +69,34 @@ class EndSession extends Component {
         this.setState({isPaused:isPausedTemp})
     }
 
+    handleRanking = () => {
+        const scoresDB = this.state.scoresDB
+        const username = this.props.location.username
+        const genresTitle = this.state.genresTitle
+        const userScore = this.props.location.score
+        const oldScore = scoresDB.filter(user => user.username === username && user.genre === genresTitle)
+        console.log(scoresDB, username, genresTitle, userScore, oldScore)
+        if (oldScore.length === 0) {
+            axios.post("http://localhost:4242/ranking/addScore", {
+                username: username,
+                score: userScore,
+                genre: genresTitle,
+            })
+            .then(() => {
+                console.log("Posted")
+            })
+        } else {
+            const id = oldScore[0].id
+            console.log("already have a score", id)
+
+        }
+    }
+
     componentDidMount() {
         axios.get(`http://localhost:4242/ranking/standard/${this.state.genresTitle}`)
         .then(result => {
-            this.setState({ scoresDB: result.data })
-            // const oldScore = scoresTable.filter(user => user.username === username && user.genre === genresTitle)[0]
+            this.setState(console.log(result.data) || { scoresDB: result.data },
+            () => this.handleRanking())
         })
     }
 

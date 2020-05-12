@@ -18,7 +18,7 @@ class Welcome extends React.Component {
         if(username === ''){
             this.setState({error : true})
     }else{
-        this.setState({ redirect: "/mode-page" })
+        this.setState({ redirect: `/mode-page/${username}` })
     }
     }
     render() {
