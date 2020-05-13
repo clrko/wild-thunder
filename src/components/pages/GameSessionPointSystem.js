@@ -10,7 +10,7 @@ import { faStepForward } from '@fortawesome/free-solid-svg-icons';
 const GameSessionPointSystem = ({score, validateAndChange, saveRoundAndLoadNextSong, counter}) => {
     return (
         <div className="scoreSystem">
-            <p>Your score is {score} points</p>
+            <p className="scoreSystem-p">Your score is {score} points</p>
             {counter !== 0 ? <button onClick={validateAndChange} className="validate_button"><FontAwesomeIcon icon={faCheck} className="validate_icon" />
             </button>: <div>Too Late!</div>}
             <button onClick={saveRoundAndLoadNextSong} className="next_button"><FontAwesomeIcon icon={faStepForward} className="next_icon" />
