@@ -3,6 +3,12 @@
     display: flex;
 }
 
+.login-modal {
+    background: #36393F; 
+    border-radius: 5%;
+    width: 400px;
+}
+
 .button-login-modal{ 
    display: block;
    width: 40px;
