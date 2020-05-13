@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Contact from './components/pages/Contact';
 import EndSession from './components/pages/EndSession';
+import FavoritePage from './components/pages/FavoritePage';
 import GameSession from './components/pages/GameSession';
 import GameSessionSurvival from './components/pages/GameSessionSurvival';
 import HomePage from './components/pages/HomePage';
@@ -25,6 +26,7 @@ class App extends Component {
           <Route path="/modepage-mainrules" component={ModePageMainRules} />
           <Route path="/gamesession" component={GameSession} />
           <Route path="/endsession" component={EndSession} />
+          <Route path="/favoritepage/:pseudo" component={FavoritePage} />
           <Route path="/ranking-standard" component={RankingStandard}/>
           <Route path="/register" component={Register} />
           <Route path="/contact/:pseudo" component={Contact} />

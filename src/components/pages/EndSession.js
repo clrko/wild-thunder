@@ -2,19 +2,21 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 
-import EndSessionShare from './EndSessionShare'
-import EndSessionTrackList from "./EndSessionTrackList";
+import EndSessionRank from "./EndSessionRank";
+import EndSessionScore from "./EndSessionScore";
+import EndSessionShare from './EndSessionShare';
+import EndSessionTrackList from  "./EndSessionTrackList";
+import MainLogo from "../shared/MainLogo";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
-import MainLogo from "../shared/MainLogo";
-import EndSessionScore from "./EndSessionScore";
-
 import "./EndSession.css";
+
 
 class EndSession extends Component {
     state = {
-        artistTrack: this.props.location.state.map(track => track.artistTrack), /* array of objects */
+        artistTrack: this.props.location.state.map(track => track.artistTrack),
         isPaused: Array(this.props.location.state.length).fill(true),
         isFavorite: Array(this.props.location.state.length).fill(false),
         isArtistFound: this.props.location.state.map(track => track.isArtistFound),
@@ -23,23 +25,33 @@ class EndSession extends Component {
     }
 
     handleFavoriteClick = (idtrack) => {
-        const isFavoriteTemp = [...this.state.isFavorite]
-        const index = this.state.artistTrack.findIndex(item => item.id === idtrack)
-        isFavoriteTemp[index] = !isFavoriteTemp[index]
-        this.setState({ isFavorite: isFavoriteTemp })
-
         if (localStorage.getItem("token")) {
-            axios.post("http://localhost:4242/favorite/tracks", {
-                track_id: this.state.artistTrack[index].id
-            }, {
-                headers: {
-                    'x-access-token': localStorage.getItem("token"),
+            const isFavoriteTemp = [...this.state.isFavorite]
+            const index = this.state.artistTrack.findIndex(item => item.id === idtrack)
+            isFavoriteTemp[index] = !isFavoriteTemp[index]
+            this.setState({isFavorite:isFavoriteTemp}, () => {
+                if (!this.state.isFavorite[index]) {
+                    axios.delete(`http://localhost:4242/favorite/tracks/${idtrack}`, 
+                    {
+                        headers: { 'x-access-token': localStorage.getItem("token")}
+                        
+                    }).then(res => {
+                        alert("Successfully taken out from your favorites")
+                    })
+                } else {
+                    axios.post("http://localhost:4242/favorite/tracks", {
+                        track_id: this.state.artistTrack[index].id
+                    },{
+                        headers: {
+                        'x-access-token': localStorage.getItem("token"),
+                            }
+                    }).then(res => {
+                        alert(res.data)
+                    })
                 }
-            }).then(res => {
-                console.log("res est ", res) /* il faudra crér un emsasge pour dire added to afvortie res.data */
             })
         } else {
-            console.log("you need to connect")
+            alert("You need to connect")
         }
 
     }
@@ -121,9 +133,9 @@ class EndSession extends Component {
                     />
                 </div>
                 <h1>Final results</h1>
-                {this.state.artistTrack.map((track, i) => <EndSessionTrackList key={track.id} albumId={track.albumId} name={track.name} artistName={track.artistName} id={track.id} previewURL={track.previewURL} handleToggleClick={this.handleToggleClick} handleFavoriteClick={this.handleFavoriteClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} isFavorite={this.state.isFavorite[i]} isArtistFound={this.state.isArtistFound[i]} />)}
-                <EndSessionShare />
-                <NavLink to="/" className="goHome_button"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
+                {this.state.artistTrack.map((track,i) => <EndSessionTrackList key={track.id} albumId={track.albumId} name={track.name} artistName={track.artistName} id={track.id} previewURL={track.previewURL} handleToggleClick={this.handleToggleClick} handleFavoriteClick={this.handleFavoriteClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} isFavorite={this.state.isFavorite[i]} isArtistFound={this.state.isArtistFound[i]} />)}
+                <EndSessionShare/>
+                <NavLink to={{pathname :`/mode-page/${username}`}} className="goHome_button"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
             </div>
         )
     }
