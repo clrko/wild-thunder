@@ -90,7 +90,7 @@ class EndSessionRank extends React.Component {
         return (
             <div className="globalForm">
                 <h2>{`Ranking for the ${this.state.genre} category`}</h2>
-                <NavLink to="/" className="goHome_button"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
+                <NavLink to={{pathname: `/mode-page/${this.props.match.params.pseudo}`, username:this.props.match.params.pseudo}} className="goHome_button"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
                 {scoresTab}
             </div>
         )

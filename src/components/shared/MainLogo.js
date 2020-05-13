@@ -1,18 +1,52 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
+import axios from 'axios';
 
 import logo from "../../images/logo_thunder.svg";
 
 import "./MainLogo.css";
 
-function MainLogo() {
-    return (
-        <NavLink to="/">
-            <div className="mainLogo-container">
-                <img className="mainLogo" src={logo} alt="Logo of the application" />
-            </div>
-        </NavLink>
-    )
+class MainLogo extends Component {
+    state = {
+        loggedIn : false,
+        username: ""
+    }
+
+    getUsername() {
+        if (localStorage.getItem("token")) {
+            this.setState({
+                loggedIn: true
+            })
+            
+            axios.get("http://localhost:4242/auth", {
+                headers: {
+                    'x-access-token': localStorage.getItem("token"),
+                }
+            }).then(res => {
+                this.setState({
+                    username: res.data[0].username
+                })
+            });
+        } else {
+            this.setState({
+                loggedIn: false
+            })
+        }
+    }
+
+    componentDidMount() {
+        this.getUsername()
+    }
+
+    render() {
+        return (
+            <NavLink to={this.state.loggedIn? {pathname: `/mode-page/${this.state.username}`, username:this.state.username} : {pathname: "/"}}>
+                <div className="mainLogo-container">
+                    <img className="mainLogo" src={logo} alt="Logo of the application" />
+                </div>
+            </NavLink>
+        )
+    }
 }
 
 export default MainLogo;
