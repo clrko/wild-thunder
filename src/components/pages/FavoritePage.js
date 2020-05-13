@@ -68,14 +68,14 @@ const FavoritePage = () => {
     }
 
     /* gestion du delete */
-    const handleFavoriteClick = (idtrack) => {
+    const handleDeleteFavorite = (idtrack) => {
         const isFavoriteTemp = [...isFavorite]
         const index = favoriteTrackList.findIndex(item => item.id === idtrack)
         isFavoriteTemp[index] = !isFavoriteTemp[index]
         setIsFavorite(isFavoriteTemp)
 
-        axios.put("http://localhost:4242/favorite/tracks", {
-             track_id: idtrack }, {
+        axios.delete(`http://localhost:4242/favorite/tracks/${idtrack}`, 
+        {
             headers: { 'x-access-token': localStorage.getItem("token")}
             
         }).then(res => {
@@ -89,7 +89,7 @@ const FavoritePage = () => {
         <div>
             {console.log("the favorite track list is ", {favoriteTrackList})}
             {favoriteTrackList.map(favoriteTrack => <p>{favoriteTrack.artistName}</p>)}
-            {favoriteTrackList.map(favoriteTrack => <FavoriteTrack key={favoriteTrack.id} albumId={favoriteTrack.albumId} name={favoriteTrack.name} artistName={favoriteTrack.artistName} handleFavoriteClick={handleFavoriteClick} handleToggleClick={handleToggleClick} handlePlayEnded={handlePlayEnded} isFavorite={isFavorite} isPaused={isPaused} id={favoriteTrack.id} previewURL={favoriteTrack.previewURL} />)}
+            {favoriteTrackList.map(favoriteTrack => <FavoriteTrack key={favoriteTrack.id} albumId={favoriteTrack.albumId} name={favoriteTrack.name} artistName={favoriteTrack.artistName} handleDeleteFavorite={handleDeleteFavorite} handleToggleClick={handleToggleClick} handlePlayEnded={handlePlayEnded} isFavorite={isFavorite} isPaused={isPaused} id={favoriteTrack.id} previewURL={favoriteTrack.previewURL} />)}
         </div>
     )
 }

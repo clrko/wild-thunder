@@ -3,11 +3,11 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 
 
-const FavoriteTrack = ({ albumId, name, artistName, handleFavoriteClick, handleToggleClick, handlePlayEnded, isFavorite, isPaused, id, previewURL}) => {
+const FavoriteTrack = ({ albumId, name, artistName, handleDeleteFavorite, handleToggleClick, handlePlayEnded, isFavorite, isPaused, id, previewURL}) => {
     
     return (
         <div >
@@ -17,8 +17,8 @@ const FavoriteTrack = ({ albumId, name, artistName, handleFavoriteClick, handleT
                     <p>{name}</p> 
                     <p>{artistName}</p>
                 </div>
-                <button idtrack={id} onClick={() => handleFavoriteClick(id)}><FontAwesomeIcon className={isFavorite? "favorite-track" : "not-favorite-track"} icon={faHeart}/></button>
                 <button idtrack={id} onClick={() => handleToggleClick(id)}><FontAwesomeIcon className="play-pause-btn" icon={isPaused? faPlay : faPause }/></button>
+                <button idtrack={id} onClick={() => handleDeleteFavorite(id)}><FontAwesomeIcon className={isFavorite? "favorite-track" : "not-favorite-track"} icon={faTimes}/></button>
             </div>
             <audio id={id} src={previewURL} onEnded={handlePlayEnded}>
                 <source type="audio/mpeg" />
