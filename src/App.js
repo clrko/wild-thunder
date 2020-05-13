@@ -3,11 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Contact from './components/pages/Contact';
 import EndSession from './components/pages/EndSession';
-<<<<<<< HEAD
 import EndSessionReco from './components/pages/EndSessionReco';
-=======
 import FavoritePage from './components/pages/FavoritePage';
->>>>>>> dev
 import GameSession from './components/pages/GameSession';
 import GameSessionSurvival from './components/pages/GameSessionSurvival';
 import HomePage from './components/pages/HomePage';

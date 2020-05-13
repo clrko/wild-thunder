@@ -14,11 +14,7 @@ class EndSessionReco extends React.Component{
     }
 componentDidMount(){
         this.getArtistSimilar();
-       
-        
     } 
-   
-    
 getArtistSimilar = () => {
     const artists = this.props.location.artistId
     artists.map(artist =>{ 
@@ -29,24 +25,18 @@ getArtistSimilar = () => {
                 apikey: API_KEY,
             }})
             .then(res => { 
-               // const arraySimilar = res.data.artists.filter(simil =>  {console.log(simil.albumGroups.singlesAndEPs )}) 
                 const similar = res.data.artists.splice(0,3)  
                 const similar1 = similar.filter( simil  => simil.albumGroups.singlesAndEPs )
                 this.setState( () => ({ artistSimilar: [...this.state.artistSimilar, similar1 ]}))
                 console.log(similar);
-                
-
             } )
-                
-            
             )})
-        
         }
     render(){
         const artists = this.props.location.artistId
         const artistSimilar = this.state.artistSimilar
         return(
-            <div  >
+            <div className='container-reco-page'  >
                <h1 className="big-title-reco" >Artist similar</h1>
                 {artists.map((artist, index) => {
 
@@ -64,7 +54,6 @@ getArtistSimilar = () => {
                             )
                         }
                         )}
-
                         </div>
                 )
             }
@@ -75,6 +64,4 @@ getArtistSimilar = () => {
         )
     }
 }
-
-
-export default EndSessionReco
+export default EndSessionReco;
