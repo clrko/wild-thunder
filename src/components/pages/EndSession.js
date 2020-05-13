@@ -5,7 +5,7 @@ import axios from "axios";
 import EndSessionRank from "./EndSessionRank";
 import EndSessionScore from "./EndSessionScore";
 import EndSessionShare from './EndSessionShare';
-import EndSessionTrackList from  "./EndSessionTrackList";
+import EndSessionTrackList from "./EndSessionTrackList";
 import MainLogo from "../shared/MainLogo";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -29,22 +29,22 @@ class EndSession extends Component {
             const isFavoriteTemp = [...this.state.isFavorite]
             const index = this.state.artistTrack.findIndex(item => item.id === idtrack)
             isFavoriteTemp[index] = !isFavoriteTemp[index]
-            this.setState({isFavorite:isFavoriteTemp}, () => {
+            this.setState({ isFavorite: isFavoriteTemp }, () => {
                 if (!this.state.isFavorite[index]) {
-                    axios.delete(`http://localhost:4242/favorite/tracks/${idtrack}`, 
-                    {
-                        headers: { 'x-access-token': localStorage.getItem("token")}
-                        
-                    }).then(res => {
-                        alert("Successfully taken out from your favorites")
-                    })
+                    axios.delete(`http://localhost:4242/favorite/tracks/${idtrack}`,
+                        {
+                            headers: { 'x-access-token': localStorage.getItem("token") }
+
+                        }).then(res => {
+                            alert("Successfully taken out from your favorites")
+                        })
                 } else {
                     axios.post("http://localhost:4242/favorite/tracks", {
                         track_id: this.state.artistTrack[index].id
-                    },{
+                    }, {
                         headers: {
-                        'x-access-token': localStorage.getItem("token"),
-                            }
+                            'x-access-token': localStorage.getItem("token"),
+                        }
                     }).then(res => {
                         alert(res.data)
                     })
@@ -81,31 +81,39 @@ class EndSession extends Component {
     }
 
     handleRanking = () => {
-        const scoresDB = this.state.scoresDB
-        const username = this.props.location.username
-        const genresTitle = this.state.genresTitle
-        const userScore = this.props.location.score
-        const oldScore = scoresDB.filter(user => user.username === username && user.genre === genresTitle)
-        console.log(scoresDB, username, genresTitle, userScore, oldScore, userScore > oldScore[0])
-        if (oldScore.length === 0) {
-            axios.post("http://localhost:4242/ranking/addScore", {
-                username: username,
-                score: userScore,
-                genre: genresTitle,
-            })
-                .then(() => {
-                    console.log("Posted")
+        if (localStorage.getItem("token")) {
+            const scoresDB = this.state.scoresDB
+            const username = this.props.location.username
+            const genresTitle = this.state.genresTitle
+            const userScore = this.props.location.score
+            const oldScore = scoresDB.filter(user => user.username === username && user.genre === genresTitle)
+            console.log(scoresDB, username, genresTitle, userScore, oldScore, userScore > oldScore[0])
+            if (oldScore.length === 0) {
+                axios.post("http://localhost:4242/ranking/addScore", {
+                    username: username,
+                    score: userScore,
+                    genre: genresTitle,
+                },
+                    {
+                        headers: {
+                            'x-access-token': localStorage.getItem("token"),
+                        }
+                    }
+                )
+                    .then(() => {
+                        console.log("Posted")
+                    })
+            } else if (userScore > oldScore[0].score) {
+                const id = oldScore[0].id
+                axios.put(`http://localhost:4242/ranking//updateScore/${id}`, {
+                    score: userScore,
                 })
-        } else if (userScore > oldScore[0].score) {
-            const id = oldScore[0].id
-            axios.put(`http://localhost:4242/ranking//updateScore/${id}`, {
-                score: userScore,
-            })
-                .then(() => {
-                    console.log("Updated")
-                })
-        } else {
-            console.log("User already in DB but score is lower than the one in DB so no update")
+                    .then(() => {
+                        console.log("Updated")
+                    })
+            } else {
+                console.log("User already in DB but score is lower than the one in DB so no update")
+            }
         }
     }
 
@@ -133,9 +141,9 @@ class EndSession extends Component {
                     />
                 </div>
                 <h1>Final results</h1>
-                {this.state.artistTrack.map((track,i) => <EndSessionTrackList key={track.id} albumId={track.albumId} name={track.name} artistName={track.artistName} id={track.id} previewURL={track.previewURL} handleToggleClick={this.handleToggleClick} handleFavoriteClick={this.handleFavoriteClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} isFavorite={this.state.isFavorite[i]} isArtistFound={this.state.isArtistFound[i]} />)}
-                <EndSessionShare/>
-                <NavLink to={{pathname :`/mode-page/${username}`}} className="goHome_button"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
+                {this.state.artistTrack.map((track, i) => <EndSessionTrackList key={track.id} albumId={track.albumId} name={track.name} artistName={track.artistName} id={track.id} previewURL={track.previewURL} handleToggleClick={this.handleToggleClick} handleFavoriteClick={this.handleFavoriteClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} isFavorite={this.state.isFavorite[i]} isArtistFound={this.state.isArtistFound[i]} />)}
+                <EndSessionShare />
+                <NavLink to={{ pathname: `/mode-page/${username}` }} className="goHome_button"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
             </div>
         )
     }
