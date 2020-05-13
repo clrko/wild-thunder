@@ -8,22 +8,16 @@ import './EndSessionReco.css';
 class EndSessionReco extends React.Component{
     state = {
         artistSimilar : [],
-        failed : undefined ,
-        urlDefault :'https://picsum.photos/200',
-       
     }
 componentDidMount(){
         this.getArtistSimilar();
        
         
     } 
-    onError = () => {
-        this.setState({failed : true})
-            
-    }
+   
     
 getArtistSimilar = () => {
-    const artists = this.props.artistId
+    const artists = this.props.location.artistId
     artists.map(artist =>{ 
         return(
             Axios.get(`https://api.napster.com/v2.2/artists/${artist.artistTrack.artistId}/similar`,
@@ -32,8 +26,11 @@ getArtistSimilar = () => {
                 apikey: API_KEY,
             }})
             .then(res => { 
-                const similar1 = res.data.artists.splice(0,3) &&  res.data.artists.filter( simil  => simil.albumGroups.singlesAndEPs)
+               // const arraySimilar = res.data.artists.filter(simil =>  {console.log(simil.albumGroups.singlesAndEPs )}) 
+                const similar = res.data.artists.splice(0,3)  
+                const similar1 = similar.filter( simil  => simil.albumGroups.singlesAndEPs )
                 this.setState( () => ({ artistSimilar: [...this.state.artistSimilar, similar1 ]}))
+                console.log(similar);
                 
 
             } )
@@ -43,26 +40,22 @@ getArtistSimilar = () => {
         
         }
     render(){
-        const artists = this.props.artistId
+        const artists = this.props.location.artistId
         const artistSimilar = this.state.artistSimilar
-        const defaultImage = <img src={this.state.urlDefault} />
-        if(this.state.failed) {return defaultImage}
         return(
             <div>
                <h1>Artist similar</h1>
                 {artists.map((artist, index) => {
 
                     return (
-                        <div>
+                        <div className="title-artist-reco" >
                             <h1>{artist.artistTrack.artistName}</h1>
                             {artistSimilar[index] && artistSimilar[index].map( similar   => {
                             
                             return(
-                                <div>
-                                <h2>{similar.name}</h2>
-                                <img
-                                    onError={this.onError}
-                                    src={`https://api.napster.com/imageserver/v2/albums/${similar.albumGroups.singlesAndEPs[0]}/images/90x90.jpg`}
+                                <div className='block-artist-similar' >
+                                <h3>{similar.name}</h3>
+                                <img src={`https://api.napster.com/imageserver/v2/albums/${similar.albumGroups.singlesAndEPs[0]}/images/90x90.jpg`} alt="artist"
                                     />
                             </div>
                             )
@@ -78,16 +71,6 @@ getArtistSimilar = () => {
         )
     }
 }
- /*src={this.state.urlDefault}
-                                  onError={e => { 
-                                      if(this.state.imageLoadError) { 
-                                          this.setState({
-                                              imageLoadError: false
-                                          });
-                                          e.target.src = `https://api.napster.com/imageserver/v2/albums/${similar.albumGroups.singlesAndEPs[0]}/images/90x90.jpg`;
-                                      }
-                                  }}*/
 
- //<img onError={this.onError} src={`https://api.napster.com/imageserver/v2/albums/${similar.albumGroups.singlesAndEPs[0]}/images/90x90.jpg`}   />
 
 export default EndSessionReco
