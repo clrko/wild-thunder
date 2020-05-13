@@ -6,16 +6,17 @@ import EndSessionRank from "./EndSessionRank";
 import EndSessionScore from "./EndSessionScore";
 import EndSessionShare from './EndSessionShare';
 import EndSessionTrackList from  "./EndSessionTrackList";
+import MainLogo from "../shared/MainLogo";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
-import MainLogo from "../shared/MainLogo";
 import "./EndSession.css";
 
 
 class EndSession extends Component {
     state = {
-        artistTrack: this.props.location.state.map(track => track.artistTrack), /* array of objects */
+        artistTrack: this.props.location.state.map(track => track.artistTrack),
         isPaused: Array(this.props.location.state.length).fill(true),
         isFavorite: Array(this.props.location.state.length).fill(false),
         isArtistFound: this.props.location.state.map(track => track.isArtistFound),
@@ -43,7 +44,7 @@ class EndSession extends Component {
                         'x-access-token': localStorage.getItem("token"),
                             }
                     }).then(res => {
-                        alert("Successfully added to your favorites")
+                        alert(res.data)
                     })
                 }
             })
