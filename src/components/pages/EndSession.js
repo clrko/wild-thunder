@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import {NavLink} from "react-router-dom";
 import axios from "axios";
 
-import EndSessionShare from './EndSessionShare'
+import EndSessionRank from "./EndSessionRank";
+import EndSessionScore from "./EndSessionScore";
+import EndSessionShare from './EndSessionShare';
 import EndSessionTrackList from  "./EndSessionTrackList";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 import MainLogo from "../shared/MainLogo";
 import "./EndSession.css";
-import EndSessionScore from "./EndSessionScore";
-import EndSessionRank from "./EndSessionRank";
+
 
 class EndSession extends Component {
     state = {
@@ -21,24 +22,29 @@ class EndSession extends Component {
     }
 
     handleFavoriteClick = (idtrack) => {
-        const isFavoriteTemp = [...this.state.isFavorite]
-        const index = this.state.artistTrack.findIndex(item => item.id === idtrack)
-        isFavoriteTemp[index] = !isFavoriteTemp[index]
-        this.setState({isFavorite:isFavoriteTemp})
-
         if (localStorage.getItem("token")) {
-            axios.post("http://localhost:4242/favorite/tracks", {
-                track_id: this.state.artistTrack[index].id
-            },{
-                headers: {
-                'x-access-token': localStorage.getItem("token"),
-                }
-            }).then(res => {
-                console.log("res est ", res)
-                if (this.state.isFavorite[index]) {
-                    alert("Successfully added to your favorites")
+            const isFavoriteTemp = [...this.state.isFavorite]
+            const index = this.state.artistTrack.findIndex(item => item.id === idtrack)
+            isFavoriteTemp[index] = !isFavoriteTemp[index]
+            this.setState({isFavorite:isFavoriteTemp}, () => {
+                if (!this.state.isFavorite[index]) {
+                    axios.delete(`http://localhost:4242/favorite/tracks/${idtrack}`, 
+                    {
+                        headers: { 'x-access-token': localStorage.getItem("token")}
+                        
+                    }).then(res => {
+                        alert("Successfully taken out from your favorites")
+                    })
                 } else {
-                    alert("Successfully taken out from your favorites")
+                    axios.post("http://localhost:4242/favorite/tracks", {
+                        track_id: this.state.artistTrack[index].id
+                    },{
+                        headers: {
+                        'x-access-token': localStorage.getItem("token"),
+                            }
+                    }).then(res => {
+                        alert("Successfully added to your favorites")
+                    })
                 }
             })
         } else {
@@ -85,7 +91,7 @@ class EndSession extends Component {
                 <h1>Final results</h1>
                 {this.state.artistTrack.map((track,i) => <EndSessionTrackList key={track.id} albumId={track.albumId} name={track.name} artistName={track.artistName} id={track.id} previewURL={track.previewURL} handleToggleClick={this.handleToggleClick} handleFavoriteClick={this.handleFavoriteClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} isFavorite={this.state.isFavorite[i]} isArtistFound={this.state.isArtistFound[i]} />)}
                 <EndSessionShare/>
-                <NavLink to="/" className="goHome_button"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
+                <NavLink to={{pathname :`/mode-page/${username}`}} className="goHome_button"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
             </div>
         )
     }
