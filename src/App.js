@@ -13,7 +13,7 @@ import Page404 from './components/pages/Page404';
 import RankingStandard from './components/pages/RankingStandard'
 import Register from './components/pages/Register';
 import ThemePage from './components/pages/ThemePage';
-
+import UserPage from './components/pages/UserPage';
 
 class App extends Component {
   render() {
@@ -31,6 +31,7 @@ class App extends Component {
           <Route path="/contact/:pseudo" component={Contact} />
           <Route path="/mode-page/:pseudo" component={ModePage} />
           <Route path="/game-session-survival" component={GameSessionSurvival} />
+          <Route path="/userpage" component={UserPage} />
           <Route component={Page404} />
         </Switch>
       </Router>

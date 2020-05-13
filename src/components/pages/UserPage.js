@@ -1,5 +1,5 @@
-import React from "react"
-import { Component } from "react-r";
+import React, { Component } from "react"
+
 
 class UserPage extends Component  {
     render() {
