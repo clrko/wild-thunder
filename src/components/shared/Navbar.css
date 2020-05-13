@@ -52,6 +52,14 @@
     width: 100%;
 }
 
+.LogOut_visible {
+    display: inherit;
+}
+
+.LogOut_none {
+    display: none;
+}
+
 @media screen and (min-width: 700px) /* to be precised */{
     .nav-bottom-container {
         display: none;
