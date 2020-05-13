@@ -32,3 +32,13 @@
     margin-top: 2%;
 } */
 
+
+@media screen and (min-width: 300px) and (max-width: 450px) {
+    .buttonEndSession {
+        /* color: #EF4C4C;
+        z-index: 1;
+        float: right; */
+        margin-right: 15px;
+        font-size: 2rem;
+    }
+}

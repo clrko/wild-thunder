@@ -10,3 +10,8 @@
     cursor: pointer;
 }
 
+@media screen and (min-width: 300px) and (max-width: 450px) {
+    .validate_icon {
+        font-size: 2rem;
+    }
+}

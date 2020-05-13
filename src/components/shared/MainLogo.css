@@ -18,3 +18,10 @@
     width: 40px; */
     margin: auto 0;
 }
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+    .mainLogo {
+        height: 100px;
+        width: 100px; 
+    }    
+}
