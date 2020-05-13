@@ -31,7 +31,7 @@ const FavoritePage = () => {
                     .then(res => {
                         console.log("mon res est ",  res.data.tracks)
                         setFavoriteTrackList(res.data.tracks)
-                        setIsPaused(Array(res.data.length).fill(true))
+                        setIsPaused(Array(res.data.tracks.length).fill(true))
                     })
             });
         } else {
@@ -42,14 +42,15 @@ const FavoritePage = () => {
     useEffect(() => getFavoriteTrackList(), [])
 
     const handleToggleClick = (idtrack) => {
-        const isPausedTemp = isPaused.map(status => true)
+        const isPausedTemp = [...isPaused]
+        console.log("ispaused temp est", isPaused)
         const currentIndex = favoriteTrackList.findIndex(item => item.id === idtrack)
         isPausedTemp[currentIndex] = !isPausedTemp[currentIndex]
         setIsPaused(isPausedTemp)
 
         const targetAudio = document.getElementById(idtrack)
         if (targetAudio.paused) {
-            favoriteTrackList.filter(track => track.id !==idtrack).forEach(item => document.getElementById(item.id).pause())
+            favoriteTrackList.filter(track => track.id !== idtrack).forEach(item => document.getElementById(item.id).pause())
             targetAudio.play()
         } else {
             targetAudio.pause()
@@ -76,7 +77,6 @@ const FavoritePage = () => {
                 headers: { 'x-access-token': localStorage.getItem("token")}
                 
             }).then(res => {
-                console.log("res est ", res)
                 const allFavorites = res.data.map(favoriteTrack => favoriteTrack.track_id).join(",")
                 axios.get(`https://api.napster.com/v2.2/tracks/${allFavorites}`,
                     {
@@ -85,7 +85,6 @@ const FavoritePage = () => {
                         }
                     })
                     .then(res => {
-                        console.log("mon res est ",  res.data.tracks)
                         setFavoriteTrackList(res.data.tracks)
                     })
             })
@@ -98,9 +97,7 @@ const FavoritePage = () => {
     return (
         
         <div>
-            {console.log("the favorite track list is ", {favoriteTrackList})}
-            {favoriteTrackList.map(favoriteTrack => <p>{favoriteTrack.artistName}</p>)}
-            {favoriteTrackList.map(favoriteTrack => <FavoriteTrack key={favoriteTrack.id} albumId={favoriteTrack.albumId} name={favoriteTrack.name} artistName={favoriteTrack.artistName} handleDeleteFavorite={handleDeleteFavorite} handleToggleClick={handleToggleClick} handlePlayEnded={handlePlayEnded} isPaused={isPaused} id={favoriteTrack.id} previewURL={favoriteTrack.previewURL} />)}
+            {favoriteTrackList.map((favoriteTrack, i) => <FavoriteTrack key={favoriteTrack.id} albumId={favoriteTrack.albumId} name={favoriteTrack.name} artistName={favoriteTrack.artistName} handleDeleteFavorite={handleDeleteFavorite} handleToggleClick={handleToggleClick} handlePlayEnded={handlePlayEnded} isPaused={isPaused[i]} id={favoriteTrack.id} previewURL={favoriteTrack.previewURL} />)}
         </div>
     )
 }
