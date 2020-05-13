@@ -8,7 +8,6 @@ import API_KEY from '../../secret'
 const FavoritePage = () => { 
     const [favoriteTrackList, setFavoriteTrackList] = useState([])
     const [isPaused, setIsPaused] = useState([])
-    const [isFavorite, setIsFavorite] = useState([])
 
 
     const getFavoriteTrackList = () => {
@@ -33,7 +32,6 @@ const FavoritePage = () => {
                         console.log("mon res est ",  res.data.tracks)
                         setFavoriteTrackList(res.data.tracks)
                         setIsPaused(Array(res.data.length).fill(true))
-                        setIsFavorite(Array(res.data.length).fill(true))
                     })
             });
         } else {
@@ -69,7 +67,6 @@ const FavoritePage = () => {
 
     
     const handleDeleteFavorite = (idtrack) => {
-        const isFavoriteTemp = [...isFavorite]
 
         const index = favoriteTrackList.findIndex(item => item.id === idtrack)
         const remove = window.confirm("Are you sure you want to remove this track from your favorite list?")
@@ -90,8 +87,6 @@ const FavoritePage = () => {
                     .then(res => {
                         console.log("mon res est ",  res.data.tracks)
                         setFavoriteTrackList(res.data.tracks)
-                        isFavoriteTemp[index] = !isFavoriteTemp[index]
-                        setIsFavorite(isFavoriteTemp)
                     })
             })
             alert("Successfully taken out from your favorites")
@@ -105,7 +100,7 @@ const FavoritePage = () => {
         <div>
             {console.log("the favorite track list is ", {favoriteTrackList})}
             {favoriteTrackList.map(favoriteTrack => <p>{favoriteTrack.artistName}</p>)}
-            {favoriteTrackList.map(favoriteTrack => <FavoriteTrack key={favoriteTrack.id} albumId={favoriteTrack.albumId} name={favoriteTrack.name} artistName={favoriteTrack.artistName} handleDeleteFavorite={handleDeleteFavorite} handleToggleClick={handleToggleClick} handlePlayEnded={handlePlayEnded} isFavorite={isFavorite} isPaused={isPaused} id={favoriteTrack.id} previewURL={favoriteTrack.previewURL} />)}
+            {favoriteTrackList.map(favoriteTrack => <FavoriteTrack key={favoriteTrack.id} albumId={favoriteTrack.albumId} name={favoriteTrack.name} artistName={favoriteTrack.artistName} handleDeleteFavorite={handleDeleteFavorite} handleToggleClick={handleToggleClick} handlePlayEnded={handlePlayEnded} isPaused={isPaused} id={favoriteTrack.id} previewURL={favoriteTrack.previewURL} />)}
         </div>
     )
 }
