@@ -1,7 +1,10 @@
 import React from 'react';
 import Axios from 'axios';
-
+import {NavLink} from "react-router-dom";
 import API_KEY from '../../secret';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 import './EndSessionReco.css';
 
@@ -43,13 +46,13 @@ getArtistSimilar = () => {
         const artists = this.props.location.artistId
         const artistSimilar = this.state.artistSimilar
         return(
-            <div>
-               <h1>Artist similar</h1>
+            <div  >
+               <h1 className="big-title-reco" >Artist similar</h1>
                 {artists.map((artist, index) => {
 
                     return (
                         <div className="title-artist-reco" >
-                            <h1>{artist.artistTrack.artistName}</h1>
+                            <h2>{artist.artistTrack.artistName}</h2>
                             {artistSimilar[index] && artistSimilar[index].map( similar   => {
                             
                             return(
@@ -67,6 +70,7 @@ getArtistSimilar = () => {
             }
                 )
             }
+            <NavLink to="/" className="goHome_button_reco_page"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
             </div>   
         )
     }

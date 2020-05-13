@@ -1,42 +1,10 @@
-/*
-.reco-list-artist  {
-    display: inline-block;
-    padding: 3%  6% 5% 4%; 
-    
-}
-.container-similar {
-   border: solid 2px black;
-   width: 99%;
-   padding-bottom: 5%;
+
+.big-title-reco {
+    font-size: 50px ;
+    text-shadow: 2px 3px 0px #898999;
+    text-transform: uppercase;
 }
 
-.reco-similar-artist {
-    display: flex;
-    justify-content: space-around;
-    
-}
-.reco-similar-artist img{
-    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
-}
-@media screen and (max-width:800px) {
-    .reco-list-artist{padding: 3px; font-size: 8px;}
-    img{width: 70%;height: 40%;padding : 5%}
-
-}
-.reco-similar-artist p {
-    text-align: center;
-}*/
-.container-similar div {
-    
-    
-    padding-top: 50px;
-}
-.block-artist-similar h2 {
-    text-align: center;
-    padding-top: 100px;
-    font-size: 30px;
-   
-}
 .block-artist-similar{
     text-align: center;
     display: inline-block;
@@ -54,10 +22,27 @@
     margin-bottom: 100px ;
     
 }
-.title-artist-reco h1{
+.title-artist-reco h2{
+    text-align: center;
     padding-top: 120px;
     padding-bottom: 80px;
-    font-size: 40px;
+    font-size: 35px;
     text-shadow: 2px 3px 0px #898999;
     text-transform: uppercase;
 }
+.goHome_button_reco_page {
+    display: flex;
+    justify-self: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+@media screen and (max-width:1000px) {
+    .block-artist-similar{padding-left: 150px; font-size: 8px;}
+    img{width: 70%;height: 40%;padding : 5%} 
+}
+@media screen and (max-width:800px){
+    .block-artist-similar{padding-left : 100px; }
+}
+@media screen and (max-width:700px){
+    .block-artist-similar{padding-left : 50px }
+    }
