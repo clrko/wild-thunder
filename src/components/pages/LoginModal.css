@@ -7,19 +7,21 @@
     background: #36393F; 
     border-radius: 5%;
     width: 400px;
+    color: #845ec2;
 }
 
 .button-login-modal{ 
    display: block;
-   width: 40px;
-   font-size: 14px;
+   width: auto;
+   font-size: 1rem;
    border-style: none;
    margin-top: 15px;
-   background-color: rgba(131, 2, 2, 0.658);
    border-radius: 3px;
-   color: white;
-   box-shadow: 2px 2px rgba(161, 5, 5, 0.61);
+   color: #845ec2;
+   font-weight: bold;
    cursor: pointer;
+   padding: 2%;
+   margin-top: 6%;
 }
 
 .login-modal {
@@ -31,24 +33,27 @@
 
 .input-login-modal{
     border-radius: 1px;
-    font-size: 15px;
-    font-style: italic;
-    box-shadow: 0 0 5px 1px rgba(161, 5, 5, 0.61);
+    padding-left: 10px;
+    font-size: 1rem;
+    font-style: bold;
     border-style:none ;
     border-radius: 5px;
-    width: 60%;
+    width: 40%;
+    height: 40px;
 }
 
 .login-close-modal{
     margin-top: 16px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 1rem;
+    background-color: #EF4C4C;
+    padding: 2%;
+    font-weight: bold;
     color: white;
-
 }
 
 .login-open-modal{
-    font-size:14px;
+    font-size: 1rem;
     color:#fff;
     text-decoration:none;
     font-weight:bold;
@@ -61,6 +66,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    outline: 0;
 }
 
 .button-signup{
@@ -77,6 +83,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    outline: 0;
 }
 
 .loginModal{
@@ -86,11 +93,17 @@
     justify-content: center;
     margin-left: 35%;
     margin-right: 35% ;
+    outline: 0;
+}
+
+.login-modal label {
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .login-modal h2{
+    margin-top: 2%;
     font-size: 2rem;
-    margin-bottom: 8%;
     letter-spacing: 0.100em;
     color: white;
     text-shadow: 2px 3px 0px #898999;
