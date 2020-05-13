@@ -9,7 +9,6 @@ import FavoritePage from './components/pages/FavoritePage';
 import GameSession from './components/pages/GameSession';
 import GameSessionSurvival from './components/pages/GameSessionSurvival';
 import HomePage from './components/pages/HomePage';
-import LoginModal from './components/pages/LoginModal';
 import ModePageMainRules from './components/pages/ModePageMainRules';
 import ModePage from './components/pages/ModePage';
 import Page404 from './components/pages/Page404';
@@ -17,6 +16,7 @@ import RankingStandard from './components/pages/RankingStandard'
 import Register from './components/pages/Register';
 import ThemePage from './components/pages/ThemePage';
 import UserPage from './components/pages/UserPage';
+import AuthPage from './components/pages/AuthPage';
 
 
 
@@ -38,7 +38,7 @@ class App extends Component {
           <Route path="/game-session-survival" component={GameSessionSurvival} />
           <Route path="/endsessionreco" component={EndSessionReco}/>
           <Route path="/userpage" component={UserPage} />
-          <Route path="/authentication" component={LoginModal} />
+          <Route path="/authentication" component={AuthPage} />
           <Route path="/ranking/:genre/:pseudo" component={EndSessionRank} />
           <Route component={Page404} />
         </Switch>
