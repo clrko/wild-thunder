@@ -27,7 +27,9 @@ getArtistSimilar = () => {
                 apikey: API_KEY,
             }})
             .then(res => { 
-                this.setState( () => ({ artistSimilar: [...this.state.artistSimilar, (res.data.artists.splice(0,3)) ]}))
+                const similar = res.data.artists.splice(0,3)
+                
+                this.setState( () => ({ artistSimilar: [...this.state.artistSimilar, similar ]}))
              } )
                 
                 
@@ -37,20 +39,30 @@ getArtistSimilar = () => {
     render(){
         const artists = this.props.artistId
         const artistSimilar = this.state.artistSimilar
+        console.log(artistSimilar)
       
         return(
            <div>
                <h1>Artist similar</h1>
-                {artists.map(artist =>  artistSimilar.map( ()   => {
-                   return(
-                   <div>
-                    <h1>{artist.artistTrack.artistName}</h1>
-                    <h2></h2>
-                    <h2></h2>
-                    <h2></h2>
-                    </div>
-                )})
-                )}
+                {artists.map((artist, index) => {
+
+                    return (
+                        <div>
+                            <h1>{artist.artistTrack.artistName}</h1>
+                            {artistSimilar[index] && artistSimilar[index].map( similar   => {
+                            return(
+                            <div>
+                                <h2>{similar.name}</h2>
+                            </div>
+                            )
+                        }
+                    )}
+
+                        </div>
+                )
+            }
+                )
+            }
             </div>   
         )
     }
