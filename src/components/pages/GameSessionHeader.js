@@ -9,9 +9,8 @@ class GameSessionHeader extends React.Component{
     const color = this.props.color 
             
     return(
-       
         <div className={`${color} gameSessionHeader`}>
-            <p className="headerGenre" >{genreTitle}</p>
+            <div className="headerGenre">{genreTitle}</div>
         </div>
     )
     

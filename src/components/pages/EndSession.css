@@ -1,8 +1,8 @@
-
 .endsession-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: #36393F; 
 }
 
 .endsession-container h1 {

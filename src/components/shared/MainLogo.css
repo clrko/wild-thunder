@@ -4,14 +4,17 @@
     box-sizing: border-box;
 }
 
-.mainLogo {
-    /* justify-content: center;
-    align-items: center; */
-    /* width: 100%; */
-    padding: 10px;
-}
+/* .mainLogo { */
+    /* display: flex;
+    justify-content: center; */
+    /* width: 100%;
+    padding: 6px;
+    margin-top: 4%; */
+    /* margin-top: 40px; */
+/* } */
 
-.mainLogo img {
-    height: 120px;
-    width: 120px;
+.mainLogo {
+    /* height: 40px;
+    width: 40px; */
+    margin: auto 0;
 }
