@@ -8,10 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 import MainLogo from "../shared/MainLogo";
-import "./EndSession.css";
-import RankingPage from "./rankingPageTest";
 import EndSessionScore from "./EndSessionScore";
-import EndSessionRank from "./EndSessionRank";
+
+import "./EndSession.css";
 
 class EndSession extends Component {
     state = {
@@ -120,12 +119,10 @@ class EndSession extends Component {
                         genresTitle={this.state.genresTitle}
                         scoresDB={this.state.scoresDB}
                     />
-                    {/* <EndSessionRank  score={userScore} username={username}/> */}
                 </div>
                 <h1>Final results</h1>
                 {this.state.artistTrack.map((track, i) => <EndSessionTrackList key={track.id} albumId={track.albumId} name={track.name} artistName={track.artistName} id={track.id} previewURL={track.previewURL} handleToggleClick={this.handleToggleClick} handleFavoriteClick={this.handleFavoriteClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} isFavorite={this.state.isFavorite[i]} isArtistFound={this.state.isArtistFound[i]} />)}
                 <EndSessionShare />
-                <RankingPage />
                 <NavLink to="/" className="goHome_button"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
             </div>
         )
