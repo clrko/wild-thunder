@@ -67,22 +67,38 @@ const FavoritePage = () => {
         setIsPaused(isPausedTemp)
     }
 
-    /* gestion du delete */
+    
     const handleDeleteFavorite = (idtrack) => {
         const isFavoriteTemp = [...isFavorite]
-        const index = favoriteTrackList.findIndex(item => item.id === idtrack)
-        isFavoriteTemp[index] = !isFavoriteTemp[index]
-        setIsFavorite(isFavoriteTemp)
 
-        axios.delete(`http://localhost:4242/favorite/tracks/${idtrack}`, 
-        {
-            headers: { 'x-access-token': localStorage.getItem("token")}
-            
-        }).then(res => {
-            console.log("res est ", res)
+        const index = favoriteTrackList.findIndex(item => item.id === idtrack)
+        const remove = window.confirm("Are you sure you want to remove this track from your favorite list?")
+        if (remove) {
+            axios.delete(`http://localhost:4242/favorite/tracks/${idtrack}`, 
+            {
+                headers: { 'x-access-token': localStorage.getItem("token")}
+                
+            }).then(res => {
+                console.log("res est ", res)
+                const allFavorites = res.data.map(favoriteTrack => favoriteTrack.track_id).join(",")
+                axios.get(`https://api.napster.com/v2.2/tracks/${allFavorites}`,
+                    {
+                        params: {
+                            apikey: API_KEY
+                        }
+                    })
+                    .then(res => {
+                        console.log("mon res est ",  res.data.tracks)
+                        setFavoriteTrackList(res.data.tracks)
+                        isFavoriteTemp[index] = !isFavoriteTemp[index]
+                        setIsFavorite(isFavoriteTemp)
+                    })
+            })
             alert("Successfully taken out from your favorites")
-        })
+        }
     }
+
+    
 
     return (
         
