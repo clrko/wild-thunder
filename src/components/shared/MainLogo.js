@@ -8,9 +8,9 @@ import "./MainLogo.css";
 function MainLogo() {
     return (
         <NavLink to="/">
-            {/* <div className="mainLogo"> */}
+            <div className="mainLogo-container">
                 <img className="mainLogo" src={logo} alt="Logo of the application" />
-            {/* </div> */}
+            </div>
         </NavLink>
     )
 }
