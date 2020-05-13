@@ -16,6 +16,13 @@
 }
 
 .nav-links-wrapper {
+    /* display: flex; */
+    /* justify-content: space-around; */
+    /* width: 100%; */
+    margin-left: 20%;
+}
+
+.nav-links-wrapper-footer {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -38,8 +45,18 @@
     min-height: 10vh;
 }
 
-.nav-icon {
+.faUser {
     font-size: 2rem;
+}
+
+.faSignOutAlt {
+    font-size: 2rem;
+    margin-left: 40px;
+}
+
+.faEnvelope {
+    font-size: 2rem;
+    margin-left: 40px;
 }
 
 @media screen and (min-width: 700px) /* to be precised */{
@@ -49,14 +66,15 @@
 
     .nav-container {
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-end;
         align-items: center;
         /* min-height: 8vh; */
         /* background-color:  #202225; */
     }
 
     .nav-links-wrapper {
-        width: 50%;
+        /* width: 50%; */
+        margin-right: 100px;
     }
 
     .nav-container ul {
