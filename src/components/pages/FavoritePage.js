@@ -62,8 +62,6 @@ const FavoritePage = () => {
     }
 
     const handleDeleteFavorite = (idtrack) => {
-
-        const index = favoriteTrackList.findIndex(item => item.id === idtrack)
         const remove = window.confirm("Are you sure you want to remove this track from your favorite list?")
         if (remove) {
             axios.delete(`http://localhost:4242/favorite/tracks/${idtrack}`, 
