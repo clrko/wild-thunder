@@ -9,7 +9,7 @@
 .block-artist-similar{
     text-align: center;
     display: inline-block;
-    padding-left: 300px;
+    padding-left: 270px;
     
     
 }
@@ -39,6 +39,12 @@
     justify-self: center;
     width: fit-content;
     margin: 0 auto;
+    cursor: pointer;
+}
+.goHome_icon_reco_page {
+    color: DodgerBlue;
+    font-size: 2rem; 
+    margin: 50px auto;
 }
 .container-reco-page{
     background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486)

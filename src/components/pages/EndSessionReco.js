@@ -59,7 +59,7 @@ getArtistSimilar = () => {
             }
                 )
             }
-            <NavLink to="/" className="goHome_button_reco_page"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
+            <NavLink to="/" className="goHome_button_reco_page"><button><FontAwesomeIcon icon={faHome} className="goHome_icon_reco_page" /></button></NavLink>
             </div>   
         )
     }
