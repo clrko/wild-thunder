@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink , Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 import EndSessionScore from "./EndSessionScore";
@@ -141,7 +141,7 @@ class EndSession extends Component {
                 </div>
                 <h1>Final results</h1>
                 {this.state.artistTrack.map((track, i) => <EndSessionTrackList key={track.id} albumId={track.albumId} name={track.name} artistName={track.artistName} id={track.id} previewURL={track.previewURL} handleToggleClick={this.handleToggleClick} handleFavoriteClick={this.handleFavoriteClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} isFavorite={this.state.isFavorite[i]} isArtistFound={this.state.isArtistFound[i]} />)}
-                <Link to={{pathname :'./endsessionreco' , artistId : this.props.location.state }} className="link-for-recopage" >Artist similar</Link>
+                <NavLink to={{pathname :'./endsessionreco' , artistId : this.props.location.state }} className="link-for-recopage" >Artist similar</NavLink>
                 <EndSessionShare />
                 <NavLink to={{ pathname: `/mode-page/${username}` }} className="goHome_button"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
             </div>
