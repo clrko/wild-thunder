@@ -27,10 +27,11 @@ class GameSession extends React.Component {
         score: 0,
         isArtistFound: null,
         sessionHistory: [],
-        genresTitle : this.props.location.title,
-        color : this.props.location.background,
+        genresTitle: this.props.location.title,
+        color: this.props.location.background,
         redirect: null,
-        counter: 30
+        counter: 30,
+        revealedSolution: false
     }
 
     componentDidMount() {
@@ -56,7 +57,7 @@ class GameSession extends React.Component {
 
     /* Return a random song of the current artist*/
     getArtistTracksList = (artistID) => {
-        this.setState({isLoaded: false})
+        this.setState({ isLoaded: false })
         axios.get(`https://api.napster.com/v2.2/artists/${artistID}/tracks/top`,
             {
                 params: {
@@ -93,13 +94,20 @@ class GameSession extends React.Component {
         }
     }
 
+    displaySolution = () => {
+        this.setState({ revealedSolution: true })
+    }
+
     saveRoundAndLoadNextSong = () => {
-        this.addToHistory()
-        if (this.state.numArtist === rounds - 1) {
-            this.setState({ redirect: "/endsession" })
-        } else if (this.state.numArtist < rounds - 1) {
-            this.nextSong()
-        }
+        this.displaySolution()
+        setTimeout(() => {
+            this.addToHistory()
+            if (this.state.numArtist === rounds - 1) {
+                this.setState({ redirect: "/endsession" })
+            } else if (this.state.numArtist < rounds - 1) {
+                this.nextSong()
+            }
+        }, 3000)
     }
 
     addToHistory = () => {
@@ -108,7 +116,7 @@ class GameSession extends React.Component {
 
     nextSong = () => {
         this.setState(
-            (prevState) => ({ numArtist: prevState.numArtist + 1 }),
+            (prevState) => ({ revealedSolution: false, numArtist: prevState.numArtist + 1 }),
             () => this.getArtistTracksList(this.state.artistList[this.state.numArtist].id));
     }
 
@@ -156,7 +164,7 @@ class GameSession extends React.Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to={{ 
+            return <Redirect to={{
                 pathname: this.state.redirect,
                 state: this.state.sessionHistory,
                 score: this.state.score,
@@ -171,10 +179,10 @@ class GameSession extends React.Component {
                     <div><Loader /></div>
                     :
                     <div>
-                        <GameSessionHeader genresTitle ={this.state.genresTitle} color={this.state.color} />
+                        <GameSessionHeader genresTitle={this.state.genresTitle} color={this.state.color} />
                         <div>
-                            <CountDownTimer counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
-                            <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
+                            <CountDownTimer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
+                            <GameSessionAudioPlayer revealedSolution={this.state.revealedSolution} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                             <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
                             <GameSessionPointSystem validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} />
                             <GameSessionButtonEndSession />
