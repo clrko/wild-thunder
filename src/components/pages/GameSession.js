@@ -164,7 +164,7 @@ class GameSession extends React.Component {
                 genresTitle: this.state.genresTitle
             }} />
         }
-        ;return (
+        return (
 
             <div className="gameSession-body">
                 {!this.state.isLoaded ?
