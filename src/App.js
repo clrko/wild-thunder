@@ -3,17 +3,21 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Contact from './components/pages/Contact';
 import EndSession from './components/pages/EndSession';
+import EndSessionReco from './components/pages/EndSessionReco';
+import EndSessionRank from './components/pages/EndSessionRank';
 import FavoritePage from './components/pages/FavoritePage';
 import GameSession from './components/pages/GameSession';
 import GameSessionSurvival from './components/pages/GameSessionSurvival';
 import HomePage from './components/pages/HomePage';
+import LoginModal from './components/pages/LoginModal';
 import ModePageMainRules from './components/pages/ModePageMainRules';
 import ModePage from './components/pages/ModePage';
 import Page404 from './components/pages/Page404';
 import RankingStandard from './components/pages/RankingStandard'
 import Register from './components/pages/Register';
 import ThemePage from './components/pages/ThemePage';
-import EndSessionRank from './components/pages/EndSessionRank';
+import UserPage from './components/pages/UserPage';
+
 
 
 class App extends Component {
@@ -32,6 +36,9 @@ class App extends Component {
           <Route path="/contact/:pseudo" component={Contact} />
           <Route path="/mode-page/:pseudo" component={ModePage} />
           <Route path="/game-session-survival" component={GameSessionSurvival} />
+          <Route path="/endsessionreco" component={EndSessionReco}/>
+          <Route path="/userpage" component={UserPage} />
+          <Route path="/authentication" component={LoginModal} />
           <Route path="/ranking/:genre/:pseudo" component={EndSessionRank} />
           <Route component={Page404} />
         </Switch>

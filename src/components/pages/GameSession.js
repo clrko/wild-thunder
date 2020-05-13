@@ -32,7 +32,7 @@ class GameSession extends React.Component {
         redirect: null,
         counter: 30
     }
-
+    
     componentDidMount() {
         this.getArtistsList(this.state.genresCode)
 
