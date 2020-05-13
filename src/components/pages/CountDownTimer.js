@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import "./CountDownTimer.css"
 
-const CountDownTimer = ({ counter, startTime, updateCounter, saveRoundAndLoadNextSong }) => {
+const CountDownTimer = ({ counter, startTime, updateCounter, displaySolution }) => {
 
     useEffect(() => {
         const timer = counter > 0 && setInterval(() => updateCounter(), 1000);
@@ -10,9 +10,9 @@ const CountDownTimer = ({ counter, startTime, updateCounter, saveRoundAndLoadNex
 
     useEffect(() => {
         if (counter === 0) {
-            saveRoundAndLoadNextSong()
+            displaySolution()
         }
-    }, [counter,saveRoundAndLoadNextSong])
+    }, [counter,displaySolution])
     return (
         <div className="countdown-timer">
             <div className="countdown-timer__circle">

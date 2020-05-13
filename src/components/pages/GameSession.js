@@ -100,14 +100,23 @@ class GameSession extends React.Component {
 
     saveRoundAndLoadNextSong = () => {
         this.displaySolution()
-        setTimeout(() => {
+        if (this.state.counter !== 0) {
+            setTimeout(() => {
+                this.addToHistory()
+                if (this.state.numArtist === rounds - 1) {
+                    this.setState({ redirect: "/endsession" })
+                } else if (this.state.numArtist < rounds - 1) {
+                    this.nextSong()
+                }
+            }, 3000)
+        } else {
             this.addToHistory()
             if (this.state.numArtist === rounds - 1) {
                 this.setState({ redirect: "/endsession" })
             } else if (this.state.numArtist < rounds - 1) {
                 this.nextSong()
             }
-        }, 3000)
+        }
     }
 
     addToHistory = () => {
@@ -181,7 +190,7 @@ class GameSession extends React.Component {
                     <div>
                         <GameSessionHeader genresTitle={this.state.genresTitle} color={this.state.color} />
                         <div>
-                            <CountDownTimer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
+                            <CountDownTimer displaySolution={this.displaySolution} counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
                             <GameSessionAudioPlayer revealedSolution={this.state.revealedSolution} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                             <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
                             <GameSessionPointSystem validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} />
