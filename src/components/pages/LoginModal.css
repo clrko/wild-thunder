@@ -1,12 +1,11 @@
 .homepageModal {
-    margin-top: 5%;
     display: flex;
+    margin-top: 4%;
 }
 
 .login-modal {
     background: #36393F; 
     border-radius: 5%;
-    width: 400px;
     color: #845ec2;
 }
 
@@ -29,6 +28,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 400px;
 }
 
 .input-login-modal{
@@ -53,7 +53,7 @@
 }
 
 .login-open-modal{
-    font-size: 1rem;
+    font-size: 0.9rem;
     color:#fff;
     text-decoration:none;
     font-weight:bold;
@@ -70,7 +70,7 @@
 }
 
 .button-signup{
-    font-size:14px;
+    font-size: 0.9rem;
     color:#fff;
     text-decoration:none;
     font-weight:bold;
