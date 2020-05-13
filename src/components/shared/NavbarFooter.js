@@ -17,10 +17,10 @@ class NavbarFooter extends Component {
         username: ""
     }
 
-    componentDidMount() {
+    getUsername() {
         if (localStorage.getItem("token")) {
             this.setState({
-                loggedIn: !this.state.loggedIn
+                loggedIn: true
             })
             
             axios.get("http://localhost:4242/auth", {
@@ -32,8 +32,22 @@ class NavbarFooter extends Component {
                     username: res.data[0].username
                 })
             });
+        } else {
+            this.setState({
+                loggedIn: false
+            })
         }
     }
+
+    componentDidMount() {
+        this.getUsername()
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.username !== this.state.username) {
+            this.getUsername()
+        }
+      }
 
     render(){
 
