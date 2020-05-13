@@ -26,7 +26,7 @@ class NavbarHeader extends Component {
             <nav className="nav-container">
                 <MainLogo />
                 <ul className="nav-links-wrapper">
-                    <li><NavLink className="nav-title" activeClassName ="current" to="/log_in/pseudo"><FontAwesomeIcon icon={faUser} className="faUser" /></NavLink></li> 
+                    <li><NavLink className="nav-title" activeClassName ="current" to={this.state.loggedIn? "/userpage" : "/authentication"}><FontAwesomeIcon icon={faUser} className="faUser" /></NavLink></li> 
                     <li className={this.state.loggedIn? "LogOut_visible faSignOutAlt" : "LogOut_none"}><LogOut/></li>
                     <li><NavLink className="nav-title" activeClassName ="current" to="/contact/pseudo"><FontAwesomeIcon icon={faEnvelope} className="faEnvelope" /></NavLink></li>
                 </ul>
