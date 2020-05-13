@@ -11,6 +11,7 @@ import GameSessionPointSystem from "./GameSessionPointSystem";
 import Loader from '../Loader/Loader';
 
 import API_KEY from '../../secret'
+import './GameSession.css'
 
 const rounds = 5
 const startTime = 30
@@ -155,21 +156,29 @@ class GameSession extends React.Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to={{ pathname: this.state.redirect, state: this.state.sessionHistory }} />
+            return <Redirect to={{ 
+                pathname: this.state.redirect,
+                state: this.state.sessionHistory,
+                score: this.state.score,
+                username: this.props.location.username,
+                genresTitle: this.state.genresTitle
+            }} />
         }
         ;return (
 
-            <div>
+            <div className="gameSession-body">
                 {!this.state.isLoaded ?
                     <div><Loader /></div>
                     :
                     <div>
                         <GameSessionHeader genresTitle ={this.state.genresTitle} color={this.state.color} />
-                        <CountDownTimer counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
-                        <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
-                        <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
-                        <GameSessionPointSystem validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} />
-                        <GameSessionButtonEndSession />
+                        <div>
+                            <CountDownTimer counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
+                            <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
+                            <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
+                            <GameSessionPointSystem validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} />
+                            <GameSessionButtonEndSession />
+                        </div>
                     </div>
                 }
             </div>

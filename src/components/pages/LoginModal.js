@@ -1,31 +1,59 @@
 import React , {useState} from "react";
-
+import { NavLink, Redirect } from "react-router-dom";
+import axios from 'axios'
 import Modal from 'react-modal';
 
 import "./LoginModal.css";
 
 Modal.setAppElement('#root');
 
-function LoginModal() {
+const LoginModal = () => {
     const [modalIsOpen,setModalIsOpen] = useState(false)
+    const [redirect, setRedirect] = useState(false)
+    const [username, setUsername] = useState("")
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setUsername(e.target.username.value)
+        axios.post("http://localhost:4242/auth/login", {
+            username: e.target.username.value,
+            password: e.target.password.value
+        }).then(res => {
+            if (res.status === 201) {
+                localStorage.setItem("token", res.headers["x-access-token"])
+                alert("You are connected!")
+                setRedirect(!redirect)
+            } else {
+                alert("The password or username is wrong.")
+            }
+        })
+    }   
+
+        if (redirect) {
+            return <Redirect to={{ pathname: `/mode-page/${username}`, username:username}}/>
+        }
+
         return (
             <div className="homepageModal" >
-                <button onClick={() => setModalIsOpen(true)}>Login</button>
-                <Modal isOpen={modalIsOpen}
-                onRequestClose={()=> setModalIsOpen(false)}
-                style ={{
-                    content: {color:'black',backgroundColor:'grey', width: '20%' ,bottom:'50%',left:"40%" }
-                }}>
-                    <div className="login-modal">
-                        <h2 className="title-login-modal" >Login</h2>
-                        <label className="label-login-modal" >Username</label>
-                        <input className="input-login-modal" type="text" name="username" placeholder="Username" />
-                        <label className="label-login-modal" >Password</label>
-                        <input className="input-login-modal" type="password" name="password" placeholder="Password"  /> 
-                        <input className="button-login-modal" type="submit" value="Login"  />
+                <button className='login-open-modal' onClick={() => setModalIsOpen(true)}>Login</button>
+                <NavLink to="/register"><button className='button-signup'>Register</button></NavLink>
+                <Modal className='loginModal'  isOpen={modalIsOpen}
+                    onRequestClose={()=> setModalIsOpen(false)}
+                    style ={{
+                    content: {backgroundColor:'rgb(88, 71, 71)',borderRadius : '5%'  }
+                        }}>
+                    <div>
+                        <form onSubmit={handleSubmit} className="login-modal" >
+                            <h2>Login</h2>
+                            <label>Username</label>
+                            <input className="input-login-modal" type="text" name="username" placeholder="Username" />
+                            <label>Password</label>
+                            <input className="input-login-modal" type="password" name="password" placeholder="Password"  /> 
+                            <input className="button-login-modal" type="submit" value="Login"  />
+                            <button className='login-close-modal'  onClick={() => setModalIsOpen(false)}>Back</button>
+                        </form>
                     </div>
                     
-                    <button  onClick={() => setModalIsOpen(false)}>Close</button>
                 </Modal>
             </div>
         )

@@ -1,8 +1,12 @@
-.headerGenre{
-    font-size: 40px;
-    text-align: center;
-}
 .gameSessionHeader{
-    padding-bottom: 20%;
-    
+    /* padding-bottom: 10%; */
+    height: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerGenre{
+    font-size: 3rem;
 }

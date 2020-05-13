@@ -6,7 +6,6 @@
     text-decoration: none;
 }
 
-
 .nav-title {
     color:white;
     font-family: LeagueMono-Bold;
@@ -16,8 +15,22 @@
     color:lightblue;
 }
 
-.nav-icon {
+.nav-container ul {
+    display: none;
+}
+
+.faUser {
     font-size: 2rem;
+}
+
+.faSignOutAlt {
+    font-size: 2rem;
+    margin-left: 40px;
+}
+
+.faEnvelope {
+    font-size: 2rem;
+    margin-left: 40px;
 }
 
 .nav-bottom-container {
@@ -33,15 +46,10 @@
     min-height: 10vh;
 }
 
-.nav-links-wrapper {
+.nav-links-wrapper-footer {
     display: flex;
     justify-content: space-around;
     width: 100%;
-}
-
-
-.nav-container ul {
-    display: none;
 }
 
 @media screen and (min-width: 700px) /* to be precised */{
@@ -51,14 +59,18 @@
 
     .nav-container {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
-        min-height: 8vh;
-        background-color:  #202225;
+        /* width: 100%; */
+        /* min-height: 8vh; */
+        /* background-color:  #202225; */
     }
-    
+
     .nav-links-wrapper {
-        width: 50%;
+        /* width: 50%; */
+        /* margin-right: 100px; */
+        display: flex;
+        justify-content: flex-end;
     }
 
     .nav-container ul {

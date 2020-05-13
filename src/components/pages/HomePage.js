@@ -1,15 +1,14 @@
 import React from 'react';
+import './HomePage.css'
 
 import NavbarHeader from '../shared/NavbarHeader';
-import LoginModal from './LoginModal';
 import Welcome from './Welcome';
 
 const HomePage = () => {
     return (
-        <div>
+        <div className="homepage-body">
             <NavbarHeader/>
             <Welcome/>
-            <LoginModal/>
         </div>
     )
 }

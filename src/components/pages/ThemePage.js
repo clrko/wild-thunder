@@ -11,7 +11,7 @@ import API_KEY from '../../secret';
 
 import './ThemePage.css';
 
-const themeBackgroundColor = ['#0089BA', '#008E9B', '#845EC2', '#D65DB1', '#FF6F91', '#FF9671', '#FFC75F', '#B8E067', '#ffcc96', '#0089BA', '#008E9B', '#845EC2', '#D65DB1', '#FF6F91', '#FF9671', '#FFC75F', '#B8E067', '#ffcc96', '#0089BA', '#008E9B', '#845EC2', '#D65DB1', '#FF6F91', '#FF9671', '#FFC75F', '#B8E067', '#ffcc96'
+const themeBackgroundColor = ['Class1', 'Class2', 'Class3', 'Class4', 'Class5', 'Class6', 'Class7', 'Class8', 'Class9', 'Class10', 'Class11', 'Class12', 'Class13', 'Class14', 'Class15', 'Class16', 'Class17', 'Class18', 'Class19', 'Class20', 'Class21', 'Class22'
 ];
 
 class ThemePage extends Component {
@@ -26,7 +26,7 @@ class ThemePage extends Component {
         this.setState({isLoaded: false})
         await axios.get(`http://api.napster.com/v2.2/genres`,
             { params: { apikey: API_KEY, lang: "en-US" } }        )
-            .then(res => this.setState({ genresList: res.data.genres, isLoaded: true }))
+            .then(res => this.setState({ genresList: res.data.genres.slice(0, 21), isLoaded: true }))
     }
 
     componentDidMount() {
@@ -41,13 +41,14 @@ class ThemePage extends Component {
                 {!this.state.isLoaded ?
                     <div><Loader /></div>
                     :
-                    <div>
+                    <div className="themepage-body">
                         <NavbarHeader />
-                        <h1>{`Hi ${this.state.username}, choose a theme and take on the challenge`}</h1>
+                        <h1 className="themepage-h1-first">{`Hi ${this.state.username} !`}</h1>
+                        <h1 className="themepage-h1-second">Choose a theme and take on the challenge</h1>
                         <div className="container-card">
                             <div className="cards-list">
                                 {this.state.genresList.map((genre, i) =>
-                                    <Cards key={genre.id} genreId={genre.id} divStyle={themeBackgroundColor[i]} genreTitle={genre.name.replace(/\//g, " / ")}></Cards>
+                                    <Cards key={genre.id} genreId={genre.id} className={themeBackgroundColor[i]} genreTitle={genre.name.replace(/\//g, " / ")} username={this.state.username}></Cards>
                                 )}
                             </div>
                         </div>

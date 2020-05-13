@@ -12,9 +12,9 @@ class NavbarFooter extends Component {
     render(){
         return(
             <nav className="nav-bottom-container">
-                <ul className="nav-links-wrapper">
+                <ul className="nav-links-wrapper-footer">
                     <li><NavLink className="nav-title" activeClassName ="current" to="/"><FontAwesomeIcon icon={faHome} className="nav-icon" /></NavLink></li>
-                    <li><NavLink className="nav-title" activeClassName ="current" to="/sign_in/pseudo"><FontAwesomeIcon icon={faUser} className="nav-icon" /></NavLink></li>
+                    <li><NavLink className="nav-title" activeClassName ="current" to="/register/pseudo"><FontAwesomeIcon icon={faUser} className="nav-icon" /></NavLink></li>
                     <li><NavLink className="nav-title" activeClassName ="current" to="/modepage-mainrules"><FontAwesomeIcon icon={faQuestionCircle} className="nav-icon" /></NavLink></li>
                 </ul>
             </nav>
