@@ -7,6 +7,7 @@ import FavoritePage from './components/pages/FavoritePage';
 import GameSession from './components/pages/GameSession';
 import GameSessionSurvival from './components/pages/GameSessionSurvival';
 import HomePage from './components/pages/HomePage';
+import LoginModal from './components/pages/LoginModal';
 import ModePageMainRules from './components/pages/ModePageMainRules';
 import ModePage from './components/pages/ModePage';
 import Page404 from './components/pages/Page404';
@@ -32,6 +33,7 @@ class App extends Component {
           <Route path="/mode-page/:pseudo" component={ModePage} />
           <Route path="/game-session-survival" component={GameSessionSurvival} />
           <Route path="/userpage" component={UserPage} />
+          <Route path="/authentication" component={LoginModal} />
           <Route component={Page404} />
         </Switch>
       </Router>
