@@ -49,7 +49,8 @@ class UserPage extends Component  {
                     })
                     .then(response => {
                         this.setState({
-                            favoriteSample: response.data.tracks
+                            favoriteSample: response.data.tracks,
+                            isPaused: Array(response.data.tracks.length).fill(true)
                         })
                     })
             })
@@ -102,9 +103,9 @@ class UserPage extends Component  {
             <h2 className="userpage-title-h2">Welcome to your profile</h2>
             <h3 className="userpage-title-h3">Favorite tracks</h3>
             {this.state.favoriteSample.map((trackSample, i) => <UserTrackSample key={trackSample.id} albumId={trackSample.albumId} name={trackSample.name} artistName={trackSample.artistName} handleToggleClick={this.handleToggleClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} id={trackSample.id} previewURL={trackSample.previewURL} />)}
-            <NavLink to={{pathname: `/favoritepage/${this.state.username}`, username:this.state.username}}><button>See more</button></NavLink>
+            <NavLink to={{pathname: `/favoritepage/${this.state.username}`, username:this.state.username}}><button className="userpage-more-btn">See more</button></NavLink>
             <h3 className="userpage-title-h3">Achievements</h3>
-            <button>See more</button>
+            <button className="userpage-more-btn" >See more</button>
             <NavbarFooter />
         </div>
         )

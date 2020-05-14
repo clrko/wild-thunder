@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     background-image: linear-gradient(to right top,  #1f5280, #007db0, #00abc7, #00d7bf, #00ff9b);
-    height: 100vh;
+    padding-bottom: 11vh;
 }
 
 .userpage-title {
@@ -17,21 +17,34 @@
 }
 
 .userpage-title-h2 {
-    margin-bottom: 6%;
     font-size: 1.5rem;
-    margin: 4% auto;
+    margin: 7% auto;
     text-align: center;
     letter-spacing: 0.093em;
     text-transform: uppercase;
-    margin-bottom: 0;
 }
 
 .userpage-title-h3 {
-    margin-bottom: 6%;
     font-size: 1rem;
-    margin: 4% auto;
+    margin: 5% auto;
+    margin-top:10% ;
     text-align: center;
     letter-spacing: 0.093em;
     text-transform: uppercase;
-    margin-bottom: 0;
+}
+
+.userpage-more-btn {
+    font-size:14px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+    text-transform:lowercase;
+    background:  #00abc7;
+    border-radius: 5;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
