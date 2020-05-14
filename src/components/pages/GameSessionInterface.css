@@ -48,7 +48,7 @@
 .correctionButton {
     color: #845EC2;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 2rem;
 }
 
 .interface-container-center {
@@ -165,5 +165,9 @@
 
     .correctionButton {
         margin-bottom: 2%;
+    }
+
+    .faQuestionCircle {
+        display: none;
     }
 }

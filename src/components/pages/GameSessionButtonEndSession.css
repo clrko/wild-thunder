@@ -19,6 +19,7 @@
     z-index: 1;
     float: right;
     margin-right: 50px;
+    cursor: pointer;
 }
 /* 
 .ButtonEndSession button {
