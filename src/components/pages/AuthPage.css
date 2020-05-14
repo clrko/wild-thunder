@@ -30,10 +30,10 @@
     font-size: 14px;
     border-style: none;
     margin-top: 15px;
-    background-color: rgba(131, 2, 2, 0.658);
+    /* background-color: rgba(131, 2, 2, 0.658); */
     border-radius: 3px;
     color: white;
-    box-shadow: 2px 2px rgba(161, 5, 5, 0.61);
+    /* box-shadow: 2px 2px rgba(161, 5, 5, 0.61); */
     cursor: pointer;
  }
  
