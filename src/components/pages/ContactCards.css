@@ -1,0 +1,50 @@
+.contact-cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2vh;
+}
+
+.contact-cards {
+    background: #36393F; 
+    display: flex;
+    justify-content: center;
+    height: 120px;
+    width: 33%;
+    margin: 10px auto;
+    border: none;
+    border-radius: 40px;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+}
+
+.img-profile {
+    border-radius: 20px;
+    height: 100%;
+    width: auto;
+    margin-right: 5%;
+    
+}
+
+.profile-h1 {
+    font-size: 1.5rem;
+    color: #845ec2;
+    text-transform: uppercase;
+    letter-spacing: 0.093em;
+    padding-bottom: 4%;
+}
+
+.container-github-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (min-width: 300px) and (max-width: 469px) {
+    .contact-cards {
+        height: 120px;
+        width: 100%;
+        margin: 10px auto;
+        border-radius: 0;
+    }
+}
