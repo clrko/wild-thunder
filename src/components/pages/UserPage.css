@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486);
+    background-image: linear-gradient(to right top,  #1f5280, #007db0, #00abc7, #00d7bf, #00ff9b);
     height: 100vh;
 }
 
