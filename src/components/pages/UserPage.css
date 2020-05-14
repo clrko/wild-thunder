@@ -22,7 +22,7 @@
 
 .userpage-title-h2 {
     font-size: 1.5rem;
-    margin: 4vh auto;
+    margin: 3vh auto;
     text-align: center;
     letter-spacing: 0.093em;
     text-transform: uppercase;
@@ -37,21 +37,32 @@
     text-transform: uppercase;
 }
 
-.userpage-more-btn {
+.userpage-more-btn, .userpage-play-btn {
     font-size:14px;
-    color:#fff;
     text-decoration:none;
     font-weight:bold;
-    text-transform:lowercase;
-    background:  #00abc7;
     border-radius: 5;
     cursor: pointer;
-    width: 100px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top:2vh;
+}
+
+.userpage-more-btn {
+    color:#fff;
+    background:  #00abc7;
+    width: 100px;
+}
+
+.userpage-play-btn {
+    color:#fff;
+    background: #00ff9b;
+    text-transform:uppercase;
+    font-size:20px;
+    width: 150px;
+
 }
 
 @media screen and (min-width:1000px) {
@@ -62,15 +73,11 @@
         align-items: center;
     }
 
-    .userpage-title {
+    .userpage-title, .userpage-title-h2, .navlink-play-button {
         grid-column: span 2;
     }
 
-    .userpage-title-h2 {
-        grid-column: span 2;
-    }
-
-    .userpage-more-btn:hover {
+    .userpage-more-btn:hover,  .userpage-play-btn:hover{
         transform: scale(1.05, 1);
     }
     
