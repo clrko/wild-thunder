@@ -4,6 +4,7 @@ import "./GameSessionAudioPlayer.css";
 
 const GameSessionAudioPlayer = (props) => {
     const revealedSolution = props.revealedSolution
+    console.log(revealedSolution)
     return (
         <div className="container">
             <div id="tracks-container">
