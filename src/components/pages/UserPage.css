@@ -24,5 +24,14 @@
     letter-spacing: 0.093em;
     text-transform: uppercase;
     margin-bottom: 0;
+}
 
+.userpage-title-h3 {
+    margin-bottom: 6%;
+    font-size: 1rem;
+    margin: 4% auto;
+    text-align: center;
+    letter-spacing: 0.093em;
+    text-transform: uppercase;
+    margin-bottom: 0;
 }
