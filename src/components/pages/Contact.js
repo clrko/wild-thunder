@@ -6,10 +6,10 @@ import ContactCards from './ContactCards'
 
 import './Contact.css';
 
-class SignIn extends Component {
+class Contact extends Component {
     render() {
         return (
-            <div>
+            <div className="contact-body">
                 <NavbarHeader />
                 <NavbarFooter />
                 <ContactCards />
@@ -17,4 +17,4 @@ class SignIn extends Component {
         )
     }
 }
-export default SignIn;
+export default Contact;
