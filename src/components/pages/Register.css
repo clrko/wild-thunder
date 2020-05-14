@@ -1,0 +1,74 @@
+.form_page_register{
+    margin-top: 10%;
+}  
+.container_page_register h1{
+    font-size: 50px ;
+    text-shadow: 2px 3px 0px #898999;
+    text-transform: uppercase;
+    text-align: center;
+}
+.container_page_register{
+    background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486);
+}
+.form_page_register label{
+    padding-top: 20px;
+    text-align: center;
+    
+}
+.input_register{
+     display: flex;
+    padding-left: 40%;
+    padding-right: 40%;
+    flex-direction: column;
+}
+.input_register input{
+    height: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+   
+}
+.input_register label{
+   font-style: italic; 
+   font-size: 20px;
+   padding-bottom: 10px;
+}
+input[type="text"]:focus:valid,
+input[type="password"]:focus:valid {
+  outline: 2px solid blue;
+}
+.button_go_home{
+    text-align: center;
+    margin-top: 10%;
+    padding-bottom: 5%;
+}
+.button-register{
+    text-align: center;
+}
+.button_register{
+    font-size:14px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+    text-transform:uppercase;
+    background: #46d6aa;
+    border-radius: 5;
+    cursor: pointer;
+    width: 80px;
+    height: 40px;
+    margin-top: 3%;
+   
+  
+    
+    
+}
+
+
+@media screen and ( max-width:1000px){
+    .input_register{padding-left : 35%; padding-right: 35%}
+    
+    
+}
+@media screen and (max-width:700px){
+    .input_register{padding-left : 30%; padding-right: 30%}
+}
+
