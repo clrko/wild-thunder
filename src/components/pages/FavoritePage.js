@@ -38,7 +38,6 @@ const FavoritePage = () => {
 
     const handleToggleClick = (idtrack) => {
         const isPausedTemp = [...isPaused]
-        console.log("ispaused temp est", isPaused)
         const currentIndex = favoriteTrackList.findIndex(item => item.id === idtrack)
         isPausedTemp[currentIndex] = !isPausedTemp[currentIndex]
         setIsPaused(isPausedTemp)
