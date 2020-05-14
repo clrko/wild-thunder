@@ -105,10 +105,11 @@ class UserPage extends Component  {
             <div className="userpage-container">
                 <h1 className="userpage-title">Hi {this.state.username},</h1>
                 <h2 className="userpage-title-h2">Welcome to your profile</h2>
+                <NavLink className="navlink-play-button" to={{pathname: `/mode-page/${this.state.username}`, state:this.state.username, username:this.state.username}}><button className="userpage-play-btn">Play</button></NavLink>
                 <div className="userpage-favorite-container">
                     <h3 className="userpage-title-h3">Favorite tracks</h3>
                     {this.state.favoriteSample.map((trackSample, i) => <UserTrackSample key={trackSample.id} albumId={trackSample.albumId} name={trackSample.name} artistName={trackSample.artistName} handleToggleClick={this.handleToggleClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} id={trackSample.id} previewURL={trackSample.previewURL} />)}
-                    <NavLink to={{pathname: `/favoritepage/${this.state.username}`, username:this.state.username}}><button className="userpage-more-btn">See more</button></NavLink>
+                    <NavLink to={{pathname: `/favoritepage/${this.state.username}`, state:this.state.username}}><button className="userpage-more-btn">See more</button></NavLink>
                 </div>
                 <div className="userpage-achievement-container">
                     <h3 className="userpage-title-h3">Achievements</h3>
