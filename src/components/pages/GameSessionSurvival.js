@@ -10,9 +10,11 @@ import GameSessionInterface from "./GameSessionInterface";
 import GameSessionPointSystem from "./GameSessionPointSystem";
 import Loader from '../Loader/Loader';
 
+import './GameSessionSurvival.css'
+
 import API_KEY from '../../secret'
 
-const rounds = 19
+const rounds = 100
 const startTime = 30
 
 class GameSessionSurvival extends React.Component {
@@ -29,7 +31,8 @@ class GameSessionSurvival extends React.Component {
         color: this.props.location.background,
         redirect: null,
         counter: 30,
-        numberOfAttempts: 5
+        numberOfAttempts: 3,
+        revealedSolution: false
     }
 
     componentDidMount() {
@@ -51,8 +54,8 @@ class GameSessionSurvival extends React.Component {
                     artistTrack: res.data.tracks[0],
                     isLoaded: true,
                 },
-                    () => 
-                    document.getElementById("audioPlayer").play())
+                    () =>
+                        document.getElementById("audioPlayer").play())
             })
     }
 
@@ -70,17 +73,33 @@ class GameSessionSurvival extends React.Component {
     validateAndChange = () => {
         const artistToFind = this.state.artistTrack.artistName.toUpperCase().replace(/\s+/g, '')
         if (artistToFind === this.state.solution) {
-            this.setState((prevState) => ({ score: prevState.score + prevState.counter, isArtistFound: true }));
-            this.saveRoundAndLoadNextSong()
+            this.setState((prevState) => ({ score: prevState.score + prevState.counter, isArtistFound: true, revealedSolution: true }));
+            // this.saveRoundAndLoadNextSong()
         }
     }
 
+    displaySolution = () => {
+        this.setState(() => ({ revealedSolution: true }))
+    }
+
     saveRoundAndLoadNextSong = () => {
-        this.addToHistory()
-        if (this.state.numberOfAttempts === 0 || this.state.numArtist === rounds - 1) {
-            this.setState({ redirect: "/endsession" })
-        } else if (this.state.numArtist < rounds - 1) {
-            this.nextSong()
+        if (this.state.counter !== 0 && !this.state.revealedSolution) {
+            this.displaySolution()
+            setTimeout(() => {
+                this.addToHistory()
+                if (this.state.numberOfAttempts === 0 || this.state.numArtist === rounds - 1) {
+                    this.setState({ redirect: "/endsession" })
+                } else if (this.state.numArtist < rounds - 1) {
+                    this.nextSong()
+                }
+            }, 3000)
+        } else {
+            this.addToHistory()
+            if (this.state.numberOfAttempts === 0 || this.state.numArtist === rounds - 1) {
+                this.setState({ redirect: "/endsession" })
+            } else if (this.state.numArtist < rounds - 1) {
+                this.nextSong()
+            }
         }
     }
 
@@ -89,8 +108,8 @@ class GameSessionSurvival extends React.Component {
     }
 
     nextSong = () => {
-        this.setState(prevState => 
-            !prevState.isArtistFound ? {numberOfAttempts: prevState.numberOfAttempts -1} : null 
+        this.setState(prevState =>
+            !prevState.isArtistFound ? { numberOfAttempts: prevState.numberOfAttempts - 1 } : null
         )
         this.setState(
             (prevState) => ({ numArtist: prevState.numArtist + 1 }),
@@ -116,7 +135,7 @@ class GameSessionSurvival extends React.Component {
                 document.querySelector(".circle").style.animation = `countdown-animation ${startTime}s linear, color-animation ${startTime}s linear`;
             })
         })
-        this.setState({ counter: startTime })
+        this.setState({ counter: startTime }, () => this.setState({revealedSolution: false}))
     }
 
     /*  Functions used in the userinterface that aims at inputing a letter, erease and update the number of boxes based on the artist being played */
@@ -147,27 +166,27 @@ class GameSessionSurvival extends React.Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to={{ 
+            return <Redirect to={{
                 pathname: this.state.redirect,
-                state: this.state.sessionHistory, 
-                score: this.state.score, 
+                state: this.state.sessionHistory,
+                score: this.state.score,
                 username: this.props.location.username,
-                genresTitle: this.state.genresTitle 
+                genresTitle: this.state.genresTitle
             }} />
         }
         return (
 
-            <div>
+            <div className="gameSessionSurvival-body">
                 {!this.state.isLoaded ?
                     <div><Loader /></div>
                     :
                     <div>
                         <GameSessionHeader genresTitle={this.state.genresTitle} color={this.state.color} />
                         <h2>Number of attempts left: {this.state.numberOfAttempts}</h2>
-                        <CountDownTimer counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
-                        <GameSessionAudioPlayer saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
+                        <CountDownTimer displaySolution={this.displaySolution} counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
+                        <GameSessionAudioPlayer revealedSolution={this.state.revealedSolution} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                         <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
-                        <GameSessionPointSystem validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} />
+                        <GameSessionPointSystem isArtistFound={this.state.isArtistFound} validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} />
                         <GameSessionButtonEndSession />
                     </div>
                 }
