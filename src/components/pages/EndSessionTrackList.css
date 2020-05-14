@@ -17,9 +17,11 @@
 
 .img-tracklist {
     border-radius: 50%;
+    height: 70px;
+    width: 70px;
 }
 
-img, .track-info {
+.track-container img, .track-info {
     padding: 5px;
 }
 
@@ -44,19 +46,19 @@ img, .track-info {
     width: fit-content;
 }
 
-button .play-pause-btn {
-    color: DodgerBlue;
+.track-container button .play-pause-btn {
+    color: #00abc7;
 }
 
 .favorite-track {
-    color: yellow;
+    color: #f8be00;
 }
 
 .not-favorite-track {
     color:grey;
 }
 
-@media screen and (min-width:800px) {
+@media screen and (min-width:760px) {
     .track-container {
         width: 700px;
     }

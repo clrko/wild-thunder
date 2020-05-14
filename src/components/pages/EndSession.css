@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
     background: #36393F; 
+    padding-bottom: 11vh;
 }
 
 .endsession-container h1 {
@@ -13,20 +15,17 @@
     letter-spacing: 0.093em;
     text-shadow: 2px 3px 0px #898999;
     text-transform: uppercase;
+    color: #00abc7;
 }
 
-.goHome_icon {
-    color: DodgerBlue;
-    font-size: 2rem; 
-    margin: 50px auto;
-    cursor: pointer;
+.endsession-container h2 {
+    font-size: 1.5rem;
+    margin: 3vh auto;
+    text-align: center;
+    letter-spacing: 0.093em;
+    text-transform: uppercase;
 }
 
-.goHome_button {
-    justify-self: center;
-    width: fit-content;
-    margin: 0 auto;
-}
 .score_rank{
     display: flex;
 }
@@ -39,8 +38,15 @@
     color:rgb(38, 156, 177);
 }
 .button-go-reco{
-    text-transform: uppercase;
-    font-size: 20px ;
-    color : white;
+    font-size:15px;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius: 5;
     cursor: pointer;
+    height: 40px;
+    color:#fff;
+    background: #00abc7;
+    text-transform:uppercase;
+    width: 150px;
+    border: none;
 }
