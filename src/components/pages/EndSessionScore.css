@@ -4,10 +4,11 @@
     align-items: center;
 }
 
-.endsession-results {
+.endsession-results, .endsession-actions {
     display: flex;
     flex-direction: row;
     justify-items: space-between;
+    align-items: center;
 }
 
 .endSessionScore p, .endSessionScore h3 {
@@ -29,7 +30,7 @@
     color:#fff;
     background: #00abc7;
     text-transform:uppercase;
-    width: 150px;
+    width: 120px;
     
 }
 

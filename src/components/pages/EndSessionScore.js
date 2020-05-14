@@ -1,5 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+
+import EndSessionShare from './EndSessionShare';
+
 import './EndSessionScore.css'
 
 const EndSessionScore = ({username, userScore, genresTitle, scoresDB}) => {  
@@ -36,7 +39,10 @@ const EndSessionScore = ({username, userScore, genresTitle, scoresDB}) => {
                     <h3>{`You didn't beat your old score of: ${oldScore[0].score}pts`}</h3>)
                 :
                 <h3>Congratulation that's a new personal record!!!</h3>}
-                <Link to={{pathname:`/ranking/${genresTitle}/${username}`}}><button className="full-ranking-btn">Full ranking</button></Link>
+                <div className="endsession-actions">
+                    <Link to={{pathname:`/ranking/${genresTitle}/${username}`}}><button className="full-ranking-btn">Full ranking</button></Link>
+                    <EndSessionShare />
+                </div>
             {/* <>{scoresTable.map((value) => (
                 <p>{`${value.username}, ${value.score}`}</p>
             )
