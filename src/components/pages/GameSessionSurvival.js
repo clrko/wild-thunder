@@ -34,7 +34,8 @@ class GameSessionSurvival extends React.Component {
         counter: 30,
         numberOfAttempts: 3,
         revealedSolution: false,
-        hidValidateButton: false
+        hidValidateButton: false,
+        textToClickNext : false ,
     }
 
     componentDidMount() {
@@ -75,12 +76,14 @@ class GameSessionSurvival extends React.Component {
     validateAndChange = () => {
         const artistToFind = this.state.artistTrack.artistName.toUpperCase().replace(/\s+/g, '')
         if (artistToFind === this.state.solution) {
-            this.setState((prevState) => ({ score: prevState.score + prevState.counter, isArtistFound: true, revealedSolution: true }));
+            this.setState((prevState) => ({ score: prevState.score + prevState.counter, isArtistFound: true, revealedSolution: true ,textToClickNext : true }));
         }
     }
 
     displaySolution = () => {
         this.setState(() => ({ revealedSolution: true }))
+        if(this.state.counter === 0){
+            this.setState( () =>({  textToClickNext : true }) )}
     }
 
     saveRoundAndLoadNextSong = () => {
@@ -141,6 +144,7 @@ class GameSessionSurvival extends React.Component {
             })
         })
         this.setState({ counter: startTime }, () => this.setState({ revealedSolution: false }))
+        this.setState({ counter: startTime }, () => this.setState({textToClickNext: false}))
     }
 
     /*  Functions used in the userinterface that aims at inputing a letter, erease and update the number of boxes based on the artist being played */
@@ -187,6 +191,7 @@ class GameSessionSurvival extends React.Component {
                     <div><Loader /></div>
                     :
                     <div>
+                        <GameSessionButtonEndSession  username={this.props.location.username} />
                         <GameSessionHeader genresTitle={this.state.genresTitle} color={this.state.color} />
                         <div className="attempts-container">
                             {this.state.numberOfAttempts !== 0 ?
@@ -202,10 +207,9 @@ class GameSessionSurvival extends React.Component {
                                 <h2>You lost!!!</h2>
                             }
                         </div>
-                        <GameSessionButtonEndSession />
                         <CountDownTimer displaySolution={this.displaySolution} counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
                         <GameSessionAudioPlayer revealedSolution={this.state.revealedSolution} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
-                        <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
+                        <GameSessionInterface textToClickNext={this.state.textToClickNext} artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
                         <GameSessionPointSystem hidValidateButton={this.state.hidValidateButton} isArtistFound={this.state.isArtistFound} validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} />
                     </div>
                 }
