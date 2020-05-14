@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Redirect, NavLink } from 'react-router-dom';
 import axios from "axios";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+
+import './Register.css'
 /* import NavbarHeader from '../shared/NavbarHeader';
 import NavbarFooter from '../shared/NavbarFooter'; */
 
@@ -30,16 +34,25 @@ const Register = () => {
     
 
     return (
-    <div>
+    <div className="container_page_register" >
         {/* <NavbarHeader/>
                 <NavbarFooter/> */}
         <h1>Register</h1>
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="username" />
-            <input type="password" name="password" />
-            <button type="submit">Register</button>
-            <NavLink to="/"><button type="submit">Cancel</button></NavLink>
-        </form>
+        <form  className="form_page_register" onSubmit={handleSubmit}>
+            
+                <div className="input_register">
+                        <label>Username</label>
+                        <input type="text" name="username" />
+                
+                        <label>password</label>
+                        <input type="password" name="password" />
+                    </div>
+                <div className="button-register">
+                    <button className="button_register" type="submit">Register</button>
+                </div>
+                  <div className="button_go_home">  
+                  <NavLink to="/" ><button><FontAwesomeIcon icon={faHome} className="goHome_icon_reco_page" /></button></NavLink>                </div>
+             </form>
     </div>
     )
 
