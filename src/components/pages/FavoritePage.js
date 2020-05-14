@@ -92,7 +92,7 @@ const FavoritePage = (props) => {
         
         <div className="favoritepage-wrapper">
             <NavbarHeader />
-            <h1 className="favoritepage-title">Hi {props.location.match},</h1> {/* arevoir */}
+            <h1 className="favoritepage-title">Hi {props.location.state},</h1> {/* arevoir */}
             <h2 className="favoritepage-title-h2">Welcome to your favorite track page</h2>
             {favoriteTrackList.map((favoriteTrack, i) => <FavoriteTrack key={favoriteTrack.id} albumId={favoriteTrack.albumId} name={favoriteTrack.name} artistName={favoriteTrack.artistName} handleDeleteFavorite={handleDeleteFavorite} handleToggleClick={handleToggleClick} handlePlayEnded={handlePlayEnded} isPaused={isPaused[i]} id={favoriteTrack.id} previewURL={favoriteTrack.previewURL} />)}
             <ScrollToTop />
