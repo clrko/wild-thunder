@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import AuthPage from './components/pages/AuthPage';
 import Contact from './components/pages/Contact';
 import EndSession from './components/pages/EndSession';
 import EndSessionReco from './components/pages/EndSessionReco';
@@ -16,7 +17,6 @@ import RankingStandard from './components/pages/RankingStandard'
 import Register from './components/pages/Register';
 import ThemePage from './components/pages/ThemePage';
 import UserPage from './components/pages/UserPage';
-import AuthPage from './components/pages/AuthPage';
 
 
 
