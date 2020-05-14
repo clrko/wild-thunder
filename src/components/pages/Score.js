@@ -12,4 +12,4 @@ const Score = ({ id, genre, score}) => {
     )
 }
 
-export default FavoriteTrack;
+export default Score;

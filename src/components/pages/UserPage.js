@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 
-import UserTrackSample from './UserTrackSample';
+
 import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
-
 import ScrollToTop from '../shared/ScrollToTop';
-
+import UserTrackSample from './UserTrackSample';
+import UserScoreSample from "./UserScoreSample";
 import API_KEY from '../../secret';
 
 import './UserPage.css'
@@ -94,7 +94,9 @@ class UserPage extends Component  {
                 'x-access-token': localStorage.getItem("token"),
                 }
             }).then(res => {
-                console.log("res", res)
+                this.setState({
+                    scoresSample: res.data
+                })
             })
     }
 
@@ -125,7 +127,7 @@ class UserPage extends Component  {
                 </div>
                 <div className="userpage-achievement-container">
                     <h3 className="userpage-title-h3">Achievements</h3>
-                    {this.state.scoresSample.map((scoreSample, i) => <UserScoreSample key={id} id ={id} genre={} score={} />)}
+                    {this.state.scoresSample.map((scoreSample, i) => <UserScoreSample key={scoreSample.id} id ={scoreSample.id} genre={scoreSample.genre} score={scoreSample.score} />)}
                     <NavLink to={{pathname: `/scorepage/${this.state.username}`, state:this.state.username}}><button className="userpage-more-btn">See more</button></NavLink>
                 </div>
             </div>

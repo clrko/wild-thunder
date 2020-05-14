@@ -18,7 +18,7 @@ const ScorePage = (props) => {
                 'x-access-token': localStorage.getItem("token"),
                 }
             }).then(res => {
-                console.log("res est ", res)
+                setScoreList(res.data)
             });
         } else {
             alert("You need to connect")
@@ -33,7 +33,7 @@ const ScorePage = (props) => {
             <NavbarHeader />
             <h1 className="scorepage-title">Hi {props.location.state},</h1> 
             <h2 className="scorepage-title-h2">Welcome to your score page</h2>
-            {scoreList.map((score, i) => <Score key={id} id={id} genre={favoriteTrack.name} score={favoriteTrack.artistName} />)}
+            {scoreList.map((score, i) => <Score key={score.id} id={score.id} genre={score.genre} score={score.score} />)}
             <ScrollToTop />
             <NavbarFooter />
         </div>
