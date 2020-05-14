@@ -46,9 +46,10 @@ const Register = () => {
                 
                         <label>password</label>
                         <input type="password" name="password" />
-                        <button className="button_register" type="submit">Register</button>
                     </div>
-            
+                <div className="button-register">
+                    <button className="button_register" type="submit">Register</button>
+                </div>
                   <div className="button_go_home">  
                   <NavLink to="/" ><button><FontAwesomeIcon icon={faHome} className="goHome_icon_reco_page" /></button></NavLink>                </div>
              </form>

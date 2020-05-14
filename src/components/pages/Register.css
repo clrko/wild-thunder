@@ -25,6 +25,7 @@
     height: 30px;
     font-size: 20px;
     border-radius: 5px;
+   
 }
 .input_register label{
    font-style: italic; 
@@ -40,6 +41,9 @@ input[type="password"]:focus:valid {
     margin-top: 10%;
     padding-bottom: 5%;
 }
+.button-register{
+    text-align: center;
+}
 .button_register{
     font-size:14px;
     color:#fff;
@@ -51,13 +55,20 @@ input[type="password"]:focus:valid {
     cursor: pointer;
     width: 80px;
     height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top : 10% ;
-    margin-left : 38%;
+    margin-top: 3%;
+   
+  
+    
+    
 }
 
-    
 
+@media screen and ( max-width:1000px){
+    .input_register{padding-left : 35%; padding-right: 35%}
+    
+    
+}
+@media screen and (max-width:700px){
+    .input_register{padding-left : 30%; padding-right: 30%}
+}
 
