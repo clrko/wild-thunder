@@ -31,10 +31,5 @@
     background: #00abc7;
     text-transform:uppercase;
     width: 120px;
-    
+    border:none;
 }
-
-/* .endsession-results button {
-    margin: 0 auto;
-    align-self: center;
-} */

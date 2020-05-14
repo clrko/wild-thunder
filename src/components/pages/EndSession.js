@@ -136,7 +136,6 @@ class EndSession extends Component {
                         scoresDB={this.state.scoresDB}
                     />
                 </div>
-                <h2>Final results</h2>
                 {this.state.artistTrack.map((track, i) => <EndSessionTrackList key={track.id} albumId={track.albumId} name={track.name} artistName={track.artistName} id={track.id} previewURL={track.previewURL} handleToggleClick={this.handleToggleClick} handleFavoriteClick={this.handleFavoriteClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} isFavorite={this.state.isFavorite[i]} isArtistFound={this.state.isArtistFound[i]} />)}
                 <NavLink to={{pathname :'./endsessionreco' , artistId : this.props.location.state , username: this.props.location.username }} className="link-for-recopage" ><button className="button-go-reco" >Similar Artists</button> </NavLink>
                 <NavbarFooter />
