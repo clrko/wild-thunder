@@ -1,13 +1,11 @@
 import React from 'react';
 import Axios from 'axios';
-import {NavLink} from "react-router-dom";
 
 import API_KEY from '../../secret';
 import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+
 
 import './EndSessionReco.css';
 
@@ -31,13 +29,13 @@ getArtistSimilar = () => {
                 const similar = res.data.artists.splice(0,3)  
                 const similar1 = similar.filter( simil  => simil.albumGroups.singlesAndEPs )
                 this.setState( () => ({ artistSimilar: [...this.state.artistSimilar, similar1 ]}))
-                console.log(similar);
-            } )
+             } )
             )})
         }
     render(){
         const artists = this.props.location.artistId
         const artistSimilar = this.state.artistSimilar
+        console.log(this.props)
         return(
             <div className='container-reco-page'  >
                 <NavbarHeader/>
@@ -63,8 +61,7 @@ getArtistSimilar = () => {
             }
                 )
             }
-            <NavLink to="/mode-page/:pseudo" className="goHome_button_reco_page"><button><FontAwesomeIcon icon={faHome} className="goHome_icon_reco_page" /></button></NavLink>
-            <NavbarFooter/>
+           <NavbarFooter/>
             </div>   
         )
     }

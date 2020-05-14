@@ -1,5 +1,5 @@
 import React , {useState} from "react";
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import Modal from 'react-modal';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,7 +9,7 @@ import "./GameSessionButtonEndSession.css";
 
 Modal.setAppElement('#root')
 
-function ButtonEndSession() {
+function ButtonEndSession(props) {
     const [modalIsOpen,setModalIsOpen] = useState(false)
     return(
         <div className="ButtonEndSession-container">
@@ -21,9 +21,9 @@ function ButtonEndSession() {
             }}>
                 <h2>Are you sure you want to leave the session ?</h2>
                 <div className="button-yes-no-container">
-                    <Link to='/'>
+                    <NavLink to={{pathname:`/mode-page/${props.username}`, username:props.username}} >
                         <button className="button-yes" type='button'>Yes</button>
-                    </Link>
+                    /</NavLink>
                     <button className="button-no" onClick={() => setModalIsOpen(false)}>No</button>
                 </div>
             </Modal>
