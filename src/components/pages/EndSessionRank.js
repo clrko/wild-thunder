@@ -55,11 +55,12 @@ class EndSessionRank extends React.Component {
         }
 
         const scoresTab = this.state.scoresDB.sort((a, b) => b.score - a.score).map((score, index) => {
-            const tabRGB = this.genRandomRGBColor(0.5, 0.99)
+            const tabRGB = [[196,126,253],[126,236,253],[249,253,126],[253,132,126],[253,183,126],[126,129,253],[210,126,253],[109,211,132],[171,126,253],[253,126,233],[126,253,168],[251,126,253]]
+            // const tabRGB = this.genRandomRGBColor(0.5, 0.99)
             console.log(tabRGB)
             return (
                 <div className={`score-container ${score.username === this.state.username ? "userScore" : null}`} key={index}
-                    style={{ backgroundColor: `rgba(${tabRGB},0.9)` }}
+                    style={{ backgroundColor: `rgba(${tabRGB[index]},0.9)` }}
                 >
                     <div className="rank-avatar-container">
                         <p id="rank">{index + 1}</p>
