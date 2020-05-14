@@ -16,5 +16,14 @@
 .mainLogo {
     /* height: 40px;
     width: 40px; */
-    margin: auto 0;
+    /* margin: auto 0; */
+    /* margin: 0 auto;
+    align-self: center; */
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) { */
+    .mainLogo {
+        height: 120px;
+        width: 120px; 
+    }    
 }

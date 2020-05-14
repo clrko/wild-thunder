@@ -1,5 +1,6 @@
 .rules_wrapper {
     display: block;
+    background-color:#36393F;
 }
 
 .rules_container {
@@ -39,7 +40,6 @@
     text-transform: uppercase;
 }
 
-
 .return-mode-page-btn {
     width: fit-content;
     margin: 1rem auto;
@@ -50,7 +50,6 @@
 }
 
 @media screen and (min-width:700px) {
-
     .rules_wrapper {
         background-color:#36393F;
         margin: 15% auto;
@@ -66,7 +65,7 @@
         justify-items: center;
         align-items: center;
         width: 100%;
-        height: 500px;
+        height: 500px; 
     }
 
     .rules_container h1 {
@@ -86,5 +85,15 @@
 
     .return-mode-page-btn {
         display:none;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 469px) {
+    #rules_thunder {
+        margin-top: 10%;
+    }
+
+    .rules_container h1 {
+        margin-top: 8%;
     }
 }

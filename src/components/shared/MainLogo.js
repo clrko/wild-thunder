@@ -41,9 +41,9 @@ class MainLogo extends Component {
     render() {
         return (
             <NavLink to={this.state.loggedIn? {pathname: `/mode-page/${this.state.username}`, username:this.state.username} : {pathname: "/"}}>
-                <div className="mainLogo-container">
+                {/* <div className="mainLogo-container"> */}
                     <img className="mainLogo" src={logo} alt="Logo of the application" />
-                </div>
+                {/* </div> */}
             </NavLink>
         )
     }

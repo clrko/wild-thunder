@@ -1,7 +1,9 @@
 import React , {useState} from "react";
-
 import {Link} from 'react-router-dom';
 import Modal from 'react-modal';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 import "./GameSessionButtonEndSession.css";
 
@@ -11,7 +13,7 @@ function ButtonEndSession() {
     const [modalIsOpen,setModalIsOpen] = useState(false)
     return(
         <div className="ButtonEndSession-container" >
-            <button className="buttonEndSession" onClick={() => setModalIsOpen(true)}>End session</button>
+            <FontAwesomeIcon icon={faTimesCircle} className="buttonEndSession" onClick={() => setModalIsOpen(true)} />
             <Modal isOpen={modalIsOpen}
             onRequestClose={()=> setModalIsOpen(false)}
             style ={{

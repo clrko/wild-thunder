@@ -190,11 +190,11 @@ class GameSession extends React.Component {
                     <div>
                         <GameSessionHeader genresTitle={this.state.genresTitle} color={this.state.color} />
                         <div>
+                        <GameSessionButtonEndSession />
                             <CountDownTimer displaySolution={this.displaySolution} counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
                             <GameSessionAudioPlayer revealedSolution={this.state.revealedSolution} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                             <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
                             <GameSessionPointSystem isArtistFound={this.state.isArtistFound} validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} />
-                            <GameSessionButtonEndSession />
                         </div>
                     </div>
                 }
