@@ -41,7 +41,12 @@ const ModePageMainRules = (props) => {
                             Your score will equal to the remaining seconds in the time counter.
                         </p>
                     </div>
-                    <NavLink className="return-mode-page-btn" to={{pathname: `/mode-page/${props.location.state}` || `/mode-page/${username}`, state: props.location.state || username}} ><FontAwesomeIcon icon={faTimes} className="return-icon"/></NavLink>
+                    { 
+                        props.location ? 
+                        <NavLink className="return-mode-page-btn" to= {{ pathname: `/mode-page/${props.location.state}` , state: props.location.state }} ><FontAwesomeIcon icon={faTimes} className="return-icon"/></NavLink> 
+                        : 
+                        <NavLink className="return-mode-page-btn" to={{ pathname: `/mode-page/${username}`, state: username}} ><FontAwesomeIcon icon={faTimes} className="return-icon"/></NavLink>
+                    }
                 </div>
             </div>
         )

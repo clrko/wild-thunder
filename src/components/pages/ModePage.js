@@ -20,7 +20,7 @@ const ModePage = (props) => {
     return (
         <div className="modepage-wrapper">
             <NavbarHeader />
-            <ModePageChoice  username={props.location.state} />
+            <ModePageChoice  username={props.match.params.pseudo} />
             <Modal isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)} className="main-rule-modal">
                 <div className="modal-content">
                     <button  onClick={() => setModalIsOpen(false)} className="main-rule-close-btn"><FontAwesomeIcon icon={faTimes} className="modal-icon"/></button>
