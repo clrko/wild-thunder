@@ -1,14 +1,18 @@
 import React, { useEffect } from "react"
 import "./CountDownTimer.css"
 
-const CountDownTimer = ({ counter, startTime, updateCounter }) => {
+const CountDownTimer = ({ counter, startTime, updateCounter, displaySolution }) => {
 
     useEffect(() => {
-        const timer =
-            counter > 0 && setInterval(() => updateCounter(), 1000);
+        const timer = counter > 0 && setInterval(() => updateCounter(), 1000);
         return () => clearInterval(timer);
     }, [counter, updateCounter]);
 
+    useEffect(() => {
+        if (counter === 0) {
+            displaySolution()
+        }
+    }, [counter,displaySolution])
     return (
         <div className="countdown-timer">
             <div className="countdown-timer__circle">
