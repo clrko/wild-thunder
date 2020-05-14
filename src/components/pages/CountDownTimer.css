@@ -18,7 +18,7 @@
 .countdown-timer__circle svg {
     width: 104px; /*Diamètre*/
     height: 104px; /*Diamètre*/
-    transform: rotateX(180deg) rotateZ(90deg);
+    transform: rotateX(180deg) rotateZ(90deg) scale(0.7);
 }
 
 .countdown-timer__text {

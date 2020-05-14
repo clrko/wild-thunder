@@ -9,8 +9,8 @@ const GameSessionAudioPlayer = (props) => {
             <div id="tracks-container">
                 {revealedSolution &&
                     <>
-                        <h1 >{props.artistTrack.artistName}</h1>
-                        <h2 >{props.artistTrack.name}</h2>
+                        <h1 className="GameSessionAudioPlayer-h1" >{props.artistTrack.artistName}</h1>
+                        <h2 className="GameSessionAudioPlayer-h2">{props.artistTrack.name}</h2>
                     </>
                 }
                 <div>

@@ -84,13 +84,6 @@
     opacity: 1;
 }
 
-.faQuestionCircle {
-    color: yellow;
-    font-size: 2rem;
-    margin-right: 30px;
-    margin: 10px auto;
-}
-
 @media screen and (min-width: 1200px) {
     .buttonLetter {
         pointer-events: none;
