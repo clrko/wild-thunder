@@ -1,4 +1,4 @@
-.homepageAuth {
+/* .homepageAuth {
     display: flex;
     justify-content: center;
     padding-top: 100px;
@@ -21,40 +21,40 @@
  .navlink-go-home{
      text-align: center;
      padding-top: 16%;
- }
+ } */
  
  
- .button-login-modal{ 
+ /* .button-login-modal{ 
     display: block;
     width: 40px;
     font-size: 14px;
     border-style: none;
-    margin-top: 15px;
-    background-color: rgba(131, 2, 2, 0.658);
-    border-radius: 3px;
-    color: white;
-    box-shadow: 2px 2px rgba(161, 5, 5, 0.61);
-    cursor: pointer;
- }
- 
- .login-modal {
+    margin-top: 15px; */
+    /* background-color: rgba(131, 2, 2, 0.658); */
+    /* border-radius: 3px;
+    color: white; */
+    /* box-shadow: 2px 2px rgba(161, 5, 5, 0.61); */
+    /* cursor: pointer; */
+ /* }
+  */
+ /* .login-modal {
      display: flex;
      align-items: center;
      justify-content: center;
      flex-direction: column;
- }
+ } */
  
- .input-login-modal{
+ /* .input-login-modal{
      border-radius: 1px;
      font-size: 15px;
-     font-style: italic;
-     box-shadow: 0 0 5px 1px rgba(161, 5, 5, 0.61);
-     border-style:none ;
+     font-style: italic; */
+     /* box-shadow: 0 0 5px 1px rgba(161, 5, 5, 0.61); */
+     /* border-style:none ;
      border-radius: 5px;
      width: 60%;
  }
- 
- .login-close-modal{
+  */
+ /* .login-close-modal{
      margin-top: 16px;
      cursor: pointer;
      font-size: 14px;
@@ -115,10 +115,10 @@
  .login-modal label {
      margin-bottom: 5%;
      margin-top: 5%;
- }
+ } */
  
- @media screen and (max-width: 700px) /* to be precised */{
-     .homepageModal { 
+ /* @media screen and (max-width: 700px) to be precised{ */
+     /* .homepageModal { 
          margin-top : 20%;
      }
- }
+ } */

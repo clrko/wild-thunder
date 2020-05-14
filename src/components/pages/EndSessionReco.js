@@ -59,7 +59,7 @@ getArtistSimilar = () => {
             }
                 )
             }
-            <NavLink to="/" className="goHome_button_reco_page"><button><FontAwesomeIcon icon={faHome} className="goHome_icon_reco_page" /></button></NavLink>
+            <NavLink to="/mode-page/:pseudo" className="goHome_button_reco_page"><button><FontAwesomeIcon icon={faHome} className="goHome_icon_reco_page" /></button></NavLink>
             </div>   
         )
     }

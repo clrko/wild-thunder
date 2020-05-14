@@ -1,4 +1,9 @@
 .homepage-body {
     background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486);
-    height: 100vh;
+}
+
+@media screen and (min-width: 300px) and (max-width: 469px) {
+    .homepage-body {
+       height: 100vh;
+    }
 }

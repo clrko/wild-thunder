@@ -32,8 +32,8 @@
    font-size: 20px;
    padding-bottom: 10px;
 }
-input[type="text"]:focus:valid,
-input[type="password"]:focus:valid {
+.input_register input[type="text"]:focus:valid,
+.input_register input[type="password"]:focus:valid {
   outline: 2px solid blue;
 }
 .button_go_home{
