@@ -15,6 +15,7 @@
     letter-spacing: 0.093em;
     text-shadow: 2px 3px 0px #898999;
     text-transform: uppercase;
+    color: #00abc7;
 }
 
 .endsession-container h2 {
@@ -47,4 +48,5 @@
     background: #00abc7;
     text-transform:uppercase;
     width: 150px;
+    border: none;
 }

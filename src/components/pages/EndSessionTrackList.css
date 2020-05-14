@@ -47,11 +47,11 @@
 }
 
 .track-container button .play-pause-btn {
-    color: white;
+    color: #00abc7;
 }
 
 .favorite-track {
-    color: yellow;
+    color: #f8be00;
 }
 
 .not-favorite-track {

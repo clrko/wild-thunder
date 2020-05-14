@@ -18,6 +18,18 @@
     letter-spacing: 0.093em;
     text-transform: uppercase;
     width: fit-content;
+    color: white;
+}
+
+.endSessionScore h2 {
+    color: white;
+}
+
+.endSessionScore p {
+    background-color:#00cac7;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #36393F;
 }
 
 .full-ranking-btn {

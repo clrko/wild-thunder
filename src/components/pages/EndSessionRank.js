@@ -5,7 +5,7 @@ import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrophy, faAward, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faTrophy, faAward } from '@fortawesome/free-solid-svg-icons'
 import vynil from "../../images/vinyl.png"
 
 import './EndSessionRank.css'
