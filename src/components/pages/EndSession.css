@@ -31,8 +31,15 @@
 }
 .link-for-recopage{
     text-align: center;
-    color : white;
-    font-size: 20px ;
-    cursor: pointer;
     margin-top: 30px;
+}
+.link-for-recopage :hover{
+    transform: scale(1.5);
+    color:rgb(38, 156, 177);
+}
+.button-go-reco{
+    text-transform: uppercase;
+    font-size: 20px ;
+    color : white;
+    cursor: pointer;
 }
