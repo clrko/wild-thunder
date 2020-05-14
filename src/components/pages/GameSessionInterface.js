@@ -2,6 +2,7 @@ import React from "react";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
+import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
 
 import "./GameSessionInterface.css";
 
@@ -36,7 +37,7 @@ const GameSessionInterface = props => {
                 </div>
             </div>
             <FontAwesomeIcon icon={faQuestionCircle} className="faQuestionCircle" />
-            <input type="button" className="correctionButton" value="<" onClick={props.handleCorrection} />
+            <FontAwesomeIcon icon={faArrowAltCircleLeft} className="correctionButton" type="button" onClick={props.handleCorrection} />
         </div>
     </div>
     )

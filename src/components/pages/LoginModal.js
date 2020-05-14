@@ -38,10 +38,7 @@ const LoginModal = () => {
                 <button className='login-open-modal' onClick={() => setModalIsOpen(true)}>Login</button>
                 <NavLink to="/register"><button className='button-signup'>Register</button></NavLink>
                 <Modal className='loginModal'  isOpen={modalIsOpen}
-                    onRequestClose={()=> setModalIsOpen(false)}
-                    style ={{
-                    content: {backgroundColor:'rgb(88, 71, 71)',borderRadius : '5%'  }
-                        }}>
+                    onRequestClose={()=> setModalIsOpen(false)}>
                     <div>
                         <form onSubmit={handleSubmit} className="login-modal" >
                             <h2>Login</h2>

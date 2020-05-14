@@ -19,6 +19,7 @@
     color: DodgerBlue;
     font-size: 2rem; 
     margin: 50px auto;
+    cursor: pointer;
 }
 
 .goHome_button {

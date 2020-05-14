@@ -37,6 +37,7 @@
     border-style:none;
     background-color: #845ec2;
     color: rgb(221, 221, 221);
+    outline: 0;
 }
 
 .button-login{ 
@@ -60,6 +61,7 @@
     text-transform: uppercase;
     /* margin-top: 5px;  */
     /* margin-bottom : 50px; */
+    outline: 0;
 }
 
 @media screen and (min-width: 470px) and (max-width: 700px) {
@@ -117,7 +119,7 @@
 
 @media screen and (min-width: 300px) and (max-width: 469px) {
     .title-login {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .label-login{

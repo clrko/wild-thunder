@@ -52,3 +52,15 @@
         stroke: red;
     }
 }
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+    .countdown-timer__circle svg {
+        transform: rotateX(180deg) rotateZ(90deg) scale(0.7);
+    }
+    
+    .countdown-timer {
+        height: 80px
+    }
+}
+
+
