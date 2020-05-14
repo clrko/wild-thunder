@@ -9,6 +9,7 @@ const singleLetter = s => s.toUpperCase().replace(/\s+/g, '').split("").sort().r
 
 const GameSessionInterface = props => {
     const artistName = props.artistTrack.artistName
+   // console.log(props)
     return (
     <div className="interface-container-center">
         <div className="interface-container">
@@ -36,6 +37,7 @@ const GameSessionInterface = props => {
                 </div>
             </div>
             <FontAwesomeIcon icon={faArrowAltCircleLeft} className="correctionButton" type="button" onClick={props.handleCorrection} />
+            <p >{props.textToClickNext ?  "Click on the button below to continue" : ""}</p>
         </div>
     </div>
     )
