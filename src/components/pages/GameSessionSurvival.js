@@ -11,6 +11,7 @@ import GameSessionPointSystem from "./GameSessionPointSystem";
 import Loader from '../Loader/Loader';
 
 import './GameSessionSurvival.css'
+import vinyl from '../../images/vinyl.png'
 
 import API_KEY from '../../secret'
 
@@ -135,7 +136,7 @@ class GameSessionSurvival extends React.Component {
                 document.querySelector(".circle").style.animation = `countdown-animation ${startTime}s linear, color-animation ${startTime}s linear`;
             })
         })
-        this.setState({ counter: startTime }, () => this.setState({revealedSolution: false}))
+        this.setState({ counter: startTime }, () => this.setState({ revealedSolution: false }))
     }
 
     /*  Functions used in the userinterface that aims at inputing a letter, erease and update the number of boxes based on the artist being played */
@@ -174,15 +175,29 @@ class GameSessionSurvival extends React.Component {
                 genresTitle: this.state.genresTitle
             }} />
         }
-        return (
 
+        let numberOfAttempts = Array.apply(null, Array(this.state.numberOfAttempts))
+        return (
             <div className="gameSessionSurvival-body">
                 {!this.state.isLoaded ?
                     <div><Loader /></div>
                     :
                     <div>
                         <GameSessionHeader genresTitle={this.state.genresTitle} color={this.state.color} />
-                        <h2>Number of attempts left: {this.state.numberOfAttempts}</h2>
+                        <div className="attempts-container">
+                            {this.state.numberOfAttempts !== 0 ?
+                                <>
+                                    <h2>Number of attempts left:</h2>
+                                    <div>
+                                        {numberOfAttempts.map(() =>
+                                            (<img src={vinyl} alt={this.state.numberOfAttempts} id="NumberOfAttempts" />))
+                                        }
+                                    </div>
+                                </>
+                                :
+                                <h2>Last chance!!!</h2>
+                            }
+                        </div>
                         <CountDownTimer displaySolution={this.displaySolution} counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
                         <GameSessionAudioPlayer revealedSolution={this.state.revealedSolution} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                         <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
