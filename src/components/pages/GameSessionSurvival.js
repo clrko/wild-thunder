@@ -33,7 +33,8 @@ class GameSessionSurvival extends React.Component {
         redirect: null,
         counter: 30,
         numberOfAttempts: 3,
-        revealedSolution: false
+        revealedSolution: false,
+        hidValidateButton: false
     }
 
     componentDidMount() {
@@ -75,7 +76,6 @@ class GameSessionSurvival extends React.Component {
         const artistToFind = this.state.artistTrack.artistName.toUpperCase().replace(/\s+/g, '')
         if (artistToFind === this.state.solution) {
             this.setState((prevState) => ({ score: prevState.score + prevState.counter, isArtistFound: true, revealedSolution: true }));
-            // this.saveRoundAndLoadNextSong()
         }
     }
 
@@ -84,8 +84,12 @@ class GameSessionSurvival extends React.Component {
     }
 
     saveRoundAndLoadNextSong = () => {
+        this.setState(prevState =>
+            !prevState.isArtistFound ? { numberOfAttempts: prevState.numberOfAttempts - 1 } : null
+        )
         if (this.state.counter !== 0 && !this.state.revealedSolution) {
             this.displaySolution()
+            this.setState({hidValidateButton : true})
             setTimeout(() => {
                 this.addToHistory()
                 if (this.state.numberOfAttempts === 0 || this.state.numArtist === rounds - 1) {
@@ -109,14 +113,14 @@ class GameSessionSurvival extends React.Component {
     }
 
     nextSong = () => {
-        this.setState(prevState =>
-            !prevState.isArtistFound ? { numberOfAttempts: prevState.numberOfAttempts - 1 } : null
-        )
+        // this.setState(prevState =>
+        //     !prevState.isArtistFound ? { numberOfAttempts: prevState.numberOfAttempts - 1 } : null
+        // )
         this.setState(
             (prevState) => ({ numArtist: prevState.numArtist + 1 }),
             () => this.setState({ artistTrack: this.state.artistTrackList[this.state.numArtist] },
                 () => {
-                    this.setState({ solution: "", isArtistFound: false })
+                    this.setState({ solution: "", isArtistFound: false, hidValidateButton: false })
                     this.restartCounter()
                     document.getElementById("userInput").value = ""
                     document.getElementById("audioPlayer").play()
@@ -195,14 +199,14 @@ class GameSessionSurvival extends React.Component {
                                     </div>
                                 </>
                                 :
-                                <h2>Last chance!!!</h2>
+                                <h2>You lost!!!</h2>
                             }
                         </div>
                         <GameSessionButtonEndSession />
                         <CountDownTimer displaySolution={this.displaySolution} counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
                         <GameSessionAudioPlayer revealedSolution={this.state.revealedSolution} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                         <GameSessionInterface artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />
-                        <GameSessionPointSystem isArtistFound={this.state.isArtistFound} validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} />
+                        <GameSessionPointSystem hidValidateButton={this.state.hidValidateButton} isArtistFound={this.state.isArtistFound} validateAndChange={this.validateAndChange} score={this.state.score} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} counter={this.state.counter} />
                     </div>
                 }
             </div>

@@ -1,5 +1,9 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
+
+import NavbarFooter from '../shared/NavbarFooter';
+import NavbarHeader from '../shared/NavbarHeader';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,6 +16,7 @@ class RankingStandard extends React.Component {
         
        return(
             <div className='ranking-standard'>
+                <NavbarHeader />
                 <h1>Ranking standard :</h1>
                 <table className='ranking-standard-table'>
                     <tr className="ranking-standard-tr" >
@@ -70,7 +75,8 @@ class RankingStandard extends React.Component {
                         <td></td>
                     </tr>
                 </table>
-                <NavLink to="/" className="goHome_button_standard"><button><FontAwesomeIcon icon={faHome} className="goHome_icon_standard" /></button></NavLink>
+                <NavbarFooter />
+                {/* <NavLink to="/" className="goHome_button_standard"><button><FontAwesomeIcon icon={faHome} className="goHome_icon_standard" /></button></NavLink> */}
             </div>
         )
     }

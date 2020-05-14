@@ -45,9 +45,11 @@ const LoginModal = () => {
                             <label>Username</label>
                             <input className="input-login-modal" type="text" name="username" placeholder="Username" />
                             <label>Password</label>
-                            <input className="input-login-modal" type="password" name="password" placeholder="Password"  /> 
-                            <input className="button-login-modal" type="submit" value="Login"  />
-                            <button className='login-close-modal'  onClick={() => setModalIsOpen(false)}>Back</button>
+                            <input className="input-login-modal" type="password" name="password" placeholder="Password"  />
+                            <div className="button-login-close-container">
+                                <input className="button-login-modal" type="submit" value="Login"  />
+                                <button className='login-close-modal'  onClick={() => setModalIsOpen(false)}>Back</button>
+                            </div>  
                         </form>
                     </div>
                     
