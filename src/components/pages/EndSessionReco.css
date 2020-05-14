@@ -60,5 +60,8 @@
     .block-artist-similar{padding-left : 40px }
     }
 @media screen and (max-width:400px){
-    .block-artist-similar{padding-left : 13px }
-    }
+    .block-artist-similar{display: flex;flex-direction: column;  }
+    .block-artist-similar img{width: 50%; margin-right:20%;margin-left: 20%;}
+    .block-artist-similar h3{padding-top: 50px; margin-right:10% ; font-size: 15px;padding-bottom :20px; ;}
+    .title-artist-reco h2 { padding-bottom: 10%;}
+}
