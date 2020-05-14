@@ -35,9 +35,10 @@
     }
 
     .modal-icon {
-        color:white;
+        /* color:white; */
         font-family: LeagueMono-Bold;
         font-size: 2rem;
+        cursor: pointer;
     }
 
     .modal-content {
