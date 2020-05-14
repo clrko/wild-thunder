@@ -4,6 +4,7 @@ import axios from "axios";
 import FavoriteTrack from "./FavoriteTrack";
 import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
+import ScrollToTop from '../shared/ScrollToTop';
 
 import API_KEY from '../../secret';
 
@@ -94,6 +95,7 @@ const FavoritePage = (props) => {
             <h1 className="favoritepage-title">Hi {props.location.match},</h1> {/* arevoir */}
             <h2 className="favoritepage-title-h2">Welcome to your favorite track page</h2>
             {favoriteTrackList.map((favoriteTrack, i) => <FavoriteTrack key={favoriteTrack.id} albumId={favoriteTrack.albumId} name={favoriteTrack.name} artistName={favoriteTrack.artistName} handleDeleteFavorite={handleDeleteFavorite} handleToggleClick={handleToggleClick} handlePlayEnded={handlePlayEnded} isPaused={isPaused[i]} id={favoriteTrack.id} previewURL={favoriteTrack.previewURL} />)}
+            <ScrollToTop />
             <NavbarFooter />
         </div>
     )
