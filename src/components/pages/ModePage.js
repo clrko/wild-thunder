@@ -1,10 +1,11 @@
 import React , {useState} from "react";
 import Modal from 'react-modal';
 
-import ModePageMainRules from './ModePageMainRules';
 import ModePageChoice from "./ModePageChoice";
-import NavbarHeader from '../shared/NavbarHeader';
+import ModePageMainRules from './ModePageMainRules';
 import NavbarFooter from '../shared/NavbarFooter';
+import NavbarHeader from '../shared/NavbarHeader';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
