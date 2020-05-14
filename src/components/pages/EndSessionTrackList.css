@@ -38,7 +38,7 @@ img, .track-info {
     font-size: 0.7rem;
 }
 
-button {
+.track-container button {
     background:transparent;
     border: none;
     width: fit-content;
