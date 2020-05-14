@@ -29,7 +29,7 @@ class Welcome extends React.Component {
             <div>
                 <div className="login-page" >
                     <h2 className="title-login" >Welcome to Thunder!</h2>
-                    <label className='label-login' >Choose a pseudo</label>
+                    <label className='label-login' >Choose your Username</label>
                     <input className="input-login" type='text' value={this.state.username} name='username' placeholder='.....' onChange={this.onChange} />
                     <p className='error-input'>{this.state.error ? 'Please insert your pseudo' : ""}</p>
                     <button onClick={this.handleChange} className="button-login">Start</button>

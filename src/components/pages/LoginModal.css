@@ -1,7 +1,10 @@
 .homepageModal {
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 4%;
     padding-bottom: 80px;
+    width: 100%;
 }
 
 .login-modal {
@@ -12,17 +15,36 @@
 
 .button-login-modal{ 
     display: block;
-    width: auto;
+    width: 60px;
     font-size: 1rem;
     border-style: none;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     border-radius: 3px;
-    color: #36393F;
+    color: white;
+    background: #6D0FF2;
     font-weight: bold;
     cursor: pointer;
-    padding: 2%;
-    margin-top: 6%;
+    /* padding: 5px; */
+    height: 35px;
+    /* margin-top: 6%; */
 }
+
+.login-close-modal{
+    display: block;
+    width: 60px;
+    font-size: 1rem;
+    border-style: none;
+    /* margin-top: 15px; */
+    border-radius: 3px;
+    color: white;
+    background: #DB5D5D;
+    font-weight: bold;
+    cursor: pointer;
+    /* padding: 5px; */
+    height: 35px;
+    /* margin-top: 6%; */
+}
+
 
 .login-modal {
     display: flex;
@@ -41,16 +63,6 @@
     border-radius: 5px;
     width: 40%;
     height: 40px;
-}
-
-.login-close-modal{
-    margin-top: 16px;
-    cursor: pointer;
-    font-size: 1rem;
-    background-color: #EF4C4C;
-    padding: 2%;
-    font-weight: bold;
-    color: white;
 }
 
 .login-open-modal{
@@ -98,8 +110,9 @@
 }
 
 .login-modal label {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .login-modal h2{
@@ -114,6 +127,14 @@
 .login-modal label {
     margin-bottom: 5%;
     margin-top: 5%;
+}
+
+.button-login-close-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 4% 0;
 }
 
 @media screen and (max-width: 700px) /* to be precised */{
