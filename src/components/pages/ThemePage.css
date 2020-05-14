@@ -85,4 +85,14 @@
     .container-card {
         margin-top: 6%;
     }
+
+    .themepage-body {
+        padding-bottom: 100px; 
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 469px) {
+    .themepage-body {
+        padding-bottom: 80px;
+    }
 }
