@@ -48,7 +48,7 @@ const AuthPage = () => {
                 <div className="navlink-go-home" >
                     <NavLink to="/" ><button><FontAwesomeIcon icon={faHome} className="goHome_icon_reco_page" /></button></NavLink>
                 </div>
-                <Modal className='loginModal'  isOpen={modalIsOpen}
+                <Modal className='loginModalAuth'  isOpen={modalIsOpen}
                     onRequestClose={()=> setModalIsOpen(false)}
                     style ={{
                     content: {backgroundColor:'rgb(88, 71, 71)',borderRadius : '5%'  }

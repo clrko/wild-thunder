@@ -1,3 +1,7 @@
+.homepageModal {
+    margin-top: 5%;
+    display: flex;
+}
 
 .button-login-modal{ 
    display: block;
