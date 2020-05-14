@@ -7,7 +7,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import "./ModePageMainRules.css"
 
 const ModePageMainRules = (props) => {
-    console.log("this pros.location", props.location)
+        const username = props.username
         return (
             <div className="rules_wrapper">
                 <div className="rules_container">
@@ -41,7 +41,12 @@ const ModePageMainRules = (props) => {
                             Your score will equal to the remaining seconds in the time counter.
                         </p>
                     </div>
-                    <NavLink className="return-mode-page-btn" to={{pathname: `/mode-page/${props.location.username}`, username:props.location.username}} ><FontAwesomeIcon icon={faTimes} className="return-icon"/></NavLink>
+                    { 
+                        props.location ? 
+                        <NavLink className="return-mode-page-btn" to= {{ pathname: `/mode-page/${props.location.state}` , state: props.location.state }} ><FontAwesomeIcon icon={faTimes} className="return-icon"/></NavLink> 
+                        : 
+                        <NavLink className="return-mode-page-btn" to={{ pathname: `/mode-page/${username}`, state: username}} ><FontAwesomeIcon icon={faTimes} className="return-icon"/></NavLink>
+                    }
                 </div>
             </div>
         )

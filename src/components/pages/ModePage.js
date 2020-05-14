@@ -1,10 +1,11 @@
 import React , {useState} from "react";
 import Modal from 'react-modal';
 
-import ModePageMainRules from './ModePageMainRules';
 import ModePageChoice from "./ModePageChoice";
-import NavbarHeader from '../shared/NavbarHeader';
+import ModePageMainRules from './ModePageMainRules';
 import NavbarFooter from '../shared/NavbarFooter';
+import NavbarHeader from '../shared/NavbarHeader';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
@@ -19,11 +20,11 @@ const ModePage = (props) => {
     return (
         <div className="modepage-wrapper">
             <NavbarHeader />
-            <ModePageChoice  username={props.location.username} />
+            <ModePageChoice  username={props.match.params.pseudo} />
             <Modal isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)} className="main-rule-modal">
                 <div className="modal-content">
                     <button  onClick={() => setModalIsOpen(false)} className="main-rule-close-btn"><FontAwesomeIcon icon={faTimes} className="modal-icon"/></button>
-                    <ModePageMainRules />
+                    <ModePageMainRules username={props.location.state} />
                 </div>
             </Modal>
             <button onClick={() => setModalIsOpen(true)} className="main-rule-open-btn"><FontAwesomeIcon icon={faQuestionCircle} className="modal-icon"/></button>
