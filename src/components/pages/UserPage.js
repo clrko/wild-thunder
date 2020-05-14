@@ -126,7 +126,7 @@ class UserPage extends Component  {
                 <div className="userpage-achievement-container">
                     <h3 className="userpage-title-h3">Achievements</h3>
                     {this.state.scoresSample.map((scoreSample, i) => <UserScoreSample key={id} id ={id} genre={} score={} />)}
-                    <NavLink to={{pathname: `/userscorepage/${this.state.username}`, state:this.state.username}}><button className="userpage-more-btn">See more</button></NavLink>
+                    <NavLink to={{pathname: `/scorepage/${this.state.username}`, state:this.state.username}}><button className="userpage-more-btn">See more</button></NavLink>
                 </div>
             </div>
             <ScrollToTop />

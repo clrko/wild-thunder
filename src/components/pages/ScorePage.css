@@ -1,0 +1,27 @@
+.scorepage-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(to left bottom, #00d049, #00a157, #007352, #01463d);
+    /* choisir autre linear gradiant */
+    padding-bottom: 16vh;
+}
+
+.scorepage-title {
+    margin: 8% auto;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+    font-family: LeagueMono-ExtraBold;
+    letter-spacing: 0.093em;
+    text-shadow: 2px 3px 0px #898999;
+    text-transform: uppercase;
+}
+
+.scorepage-title-h2 {
+    font-size: 1.5rem;
+    margin: 7% auto;
+    text-align: center;
+    letter-spacing: 0.093em;
+    text-transform: uppercase;
+    padding: 0 10px;
+}

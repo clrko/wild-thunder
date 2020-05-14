@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import './UserTrackSample.css'
+import './UserScoreSample.css'
 
 const UserTrackSample = ({ id, score, genre}) => {
     
