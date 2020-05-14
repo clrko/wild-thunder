@@ -1,26 +1,27 @@
 .homepageModal {
     display: flex;
     margin-top: 4%;
+    padding-bottom: 80px;
 }
 
 .login-modal {
-    background: #36393F; 
+    background: #845ec2;
     border-radius: 5%;
-    color: #845ec2;
+    color: #36393F;
 }
 
 .button-login-modal{ 
-   display: block;
-   width: auto;
-   font-size: 1rem;
-   border-style: none;
-   margin-top: 15px;
-   border-radius: 3px;
-   color: #845ec2;
-   font-weight: bold;
-   cursor: pointer;
-   padding: 2%;
-   margin-top: 6%;
+    display: block;
+    width: auto;
+    font-size: 1rem;
+    border-style: none;
+    margin-top: 15px;
+    border-radius: 3px;
+    color: #36393F;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2%;
+    margin-top: 6%;
 }
 
 .login-modal {
