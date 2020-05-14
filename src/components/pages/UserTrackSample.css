@@ -46,15 +46,17 @@ button .sample-play-pause-btn {
 }
 
 
-@media screen and (min-width:800px) {
+@media screen and (min-width:730px) {
     .sample-track-container {
-        width: 700px;
+        width: 400px;
     }
 
     .sample-track-info {
-        width: 500px;
+        width: 250px;
     }
+}
 
+@media screen and (min-width:1000px) {
     .sample-track-container:hover {
         transform: scale(1.1, 1);
         box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
