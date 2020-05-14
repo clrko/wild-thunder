@@ -1,9 +1,13 @@
+
+html {
+    height: 100%;
+    background-image: linear-gradient(to right top, #3f64eb, #7458e2, #9749d5, #b236c4);
+}
+
 .scorepage-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: linear-gradient(to left bottom, #00d049, #00a157, #007352, #01463d);
-    /* choisir autre linear gradiant */
     padding-bottom: 16vh;
 }
 
