@@ -5,13 +5,8 @@ import axios from "axios";
 import EndSessionScore from "./EndSessionScore";
 import EndSessionShare from './EndSessionShare';
 import EndSessionTrackList from "./EndSessionTrackList";
-import MainLogo from "../shared/MainLogo";
 import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
-
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 import "./EndSession.css";
 
@@ -142,9 +137,9 @@ class EndSession extends Component {
                         scoresDB={this.state.scoresDB}
                     />
                 </div>
-                <h1>Final results</h1>
+                <h2>Final results</h2>
                 {this.state.artistTrack.map((track, i) => <EndSessionTrackList key={track.id} albumId={track.albumId} name={track.name} artistName={track.artistName} id={track.id} previewURL={track.previewURL} handleToggleClick={this.handleToggleClick} handleFavoriteClick={this.handleFavoriteClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} isFavorite={this.state.isFavorite[i]} isArtistFound={this.state.isArtistFound[i]} />)}
-                <NavLink to={{pathname :'./endsessionreco' , artistId : this.props.location.state , username: this.props.location.username }} className="link-for-recopage" ><button className="button-go-reco" >Artist similar</button> </NavLink>
+                <NavLink to={{pathname :'./endsessionreco' , artistId : this.props.location.state , username: this.props.location.username }} className="link-for-recopage" ><button className="button-go-reco" >Similar Artists</button> </NavLink>
                 <EndSessionShare />
                 <NavbarFooter />
             </div>

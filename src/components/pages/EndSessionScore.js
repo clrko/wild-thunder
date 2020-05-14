@@ -23,8 +23,12 @@ const EndSessionScore = ({username, userScore, genresTitle, scoresDB}) => {
 
     return (
         <div className='endSessionScore'>
-            <h1>{`Your score in the ${genresTitle} category`}</h1>
-            <h2>Rank: {indexScore}, Score: {userScore}pts</h2>
+            <h2>{`Your score in the ${genresTitle} category`}</h2>
+            <div className="endsession-results" >
+                <p>Rank: {indexScore}</p> 
+                <p>Score: {userScore}pts</p>
+            </div>
+            
             {oldScore.length !== 0 ?
                 (oldScore[0].score < userScore ?
                     <h3>Congratulation you beat your personal record!!!</h3>
@@ -32,7 +36,7 @@ const EndSessionScore = ({username, userScore, genresTitle, scoresDB}) => {
                     <h3>{`You didn't beat your old score of: ${oldScore[0].score}pts`}</h3>)
                 :
                 <h3>Congratulation that's a new personal record!!!</h3>}
-                <Link to={{pathname:`/ranking/${genresTitle}/${username}`}}><button>See full ranking</button></Link>
+                <Link to={{pathname:`/ranking/${genresTitle}/${username}`}}><button className="full-ranking-btn">Full ranking</button></Link>
             {/* <>{scoresTable.map((value) => (
                 <p>{`${value.username}, ${value.score}`}</p>
             )
