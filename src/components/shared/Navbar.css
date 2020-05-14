@@ -19,7 +19,7 @@
 }
 
 .current {
-    color:lightblue;
+    color: #845ec2;;
 }
 
 .nav-container ul {
@@ -92,7 +92,7 @@
         display: flex;
         justify-content: center;
         z-index: 1;
-        float: right; 
+        float: right;
     }
 }
 
