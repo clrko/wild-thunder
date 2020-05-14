@@ -17,7 +17,7 @@ import RankingStandard from './components/pages/RankingStandard'
 import Register from './components/pages/Register';
 import ThemePage from './components/pages/ThemePage';
 import UserPage from './components/pages/UserPage';
-
+import UserScorePage from './components/pages/UserScorePage';
 
 
 class App extends Component {
@@ -40,6 +40,7 @@ class App extends Component {
           <Route path="/userpage" component={UserPage} />
           <Route path="/authentication" component={AuthPage} />
           <Route path="/ranking/:genre/:pseudo" component={EndSessionRank} />
+          <Route path="/userscorepage/:pseudo" component={UserScorePage} />
           <Route component={Page404} />
         </Switch>
       </Router>

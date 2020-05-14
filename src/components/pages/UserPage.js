@@ -17,6 +17,7 @@ class UserPage extends Component  {
         loggedIn : false,
         username: "",
         favoriteSample: [],
+        scoresSample:[],
         isPaused: []
     }
 
@@ -87,10 +88,21 @@ class UserPage extends Component  {
         })
     }
 
+    getScoreSample() {
+        axios.get("http://localhost:4242/ranking/allscores", {
+                headers: {
+                'x-access-token': localStorage.getItem("token"),
+                }
+            }).then(res => {
+                console.log("res", res)
+            })
+    }
+
     componentDidMount() {
         if (localStorage.getItem("token")) {
         this.getUsername()
         this.getFavoriteSample()
+        this.getScoreSample()
         } else {
             this.setState({
                 loggedIn: false
@@ -113,7 +125,8 @@ class UserPage extends Component  {
                 </div>
                 <div className="userpage-achievement-container">
                     <h3 className="userpage-title-h3">Achievements</h3>
-                    <button className="userpage-more-btn" >See more</button>
+                    {this.state.scoresSample.map((scoreSample, i) => <UserScoreSample key={id} id ={id} genre={} score={} />)}
+                    <NavLink to={{pathname: `/userscorepage/${this.state.username}`, state:this.state.username}}><button className="userpage-more-btn">See more</button></NavLink>
                 </div>
             </div>
             <ScrollToTop />
