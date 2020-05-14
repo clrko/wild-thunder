@@ -33,7 +33,7 @@ class GameSession extends React.Component {
         counter: 30,
         revealedSolution: false
     }
-
+    
     componentDidMount() {
         this.getArtistsList(this.state.genresCode)
 

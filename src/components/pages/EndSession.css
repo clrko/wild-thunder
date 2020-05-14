@@ -29,3 +29,10 @@
 .score_rank{
     display: flex;
 }
+.link-for-recopage{
+    text-align: center;
+    color : white;
+    font-size: 20px ;
+    cursor: pointer;
+    margin-top: 30px;
+}
