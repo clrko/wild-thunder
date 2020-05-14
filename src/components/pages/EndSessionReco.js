@@ -28,13 +28,13 @@ getArtistSimilar = () => {
                 const similar = res.data.artists.splice(0,3)  
                 const similar1 = similar.filter( simil  => simil.albumGroups.singlesAndEPs )
                 this.setState( () => ({ artistSimilar: [...this.state.artistSimilar, similar1 ]}))
-                console.log(similar);
-            } )
+             } )
             )})
         }
     render(){
         const artists = this.props.location.artistId
         const artistSimilar = this.state.artistSimilar
+        console.log(this.props)
         return(
             <div className='container-reco-page'  >
                <h1 className="big-title-reco" >Artist similar</h1>
@@ -59,7 +59,7 @@ getArtistSimilar = () => {
             }
                 )
             }
-            <NavLink to="/" className="goHome_button_reco_page"><button><FontAwesomeIcon icon={faHome} className="goHome_icon_reco_page" /></button></NavLink>
+            <NavLink to={{pathname :`/mode-page/${this.props.location.username}`, username:this.props.location.username}} className="goHome_button_reco_page"><button><FontAwesomeIcon icon={faHome} className="goHome_icon_reco_page" /></button></NavLink>
             </div>   
         )
     }
