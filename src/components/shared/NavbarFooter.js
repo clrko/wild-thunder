@@ -51,7 +51,7 @@ class NavbarFooter extends Component {
                     <li><NavLink className="nav-title" activeClassName ="current" to={{pathname: `/mode-page/${this.state.username}`, username:this.state.username}}><FontAwesomeIcon icon={faHome} className="nav-icon" /></NavLink></li>
                     <li><NavLink className="nav-title" activeClassName ="current" to={this.state.loggedIn? "/userpage" : "/authentication"}><FontAwesomeIcon icon={faUser} className="nav-icon" /></NavLink></li>
                     <li className={this.state.loggedIn? "LogOut_visible" : "LogOut_none"}><LogOut/></li> 
-                    <li><NavLink className="nav-title" activeClassName ="current" to={{pathname: "/modepage-mainrules", username:this.state.username}} ><FontAwesomeIcon icon={faQuestionCircle} className="nav-icon" /></NavLink></li>
+                    <li><NavLink className="nav-title" activeClassName ="current" to={{pathname: "/modepage-mainrules", state:this.state.username}} ><FontAwesomeIcon icon={faQuestionCircle} className="nav-icon" /></NavLink></li>
                 </ul>
             </nav>
         )

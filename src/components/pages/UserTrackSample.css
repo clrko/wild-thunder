@@ -1,10 +1,4 @@
-* {
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.track-container {
+.sample-track-container {
     display: flex;
     flex-direction: row;
     width: 280px;
@@ -15,57 +9,55 @@
     
 }
 
-.img-tracklist {
+.img-sample-track {
     border-radius: 50%;
+    width:70px;
+    height:70px
+
 }
 
-img, .track-info {
+img, .sample-track-info {
     padding: 5px;
 }
 
-.track-info {
+.sample-track-info {
     width: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.track-info p:first-child {
+.sample-track-info p:first-child {
     font-size: 0.9rem;
 }
 
-.track-info p:last-child {
+.sample-track-info p:last-child {
     font-size: 0.7rem;
 }
 
-.track-container button {
+.sample-track-container button {
     background:transparent;
     border: none;
     width: fit-content;
 }
 
-button .play-pause-btn {
-    color: DodgerBlue;
+button .sample-play-pause-btn {
+    color: white;
 }
 
-.favorite-track {
-    color: yellow;
-}
 
-.not-favorite-track {
-    color:grey;
-}
-
-@media screen and (min-width:800px) {
-    .track-container {
-        width: 700px;
+@media screen and (min-width:730px) {
+    .sample-track-container {
+        width: 400px;
     }
 
-    .track-info {
-        width: 500px;
+    .sample-track-info {
+        width: 250px;
     }
+}
 
-    .track-container:hover {
+@media screen and (min-width:1000px) {
+    .sample-track-container:hover {
         transform: scale(1.1, 1);
         box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
         -5px -5px 30px 15px rgba(0,0,0,0.22);
