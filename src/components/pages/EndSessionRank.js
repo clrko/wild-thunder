@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import { NavLink } from 'react-router-dom'
 
 import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
