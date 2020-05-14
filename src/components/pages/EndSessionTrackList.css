@@ -58,7 +58,7 @@
     color:grey;
 }
 
-@media screen and (min-width:800px) {
+@media screen and (min-width:760px) {
     .track-container {
         width: 700px;
     }
