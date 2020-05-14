@@ -1,11 +1,14 @@
 import React from 'react'
 import axios from 'axios'
-import { NavLink } from 'react-router-dom'
 
-import './EndSessionRank.css'
+import NavbarFooter from '../shared/NavbarFooter';
+import NavbarHeader from '../shared/NavbarHeader';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrophy, faAward, faHome } from '@fortawesome/free-solid-svg-icons'
 import vynil from "../../images/vinyl.png"
+
+import './EndSessionRank.css'
 
 class EndSessionRank extends React.Component {
     state = {
@@ -89,9 +92,10 @@ class EndSessionRank extends React.Component {
         
         return (
             <div className="globalForm">
-                <h2>{`Ranking for the ${this.state.genre} category`}</h2>
-                <NavLink to={{pathname: `/mode-page/${this.props.match.params.pseudo}`, username:this.props.match.params.pseudo}} className="goHome_button"><button><FontAwesomeIcon icon={faHome} className="goHome_icon" /></button></NavLink>
-                {scoresTab}
+                <NavbarHeader />
+                    <h1>{`Ranking for the ${this.state.genre} category`}</h1>
+                    <div className="scoresTab" >{scoresTab}</div>
+                <NavbarFooter />
             </div>
         )
     }
