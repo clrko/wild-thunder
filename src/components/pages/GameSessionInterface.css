@@ -117,9 +117,10 @@
         background-color: #C0C0C0;
         color: #845EC2;
         font-weight: bold; */
-        font-size: 1rem;
-        width: 30px;
-        height: 30px;
+        font-size: 1.2rem;
+        width: 35px;
+        height: 35px;
+        padding: 5px;
         /* padding: 2px; */
         /* margin: 1px;
         border-radius: 4px; */
@@ -129,14 +130,14 @@
         /* background: white;
         color: #845EC2;
         font-weight: bold; */
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .buttonLetter, .correctionButton {
         border-radius: 4px;
         margin: 1px;
-        width: 30px;
-        height: 30px;
+        width: 35px;
+        height: 35px;
     }
 
     .userInput {
@@ -169,5 +170,9 @@
 
     .faQuestionCircle {
         display: none;
+    }
+
+    .interface-container{
+        margin-top: 6%;
     }
 }

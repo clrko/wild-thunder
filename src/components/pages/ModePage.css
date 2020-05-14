@@ -56,9 +56,14 @@
     .main-rule-open-btn {
         font-size: 2.5rem;
         margin: 0 auto;
+        margin-top: 8%;
     }
 
     .modal-content {
         background: #36393F; 
+    }
+
+    .main-rule-open-btn {
+        display: none;
     }
 }

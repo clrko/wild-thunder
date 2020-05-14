@@ -1,5 +1,6 @@
 .rules_wrapper {
     display: block;
+    background-color:#36393F;
 }
 
 .rules_container {
@@ -84,5 +85,15 @@
 
     .return-mode-page-btn {
         display:none;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 469px) {
+    #rules_thunder {
+        margin-top: 10%;
+    }
+
+    .rules_container h1 {
+        margin-top: 8%;
     }
 }
