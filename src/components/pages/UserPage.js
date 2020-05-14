@@ -6,6 +6,8 @@ import UserTrackSample from './UserTrackSample';
 import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
 
+import ScrollToTop from '../shared/ScrollToTop';
+
 import API_KEY from '../../secret';
 
 import './UserPage.css'
@@ -57,7 +59,8 @@ class UserPage extends Component  {
     }
 
     handleToggleClick(idtrack) {
-        const isPausedTemp = this.state.isPaused
+        console.log("this state is paused au click c'et", this.state.isPaused)
+        const isPausedTemp = [...this.state.isPaused]
         const currentIndex = this.state.favoriteSample.findIndex(item => item.id === idtrack)
         isPausedTemp[currentIndex] = !isPausedTemp[currentIndex]
         this.setState({
@@ -76,7 +79,7 @@ class UserPage extends Component  {
     }
 
     handlePlayEnded(e) {
-        const isPausedTemp = this.state.isPaused
+        const isPausedTemp = [...this.state.isPaused]
         const index = this.state.favoriteSample.findIndex(item => item.id === e.target.id)
         isPausedTemp[index] = !isPausedTemp[index]
         this.setState({
@@ -106,6 +109,7 @@ class UserPage extends Component  {
             <NavLink to={{pathname: `/favoritepage/${this.state.username}`, username:this.state.username}}><button className="userpage-more-btn">See more</button></NavLink>
             <h3 className="userpage-title-h3">Achievements</h3>
             <button className="userpage-more-btn" >See more</button>
+            <ScrollToTop />
             <NavbarFooter />
         </div>
         )
