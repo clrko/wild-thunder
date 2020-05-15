@@ -1,10 +1,11 @@
-/* .homepageAuth {
+ .homepageAuth {
     display: flex;
     justify-content: center;
     padding-top: 100px;
  }
  .container-auth{ 
    background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486);
+   padding-bottom: 40vh;
  
  }
  .container-auth h1{
@@ -21,7 +22,7 @@
  .navlink-go-home{
      text-align: center;
      padding-top: 16%;
- } */
+ } 
  
  
  /* .button-login-modal{ 

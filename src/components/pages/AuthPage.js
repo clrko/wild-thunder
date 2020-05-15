@@ -3,8 +3,8 @@ import { NavLink, Redirect } from "react-router-dom";
 import axios from 'axios'
 import Modal from 'react-modal';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import NavbarFooter from '../shared/NavbarFooter';
+import NavbarHeader from '../shared/NavbarHeader';
 
 import "./AuthPage.css";
 
@@ -39,14 +39,12 @@ const AuthPage = () => {
 
         return (
             <div className="container-auth" >
+                <NavbarHeader/>
                 <h1>Connection</h1>
                 <h2>Create an account and become a legend in THUNDER !</h2>
                 <div className="homepageAuth">
                 <button className='login-open-modal' onClick={() => setModalIsOpen(true)}>Login</button>
                 <NavLink to="/register"><button className='button-signup'>Register</button></NavLink>
-                </div>
-                <div className="navlink-go-home" >
-                    <NavLink to="/" ><button><FontAwesomeIcon icon={faHome} className="goHome_icon_reco_page" /></button></NavLink>
                 </div>
                 <Modal className='loginModalAuth'  isOpen={modalIsOpen}
                     onRequestClose={()=> setModalIsOpen(false)}
@@ -66,6 +64,7 @@ const AuthPage = () => {
                     </div>
                     
                 </Modal>
+            <NavbarFooter/>
             </div>
         )
     }
