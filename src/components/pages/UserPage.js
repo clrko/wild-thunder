@@ -95,7 +95,7 @@ class UserPage extends Component  {
                 }
             }).then(res => {
                 this.setState({
-                    scoresSample: res.data
+                    scoresSample: res.data.slice(0, 5)
                 })
             })
     }
