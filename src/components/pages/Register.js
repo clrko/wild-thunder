@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { Redirect, NavLink } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import axios from "axios";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import NavbarHeader from '../shared/NavbarHeader';
+import NavbarFooter from '../shared/NavbarFooter'; 
 
 import './Register.css'
-/* import NavbarHeader from '../shared/NavbarHeader';
-import NavbarFooter from '../shared/NavbarFooter'; */
+
 
 const Register = () => {
     const [redirect, setRedirect] = useState(false)
@@ -35,23 +34,26 @@ const Register = () => {
 
     return (
     <div className="container_page_register" >
-        {/* <NavbarHeader/>
-                <NavbarFooter/> */}
+        <NavbarHeader/>
         <h1>Register</h1>
         <form  className="form_page_register" onSubmit={handleSubmit}>
             
                 <div className="input_register">
-                        <label>Username</label>
-                        <input type="text" name="username" />
-                
-                        <label>password</label>
-                        <input type="password" name="password" />
+                       <div >
+                            <label>Username :</label>
+                            <input type="text" name="username" />
+                        </div>
+                        <div>
+                            <label>password :</label>
+                            <input type="password" name="password" />
+                        </div>
                     </div>
                 <div className="button-register">
                     <button className="button_register" type="submit">Register</button>
                 </div>
-                  <div className="button_go_home">  
-                  <NavLink to="/" ><button><FontAwesomeIcon icon={faHome} className="goHome_icon_reco_page" /></button></NavLink>                </div>
+                  
+               
+        <NavbarFooter/> 
              </form>
     </div>
     )

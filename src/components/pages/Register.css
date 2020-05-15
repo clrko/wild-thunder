@@ -6,9 +6,11 @@
     text-shadow: 2px 3px 0px #898999;
     text-transform: uppercase;
     text-align: center;
+    
 }
 .container_page_register{
     background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486);
+    padding-bottom: 50vh;
 }
 .form_page_register label{
     padding-top: 20px;
@@ -16,15 +18,16 @@
     
 }
 .input_register{
-     display: flex;
-    padding-left: 40%;
-    padding-right: 40%;
-    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    
 }
 .input_register input{
     height: 30px;
     font-size: 20px;
     border-radius: 5px;
+    margin-left: 10px;
    
 }
 .input_register label{
@@ -64,11 +67,11 @@
 
 
 @media screen and ( max-width:1000px){
-    .input_register{padding-left : 35%; padding-right: 35%}
+    
     
     
 }
 @media screen and (max-width:700px){
-    .input_register{padding-left : 30%; padding-right: 30%}
+    .input_register input{justify-content: none; width : 150px}
 }
 
