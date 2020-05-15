@@ -9,9 +9,9 @@
     display: none;
 }
 
-@media screen and (min-width: 700px) /* to be precised */{
+@media screen and (min-width: 700px) {
     .main-rule-modal {
-        background-color: rgba(0,0,0,0.4) /*#36393F */;
+        background-color: rgba(0,0,0,0.4);
         z-index: 1;
         left: 0;
         top: 0;
@@ -19,7 +19,7 @@
         height: 100%;
         position: fixed;
     }
-   
+
     .main-rule-open-btn {
         margin: 0 auto;
         display: block;
@@ -35,7 +35,6 @@
     }
 
     .modal-icon {
-        /* color:white; */
         font-family: LeagueMono-Bold;
         font-size: 2rem;
         cursor: pointer;
@@ -45,10 +44,8 @@
         position: relative;
         animation-name: animatetop;
         animation-duration: 0.4s;
-        /* bottom: 15%; */
     }
 
-    /* Add Animation */
     @keyframes animatetop {
         from {top: -200px; opacity: 0}
         to {top: 0; opacity: 1}

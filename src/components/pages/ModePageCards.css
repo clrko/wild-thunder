@@ -10,7 +10,7 @@
     cursor: pointer;
     transition: 0.4s;
 }
-  
+
 .ModePageCards-title {
     border-radius: 0px 0px 40px 40px;
     font-family: sans-serif;
@@ -33,8 +33,8 @@
 
 @media screen and (min-width: 601px) and (max-width: 1000px) {
     .ModePageCards-card {
-      margin: 50px;
-  }
+        margin: 50px;
+    }
 }
 
 @media screen and (min-width: 300px) and (max-width: 600px) {
@@ -42,6 +42,6 @@
         width: 250px;
         height: 100px;
         margin: 5% 0;
-  }
+    }
 }
 

@@ -11,6 +11,7 @@ import GameSessionPointSystem from "./GameSessionPointSystem";
 import Loader from '../Loader/Loader';
 
 import API_KEY from '../../secret'
+
 import './GameSession.css'
 
 const rounds = 5
@@ -33,13 +34,11 @@ class GameSession extends React.Component {
         counter: 30,
         revealedSolution: false,
         hidValidateButton: false,
-        textToClickNext : false ,
+        textToClickNext: false,
     }
-    
+
     componentDidMount() {
         this.getArtistsList(this.state.genresCode)
-
-    
     }
 
     /* First call to the api to get a random list of artists. The number of artists selected will be defined by the rounds value */
@@ -69,7 +68,7 @@ class GameSession extends React.Component {
             })
             .then(res => {
                 this.setState(
-                    () => ({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true, solution: "", isArtistFound: false, hidValidateButton:false}),
+                    () => ({ artistTrack: this.getListShuffled(res.data.tracks)[0], isLoaded: true, solution: "", isArtistFound: false, hidValidateButton: false }),
                     () => {
                         this.restartCounter()
                         document.getElementById("userInput").value = ""
@@ -92,21 +91,21 @@ class GameSession extends React.Component {
     validateAndChange = () => {
         const artistToFind = this.state.artistTrack.artistName.toUpperCase().replace(/\s+/g, '')
         if (artistToFind === this.state.solution) {
-            this.setState((prevState) => ({ score: prevState.score + prevState.counter, isArtistFound: true, revealedSolution:true ,textToClickNext : true  }));
+            this.setState((prevState) => ({ score: prevState.score + prevState.counter, isArtistFound: true, revealedSolution: true, textToClickNext: true }));
         }
     }
-   
 
     displaySolution = () => {
         this.setState(() => ({ revealedSolution: true }))
-       if(this.state.counter === 0){
-        this.setState( () =>({  textToClickNext : true }) )}
+        if (this.state.counter === 0) {
+            this.setState(() => ({ textToClickNext: true }))
+        }
     }
 
     saveRoundAndLoadNextSong = () => {
         if (this.state.counter !== 0 && !this.state.revealedSolution) {
             this.displaySolution()
-            this.setState({hidValidateButton : true})
+            this.setState({ hidValidateButton: true })
             setTimeout(() => {
                 this.addToHistory()
                 if (this.state.numArtist === rounds - 1) {
@@ -136,11 +135,9 @@ class GameSession extends React.Component {
     }
 
     /*CountDownTimer methods*/
-
     updateCounter = () => {
         this.setState({ counter: this.state.counter - 1 })
     }
-  
 
     restartCounter = () => {
         document.querySelector(".circle").style.animation = "none"
@@ -149,8 +146,8 @@ class GameSession extends React.Component {
                 document.querySelector(".circle").style.animation = `countdown-animation ${startTime}s linear, color-animation ${startTime}s linear`;
             })
         })
-        this.setState({ counter: startTime }, () => this.setState({revealedSolution : false}))
-        this.setState({ counter: startTime }, () => this.setState({textToClickNext: false}))
+        this.setState({ counter: startTime }, () => this.setState({ revealedSolution: false }))
+        this.setState({ counter: startTime }, () => this.setState({ textToClickNext: false }))
     }
 
     /*  Functions used in the userinterface that aims at inputing a letter, erease and update the number of boxes based on the artist being played */
@@ -190,7 +187,6 @@ class GameSession extends React.Component {
             }} />
         }
         return (
-
             <div className="gameSession-body">
                 {!this.state.isLoaded ?
                     <div><Loader /></div>
@@ -198,7 +194,7 @@ class GameSession extends React.Component {
                     <div>
                         <GameSessionHeader genresTitle={this.state.genresTitle} color={this.state.color} />
                         <div>
-                        <GameSessionButtonEndSession username={this.props.location.username} />
+                            <GameSessionButtonEndSession username={this.props.location.username} />
                             <CountDownTimer displaySolution={this.displaySolution} counter={this.state.counter} startTime={startTime} updateCounter={this.updateCounter} />
                             <GameSessionAudioPlayer revealedSolution={this.state.revealedSolution} saveRoundAndLoadNextSong={this.saveRoundAndLoadNextSong} artistTrack={this.state.artistTrack} sessionHistory={this.state.sessionHistory} />
                             <GameSessionInterface textToClickNext={this.state.textToClickNext} artistTrack={this.state.artistTrack} handleClick={this.handleClick} handleChange={this.handleChange} handleCorrection={this.handleCorrection} />

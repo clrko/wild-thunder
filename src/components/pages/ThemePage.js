@@ -23,9 +23,9 @@ class ThemePage extends Component {
     }
 
     getGenresList = async () => {
-        this.setState({isLoaded: false})
+        this.setState({ isLoaded: false })
         await axios.get(`http://api.napster.com/v2.2/genres`,
-            { params: { apikey: API_KEY, lang: "en-US" } }        )
+            { params: { apikey: API_KEY, lang: "en-US" } })
             .then(res => this.setState({ genresList: res.data.genres.slice(0, 21), isLoaded: true }))
     }
 
@@ -34,9 +34,7 @@ class ThemePage extends Component {
     }
 
     render() {
-       
         return (
-
             <div>
                 {!this.state.isLoaded ?
                     <div><Loader /></div>
@@ -57,7 +55,7 @@ class ThemePage extends Component {
                     </div>
                 }
             </div>
-        );
+        )
     }
 }
 

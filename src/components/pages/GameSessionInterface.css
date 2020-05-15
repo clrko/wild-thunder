@@ -106,23 +106,13 @@
     }
 
     .letter {
-        /* border: 1px solid black;
-        background-color: #C0C0C0;
-        color: #845EC2;
-        font-weight: bold; */
         font-size: 1.2rem;
         width: 35px;
         height: 35px;
         padding: 5px;
-        /* padding: 2px; */
-        /* margin: 1px;
-        border-radius: 4px; */
     }
 
     .buttonLetter {
-        /* background: white;
-        color: #845EC2;
-        font-weight: bold; */
         font-size: 1.1rem;
     }
 
@@ -134,23 +124,11 @@
     }
 
     .userInput {
-        /* border: none;
-        border-radius: 10px; */
-        /* width: 300px;
-        height: 30px;
-        font-size: 1.5rem; */
         display: none;
-        /* padding-left: 10px;
-        margin-bottom: 4%;
-        color: #845EC2;
-        font-weight: bold; */
     }
 
     .faQuestionCircle {
-        /* color: yellow; */
         font-size: 1.5rem;
-        /* margin-right: 30px;
-        margin: 10px auto; */
     }
 
     .solutionDisplayBoxes {
@@ -165,7 +143,7 @@
         display: none;
     }
 
-    .interface-container{
+    .interface-container {
         margin-top: 6%;
     }
 }

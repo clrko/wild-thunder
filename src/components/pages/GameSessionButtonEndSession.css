@@ -1,10 +1,3 @@
-.ButtonEndSession-container {
-    /* display: flex;
-    justify-content: flex-end;
-    align-items: center; */
-    /* padding-bottom: 4%; */
-} 
-
 .button-yes-no-container {
     margin-top: 4%;
 }
@@ -30,14 +23,6 @@
 }
 
 .buttonEndSession {
-    /* color: white;
-    font-weight: bold;
-    text-align: center;
-    background-color: #EF4C4C;
-    width: 10%;
-    border-radius: 10px;
-    margin-top: 3%;
-    padding: 10px; */
     color: #EF4C4C;
     font-size: 2.5rem;
     z-index: 1;
@@ -45,24 +30,9 @@
     margin-right: 50px;
     cursor: pointer;
 }
-/* 
-.ButtonEndSession button {
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    background-color: #EF4C4C;
-    width: 10%;
-    margin: 0% auto;
-    border-radius: 10px;
-    margin-top: 2%;
-} */
-
 
 @media screen and (min-width: 300px) and (max-width: 450px) {
     .buttonEndSession {
-        /* color: #EF4C4C;
-        z-index: 1;
-        float: right; */
         margin-right: 15px;
         font-size: 2rem;
     }
