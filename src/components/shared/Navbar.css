@@ -6,6 +6,12 @@
     text-decoration: none;
 }
 
+.nav-links-wrapper {
+    z-index: 1;
+    right: 5%;
+    position: fixed;
+}
+
 .nav-title {
     color:white;
     font-family: LeagueMono-Bold;
