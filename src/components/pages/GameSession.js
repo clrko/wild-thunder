@@ -99,7 +99,8 @@ class GameSession extends React.Component {
 
     displaySolution = () => {
         this.setState(() => ({ revealedSolution: true }))
-        this.setState( () =>({  textToClickNext : true }) )
+       if(this.state.counter === 0){
+        this.setState( () =>({  textToClickNext : true }) )}
     }
 
     saveRoundAndLoadNextSong = () => {

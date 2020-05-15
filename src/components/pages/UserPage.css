@@ -29,7 +29,7 @@
 }
 
 .userpage-title-h3 {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin: 3vh auto;
     margin-top:3vh ;
     text-align: center;
@@ -52,7 +52,7 @@
 
 .userpage-more-btn {
     color:#fff;
-    background:  #00abc7;
+    background:  #198fa1;
     width: 100px;
 }
 
@@ -70,7 +70,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-items: center;
-        align-items: center;
+        align-items: start;
     }
 
     .userpage-title, .userpage-title-h2, .navlink-play-button {

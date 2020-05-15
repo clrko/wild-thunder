@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 
-import UserTrackSample from './UserTrackSample';
+
 import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
-
 import ScrollToTop from '../shared/ScrollToTop';
-
+import UserTrackSample from './UserTrackSample';
+import UserScoreSample from "./UserScoreSample";
 import API_KEY from '../../secret';
 
 import './UserPage.css'
@@ -17,6 +17,7 @@ class UserPage extends Component  {
         loggedIn : false,
         username: "",
         favoriteSample: [],
+        scoresSample:[],
         isPaused: []
     }
 
@@ -87,10 +88,23 @@ class UserPage extends Component  {
         })
     }
 
+    getScoreSample() {
+        axios.get("http://localhost:4242/ranking/allscores", {
+                headers: {
+                'x-access-token': localStorage.getItem("token"),
+                }
+            }).then(res => {
+                this.setState({
+                    scoresSample: res.data.slice(0, 5)
+                })
+            })
+    }
+
     componentDidMount() {
         if (localStorage.getItem("token")) {
         this.getUsername()
         this.getFavoriteSample()
+        this.getScoreSample()
         } else {
             this.setState({
                 loggedIn: false
@@ -113,7 +127,8 @@ class UserPage extends Component  {
                 </div>
                 <div className="userpage-achievement-container">
                     <h3 className="userpage-title-h3">Achievements</h3>
-                    <button className="userpage-more-btn" >See more</button>
+                    {this.state.scoresSample.map((scoreSample, i) => <UserScoreSample key={scoreSample.id} id ={scoreSample.id} genre={scoreSample.genre} score={scoreSample.score} />)}
+                    <NavLink to={{pathname: `/scorepage/${this.state.username}`, state:this.state.username}}><button className="userpage-more-btn">See more</button></NavLink>
                 </div>
             </div>
             <ScrollToTop />

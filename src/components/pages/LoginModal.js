@@ -15,6 +15,7 @@ const LoginModal = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         setUsername(e.target.username.value)
+        console.log("e.target", e.target.username.value)
         axios.post("http://localhost:4242/auth/login", {
             username: e.target.username.value,
             password: e.target.password.value
