@@ -9,7 +9,6 @@ import NavbarHeader from '../shared/NavbarHeader';
 
 import "./EndSession.css";
 
-
 class EndSession extends Component {
     state = {
         artistTrack: this.props.location.state.map(track => track.artistTrack),
@@ -49,7 +48,6 @@ class EndSession extends Component {
         } else {
             alert("You need to connect")
         }
-
     }
 
     handleToggleClick = (idtrack) => {
@@ -66,7 +64,6 @@ class EndSession extends Component {
             targetAudio.pause()
             isPausedTemp[currentIndex] = !isPausedTemp[currentIndex]
         }
-
     }
 
     handlePlayEnded = (e) => {
@@ -83,7 +80,6 @@ class EndSession extends Component {
             const genresTitle = this.state.genresTitle
             const userScore = this.props.location.score
             const oldScore = scoresDB.filter(user => user.username === username && user.genre === genresTitle)
-            console.log(scoresDB, username, genresTitle, userScore, oldScore, userScore > oldScore[0])
             if (oldScore.length === 0) {
                 axios.post("http://localhost:4242/ranking/addScore", {
                     username: username,
@@ -96,19 +92,11 @@ class EndSession extends Component {
                         }
                     }
                 )
-                    .then(() => {
-                        console.log("Posted")
-                    })
             } else if (userScore > oldScore[0].score) {
                 const id = oldScore[0].id
                 axios.put(`http://localhost:4242/ranking//updateScore/${id}`, {
                     score: userScore,
                 })
-                    .then(() => {
-                        console.log("Updated")
-                    })
-            } else {
-                console.log("User already in DB but score is lower than the one in DB so no update")
             }
         }
     }
@@ -116,7 +104,7 @@ class EndSession extends Component {
     componentDidMount() {
         axios.get(`http://localhost:4242/ranking/standard/${this.state.genresTitle}`)
             .then(result => {
-                this.setState(console.log(result.data) || { scoresDB: result.data },
+                this.setState({ scoresDB: result.data },
                     () => this.handleRanking())
             })
     }
@@ -137,11 +125,11 @@ class EndSession extends Component {
                     />
                 </div>
                 {this.state.artistTrack.map((track, i) => <EndSessionTrackList key={track.id} albumId={track.albumId} name={track.name} artistName={track.artistName} id={track.id} previewURL={track.previewURL} handleToggleClick={this.handleToggleClick} handleFavoriteClick={this.handleFavoriteClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} isFavorite={this.state.isFavorite[i]} isArtistFound={this.state.isArtistFound[i]} />)}
-                <NavLink to={{pathname :'./endsessionreco' , artistId : this.props.location.state , username: this.props.location.username }} className="link-for-recopage" ><button className="button-go-reco" >Similar Artists</button> </NavLink>
+                <NavLink to={{ pathname: './endsessionreco', artistId: this.props.location.state, username: this.props.location.username }} className="link-for-recopage" ><button className="button-go-reco" >Similar Artists</button> </NavLink>
                 <NavbarFooter />
             </div>
         )
     }
 }
- 
+
 export default EndSession;

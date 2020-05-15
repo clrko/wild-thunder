@@ -2,65 +2,62 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 
-
 import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
 import ScrollToTop from '../shared/ScrollToTop';
 import UserTrackSample from './UserTrackSample';
 import UserScoreSample from "./UserScoreSample";
+
 import API_KEY from '../../secret';
 
 import './UserPage.css'
 
-class UserPage extends Component  {
+class UserPage extends Component {
     state = {
-        loggedIn : false,
+        loggedIn: false,
         username: "",
         favoriteSample: [],
-        scoresSample:[],
+        scoresSample: [],
         isPaused: []
     }
 
     getUsername() {
+        this.setState({ loggedIn: true })
+
+        axios.get("http://localhost:4242/auth", {
+            headers: {
+                'x-access-token': localStorage.getItem("token"),
+            }
+        }).then(res => {
             this.setState({
-                loggedIn: true
+                username: res.data[0].username
             })
-            
-            axios.get("http://localhost:4242/auth", {
-                headers: {
-                    'x-access-token': localStorage.getItem("token"),
-                }
-            }).then(res => {
-                this.setState({
-                    username: res.data[0].username
-                })
-            })
+        })
     }
 
     getFavoriteSample() {
         axios.get("http://localhost:4242/favorite", {
-                headers: {
+            headers: {
                 'x-access-token': localStorage.getItem("token"),
-                }
-            }).then(res => {
-                const sampleFavorites = res.data.reverse().slice(0, 5).map(favoriteTrack => favoriteTrack.track_id).join(",")
-                axios.get(`https://api.napster.com/v2.2/tracks/${sampleFavorites}`,
-                    {
-                        params: {
-                            apikey: API_KEY
-                        }
+            }
+        }).then(res => {
+            const sampleFavorites = res.data.reverse().slice(0, 5).map(favoriteTrack => favoriteTrack.track_id).join(",")
+            axios.get(`https://api.napster.com/v2.2/tracks/${sampleFavorites}`,
+                {
+                    params: {
+                        apikey: API_KEY
+                    }
+                })
+                .then(response => {
+                    this.setState({
+                        favoriteSample: response.data.tracks,
+                        isPaused: Array(response.data.tracks.length).fill(true)
                     })
-                    .then(response => {
-                        this.setState({
-                            favoriteSample: response.data.tracks,
-                            isPaused: Array(response.data.tracks.length).fill(true)
-                        })
-                    })
-            })
+                })
+        })
     }
 
     handleToggleClick(idtrack) {
-        console.log("this state is paused au click c'et", this.state.isPaused)
         const isPausedTemp = [...this.state.isPaused]
         const currentIndex = this.state.favoriteSample.findIndex(item => item.id === idtrack)
         isPausedTemp[currentIndex] = !isPausedTemp[currentIndex]
@@ -75,7 +72,7 @@ class UserPage extends Component  {
         } else {
             targetAudio.pause()
             isPausedTemp[currentIndex] = !isPausedTemp[currentIndex]
-        
+
         }
     }
 
@@ -90,21 +87,21 @@ class UserPage extends Component  {
 
     getScoreSample() {
         axios.get("http://localhost:4242/ranking/allscores", {
-                headers: {
+            headers: {
                 'x-access-token': localStorage.getItem("token"),
-                }
-            }).then(res => {
-                this.setState({
-                    scoresSample: res.data.slice(0, 5)
-                })
+            }
+        }).then(res => {
+            this.setState({
+                scoresSample: res.data.slice(0, 5)
             })
+        })
     }
 
     componentDidMount() {
         if (localStorage.getItem("token")) {
-        this.getUsername()
-        this.getFavoriteSample()
-        this.getScoreSample()
+            this.getUsername()
+            this.getFavoriteSample()
+            this.getScoreSample()
         } else {
             this.setState({
                 loggedIn: false
@@ -114,26 +111,26 @@ class UserPage extends Component  {
 
     render() {
         return (
-        <div className="userpage-wrapper">
-            <NavbarHeader />
-            <div className="userpage-container">
-                <h1 className="userpage-title">Hi {this.state.username},</h1>
-                <h2 className="userpage-title-h2">Welcome to your profile</h2>
-                <NavLink className="navlink-play-button" to={{pathname: `/mode-page/${this.state.username}`, state:this.state.username, username:this.state.username}}><button className="userpage-play-btn">Play</button></NavLink>
-                <div className="userpage-favorite-container">
-                    <h3 className="userpage-title-h3">Favorite tracks</h3>
-                    {this.state.favoriteSample.map((trackSample, i) => <UserTrackSample key={trackSample.id} albumId={trackSample.albumId} name={trackSample.name} artistName={trackSample.artistName} handleToggleClick={this.handleToggleClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} id={trackSample.id} previewURL={trackSample.previewURL} />)}
-                    <NavLink to={{pathname: `/favoritepage/${this.state.username}`, state:this.state.username}}><button className="userpage-more-btn">See more</button></NavLink>
+            <div className="userpage-wrapper">
+                <NavbarHeader />
+                <div className="userpage-container">
+                    <h1 className="userpage-title">Hi {this.state.username},</h1>
+                    <h2 className="userpage-title-h2">Welcome to your profile</h2>
+                    <NavLink className="navlink-play-button" to={{ pathname: `/mode-page/${this.state.username}`, state: this.state.username, username: this.state.username }}><button className="userpage-play-btn">Play</button></NavLink>
+                    <div className="userpage-favorite-container">
+                        <h3 className="userpage-title-h3">Favorite tracks</h3>
+                        {this.state.favoriteSample.map((trackSample, i) => <UserTrackSample key={trackSample.id} albumId={trackSample.albumId} name={trackSample.name} artistName={trackSample.artistName} handleToggleClick={this.handleToggleClick} handlePlayEnded={this.handlePlayEnded} isPaused={this.state.isPaused[i]} id={trackSample.id} previewURL={trackSample.previewURL} />)}
+                        <NavLink to={{ pathname: `/favoritepage/${this.state.username}`, state: this.state.username }}><button className="userpage-more-btn">See more</button></NavLink>
+                    </div>
+                    <div className="userpage-achievement-container">
+                        <h3 className="userpage-title-h3">Achievements</h3>
+                        {this.state.scoresSample.map((scoreSample, i) => <UserScoreSample key={scoreSample.id} id={scoreSample.id} genre={scoreSample.genre} score={scoreSample.score} />)}
+                        <NavLink to={{ pathname: `/scorepage/${this.state.username}`, state: this.state.username }}><button className="userpage-more-btn">See more</button></NavLink>
+                    </div>
                 </div>
-                <div className="userpage-achievement-container">
-                    <h3 className="userpage-title-h3">Achievements</h3>
-                    {this.state.scoresSample.map((scoreSample, i) => <UserScoreSample key={scoreSample.id} id ={scoreSample.id} genre={scoreSample.genre} score={scoreSample.score} />)}
-                    <NavLink to={{pathname: `/scorepage/${this.state.username}`, state:this.state.username}}><button className="userpage-more-btn">See more</button></NavLink>
-                </div>
+                <ScrollToTop />
+                <NavbarFooter />
             </div>
-            <ScrollToTop />
-            <NavbarFooter />
-        </div>
         )
     }
 }

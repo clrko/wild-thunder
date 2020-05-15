@@ -6,7 +6,7 @@
     background: #36393F; 
 }
 
-.hm-spinner{
+.hm-spinner {
     height: 115px;
     width: 115px;
     border: 6px solid transparent;
@@ -18,7 +18,7 @@
             animation: spin 3s linear infinite;
 }
 
-.hm-spinner::before{
+.hm-spinner::before {
     content: "";
     position: absolute;
     top: 20px;
@@ -32,7 +32,7 @@
     -webkit-animation: spin 1.5s linear infinite;
     animation: spin 1.5s linear infinite;
 }
-  
+
 @-webkit-keyframes spin {
     from {
     -webkit-transform: rotate(0deg);

@@ -26,14 +26,9 @@
   .modePage-title {
     margin: 0% auto;
     margin-top: 6%;
-    /* margin-bottom: 0;  */
     font-size: 1.3rem;
     padding: 0 40px;
     text-align: center;
-    /* font-family: LeagueMono-ExtraBold;
-    letter-spacing: 0.093em;
-    text-shadow: 2px 3px 0px #898999;
-    text-transform: uppercase; */
   }
 
   .modePage-list {

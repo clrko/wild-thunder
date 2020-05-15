@@ -119,7 +119,6 @@
     font-weight: bold;
     font-size: 1.4rem;
     text-transform: uppercase;
-    /* margin-top: -20px; */
     height: 40px;
 }
 
@@ -144,7 +143,6 @@
 
 @media all and (max-width: 500px) {
     .card-list {
-    /* On small screens, we are no longer using row direction but column */
     flex-direction: column;
     }
 }

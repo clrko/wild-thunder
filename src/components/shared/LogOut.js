@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 
@@ -15,11 +15,10 @@ const LogOut = () => {
     }
 
     if (redirect) {
-        return <Redirect to= "/"/>
-    } 
+        return <Redirect to="/" />
+    }
 
-    return <FontAwesomeIcon onClick={handleLogOut} icon={ faSignOutAlt } className="sign-out-icon"/>
+    return <FontAwesomeIcon onClick={handleLogOut} icon={faSignOutAlt} className="sign-out-icon" />
 }
-
 
 export default LogOut 
