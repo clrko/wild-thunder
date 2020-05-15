@@ -1,3 +1,4 @@
+
 .big-title-reco {
     font-size: 50px ;
     text-shadow: 2px 3px 0px #898999;
@@ -50,7 +51,7 @@
 
 .container-reco-page {
     background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486);
-    padding: 11vh;
+    padding-bottom: 11vh;
 }
 
 @media screen and (max-width:1000px) {

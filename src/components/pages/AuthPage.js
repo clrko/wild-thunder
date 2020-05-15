@@ -41,14 +41,14 @@ const AuthPage = () => {
             <NavbarHeader />
             <h1>Connection</h1>
             <h2>Create an account and become a legend in THUNDER !</h2>
-            <div className="homepageAuth">
+            <div className="homepageModal">
                 <button className='login-open-modal' onClick={() => setModalIsOpen(true)}>Login</button>
                 <NavLink to="/register"><button className='button-signup'>Register</button></NavLink>
             </div>
-            <Modal className='loginModalAuth' isOpen={modalIsOpen}
+            <Modal className='loginModal' isOpen={modalIsOpen}
                 onRequestClose={() => setModalIsOpen(false)}
                 style={{
-                    content: { backgroundColor: 'rgb(88, 71, 71)', borderRadius: '5%' }
+                    content: { borderRadius: '5%' }
                 }}>
                 <div>
                     <form onSubmit={handleSubmit} className="login-modal" >
