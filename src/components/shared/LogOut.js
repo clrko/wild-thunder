@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
+import './LogOut.css'
 
 const LogOut = () => {
     const [redirect, setRedirect] = useState(false)

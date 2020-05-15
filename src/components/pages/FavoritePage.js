@@ -43,17 +43,16 @@ const FavoritePage = (props) => {
     const handleToggleClick = (idtrack) => {
         const isPausedTemp = [...isPaused]
         const currentIndex = favoriteTrackList.findIndex(item => item.id === idtrack)
-        isPausedTemp[currentIndex] = !isPausedTemp[currentIndex]
-        setIsPaused(isPausedTemp)
-
         const targetAudio = document.getElementById(idtrack)
         if (targetAudio.paused) {
             favoriteTrackList.filter(track => track.id !== idtrack).forEach(item => document.getElementById(item.id).pause())
             targetAudio.play()
+            isPausedTemp[currentIndex] = !isPausedTemp[currentIndex]
         } else {
             targetAudio.pause()
             isPausedTemp[currentIndex] = !isPausedTemp[currentIndex]
         }
+        setIsPaused(isPausedTemp)
     }
 
     const handlePlayEnded = (e) => {

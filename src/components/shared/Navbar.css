@@ -80,7 +80,7 @@
     }
 }
 
-@media screen and (min-width: 300px) and (max-width: 469px) {
+@media screen and (min-width: 300px) and (max-width: 699px) {
     .nav-container {
         display: flex;
         justify-content: center;
