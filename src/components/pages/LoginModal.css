@@ -13,36 +13,30 @@
     color: #36393F;
 }
 
-.button-login-modal{ 
+.button-login-modal { 
     display: block;
     width: 60px;
     font-size: 1rem;
     border-style: none;
-    /* margin-top: 15px; */
     border-radius: 3px;
     color: white;
     background: #6D0FF2;
     font-weight: bold;
     cursor: pointer;
-    /* padding: 5px; */
     height: 35px;
-    /* margin-top: 6%; */
 }
 
-.login-close-modal{
+.login-close-modal {
     display: block;
     width: 60px;
     font-size: 1rem;
     border-style: none;
-    /* margin-top: 15px; */
     border-radius: 3px;
     color: white;
     background: #DB5D5D;
     font-weight: bold;
     cursor: pointer;
-    /* padding: 5px; */
     height: 35px;
-    /* margin-top: 6%; */
 }
 
 
@@ -54,7 +48,7 @@
     width: 400px;
 }
 
-.input-login-modal{
+.input-login-modal {
     border-radius: 1px;
     padding-left: 10px;
     font-size: 1rem;
@@ -65,7 +59,7 @@
     height: 40px;
 }
 
-.login-open-modal{
+.login-open-modal {
     font-size: 0.9rem;
     color:#fff;
     text-decoration:none;
@@ -82,7 +76,7 @@
     outline: 0;
 }
 
-.button-signup{
+.button-signup {
     font-size: 0.9rem;
     color:#fff;
     text-decoration:none;
@@ -99,7 +93,7 @@
     outline: 0;
 }
 
-.loginModal{
+.loginModal {
     margin-top: 20%;
     height: 30%;
     display: flex;
@@ -115,7 +109,7 @@
     text-transform: uppercase;
 }
 
-.login-modal h2{
+.login-modal h2 {
     margin-top: 2%;
     font-size: 2rem;
     letter-spacing: 0.100em;
@@ -137,7 +131,7 @@
     margin: 4% 0;
 }
 
-@media screen and (max-width: 700px) /* to be precised */{
+@media screen and (max-width: 700px) {
     .homepageModal { 
         margin-top : 20%;
     }

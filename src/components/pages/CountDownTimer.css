@@ -23,7 +23,7 @@
 
 .countdown-timer__text {
     position: absolute;
-    top: 36px; /*From the top, font-size + top*2 + (1/2)*(strokewidth)*2 = diamètre*/
+    top: 36px; /*From the top, (diameter- strokewidth - font-size)/2 = top */
     width: 104px; /*Diamètre*/
     font-size: 28px;
     font-weight: 600;

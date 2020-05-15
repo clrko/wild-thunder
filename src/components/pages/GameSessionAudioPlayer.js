@@ -14,7 +14,7 @@ const GameSessionAudioPlayer = (props) => {
                     </>
                 }
                 <div>
-                    <audio id="audioPlayer" src={props.artistTrack.previewURL} /* controls */>
+                    <audio id="audioPlayer" src={props.artistTrack.previewURL}>
                         <source type="audio/mpeg" />
                     </audio>
                 </div>

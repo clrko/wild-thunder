@@ -20,13 +20,6 @@
 
 @media screen and (min-width: 300px) and (max-width: 600px) {
   .scroll-to-top {
-    /* position: fixed;
-    bottom: 11vh; */
     right: 4%; 
-    /* animation: fadeIn 700ms ease-in-out 1s both; */
-    /* animation name | duration | timing-function : faster than linear |  delay 1s | fill mode both direciton forward and backward*/
-    /* cursor: pointer;
-    font-size: 2rem; 
-    z-index: 1; */
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
+
 import "./ModePageCards.css"
 
 const ModePageCards = ({title, pathname, modeColor, description,username}) => {
@@ -13,7 +14,7 @@ const ModePageCards = ({title, pathname, modeColor, description,username}) => {
                 </div>
             </div>
         </NavLink>
-    );
+    )
 }
 
 export default ModePageCards;
