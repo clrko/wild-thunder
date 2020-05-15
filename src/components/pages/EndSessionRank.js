@@ -10,6 +10,8 @@ import vynil from "../../images/vinyl.png"
 
 import './EndSessionRank.css'
 
+const tabRGB = [[196, 126, 253], [126, 236, 253], [249, 253, 126], [253, 132, 126], [253, 183, 126], [126, 129, 253], [210, 126, 253], [109, 211, 132]]
+
 class EndSessionRank extends React.Component {
     state = {
         genre: this.props.match.params.genre,
@@ -24,30 +26,31 @@ class EndSessionRank extends React.Component {
             })
     }
 
-    genRandomRGBColor = (s, v) => {
-        const hsv_to_rgb = (h, s, v) => {
-            let r = 0
-            let g = 0
-            let b = 0
-            const h_i = Math.floor(h * 6)
-            const f = h * 6 - h_i
-            const p = v * (1 - s)
-            const q = v * (1 - f * s)
-            const t = v * (1 - (1 - f) * s)
-            if (h_i === 0) { r = v; g = t; b = p }
-            else if (h_i === 1) { r = q; g = v; b = p }
-            else if (h_i === 2) { r = p; g = v; b = t }
-            else if (h_i === 3) { r = p; g = q; b = v }
-            else if (h_i === 4) { r = t; g = p; b = v }
-            else if (h_i === 5) { r = v; g = p; b = q }
-            return [Math.floor(r * 256), Math.floor(g * 256), Math.floor(b * 256)]
-        }
-        const golden_ratio_conjugate = 0.618033988749895
-        let h = Math.random()
-        h += golden_ratio_conjugate
-        h %= 1
-        return hsv_to_rgb(h, s, v)
-    }
+    // const tabRGB = this.genRandomRGBColor(0.5, 0.99)
+    // genRandomRGBColor = (s, v) => {
+    //     const hsv_to_rgb = (h, s, v) => {
+    //         let r = 0
+    //         let g = 0
+    //         let b = 0
+    //         const h_i = Math.floor(h * 6)
+    //         const f = h * 6 - h_i
+    //         const p = v * (1 - s)
+    //         const q = v * (1 - f * s)
+    //         const t = v * (1 - (1 - f) * s)
+    //         if (h_i === 0) { r = v; g = t; b = p }
+    //         else if (h_i === 1) { r = q; g = v; b = p }
+    //         else if (h_i === 2) { r = p; g = v; b = t }
+    //         else if (h_i === 3) { r = p; g = q; b = v }
+    //         else if (h_i === 4) { r = t; g = p; b = v }
+    //         else if (h_i === 5) { r = v; g = p; b = q }
+    //         return [Math.floor(r * 256), Math.floor(g * 256), Math.floor(b * 256)]
+    //     }
+    //     const golden_ratio_conjugate = 0.618033988749895
+    //     let h = Math.random()
+    //     h += golden_ratio_conjugate
+    //     h %= 1
+    //     return hsv_to_rgb(h, s, v)
+    // }
 
     render() {
         if (this.state.scoresDB === null) {
@@ -55,12 +58,9 @@ class EndSessionRank extends React.Component {
         }
 
         const scoresTab = this.state.scoresDB.sort((a, b) => b.score - a.score).map((score, index) => {
-            const tabRGB = [[196,126,253],[126,236,253],[249,253,126],[253,132,126],[253,183,126],[126,129,253],[210,126,253],[109,211,132],[171,126,253],[253,126,233],[126,253,168],[251,126,253]]
-            // const tabRGB = this.genRandomRGBColor(0.5, 0.99)
-            console.log(tabRGB)
             return (
                 <div className={`score-container ${score.username === this.state.username ? "userScore" : null}`} key={index}
-                    style={{ backgroundColor: `rgba(${tabRGB[index]},0.9)` }}
+                    style={{ backgroundColor: `rgba(${tabRGB[index % tabRGB.length]},0.9)` }}
                 >
                     <div className="rank-avatar-container">
                         <p id="rank">{index + 1}</p>
@@ -90,12 +90,12 @@ class EndSessionRank extends React.Component {
                 </div>
             )
         })
-        
+
         return (
             <div className="globalForm">
                 <NavbarHeader />
-                    <h1>{`Ranking for the ${this.state.genre} category`}</h1>
-                    <div className="scoresTab" >{scoresTab}</div>
+                <h1>{`Ranking for the ${this.state.genre} category`}</h1>
+                <div className="scoresTab" >{scoresTab}</div>
                 <NavbarFooter />
             </div>
         )
