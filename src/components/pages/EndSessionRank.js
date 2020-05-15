@@ -22,7 +22,7 @@ class EndSessionRank extends React.Component {
     componentDidMount() {
         axios.get(`http://localhost:4242/ranking/standard/${this.state.genre}`)
             .then(result => {
-                this.setState(console.log(result.data) || { scoresDB: result.data })
+                this.setState({ scoresDB: result.data })
             })
     }
 
