@@ -10,16 +10,15 @@ import API_KEY from '../../secret';
 
 import './FavoritePage.css'
 
-const FavoritePage = (props) => { 
+const FavoritePage = (props) => {
     const [favoriteTrackList, setFavoriteTrackList] = useState([])
     const [isPaused, setIsPaused] = useState([])
-
 
     const getFavoriteTrackList = () => {
         if (localStorage.getItem("token")) {
             axios.get("http://localhost:4242/favorite", {
                 headers: {
-                'x-access-token': localStorage.getItem("token"),
+                    'x-access-token': localStorage.getItem("token"),
                 }
             }).then(res => {
                 const allFavorites = res.data.map(favoriteTrack => favoriteTrack.track_id).join(",")
@@ -33,7 +32,7 @@ const FavoritePage = (props) => {
                         setFavoriteTrackList(res.data.tracks)
                         setIsPaused(Array(res.data.tracks.length).fill(true))
                     })
-            });
+            })
         } else {
             alert("You need to connect")
         }
@@ -66,28 +65,27 @@ const FavoritePage = (props) => {
     const handleDeleteFavorite = (idtrack) => {
         const remove = window.confirm("Are you sure you want to remove this track from your favorite list?")
         if (remove) {
-            axios.delete(`http://localhost:4242/favorite/tracks/${idtrack}`, 
-            {
-                headers: { 'x-access-token': localStorage.getItem("token")}
-                
-            }).then(res => {
-                const allFavorites = res.data.map(favoriteTrack => favoriteTrack.track_id).join(",")
-                axios.get(`https://api.napster.com/v2.2/tracks/${allFavorites}`,
-                    {
-                        params: {
-                            apikey: API_KEY
-                        }
-                    })
-                    .then(res => {
-                        setFavoriteTrackList(res.data.tracks)
-                    })
-            })
+            axios.delete(`http://localhost:4242/favorite/tracks/${idtrack}`,
+                {
+                    headers: { 'x-access-token': localStorage.getItem("token") }
+
+                }).then(res => {
+                    const allFavorites = res.data.map(favoriteTrack => favoriteTrack.track_id).join(",")
+                    axios.get(`https://api.napster.com/v2.2/tracks/${allFavorites}`,
+                        {
+                            params: {
+                                apikey: API_KEY
+                            }
+                        })
+                        .then(res => {
+                            setFavoriteTrackList(res.data.tracks)
+                        })
+                })
             alert("Successfully taken out from your favorites")
         }
     }
 
     return (
-        
         <div className="favoritepage-wrapper">
             <NavbarHeader />
             <h1 className="favoritepage-title">Hi {props.location.state},</h1> {/* arevoir */}

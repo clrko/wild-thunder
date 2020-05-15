@@ -10,10 +10,11 @@ import GameSessionInterface from "./GameSessionInterface";
 import GameSessionPointSystem from "./GameSessionPointSystem";
 import Loader from '../Loader/Loader';
 
-import './GameSessionSurvival.css'
+import API_KEY from '../../secret'
+
 import vinyl from '../../images/vinyl.png'
 
-import API_KEY from '../../secret'
+import './GameSessionSurvival.css'
 
 const rounds = 100
 const startTime = 30
@@ -35,7 +36,7 @@ class GameSessionSurvival extends React.Component {
         numberOfAttempts: 3,
         revealedSolution: false,
         hidValidateButton: false,
-        textToClickNext : false ,
+        textToClickNext: false,
     }
 
     componentDidMount() {
@@ -76,14 +77,15 @@ class GameSessionSurvival extends React.Component {
     validateAndChange = () => {
         const artistToFind = this.state.artistTrack.artistName.toUpperCase().replace(/\s+/g, '')
         if (artistToFind === this.state.solution) {
-            this.setState((prevState) => ({ score: prevState.score + prevState.counter, isArtistFound: true, revealedSolution: true ,textToClickNext : true }));
+            this.setState((prevState) => ({ score: prevState.score + prevState.counter, isArtistFound: true, revealedSolution: true, textToClickNext: true }));
         }
     }
 
     displaySolution = () => {
         this.setState(() => ({ revealedSolution: true }))
-        if(this.state.counter === 0){
-            this.setState( () =>({  textToClickNext : true }) )}
+        if (this.state.counter === 0) {
+            this.setState(() => ({ textToClickNext: true }))
+        }
     }
 
     saveRoundAndLoadNextSong = () => {
@@ -92,7 +94,7 @@ class GameSessionSurvival extends React.Component {
         )
         if (this.state.counter !== 0 && !this.state.revealedSolution) {
             this.displaySolution()
-            this.setState({hidValidateButton : true})
+            this.setState({ hidValidateButton: true })
             setTimeout(() => {
                 this.addToHistory()
                 if (this.state.numberOfAttempts === 0 || this.state.numArtist === rounds - 1) {
@@ -116,9 +118,6 @@ class GameSessionSurvival extends React.Component {
     }
 
     nextSong = () => {
-        // this.setState(prevState =>
-        //     !prevState.isArtistFound ? { numberOfAttempts: prevState.numberOfAttempts - 1 } : null
-        // )
         this.setState(
             (prevState) => ({ numArtist: prevState.numArtist + 1 }),
             () => this.setState({ artistTrack: this.state.artistTrackList[this.state.numArtist] },
@@ -131,7 +130,6 @@ class GameSessionSurvival extends React.Component {
     }
 
     /*CountDownTimer methods*/
-
     updateCounter = () => {
         this.setState({ counter: this.state.counter - 1 })
     }
@@ -144,7 +142,7 @@ class GameSessionSurvival extends React.Component {
             })
         })
         this.setState({ counter: startTime }, () => this.setState({ revealedSolution: false }))
-        this.setState({ counter: startTime }, () => this.setState({textToClickNext: false}))
+        this.setState({ counter: startTime }, () => this.setState({ textToClickNext: false }))
     }
 
     /*  Functions used in the userinterface that aims at inputing a letter, erease and update the number of boxes based on the artist being played */
@@ -191,7 +189,7 @@ class GameSessionSurvival extends React.Component {
                     <div><Loader /></div>
                     :
                     <div>
-                        <GameSessionButtonEndSession  username={this.props.location.username} />
+                        <GameSessionButtonEndSession username={this.props.location.username} />
                         <GameSessionHeader genresTitle={this.state.genresTitle} color={this.state.color} />
                         <div className="attempts-container">
                             {this.state.numberOfAttempts !== 0 ?

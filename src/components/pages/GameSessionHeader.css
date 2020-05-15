@@ -1,5 +1,4 @@
-.gameSessionHeader{
-    /* padding-bottom: 10%; */
+.gameSessionHeader {
     height: 120px;
     width: 100%;
     display: flex;
@@ -7,16 +6,16 @@
     align-items: center;
 }
 
-.headerGenre{
+.headerGenre {
     font-size: 3rem;
 }
 
 @media screen and (min-width: 300px) and (max-width: 450px) {
-    .gameSessionHeader{
+    .gameSessionHeader {
         height: 80px;
     }
 
-    .headerGenre{
+    .headerGenre {
         font-size: 2rem;
     }
 }

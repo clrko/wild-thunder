@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
+import ContactCards from './ContactCards'
 import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
-import ContactCards from './ContactCards'
 
 import './Contact.css';
 
@@ -17,4 +17,5 @@ class Contact extends Component {
         )
     }
 }
+
 export default Contact;

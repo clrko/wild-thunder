@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 
@@ -7,6 +7,7 @@ import NavbarHeader from '../shared/NavbarHeader';
 import ScrollToTop from '../shared/ScrollToTop';
 import UserTrackSample from './UserTrackSample';
 import UserScoreSample from "./UserScoreSample";
+
 import API_KEY from '../../secret';
 
 import './UserPage.css'
@@ -33,7 +34,7 @@ const UserPage = () => {
 
     const getFavoriteSample = () => {
         axios.get("http://localhost:4242/favorite", {
-                headers: {
+            headers: {
                 'x-access-token': localStorage.getItem("token"),
                 }
             }).then(res => {
@@ -48,7 +49,7 @@ const UserPage = () => {
                         setFavoriteSample(response.data.tracks)
                         setIsPaused(Array(response.data.tracks.length).fill(true))
                     })
-            })
+                })
     }
 
     useEffect(() => (localStorage.getItem("token")) ? getFavoriteSample() : setLoggedIn(false), [])
@@ -77,7 +78,7 @@ const UserPage = () => {
 
     const getScoreSample = () => {
         axios.get("http://localhost:4242/ranking/allscores", {
-                headers: {
+            headers: {
                 'x-access-token': localStorage.getItem("token"),
                 }
             }).then(res => {

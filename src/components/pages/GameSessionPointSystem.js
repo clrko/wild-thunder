@@ -1,11 +1,13 @@
 import React from 'react';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faStepForward } from '@fortawesome/free-solid-svg-icons';
+
 import './GameSessionPointSystem.css';
 import "./GameSessionNextButton.css";
 import "./GameSessionValidateButton.css";
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { faStepForward } from '@fortawesome/free-solid-svg-icons';
 
 const GameSessionPointSystem = ({ hidValidateButton, isArtistFound, score, validateAndChange, saveRoundAndLoadNextSong, counter }) => {
     return (
