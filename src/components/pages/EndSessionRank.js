@@ -26,32 +26,6 @@ class EndSessionRank extends React.Component {
             })
     }
 
-    // const tabRGB = this.genRandomRGBColor(0.5, 0.99)
-    // genRandomRGBColor = (s, v) => {
-    //     const hsv_to_rgb = (h, s, v) => {
-    //         let r = 0
-    //         let g = 0
-    //         let b = 0
-    //         const h_i = Math.floor(h * 6)
-    //         const f = h * 6 - h_i
-    //         const p = v * (1 - s)
-    //         const q = v * (1 - f * s)
-    //         const t = v * (1 - (1 - f) * s)
-    //         if (h_i === 0) { r = v; g = t; b = p }
-    //         else if (h_i === 1) { r = q; g = v; b = p }
-    //         else if (h_i === 2) { r = p; g = v; b = t }
-    //         else if (h_i === 3) { r = p; g = q; b = v }
-    //         else if (h_i === 4) { r = t; g = p; b = v }
-    //         else if (h_i === 5) { r = v; g = p; b = q }
-    //         return [Math.floor(r * 256), Math.floor(g * 256), Math.floor(b * 256)]
-    //     }
-    //     const golden_ratio_conjugate = 0.618033988749895
-    //     let h = Math.random()
-    //     h += golden_ratio_conjugate
-    //     h %= 1
-    //     return hsv_to_rgb(h, s, v)
-    // }
-
     render() {
         if (this.state.scoresDB === null) {
             return <p>Loading...</p>
