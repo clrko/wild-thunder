@@ -26,7 +26,7 @@ const EndSessionScore = ({ username, userScore, genresTitle, scoresDB }) => {
                 :
                 <h3>Congratulation that's a new personal record!!!</h3>}
             <div className="endsession-actions">
-                <Link to={{ pathname: `/ranking/${genresTitle}/${username}` }}><button className="full-ranking-btn">Full ranking</button></Link>
+                <Link to={{ pathname: `/ranking/${genresTitle.replace(/\s+/g, '%20').replace(/\//g, '%2F')}/${username}` }}><button className="full-ranking-btn">Full ranking</button></Link>
                 <EndSessionShare />
             </div>
         </div>
