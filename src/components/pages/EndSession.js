@@ -26,7 +26,7 @@ class EndSession extends Component {
             isFavoriteTemp[index] = !isFavoriteTemp[index]
             this.setState({ isFavorite: isFavoriteTemp }, () => {
                 if (!this.state.isFavorite[index]) {
-                    axios.delete(`http://localhost:4242/favorite/tracks/${idtrack}`,
+                    axios.delete(`https://thunder-backend.herokuapp.com/favorite/tracks/${idtrack}`,
                         {
                             headers: { 'x-access-token': localStorage.getItem("token") }
 
@@ -34,7 +34,7 @@ class EndSession extends Component {
                             alert("Successfully taken out from your favorites")
                         })
                 } else {
-                    axios.post("http://localhost:4242/favorite/tracks", {
+                    axios.post("https://thunder-backend.herokuapp.com/favorite/tracks", {
                         track_id: this.state.artistTrack[index].id
                     }, {
                         headers: {
@@ -81,7 +81,7 @@ class EndSession extends Component {
             const userScore = this.props.location.score
             const oldScore = scoresDB.filter(user => user.username === username && user.genre === genresTitle)
             if (oldScore.length === 0) {
-                axios.post("http://localhost:4242/ranking/addScore", {
+                axios.post("https://thunder-backend.herokuapp.com/ranking/addScore", {
                     username: username,
                     score: userScore,
                     genre: genresTitle,
@@ -94,7 +94,7 @@ class EndSession extends Component {
                 )
             } else if (userScore > oldScore[0].score) {
                 const id = oldScore[0].id
-                axios.put(`http://localhost:4242/ranking//updateScore/${id}`, {
+                axios.put(`https://thunder-backend.herokuapp.com/ranking//updateScore/${id}`, {
                     score: userScore,
                 })
             }
@@ -102,7 +102,7 @@ class EndSession extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:4242/ranking/standard/${this.state.genresTitle}`)
+        axios.get(`https://thunder-backend.herokuapp.com/ranking/standard/${this.state.genresTitle}`)
             .then(result => {
                 this.setState({ scoresDB: result.data },
                     () => this.handleRanking())

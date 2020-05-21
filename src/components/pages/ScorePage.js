@@ -13,7 +13,7 @@ const ScorePage = (props) => {
 
     const getScoreList = () => {
         if (localStorage.getItem("token")) {
-            axios.get("http://localhost:4242/ranking/allscores", {
+            axios.get("https://thunder-backend.herokuapp.com/ranking/allscores", {
                 headers: {
                     'x-access-token': localStorage.getItem("token"),
                 }

@@ -21,7 +21,7 @@ const UserPage = () => {
 
     const getUsername = () => {
         setLoggedIn(true)
-        axios.get("http://localhost:4242/auth", {
+        axios.get("https://thunder-backend.herokuapp.com/auth", {
             headers: {
                 'x-access-token': localStorage.getItem("token"),
             }
@@ -33,7 +33,7 @@ const UserPage = () => {
     useEffect(() => (localStorage.getItem("token")) ? getUsername() : setLoggedIn(false), [])
 
     const getFavoriteSample = () => {
-        axios.get("http://localhost:4242/favorite", {
+        axios.get("https://thunder-backend.herokuapp.com/favorite", {
             headers: {
                 'x-access-token': localStorage.getItem("token"),
                 }
@@ -77,7 +77,7 @@ const UserPage = () => {
     }
 
     const getScoreSample = () => {
-        axios.get("http://localhost:4242/ranking/allscores", {
+        axios.get("https://thunder-backend.herokuapp.com/ranking/allscores", {
             headers: {
                 'x-access-token': localStorage.getItem("token"),
                 }

@@ -18,7 +18,7 @@ const AuthPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         setUsername(e.target.username.value)
-        axios.post("http://localhost:4242/auth/login", {
+        axios.post("https://thunder-backend.herokuapp.com/auth/login", {
             username: e.target.username.value,
             password: e.target.password.value
         }).then(res => {

@@ -12,7 +12,7 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:4242/register/new_user", {
+        axios.post("https://thunder-backend.herokuapp.com/register/new_user", {
             username: e.target.username.value,
             password: e.target.password.value
         }).then(res => {
