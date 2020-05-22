@@ -14,7 +14,7 @@ import API_KEY from '../../secret'
 
 import './GameSession.css'
 
-const rounds = 5
+const rounds =  10
 const startTime = 30
 
 class GameSession extends React.Component {
@@ -47,7 +47,7 @@ class GameSession extends React.Component {
             {
                 params: {
                     apikey: API_KEY,
-                    limit: rounds
+                    limit: 25
                 }
             })
             .then(res => {
