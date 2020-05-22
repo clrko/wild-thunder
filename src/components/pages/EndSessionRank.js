@@ -68,7 +68,7 @@ class EndSessionRank extends React.Component {
         return (
             <div className="globalForm">
                 <NavbarHeader />
-                <h1>{`Ranking for the ${this.state.genre} category`}</h1>
+                <h1>{`Ranking for the ${this.state.genre.replace(/%20/g, ' ').replace(/%2F/g, '/')} category`}</h1>
                 <div className="scoresTab" >{scoresTab}</div>
                 <NavbarFooter />
             </div>
