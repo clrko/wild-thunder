@@ -1,7 +1,3 @@
-import axios from "axios";
+const API_KEY = "MjY4ZTc5ZTktMDI1MS00YTkwLTliZGEtOGE5ZDA5ODQ0YWNi"
 
-const getApiKey = () => {
-    axios.get("https://thunder-backend.herokuapp.com/apikey").then(res => { return res.data.key })
-}
-
-export default getApiKey
+export default API_KEY;
