@@ -43,7 +43,7 @@ class GameSession extends React.Component {
 
     /* First call to the api to get a random list of artists. The number of artists selected will be defined by the rounds value */
     getArtistsList = (genresCode) => {
-        axios.get(`http://api.napster.com/v2.2/genres/${genresCode}/artists/top`,
+        axios.get(`https://api.napster.com/v2.2/genres/${genresCode}/artists/top`,
             {
                 params: {
                     apikey: API_KEY,

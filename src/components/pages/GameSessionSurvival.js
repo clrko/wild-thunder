@@ -45,7 +45,7 @@ class GameSessionSurvival extends React.Component {
 
     /* First call to the api to get a random list of artists. The number of artists selected will be defined by the rounds value */
     getArtistTrackList = () => {
-        axios.get(`http://api.napster.com/v2.2/tracks/top`,
+        axios.get(`https://api.napster.com/v2.2/tracks/top`,
             {
                 params: {
                     apikey: API_KEY,
