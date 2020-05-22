@@ -15,7 +15,7 @@ class EndSession extends Component {
         isPaused: Array(this.props.location.state.length).fill(true),
         isFavorite: Array(this.props.location.state.length).fill(false),
         isArtistFound: this.props.location.state.map(track => track.isArtistFound),
-        genresTitle: this.props.location.genresTitle,
+        genresTitle: this.props.location.genresTitle || 'NA', 
         scoresDB: []
     }
 
@@ -84,7 +84,7 @@ class EndSession extends Component {
                 axios.post("https://thunder-backend.herokuapp.com/ranking/addScore", {
                     username: username,
                     score: userScore,
-                    genre: genresTitle,
+                    genre: genresTitle.replace(/\s+/g, '%20').replace(/\//g, '%2F'),
                 },
                     {
                         headers: {
@@ -102,7 +102,8 @@ class EndSession extends Component {
     }
 
     componentDidMount() {
-        axios.get(`https://thunder-backend.herokuapp.com/ranking/standard/${this.state.genresTitle}`)
+        const genre = this.state.genresTitle.replace(/\s+/g, '%20').replace(/\//g, '%2F')
+        axios.get(`https://thunder-backend.herokuapp.com/ranking/standard/${genre}`)
             .then(result => {
                 this.setState({ scoresDB: result.data },
                     () => this.handleRanking())
