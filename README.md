@@ -2,15 +2,16 @@
 # Thunder
 👉[The app is live here](https://wild-thunder.netlify.app/) 👈 
 
-**Thunder** is a responsive musical quiz web application which gives the opportunity to enrich our musical knowledge. 
-The user will test his current knowledge by guessing the artist name of the song being played. The user also has the opportunity to save his favorite tracks and top ranks thanks to the authentification system. Finally, at the end of each game session, our recommendation system will provide the list of the similar artists of the ones that were played during the game. 
+**Thunder** is a responsive musical quiz web application which gives the opportunity to enrich our musical knowledge.
+
+The user will test his current knowledge by guessing the artist name of the song being played. The user also has the opportunity to save his favorite tracks and top scores thanks to the authentification system. Finally, at the end of each game session, our recommendation system will provide the list of the similar artists based on the songs played during the game. 
 
 ## The team
 
-* Sébastien Gruet [Github](https://github.com/SebG-prog) [LinkedIn](https://www.linkedin.com/in/sébastien-gruet/)
-* Claire Kodia [Github](https://github.com/clrko') [LinkedIn](https://www.linkedin.com/in/clairekodia/)
-* Stéphane Pinto [Github](https://github.com/pinto78600) [LinkedIn](https://www.linkedin.com/in/stephane-pinto/)
-* Maxime Poitoux [Github](https://github.com/MaximePoitoux) [LinkedIn](https://www.linkedin.com/in/maximepoitoux/)
+* Sébastien Gruet [Github](https://github.com/SebG-prog) - [LinkedIn](https://www.linkedin.com/in/sébastien-gruet/)
+* Claire Kodia [Github](https://github.com/clrko') - [LinkedIn](https://www.linkedin.com/in/clairekodia/)
+* Stéphane Pinto [Github](https://github.com/pinto78600) - [LinkedIn](https://www.linkedin.com/in/stephane-pinto/)
+* Maxime Poitoux [Github](https://github.com/MaximePoitoux) - [LinkedIn](https://www.linkedin.com/in/maximepoitoux/)
 
 ## The project
 
@@ -22,15 +23,15 @@ This 5-week project has been an even bigger challenge for our team as we were wo
  
 ## Features
 
-* Ability to play the game without any user account;
+* Ability to play the game without any user account
 * Choice between two game modes : 
   - Standard mode: 10 songs 
-  - Survival survival: unlimited songs;
-* Creation and management of user accounts;
-* In the result page, play/pause button that allows to listen to the songs played during the game session;
-* Ability to store the tracks to user favorite list (user account required);
-* Display the rankings per musical genre;
-* User page that contains the user favorite tracklist and the user top scores.
+  - Survival mode: unlimited songs
+* Creation and management of user accounts
+* In the result page, play/pause button that allows to listen to the songs played during the game session
+* Ability to store the tracks in the user favorite list (user account required)
+* Display the rankings per musical genre
+* User page that contains the user favorite tracklist and the user top scores
 
 ## Technologies
 
@@ -63,7 +64,7 @@ You can find the source code [here](https://github.com/clrko/Back_BindTest)
 * Develop multiple levels of difficulties
 * Create a reward system
 * Provide more information on the artists (concerts for instance)
-* Creation of 3 type of user profiles (melomane, gamer and regular player)
+* Creation of 3 types of user profiles (melomane, gamer and regular player)
 * Develop a multiplayer mode
 
 ## Screenshots
