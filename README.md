@@ -19,9 +19,9 @@ The projet has been developed as part of the web developement training program a
 
 The aim was to create a React.js application and manipulate data from an API. We also learnt and applied the agile methods (in particular SCRUM). In doing so, we strated by designing a Wireframe, we elaborated a product Backlog by defining the different user stories and the implicated Tech Tasks. Finally, along the project we used Trello to better organise and track our progress. 
 
-This 5-week project has been an even bigger challenge for our team as we were working remotly, given the global health crisis we were experiencing due to the Coronavirus. Thanks to our rigour and determination, we have succeeded in developing this fully functional application.
+Futhermore, in order to create an even more personalised user experience and to anticipate the second part of the web development training program, we decided to create a backend to enable the storage of the user favorite songs and his scores.  👉 You can find the source code [here](https://github.com/clrko/Back_BindTest).
 
-Futhermore, in order to create an even more taylord user experience and to anticipate the ssecond aprt of the web developeemnt trianign program, we decided to create a backend to enable the storage of the user favorite songs and his scores. You can find the source code [here](https://github.com/clrko/Back_BindTest).
+This 5-week project has been an even bigger challenge for our team as we were working remotly, given the global health crisis we were experiencing due to the Coronavirus. Thanks to our rigour and determination, we have succeeded in developing this fully functional application.
  
 ## Features
 
