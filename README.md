@@ -54,8 +54,17 @@ You can find the source code [here](https://github.com/clrko/Back_BindTest)
 * Netlify for the frontend
 * Heroku for the backend
 
-### API used
+## API used
+
 👉 [Napster](https://developer.napster.com/api/v2.2)
+
+## Potential improvements
+
+* Develop multiple levels of difficulties
+* Create a reward system
+* Provide more information on the artists (concerts for instance)
+* Creation of 3 type of user profiles (melomane, gamer and regular player)
+* Develop a multiplayer mode
 
 ## Screenshots
 <img src="/public/img/dekstop.png" alt="desktop"/>
@@ -64,3 +73,5 @@ You can find the source code [here](https://github.com/clrko/Back_BindTest)
 ## In the project directory, you can run:
 * `npm install`
 * `npm start`
+
+These commands install the dependencies and start the app in the developement mode.
