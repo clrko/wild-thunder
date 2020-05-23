@@ -1,0 +1,33 @@
+.container {
+    text-align: center;
+    color: #2CE461;
+}
+
+button {
+    margin: 10px;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+#tracks-container {
+    margin-bottom: 2%;
+}
+
+@media screen and (min-width: 300px) and (max-width: 450px) {
+    #tracks-container {
+        margin-top: 8%;
+    }
+
+    #tracks-container {
+        margin-bottom: 0%;
+    }
+
+    .GameSessionAudioPlayer-h1{
+        font-size: 1.4rem;
+    }
+
+    .GameSessionAudioPlayer-h2{
+        font-size: 1rem;
+    }
+}

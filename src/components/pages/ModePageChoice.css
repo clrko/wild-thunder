@@ -1,0 +1,41 @@
+.modePage-title {
+  margin: 8% auto;
+  margin-bottom: 0;
+  font-size: 2.5rem;
+  font-family: LeagueMono-ExtraBold;
+  letter-spacing: 0.093em;
+  text-shadow: 2px 3px 0px #898999;
+  text-transform: uppercase;
+}
+
+.modePage-list {
+    z-index: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+@media screen and (min-width: 300px) and (max-width: 1000px) {
+  .modePage-list {
+    flex-direction: column;
+  }
+} 
+
+@media screen and (min-width: 300px) and (max-width: 469px) {
+  .modePage-title {
+    margin: 0% auto;
+    margin-top: 6%;
+    font-size: 1.3rem;
+    padding: 0 40px;
+    text-align: center;
+  }
+
+  .modePage-list {
+    margin-top: 6%;
+  }
+
+  .modePage-title {
+    margin-top: 8%;
+  }
+}

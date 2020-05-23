@@ -1,0 +1,31 @@
+.user-score-container {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    margin: 10px auto;
+    border: 2px solid #898999;
+    border-radius: 40px;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+}
+
+.score-genre, .score-score {
+    text-decoration:none;
+    font-weight:bold;
+    font-size: 1rem;
+    margin: 7% auto;
+    text-align: center;
+    letter-spacing: 0.093em;
+    text-transform: uppercase;
+}
+
+@media screen and (min-width:730px) {
+    .user-score-container {
+        width: 400px;
+    }
+
+    .user-score-container:hover {
+        transform: scale(1.1, 1);
+        box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+        -5px -5px 30px 15px rgba(0,0,0,0.22);
+    }
+}

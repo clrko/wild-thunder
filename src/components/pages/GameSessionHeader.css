@@ -1,0 +1,21 @@
+.gameSessionHeader {
+    height: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerGenre {
+    font-size: 3rem;
+}
+
+@media screen and (min-width: 300px) and (max-width: 450px) {
+    .gameSessionHeader {
+        height: 80px;
+    }
+
+    .headerGenre {
+        font-size: 2rem;
+    }
+}

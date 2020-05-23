@@ -1,0 +1,52 @@
+.endsession-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background: #36393F; 
+    padding-bottom: 11vh;
+}
+
+.endsession-container h1 {
+    margin: 20px auto;
+    width: fit-content;
+    font-size: 2.5rem;
+    font-family: LeagueMono-ExtraBold;
+    letter-spacing: 0.093em;
+    text-shadow: 2px 3px 0px #898999;
+    text-transform: uppercase;
+    color: #00abc7;
+}
+
+.endsession-container h2 {
+    font-size: 1.5rem;
+    margin: 3vh auto;
+    text-align: center;
+    letter-spacing: 0.093em;
+    text-transform: uppercase;
+}
+
+.score_rank {
+    display: flex;
+}
+.link-for-recopage {
+    text-align: center;
+    margin-top: 30px;
+}
+.link-for-recopage :hover {
+    transform: scale(1.5);
+    color:rgb(38, 156, 177);
+}
+.button-go-reco {
+    font-size:15px;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius: 5;
+    cursor: pointer;
+    height: 40px;
+    color:#fff;
+    background: #00abc7;
+    text-transform:uppercase;
+    width: 150px;
+    border: none;
+}

@@ -1,0 +1,18 @@
+.scoreSystem{
+    text-align: center;
+    margin-top: 2%;
+}
+
+.scoreSystem-p {
+    padding-bottom: 1%;
+}
+
+@media screen and (min-width: 300px) and (max-width: 450px) {
+    .scoreSystem-p {
+        padding-top: 2%;
+    }
+
+    .scoreSystem-p {
+        padding-bottom: 2%;
+    }
+}

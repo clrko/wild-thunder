@@ -1,0 +1,47 @@
+.ModePageCards-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 40px;
+    width: 350px;
+    height: 100px;
+    border-radius: 40px;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.ModePageCards-title {
+    border-radius: 0px 0px 40px 40px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    color: white;
+}
+
+.ModePageCards-card:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.ModePageCards-description {
+    font-size: 1.1rem;
+    text-align: center;
+    padding-top: 10px;
+}
+
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    .ModePageCards-card {
+        margin: 50px;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+    .ModePageCards-card {
+        width: 250px;
+        height: 100px;
+        margin: 5% 0;
+    }
+}
+

@@ -1,0 +1,17 @@
+.validate_button {
+    background: transparent;
+    border: none;
+    outline: 0;
+}
+
+.validate_icon {
+    font-size: 2.5rem;
+    color: #2CE461;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 300px) and (max-width: 450px) {
+    .validate_icon {
+        font-size: 2rem;
+    }
+}

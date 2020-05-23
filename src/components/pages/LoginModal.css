@@ -1,0 +1,138 @@
+.homepageModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+    padding-bottom: 80px;
+    width: 100%;
+}
+
+.login-modal {
+    background: #845ec2;
+    border-radius: 5%;
+    color: #36393F;
+}
+
+.button-login-modal { 
+    display: block;
+    width: 60px;
+    font-size: 1rem;
+    border-style: none;
+    border-radius: 3px;
+    color: white;
+    background: #6D0FF2;
+    font-weight: bold;
+    cursor: pointer;
+    height: 35px;
+}
+
+.login-close-modal {
+    display: block;
+    width: 60px;
+    font-size: 1rem;
+    border-style: none;
+    border-radius: 3px;
+    color: white;
+    background: #DB5D5D;
+    font-weight: bold;
+    cursor: pointer;
+    height: 35px;
+}
+
+
+.login-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+}
+
+.input-login-modal {
+    border-radius: 1px;
+    padding-left: 10px;
+    font-size: 1rem;
+    font-style: bold;
+    border-style:none ;
+    border-radius: 5px;
+    width: 40%;
+    height: 40px;
+}
+
+.login-open-modal {
+    font-size: 0.9rem;
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+    text-transform:uppercase;
+    background: #46d6aa;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 0;
+}
+
+.button-signup {
+    font-size: 0.9rem;
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+    text-transform:uppercase;
+    background: #46d6aa;
+    border-radius: 5;
+    cursor: pointer;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 0;
+}
+
+.loginModal {
+    margin-top: 20%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    margin-left: 35%;
+    margin-right: 35% ;
+    outline: 0;
+}
+
+.login-modal label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.login-modal h2 {
+    margin-top: 2%;
+    font-size: 2rem;
+    letter-spacing: 0.100em;
+    color: white;
+    text-shadow: 2px 3px 0px #898999;
+    text-transform: uppercase;
+}
+
+.login-modal label {
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.button-login-close-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 4% 0;
+}
+
+@media screen and (max-width: 700px) {
+    .homepageModal { 
+        margin-top : 20%;
+    }
+}

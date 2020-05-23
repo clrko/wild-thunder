@@ -1,0 +1,18 @@
+.endSessionButtonShare {
+    cursor: pointer;
+}
+
+.endSessionShare {
+    text-align: center;
+}
+
+.endSessionShare button {
+    background: transparent;
+    border: none;
+    width: 150px;
+    height: auto;
+}
+
+img.button-share-facebook {
+    height: 60px;
+}

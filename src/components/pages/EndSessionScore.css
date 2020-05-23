@@ -1,0 +1,48 @@
+.endSessionScore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto; 
+}
+
+.endsession-results, .endsession-actions {
+    display: flex;
+    flex-direction: row;
+    justify-items: space-between;
+    align-items: center;
+}
+
+.endSessionScore p, .endSessionScore h3 {
+    font-size: 1rem;
+    margin: 2vh 3vh;
+    text-align: center;
+    letter-spacing: 0.093em;
+    text-transform: uppercase;
+    width: fit-content;
+    color: white;
+}
+
+.endSessionScore h2 {
+    color: white;
+}
+
+.endSessionScore p {
+    background-color:#00cac7;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #36393F;
+}
+
+.full-ranking-btn {
+    font-size:15px;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius: 5;
+    cursor: pointer;
+    height: 40px;
+    color:#fff;
+    background: #00abc7;
+    text-transform:uppercase;
+    width: 120px;
+    border:none;
+}

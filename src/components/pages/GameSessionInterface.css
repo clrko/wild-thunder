@@ -1,0 +1,149 @@
+.interface-container, .solutionDisplayBoxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.solutionDisplayBoxes {
+    margin-bottom: 4%;
+}
+
+.word {
+    display: flex;
+    margin: 10px;
+}
+
+.letter {
+    border: 1px solid black;
+    background-color: #C0C0C0;
+    color: #845EC2;
+    font-weight: bold;
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    padding: 2px;
+    margin: 1px;
+    border-radius: 4px;
+}
+
+.letterSelection {
+    margin : 10px;
+}
+
+.buttonLetter {
+    background: white;
+    color: #845EC2;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.buttonLetter, .correctionButton {
+    border-radius: 4px;
+    margin: 1px;
+    width: 40px;
+    height: 40px;
+}
+
+.correctionButton {
+    color: #845EC2;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.interface-container-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.interface-container{
+    display : inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #202225; 
+    border-radius: 20px;
+    padding: 2%;
+}
+
+.userInput {
+    border: none;
+    border-radius: 10px;
+    width: 300px;
+    height: 40px;
+    font-size: 2rem;
+    padding-left: 10px;
+    margin-bottom: 4%;
+    color: #845EC2;
+    font-weight: bold;
+}
+
+.userInput::placeholder {
+    color: #845EC2;
+    opacity: 1;
+}
+
+@media screen and (min-width: 1200px) {
+    .buttonLetter {
+        pointer-events: none;
+    }
+    
+    .correctionButton {
+        display: none;
+    }
+
+    .userInput {
+        display:block;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 450px) {
+    .interface-container{
+        width: 100%;
+        border-radius: 0px;
+        padding: 2%;
+    }
+
+    .letter {
+        font-size: 1.2rem;
+        width: 35px;
+        height: 35px;
+        padding: 5px;
+    }
+
+    .buttonLetter {
+        font-size: 1.1rem;
+    }
+
+    .buttonLetter, .correctionButton {
+        border-radius: 4px;
+        margin: 1px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .userInput {
+        display: none;
+    }
+
+    .faQuestionCircle {
+        font-size: 1.5rem;
+    }
+
+    .solutionDisplayBoxes {
+        margin-bottom: 0%;
+    }
+
+    .correctionButton {
+        margin-bottom: 2%;
+    }
+
+    .faQuestionCircle {
+        display: none;
+    }
+
+    .interface-container {
+        margin-top: 6%;
+    }
+}

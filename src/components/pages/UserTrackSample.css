@@ -1,0 +1,62 @@
+.sample-track-container {
+    display: flex;
+    flex-direction: row;
+    width: 280px;
+    margin: 10px auto;
+    border: 2px solid grey;
+    border-radius: 40px;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+}
+
+.img-sample-track {
+    border-radius: 50%;
+    width:70px;
+    height:70px
+}
+
+.sample-track-container img, .sample-track-info {
+    padding: 5px;
+}
+
+.sample-track-info {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sample-track-info p:first-child {
+    font-size: 0.9rem;
+}
+
+.sample-track-info p:last-child {
+    font-size: 0.7rem;
+}
+
+.sample-track-container button {
+    background:transparent;
+    border: none;
+    width: fit-content;
+}
+
+button .sample-play-pause-btn {
+    color: white;
+}
+
+@media screen and (min-width:730px) {
+    .sample-track-container {
+        width: 400px;
+    }
+
+    .sample-track-info {
+        width: 250px;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    .sample-track-container:hover {
+        transform: scale(1.1, 1);
+        box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+        -5px -5px 30px 15px rgba(0,0,0,0.22);
+    }
+}

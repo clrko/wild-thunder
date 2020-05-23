@@ -1,0 +1,84 @@
+.userpage-wrapper {
+    display:block;
+    background-image: linear-gradient(to right top,  #1f5280, #007db0, #00abc7, #00d7bf, #00ff9b);
+    padding-bottom: 16vh;
+}
+
+.userpage-container, .userpage-favorite-container, .userpage-achievement-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userpage-title {
+    margin: 2vh auto;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+    font-family: LeagueMono-ExtraBold;
+    letter-spacing: 0.093em;
+    text-shadow: 2px 3px 0px #898999;
+    text-transform: uppercase;
+}
+
+.userpage-title-h2 {
+    font-size: 1.5rem;
+    margin: 3vh auto;
+    text-align: center;
+    letter-spacing: 0.093em;
+    text-transform: uppercase;
+}
+
+.userpage-title-h3 {
+    font-size: 1.5rem;
+    margin: 3vh auto;
+    margin-top:3vh ;
+    text-align: center;
+    letter-spacing: 0.093em;
+    text-transform: uppercase;
+}
+
+.userpage-more-btn, .userpage-play-btn {
+    font-size:14px;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius: 5;
+    cursor: pointer;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:2vh;
+}
+
+.userpage-more-btn {
+    color:#fff;
+    background:  #198fa1;
+    width: 100px;
+}
+
+.userpage-play-btn {
+    color:#fff;
+    background: #00ff9b;
+    text-transform:uppercase;
+    font-size:20px;
+    width: 150px;
+
+}
+
+@media screen and (min-width:1000px) {
+    .userpage-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        align-items: start;
+    }
+
+    .userpage-title, .userpage-title-h2, .navlink-play-button {
+        grid-column: span 2;
+    }
+
+    .userpage-more-btn:hover,  .userpage-play-btn:hover {
+        transform: scale(1.05, 1);
+    }
+    
+}

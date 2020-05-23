@@ -1,0 +1,148 @@
+.Class1 {
+    background-image: linear-gradient(to right top, #ff8efa, #cd70d1, #9e53a9, #723782, #491d5c);
+}
+
+.Class2 {
+    background-image: linear-gradient(to right top, #ad2eff, #992afc, #8227fa, #6924f7, #4823f4);
+}
+
+.Class3 {
+    background-image: linear-gradient(to right top, #121d62, #0057a6, #0091ca, #00cac7, #00ffa6);
+}
+
+.Class4 {
+    background-image: linear-gradient(to right top, #1798d1, #277ba3, #2c5e78, #2a4350, #24292c);
+}
+
+.Class5 {
+    background-image: linear-gradient(to right top, #91e9e5, #70cfb8, #5fb486, #5a9753, #5a7a1e);
+}
+
+.Class6 {
+    background-image: linear-gradient(to right top, #2cff00, #00d049, #00a157, #007352, #01463d);
+}
+
+.Class7 {
+    background-image: linear-gradient(to right top, #3f64eb, #7458e2, #9749d5, #b236c4, #c819b1);
+}
+
+.Class8 {
+    background-image: linear-gradient(to right top, #ff7a00, #ff9c00, #f8be00, #e9df00, #d3ff00);
+}
+
+.Class9 {
+    background-image: linear-gradient(to right top, #6e1c90, #9225a0, #b62fae, #da3abb, #ff46c6);
+}
+
+.Class10 {
+    background-image: linear-gradient(to right top, #05f2db, #00d7f5, #00b7ff, #0090ff, #415cf2);
+}
+
+.Class11 {
+    background-image: linear-gradient(to right top, #dcb836, #e8a027, #f28527, #f96732, #fb4343);
+}
+
+.Class12 {
+    background-image: linear-gradient(to right top, #00ffde, #05d8aa, #10b37a, #138e4d, #106b23);
+}
+
+.Class13 {
+    background-image: linear-gradient(to right top, #b04c4c, #c2345e, #cb117e, #c300aa, #9f2ade);
+}
+
+.Class14 {
+    background-image: linear-gradient(to right top, #1c6f3c, #339340, #55b73d, #7fdb30, #b1ff00);
+}
+
+.Class15 {
+    background-image: linear-gradient(to right top, #ffff00, #fde000, #f7c300, #eda600, #e08a00);
+}
+
+.Class16 {
+    background-image: linear-gradient(to right top, #a3219d, #a33cb2, #a151c5, #9d64d8, #9976e9);
+}
+
+.Class17 {
+    background-image: linear-gradient(to right top, #ff8909, #fc7406, #f85d0b, #f44213, #ee1a1a);
+}
+
+.Class18 {
+    background-image: linear-gradient(to right top, #b652eb, #9b5def, #7e65ef, #5f6ced, #3970e9);
+}
+
+.Class19 {
+    background-image: linear-gradient(to right top, #3221a6, #0067df, #009ef8, #00d0fa, #21fff5);
+}
+
+.Class20 {
+    background-image: linear-gradient(to right top, #1c6f64, #009471, #00b86e, #00dc59, #00ff21);
+}
+
+.Class21 {
+    background-image: linear-gradient(to right top, #1f5280, #007db0, #00abc7, #00d7bf, #00ff9b);
+}
+
+.Class22 {
+    background-image: linear-gradient(to right top, #bb2b89, #ca2e7b, #d4376c, #db435f, #de5252);
+}
+
+.card {
+    margin: 30px 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 40px;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.card .card_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    height: inherit;
+    border-radius: 40px;
+}
+
+.card .card_image img {
+    width: inherit;
+    height: inherit;
+    border-radius: 40px;
+    object-fit: cover;
+}
+
+.card .card_title {
+    text-align: center;
+    border-radius: 0px 0px 40px 40px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    height: 40px;
+}
+
+.card:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+    color: white;
+}
+
+.title-black {
+    color: black;
+}
+
+.bigblue {
+    background-color: DodgerBlue;
+  }
+  
+
+@media all and (max-width: 500px) {
+    .card-list {
+    flex-direction: column;
+    }
+}

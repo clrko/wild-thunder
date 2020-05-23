@@ -1,0 +1,96 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.themepage-body {
+    background: #36393F; 
+}
+
+.container-card {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.cards-list {
+    z-index: 0;
+    width: 60%;
+    margin-bottom: 4%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.themepage-h1-first {
+    margin-top: 8%;
+    margin-bottom: 3%;
+    margin: 4% auto;
+    font-size: 3rem;
+    text-align: center;
+    letter-spacing: 0.093em;
+    text-shadow: 2px 3px 0px #415cf2;
+    text-transform: uppercase;
+    color: #05f2db;
+}
+
+.themepage-h1-second {
+    margin-bottom: 6%;
+    font-size: 1.5rem;
+    margin: 4% auto;
+    text-align: center;
+    letter-spacing: 0.093em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+@media all and (max-width: 700px) {
+    .themepage-h1-first {
+        margin-top: 8%;
+        margin-bottom: 3%;
+        font-size: 2.5rem;
+    }
+    
+    .themepage-h1-second {
+        margin-bottom: 6%;
+        font-size: 1.5rem;
+        margin-bottom: 0;
+        padding: 0 10px;
+    }
+
+    .container-card {
+        margin-top: 6%;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .themepage-h1-first {
+        margin-top: 8%;
+        margin-bottom: 6%;
+        font-size: 2rem;
+    }
+    
+    .themepage-h1-second {
+        margin-bottom: 6%;
+        font-size: 1.4rem;
+        margin-bottom: 0;
+        padding: 0 10px;
+    }
+
+    .container-card {
+        margin-top: 6%;
+    }
+
+    .themepage-body {
+        padding-bottom: 10vh; 
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 469px) {
+    .themepage-body {
+        padding-bottom: 11vh;
+    }
+}

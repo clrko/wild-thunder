@@ -1,0 +1,39 @@
+.button-yes-no-container {
+    margin-top: 4%;
+}
+
+.button-yes {
+    background: #6D0FF2;
+    color: white;
+    font-weight: bold;
+    border: none;
+    height: 35px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.button-no {
+    background: #DB5D5D;
+    font-weight: bold;
+    color: white;
+    border: none;
+    height: 35px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.buttonEndSession {
+    color: #EF4C4C;
+    font-size: 2.5rem;
+    z-index: 1;
+    float: right;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 300px) and (max-width: 450px) {
+    .buttonEndSession {
+        margin-right: 15px;
+        font-size: 2rem;
+    }
+}

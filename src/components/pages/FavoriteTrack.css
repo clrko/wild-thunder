@@ -1,0 +1,64 @@
+.favorite-track-container {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    margin: 10px auto;
+    border: 2px solid #898999;
+    border-radius: 40px;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+}
+
+.img-favorite-track {
+    border-radius: 50%;
+    width:70px;
+    height:70px
+}
+
+.favorite-track-container img, .favorite-track-info {
+    padding: 5px;
+}
+
+.favorite-track-info {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.favorite-track-info p:first-child {
+    font-size: 0.9rem;
+}
+
+.favorite-track-info p:last-child {
+    font-size: 0.7rem;
+}
+
+.favorite-track-container button {
+    background:transparent;
+    border: none;
+    width: fit-content;
+}
+
+button .favorite-play-pause-btn {
+    color: white;
+}
+
+button .favorite-favorite-track {
+    color: yellow;
+}
+
+@media screen and (min-width:730px) {
+    .favorite-track-container {
+        width: 700px;
+    }
+
+    .favorite-track-info {
+        width: 500px;
+    }
+
+    .favorite-track-container:hover {
+        transform: scale(1.1, 1);
+        box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+        -5px -5px 30px 15px rgba(0,0,0,0.22);
+    }
+}
