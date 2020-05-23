@@ -67,8 +67,24 @@ You can find the source code [here](https://github.com/clrko/Back_BindTest)
 * Develop a multiplayer mode
 
 ## Screenshots
-<img src="/public/img/dekstop.png" alt="desktop"/>
-<img src="/public/img/mobile.png" alt="mobile" />
+
+<div style="display:flex; justify-content:space-around; margin:30px 0;">
+<img src="/public/img/welcomepage.png" alt="Welcome page desktop"/>
+<img src="/public/img/modepage.png" alt="Mode page desktop"/>
+<img src="/public/img/gamesession.png" alt="Game session desktop"/>
+<img src="/public/img/ranking.png" alt="Ranking page desktop"/>
+<img src="/public/img/userpage.png" alt="User page desktop"/>
+</div>
+
+<div style="display:flex; justify-content:space-around; margin:30px 0;">
+<img src="/public/img/welcomepage_mobile.png" alt="Welcome page mobile"/>
+<img src="/public/img/themepage_mobile.png" alt="Theme page mobile"/>
+<img src="/public/img/modepage_mobile.png" alt="Mode page mobile"/>
+<img src="/public/img/gamesession_mobile.png" alt="Game session mobile"/>
+<img src="/public/img/endsession_mobile.png" alt="Game session mobile"/>
+<img src="/public/img/ranking_mobile.png" alt="Ranking page mobile"/>
+<img src="/public/img/userpage_mobile.png" alt="User page mobile"/>
+</div>
 
 ## In the project directory, you can run:
 * `npm install`
