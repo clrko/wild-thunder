@@ -1,68 +1,77 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Thunder](/public/img/header.png)
+# Thunder
+👉[The app is live here](https://wild-thunder.netlify.app/) 👈 
 
-## Available Scripts
+**Thunder** is a responsive musical quiz web application which gives the opportunity to enrich our musical knowledge. 
+The user will test his current knowledge by guessing the artist name of the song being played. The user also has the opportunity to save his favorite tracks and top ranks thanks to the authentification system. Finally, at the end of each game session, our recommendation system will provide the list of the similar artists of the ones that were played during the game. 
 
-In the project directory, you can run:
+## The team
 
-### `npm start`
+* Sébastien Gruet [Github](https://github.com/SebG-prog) [LinkedIn](https://www.linkedin.com/in/sébastien-gruet/)
+* Claire Kodia [Github](https://github.com/clrko') [LinkedIn](https://www.linkedin.com/in/clairekodia/)
+* Stéphane Pinto [Github](https://github.com/pinto78600) [LinkedIn](https://www.linkedin.com/in/stephane-pinto/)
+* Maxime Poitoux [Github](https://github.com/MaximePoitoux) [LinkedIn](https://www.linkedin.com/in/maximepoitoux/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## The project
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The projet has been developed as part of the web developement training program at [Wild Code School](https://www.wildcodeschool.com/en-GB), for 5 weeks (April / May 2020). 
 
-### `npm test`
+The aim was to create a React.js application and manipulate data from an API. We also learnt and applied the agile methods (in particular SCRUM). In doing so, we strated by designing a Wireframe, we elaborated a product Backlog by defining the different user stories and the implicated Tech Tasks. Finally, along the project we used Trello to better organise and track our progress. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This 5-week project has been an even bigger challenge for our team as we were working remotly, given the global health crisis we were experiencing due to the Coronavirus. Thanks to our rigour and determination, we have succeeded in developing this fully functional application.  
+ 
+## Features
 
-### `npm run build`
+* Ability to play the game without any user account;
+* Choice between two game modes : 
+  - Standard mode: 10 songs 
+  - Survival survival: unlimited songs;
+* Creation and management of user accounts;
+* In the result page, play/pause button that allows to listen to the songs played during the game session;
+* Ability to store the tracks to user favorite list (user account required);
+* Display the rankings per musical genre;
+* User page that contains the user favorite tracklist and the user top scores.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+**Frontend**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* React.js
+* JavaScript
+* HTML5
+* CSS3
 
-### `npm run eject`
+**Backend**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Node.js
+* Express.js
+* MySQL
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You can find the source code [here](https://github.com/clrko/Back_BindTest)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Hosting
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* Netlify for the frontend
+* Heroku for the backend
 
-## Learn More
+## API used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+👉 [Napster](https://developer.napster.com/api/v2.2)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Potential improvements
 
-### Code Splitting
+* Develop multiple levels of difficulties
+* Create a reward system
+* Provide more information on the artists (concerts for instance)
+* Creation of 3 type of user profiles (melomane, gamer and regular player)
+* Develop a multiplayer mode
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Screenshots
+<img src="/public/img/dekstop.png" alt="desktop"/>
+<img src="/public/img/mobile.png" alt="mobile" />
 
-### Analyzing the Bundle Size
+## In the project directory, you can run:
+* `npm install`
+* `npm start`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+These commands install the dependencies and start the app in the developement mode.
