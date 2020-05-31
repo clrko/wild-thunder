@@ -37,11 +37,11 @@ const Register = () => {
 
                 <div className="input_register">
                     <div >
-                        <label>Username :</label>
+                        <label>Username:</label>
                         <input type="text" name="username" />
                     </div>
                     <div>
-                        <label>password :</label>
+                        <label>Password:</label>
                         <input type="password" name="password" />
                     </div>
                 </div>

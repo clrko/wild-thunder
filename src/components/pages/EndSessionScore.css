@@ -46,3 +46,7 @@
     width: 120px;
     border:none;
 }
+
+.full-ranking-btn:hover {
+    transform: scale(1.1);
+}

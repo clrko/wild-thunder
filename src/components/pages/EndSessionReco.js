@@ -43,7 +43,7 @@ class EndSessionReco extends React.Component {
         return (
             <div className='container-reco-page'  >
                 <NavbarHeader />
-                <h1 className="big-title-reco" >Artist similar</h1>
+                <h1 className="big-title-reco" >Similar Artists</h1>
                 {artists.map((artist, index) => {
                     return (
                         <div className="title-artist-reco" >
