@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from 'react-toastify';
 import axios from "axios";
 
 import FavoriteTrack from "./FavoriteTrack";
@@ -8,11 +9,29 @@ import ScrollToTop from '../shared/ScrollToTop';
 
 import API_KEY from '../../secret';
 
+import 'react-toastify/dist/ReactToastify.css';
 import './FavoritePage.css'
 
+toast.configure()
 const FavoritePage = (props) => {
     const [favoriteTrackList, setFavoriteTrackList] = useState([])
     const [isPaused, setIsPaused] = useState([])
+
+    const notifyConnexionNeeded = () => {
+        toast.warn("You need to sign in!", {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar: true,
+            autoClose: 5000
+        })
+    }
+
+    const notifyRemovedFromFavorite = () => {
+        toast.success("Successfully taken out from your favorites.", {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar: true,
+            autoClose: 5000
+        })
+    }
 
     const getFavoriteTrackList = () => {
         if (localStorage.getItem("token")) {
@@ -34,7 +53,7 @@ const FavoritePage = (props) => {
                     })
             })
         } else {
-            alert("You need to connect")
+            notifyConnexionNeeded()
         }
     }
 
@@ -81,7 +100,7 @@ const FavoritePage = (props) => {
                             setFavoriteTrackList(res.data.tracks)
                         })
                 })
-            alert("Successfully taken out from your favorites")
+            notifyRemovedFromFavorite()
         }
     }
 

@@ -1,19 +1,39 @@
 import React, { useState } from "react";
 import { NavLink, Redirect } from "react-router-dom";
+import { toast } from 'react-toastify';
+
 import axios from 'axios'
 import Modal from 'react-modal';
 
 import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
 
+import 'react-toastify/dist/ReactToastify.css';
 import "./AuthPage.css";
 
 Modal.setAppElement('#root');
 
+toast.configure()
 const AuthPage = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [redirect, setRedirect] = useState(false)
     const [username, setUsername] = useState("")
+
+    const notifyConnexionError = () => {
+        toast.error("The password or username is wrong.", {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar: true,
+            autoClose: 5000
+        })
+    }
+
+    const notifyConnexionSuccess = () => {
+        toast.success("You are successfully connected!", {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar: true,
+            autoClose: 5000
+        })
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -24,10 +44,10 @@ const AuthPage = () => {
         }).then(res => {
             if (res.status === 201) {
                 localStorage.setItem("token", res.headers["x-access-token"])
-                alert("You are connected!")
+                notifyConnexionSuccess()
                 setRedirect(!redirect)
             } else {
-                alert("The password or username is wrong.")
+                notifyConnexionError()
             }
         })
     }
