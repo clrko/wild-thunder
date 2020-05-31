@@ -8,6 +8,10 @@
   src: local('LeagueMono-ExtraBold'), url(./fonts/league-mono-master/ttf/LeagueMono-ExtraBold.ttf) format('truetype');
 }
 
+html {
+  background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

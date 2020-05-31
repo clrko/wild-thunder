@@ -13,6 +13,10 @@
     height: auto;
 }
 
+.endSessionShare button:hover {
+    transform: scale(1.1);
+}
+
 img.button-share-facebook {
     height: 60px;
 }

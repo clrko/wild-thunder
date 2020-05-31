@@ -4,9 +4,13 @@
     box-sizing: border-box;
 }
 
-@media screen and (min-width: 300px) and (max-width: 600px) { */
+.mainLogo {
+    padding:15px 0;
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) { 
     .mainLogo {
         height: 120px;
-        width: 120px; 
+        width: 120px;
     }    
 }

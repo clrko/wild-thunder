@@ -1,4 +1,5 @@
 .gameSession-body {
     background: #36393F; 
-    height: 100vh;
+    height: 100%;
+    padding-bottom: 5%;
 }
