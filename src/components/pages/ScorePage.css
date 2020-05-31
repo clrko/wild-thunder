@@ -1,8 +1,4 @@
 
-body {
-    background-image: linear-gradient(to right top,#3f64eb,#7458e2,#9749d5,#b236c4);
-}
-
 .scorepage-wrapper {
     display: flex;
     flex-direction: column;

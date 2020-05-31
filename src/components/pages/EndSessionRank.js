@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
+import Loader from '../Loader/Loader';
 import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
 
@@ -28,7 +29,7 @@ class EndSessionRank extends React.Component {
 
     render() {
         if (this.state.scoresDB === null) {
-            return <p>Loading...</p>
+            return <div><Loader /></div>
         }
 
         const scoresTab = this.state.scoresDB.sort((a, b) => b.score - a.score).map((score, index) => {

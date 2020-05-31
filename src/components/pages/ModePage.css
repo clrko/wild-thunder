@@ -1,7 +1,3 @@
-body {
-    background-image: linear-gradient(to right top, #6d327c, #485DA6, #00a1ba, #00BF98, #36C486);
-}
-
 .modepage-wrapper {
     display: flex;
     flex-direction: column;
