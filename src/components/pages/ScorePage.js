@@ -14,7 +14,7 @@ toast.configure()
 const ScorePage = (props) => {
     const [scoreList, setScoreList] = useState([])
 
-    const notifyGetScoreList = () => {
+    const notifyConnexionNeeded = () => {
         toast.warn("You need to sign in!", {
             position: toast.POSITION.TOP_CENTER,
             hideProgressBar: true,
@@ -32,7 +32,7 @@ const ScorePage = (props) => {
                 setScoreList(res.data)
             });
         } else {
-            notifyGetScoreList()
+            notifyConnexionNeeded()
         }
     }
 
