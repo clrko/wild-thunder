@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, Redirect } from "react-router-dom";
+import { toast } from 'react-toastify';
+
 import axios from 'axios'
 import Modal from 'react-modal';
 
@@ -10,6 +12,7 @@ import "./AuthPage.css";
 
 Modal.setAppElement('#root');
 
+toast.configure()
 const AuthPage = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [redirect, setRedirect] = useState(false)
@@ -24,10 +27,14 @@ const AuthPage = () => {
         }).then(res => {
             if (res.status === 201) {
                 localStorage.setItem("token", res.headers["x-access-token"])
-                alert("You are connected!")
+                toast.success("You are successfully connected!", {
+                    position: toast.POSITION.TOP_CENTER
+                })
                 setRedirect(!redirect)
             } else {
-                alert("The password or username is wrong.")
+                toast.warn("The password or username is wrong.", {
+                    position: toast.POSITION.TOP_CENTER
+                })
             }
         })
     }
