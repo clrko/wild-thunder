@@ -8,6 +8,7 @@ import Modal from 'react-modal';
 import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
 
+import 'react-toastify/dist/ReactToastify.css';
 import "./AuthPage.css";
 
 Modal.setAppElement('#root');
@@ -18,6 +19,22 @@ const AuthPage = () => {
     const [redirect, setRedirect] = useState(false)
     const [username, setUsername] = useState("")
 
+    const notifyConnexionError = () => {
+        toast.error("The password or username is wrong.", {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar: true,
+            autoClose: 5000
+        })
+    }
+
+    const notifyConnexionSuccess = () => {
+        toast.success("You are successfully connected!", {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar: true,
+            autoClose: 5000
+        })
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         setUsername(e.target.username.value)
@@ -27,14 +44,10 @@ const AuthPage = () => {
         }).then(res => {
             if (res.status === 201) {
                 localStorage.setItem("token", res.headers["x-access-token"])
-                toast.success("You are successfully connected!", {
-                    position: toast.POSITION.TOP_CENTER
-                })
+                notifyConnexionSuccess()
                 setRedirect(!redirect)
             } else {
-                toast.warn("The password or username is wrong.", {
-                    position: toast.POSITION.TOP_CENTER
-                })
+                notifyConnexionError()
             }
         })
     }

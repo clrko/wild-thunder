@@ -10,7 +10,6 @@ import NavbarFooter from '../shared/NavbarFooter';
 import 'react-toastify/dist/ReactToastify.css';
 import './Register.css'
 
-//https://thunder-backend.herokuapp.com
 toast.configure()
 const Register = () => {
     const [redirect, setRedirect] = useState(false)
@@ -33,7 +32,7 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:4242/register/new_user", {
+        axios.post("https://thunder-backend.herokuapp.com/register/new_user", {
             username: e.target.username.value,
             password: e.target.password.value
         }).then(res => {

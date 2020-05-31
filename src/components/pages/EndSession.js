@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from 'react-toastify';
+
 import axios from "axios";
 
 import EndSessionScore from "./EndSessionScore";
@@ -7,8 +9,10 @@ import EndSessionTrackList from "./EndSessionTrackList";
 import NavbarFooter from '../shared/NavbarFooter';
 import NavbarHeader from '../shared/NavbarHeader';
 
+import 'react-toastify/dist/ReactToastify.css';
 import "./EndSession.css";
 
+toast.configure()
 class EndSession extends Component {
     state = {
         artistTrack: this.props.location.state.map(track => track.artistTrack),
@@ -17,6 +21,30 @@ class EndSession extends Component {
         isArtistFound: this.props.location.state.map(track => track.isArtistFound),
         genresTitle: this.props.location.genresTitle || 'NA', 
         scoresDB: []
+    }
+
+    notifyRemovedFromFavorite = () => {
+        toast.success("Successfully taken out from your favorites.", {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar: true,
+            autoClose: 5000
+        })
+    }
+
+    notifyAddedtoFavorite = () => {
+        toast.success("Successfully added to your favorites.", {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar: true,
+            autoClose: 5000
+        })
+    }
+
+    notifyConnexionNeeded = () => {
+        toast.warn("You need to sign in!", {
+            position: toast.POSITION.TOP_CENTER,
+            hideProgressBar: true,
+            autoClose: 5000
+        })
     }
 
     handleFavoriteClick = (idtrack) => {
@@ -31,7 +59,7 @@ class EndSession extends Component {
                             headers: { 'x-access-token': localStorage.getItem("token") }
 
                         }).then(res => {
-                            alert("Successfully taken out from your favorites")
+                            this.notifyRemovedFromFavorite()
                         })
                 } else {
                     axios.post("https://thunder-backend.herokuapp.com/favorite/tracks", {
@@ -41,12 +69,12 @@ class EndSession extends Component {
                             'x-access-token': localStorage.getItem("token"),
                         }
                     }).then(res => {
-                        alert(res.data)
+                        this.notifyAddedtoFavorite()
                     })
                 }
             })
         } else {
-            alert("You need to connect")
+            this.notifyConnexionNeeded()
         }
     }
 
