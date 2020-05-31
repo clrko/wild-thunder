@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 import axios from "axios";
 
 import NavbarHeader from '../shared/NavbarHeader';
@@ -7,6 +9,7 @@ import NavbarFooter from '../shared/NavbarFooter';
 
 import './Register.css'
 
+toast.configure()
 const Register = () => {
     const [redirect, setRedirect] = useState(false)
 
@@ -17,10 +20,12 @@ const Register = () => {
             password: e.target.password.value
         }).then(res => {
             if (res.status === 201) {
-                alert("Registration successful! Please sign in.")
+                toast.success("Registration successful! Please sign in.")
                 setRedirect(!redirect)
             } else {
-                alert("The username already exists.")
+                toast.error("The username already exists!", {
+                    position: toast.POSITION.TOP_CENTER
+                });
             }
         })
     }
